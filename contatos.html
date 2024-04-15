@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins
+    :ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <h1 class="logo__titulo">Lucas Antunes</h1>
+            <p class="logo__descricao">Desenvolvedor Web</p>
+        </div>
+        <div class="cabecalho-container">
+            <ul class="cabecalho__informacoes">
+                <li><a href="index.html" class="cabecalho__texto">Início</a></li>
+                <li><a href="sobre.html" class="cabecalho__texto">Sobre</a></li>
+                <li><a href="novidades.html" class="cabecalho__texto">Novidades</a></li>
+                <li><a href="projetos.html" class="cabecalho__texto">Projetos</a></li>
+                <li><a href="contatos.html" class="cabecalho__texto">Contato</a></li>
+            </ul>
+        </div>
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+                <li><a class="menu__item" href="index.html">Início</a></li>
+                <li><a class="menu__item" href="sobre.html">Sobre</a></li>
+                <li><a class="menu__item" href="novidades.html">Novidades</a></li>
+                <li><a class="menu__item" href="projetos.html">Projetos</a></li>
+                <li><a class="menu__item" href="contatos.html">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+    <hr>
+
+
+    <section>
+        <div class="contato">
+            <div class="contato__container">
+                <form action="#" class="contato__registro">
+                    <h2>Entre em contato</h2>
+                    <div class="contato__registro_box">
+                        <div class="contato__registro__campo campo">
+                            <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="off"
+                                class="item">
+                            <div class="error-text">Seu nome completo não pode ser deixado em branco</div>
+                        </div>
+                        <div class="contato__registro__campo campo">
+                            <input type="text" id="email" placeholder="Seu e-mail" autocomplete="off" class="item">
+                            <div class="error-text email">Seu e-mail não pode ser deixado em branco</div>
+                        </div>
+                    </div>
+                    <div class="contato__registro_box">
+                        <div class="contato__registro__campo campo">
+                            <input type="tel" id="numero" placeholder="Seu celular" autocomplete="off" class="item">
+                            <div class="error-text">Seu celular não pode ser deixado em branco</div>
+                        </div>
+                        <div class="contato__registro__campo campo">
+                            <input type="text" id="assunto" placeholder="Seu assunto" autocomplete="off" class="item">
+                            <div class="error-text">Seu assunto não pode ser deixado em branco</div>
+                        </div>
+                    </div>
+                    <div class="contato__registro__areatexto campo">
+                        <textarea id="message" cols="30" rows="10" placeholder="Sua mensagem" autocomplete="off"
+                            class="item"></textarea>
+                        <div class="error-text">A sua mensagem não pode ser deixado em branco</div>
+                    </div>
+                    <div>
+                        <button type="submit">Enviar mensagem</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="contato__celular">
+            <div class="contato__container__celular">
+                <form action="#" class="contato__registro__celular">
+                    <h2>Entre em contato</h2>
+                    <div class="contato__registro_box">
+                        <div class="contato__registro__campo campo">
+                            <input type="text" id="nomecelular" placeholder="Seu nome completo" autocomplete="off"
+                                class="item">
+                            <div class="error-text">Seu nome completo não pode ser deixado em branco</div>
+                        </div>
+                        <div class="contato__registro__campo campo">
+                            <input type="text" id="emailcelular" placeholder="Seu e-mail" autocomplete="off" class="item">
+                            <div class="error-text email">Seu e-mail não pode ser deixado em branco</div>
+                        </div>
+                        <div class="contato__registro__campo campo">
+                            <input type="tel" id="numerocelular" placeholder="Seu celular" autocomplete="off" class="item">
+                            <div class="error-text">Seu celular não pode ser deixado em branco</div>
+                        </div>
+                        <div class="contato__registro__campo campo">
+                            <input type="text" id="assuntocelular" placeholder="Seu assunto" autocomplete="off" class="item">
+                            <div class="error-text">Seu assunto não pode ser deixado em branco</div>
+                        </div>
+                    
+                    <div class="contato__registro__areatexto campo">
+                        <textarea id="messagecelular" cols="30" rows="10" placeholder="Sua mensagem" autocomplete="off"
+                            class="item"></textarea>
+                        <div class="error-text">A sua mensagem não pode ser deixado em branco</div>
+                    </div>
+                    <div>
+                        <button type="submit">Enviar mensagem</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contato__titulo">
+            <div class="contato__titulo-container">
+                <h2>Informações</h2>
+            </div>
+            <div class="contato__titulo__principal">
+                <div class="contato__titulo__contatos">
+                    <div class="contato__titulo__contatos_imagem">
+                        <img src="assets/icons8-endereço-50.png">
+                    </div>
+                    <div class="contato__titulo__contatos-container">
+                        <h3>Endereço</h3>
+                        <p>Méier</p>
+                    </div>
+                </div>
+                <div class="contato__reta__celular"></div>
+                <div class="contato__reta"></div>
+
+                <div class="contato__titulo__contatos">
+                    <div class="contato__titulo__contatos_imagem">
+                        <img src="assets/icons8-nova-mensagem-50.png">
+                    </div>
+                    <div class="contato__titulo__contatos-container">
+                        <h3>E-mail</h3>
+                        <p>Lucas.afvr@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contato__reta"></div>
+                <div class="contato__reta__celular"></div>
+                <div class="contato__titulo__contatos">
+                    <div class="contato__titulo__contatos_imagem">
+                        <img src="assets/icons8-telefone-fixo-50.png">
+                    </div>
+                    <div class="contato__titulo__contatos-container">
+                        <h3>Celular</h3>
+                        <p>(21) 99680-5944</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contato__titulo__imagens">
+                <a target="_blank" href="https://github.com/Lucasantunesribeiro"><img src="assets/icons8-github-50.png"></a>
+                <a target="_blank" href="https://www.linkedin.com/in/lucas-antunes-0809a2218/"><img src="assets/icons8-linkedin-50.png"></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
