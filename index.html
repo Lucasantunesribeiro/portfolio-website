@@ -7,194 +7,527 @@
     <title>Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins
     :ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-        <script src="https://smtpjs.com/v3/smtp.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 
 
 </head>
 
 <body>
-    <header class="cabecalho">
-        <div class="logo">
-            <h1 class="logo__titulo">Lucas Antunes</h1>
-            <p class="logo__descricao">Desenvolvedor Web</p>
-        </div>
-        <div class="cabecalho-container">
-            <ul class="cabecalho__informacoes">
-                <li><a href="index.html" class="cabecalho__texto">Início</a></li>
-                <li><a href="sobre.html" class="cabecalho__texto">Sobre</a></li>
-                <li><a href="novidades.html" class="cabecalho__texto">Novidades</a></li>
-                <li><a href="projetos.html" class="cabecalho__texto">Projetos</a></li>
-                <li><a href="contatos.html" class="cabecalho__texto">Contato</a></li>
-            </ul>
+    <header class="navbar" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Lucas Antunes</a>
+            <div class="navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#home-section" class="nav-link"><span>Início</span></a></li>
+                    <li class="nav-item"><a href="#about-section" class="nav-link"><span>Sobre</span></a></li>
+                    <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Carreira</span></a></li>
+                    <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projetos</span></a></li>
+                    <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contato</span></a></li>
+                </ul>
+            </div>
         </div>
         <div class="hamburger-menu">
+            <a class="navbar-brand-hamburguer" href="index.html">Lucas Antunes</a>
             <input id="menu__toggle" type="checkbox" />
             <label class="menu__btn" for="menu__toggle">
                 <span></span>
             </label>
+
             <ul class="menu__box">
-                <li><a class="menu__item" href="index.html">Início</a></li>
-                <li><a class="menu__item" href="sobre.html">Sobre</a></li>
-                <li><a class="menu__item" href="novidades.html">Novidades</a></li>
-                <li><a class="menu__item" href="projetos.html">Projetos</a></li>
-                <li><a class="menu__item" href="contatos.html">Contato</a></li>
+                <li><a class="menu__item" href="#home-section">Início</a></li>
+                <li><a class="menu__item" href="#about-section">Sobre</a></li>
+                <li><a class="menu__item" href="#resume-section">Carreira</a></li>
+                <li><a class="menu__item" href="#projects-section">Projetos</a></li>
+                <li><a class="menu__item" href="#contact-section">Contato</a></li>
             </ul>
         </div>
+        </div>
     </header>
-    <hr>
 
 
-    <section>
-        <div class="apresentacao">
-            <div class="apresentacao__container__celular">
-                <img class="apresentacao__imagem" src="assets/Lucas Principal.jpg">
-                <p class="apresentacao__texto__celular">Lucas Antunes</p>
-            </div>
+
+    <section id="home-section">
+        <div class="apresentacao ftco-animate">
             <div class="apresentacao-container">
                 <div class="apresentacao__info">
                     <div>
-                        <p class="apresentacao__texto">Lucas Antunes</p>
-                        <h2 class="apresentacao__dev"> Desenvolvedor Full-stack </h2>
-                    </div>
-                    <p class="apresentacao__descricao">Estou sempre em busca de novos desafios e oportunidades para
-                        aprender e crescer
-                        profissionalmente. <br>
-                        Sinta-se à vontade para explorar os projetos que desenvolvi.</p>
-                    <p class="apresentacao__descricao__celular">Estou sempre em busca de novos desafios e oportunidades
-                        para
-                        aprender e crescer
-                        profissionalmente.
-                        Sinta-se à vontade para explorar os projetos que desenvolvi.</p>
-                    
-                        <a href="assets/Lucas Antunes - Currículo.pdf" download="Lucas Antunes - Currículo.pdf" class="apresentacao__botao"> Download CV </a>
-                   
-                    <div class="apresentacao__linguagens">
-                        <div class="apresentacao__linguagens-container">
-                            <div class="apresentacao__linguagens-titulo">
-                                <p>Linguagens</p>
-                            </div>
-                            <div class="apresentacao__linguagens-barra"></div>
+                        <div class="apresentacao__descricao">
+                            <span>Olá!</span>
                         </div>
-                        <img src="assets/icons8-html-48.png" class="apresentacao__linguagens-imagens">
-                        <img src="assets/icons8-css-48.png" class="apresentacao__linguagens-imagens">
-                        <img src="assets/icons8-javascript-48.png" class="apresentacao__linguagens-imagens">
-                        <img src="assets/icons8-python-50.png" class="apresentacao__linguagens-imagens">
-                        <img src="assets/icons8-logo-java-coffee-cup-50.png" class="apresentacao__linguagens-imagens">
+                        <h1 class="apresentacao__dev">Eu sou <span>Lucas Antunes</span></h1>
+                        <h2 class="apresentacao__dev-sub">Desenvolvedor Fullstack Freelancer</h2>
+                    </div>
+                    <div class="apresentacao__botoes">
+                        <!-- <div class="apresentacao__botoes_link">
+                            <a href="https://github.com/Lucasantunesribeiro" class="btn">
+                                GitHub
+                            </a>
+                            <a href="https://www.linkedin.com/in/lucasantunesferreira" class="btn">
+                                LinkedIn
+                            </a>
+
+                        </div> -->
+                        <a href="assets/Currículo.pdf" download="Currículo.pdf" class="btn"> Download CV
+                        </a>
+                        <a href="https://github.com/Lucasantunesribeiro" class="btn btn-projeto">Meus Projetos</a>
+                    </div>
+
+
+                </div>
+                <img class="apresentacao__imagem" src="assets/Hero-section.jpg">
+            </div>
+        </div>
+    </section>
+
+    <section id="about-section">
+        <div class="sobre ftco-animate">
+            <img class="sobre__imagem" src="assets/About-photo.jpg">
+            <div class="sobre__container">
+                <div class="sobre-section">
+                    <div class="heading-section col-md-12">
+                        <div>
+                            <h1 class="sobre_titulo-t1">Sobre</h1>
+                            <h2 class="sobre_titulo-t2">Sobre mim</h2>
+                        </div>
+                        <p class="sobre__paragrafo">Lucas, residente do Rio de Janeiro, é movido pela paixão por
+                            explorar
+                            novas
+                            ideias e enfrentar desafios. Com uma curiosidade constante e determinação, busca
+                            oportunidades
+                            para
+                            aprendizado e crescimento contínuos. Atualmente, está ampliando suas habilidades no mercado
+                            de
+                            trabalho através do estudo de PHP.
+                        </p>
+                    </div>
+
+
+                </div>
+                <div>
+
+                </div>
+
+                <div>
+                    <div class="apresentacao__linguagens">
+                        <i class="fab fa-html5 apresentacao__linguagens-imagens"
+                            style="color: #ffbd39; font-size: 2em;"></i>
+                        <i class="fab fa-css3-alt apresentacao__linguagens-imagens"
+                            style="color: #ffbd39; font-size: 2em;"></i>
+                        <i class="fab fa-js-square apresentacao__linguagens-imagens"
+                            style="color: #ffbd39; font-size: 2em;"></i>
+                        <i class="fab fa-php apresentacao__linguagens-imagens"
+                            style="color: #ffbd39; font-size: 2em;"></i>
+                        <i class="fab fa-laravel apresentacao__linguagens-imagens"
+                            style="color: #ffbd39; font-size: 2em;"></i>
+                        <i class="fab fa-bootstrap apresentacao__linguagens-imagens"
+                            style="color: #ffbd39; font-size: 2em;"></i>
+                        <i class="fab fa-wordpress apresentacao__linguagens-imagens"
+                            style="color: #ffbd39; font-size: 2em;"></i>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume-section">
+        <div class="carreira ftco-animate">
+            <div class="carreira__container">
+                <div class="carreira-section">
+                    <div class="heading-section">
+                        <div class="carreira__titulo-container">
+                            <h1 class="carreira_titulo-t1">Carreira</h1>
+                            <h2 class="carreira_titulo-t2">Carreira</h2>
+                        </div>
+                        <p class="carreira__paragrafo">Desenvolvedor PHP apaixonado por criar soluções web eficientes e
+                            escaláveis. Com foco em desempenho, segurança e práticas modernas.</p>
+                    </div>
+                    <div class="carreira-exp">
+                        <div class="carreira-exp__container">
+                            <div class="carreira__experiencia">
+                                <div class="carreira__experiencia-item">
+                                    <span class="carreira__experiencia-data">2023 - Atual</span>
+                                    <h3 class="carreira__experiencia-titulo">Ciência da Computação</h3>
+                                    <p class="carreira__experiencia-subtitulo">Universidade Veiga de Almeida</p>
+                                    <p class="carreira__experiencia-paragrafo">Atualmente, estou cursando Ciência da
+                                        Computação na Universidade Veiga de Almeida, onde tenho a oportunidade de
+                                        aprimorar
+                                        minhas habilidades e conhecimentos em programação e desenvolvimento de software.
+                                    </p>
+                                </div>
+                                <div class="carreira__experiencia-item">
+                                    <span class="carreira__experiencia-data">2023 - Atual</span>
+                                    <h3 class="carreira__experiencia-titulo">Desenvolvedor Fullstack</h3>
+                                    <p class="carreira__experiencia-subtitulo">Freelancer</p>
+                                    <p class="carreira__experiencia-paragrafo">Como desenvolvedor Fullstack, tenho a
+                                        oportunidade de trabalhar em projetos desafiadores e interessantes, onde posso
+                                        aplicar
+                                        meus conhecimentos e habilidades em programação e desenvolvimento web.</p>
+                                </div>
+
+                            </div>
+                            <div class="carreira__experiencia">
+                                <div class="carreira__experiencia-item">
+                                    <span class="carreira__experiencia-data">2017 - 2019</span>
+                                    <h3 class="carreira__experiencia-titulo">Curso de Design Gráfico</h3>
+                                    <p class="carreira__experiencia-subtitulo">ZION</p>
+                                    <p class="carreira__experiencia-paragrafo">Durante o curso de Design, tive a
+                                        oportunidade
+                                        de
+                                        aprender sobre design gráfico, web design e UX/UI design, onde pude aprimorar
+                                        minhas
+                                        habilidades e conhecimentos em design e criação de interfaces. </p>
+                                </div>
+                                <div class="carreira__experiencia-item">
+                                    <span class="carreira__experiencia-data">2022 - Atual</span>
+                                    <h3 class="carreira__experiencia-titulo">Curso de Programação</h3>
+                                    <p class="carreira__experiencia-subtitulo">Alura</p>
+                                    <p class="carreira__experiencia-paragrafo">Na Alura, tenho a oportunidade de
+                                        aprender
+                                        sobre
+                                        programação e desenvolvimento de software, onde posso aprimorar minhas
+                                        habilidades e
+                                        conhecimentos em programação e desenvolvimento web.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="projects-section">
+        <div>
+            <div class="projeto ftco-animate">
+                <div class="heading-section">
+                    <div class="projeto__titulo-container">
+                        <h1 class="projeto_titulo-t1">Portfolio</h1>
+                        <h2 class="projeto_titulo-t2">The Portfolio.</h2>
+                    </div>
+                </div>
+                <div class="projeto__container__geral">
+                    <div class="projeto__container">
+                        <div class="projeto__item">
+                            <div class="projeto__item-imagem">
+                                <img src="assets/Projeto 1 Web.png" alt="">
+                            </div>
+                            <div class="projeto__item-info">
+                                <h3 class="projeto__item-titulo">Hamburgueria Website</h3>
+                                <p class="projeto__item-descricao">Website feito em HTML, CSS e JavaScript para uma
+                                    hamburgueria
+                                    fictícia.</p>
+                                </p>
+                                <a href="https://projeto-hamburgueria-pi.vercel.app/" target="_blank"
+                                    class="btn-projetos">Ver
+                                    Projeto</a>
+                            </div>
+                        </div>
+                        <div class="projeto__item">
+                            <div class="projeto__item-imagem">
+                                <img src="assets/Projeto 5 Web.jpg" alt="">
+                            </div>
+                            <div class="projeto__item-info">
+                                <h3 class="projeto__item-titulo">Número Secreto</h3>
+                                <p class="projeto__item-descricao">Jogo feito em HTML, CSS e JavaScript onde o jogador
+                                    deve
+                                    adivinhar um número secreto.</p>
+                                </p>
+                                <a href="https://jogo-do-numero-secreto-orpin-iota.vercel.app/" target="_blank"
+                                    class="btn-projetos">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="projeto__container">
+                        <div class="projeto__item">
+                            <div class="projeto__item-imagem">
+                                <img src="assets/Projeto 3 Web.jpg" alt="">
+                            </div>
+                            <div class="projeto__item-info">
+                                <h3 class="projeto__item-titulo">Alura Plus</h3>
+                                <p class="projeto__item-descricao">Website feito em HTML e CSS para a
+                                    plataforma
+                                    Alura.</p>
+                                </p>
+                                <a href="https://aluraplus-opal-alpha.vercel.app/" target="_blank"
+                                    class="btn-projetos">Ver
+                                    Projeto</a>
+                            </div>
+                        </div>
+                        <div class="projeto__item">
+                            <div class="projeto__item-imagem">
+                                <img src="assets/Projeto 4 Web.jpg" alt="">
+                            </div>
+                            <div class="projeto__item-info">
+                                <h3 class="projeto__item-titulo">Alura Home</h3>
+                                <p class="projeto__item-descricao">Landing page feita em HTML e CSS para a
+                                    plataforma Alura.</p>
+                                </p>
+                                <a href="https://alura-lyart-pi.vercel.app/" target="_blank" class="btn-projetos">Ver
+                                    Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section id="contact-section">
+        <div class="contato ftco-animate" id="contact-section">
+            <div class="contato__container">
+                <div class="heading-section">
+                    <div class="projeto__titulo-container">
+                        <h1 class="projeto_titulo-t1">Contato</h1>
+                        <h2 class="projeto_titulo-t2">Entre em Contato</h2>
+                    </div>
+                </div>
+
+                <div class="contato__titulo__imagens">
+                    <div class="contato__titulo__imagens-container">
+                        <a target="_blank" href="https://github.com/Lucasantunesribeiro"><img
+                                src="assets/icons8-github-50.png" alt="" style="width: 50px;"></a>
+                        <p class="contato__titulo__imagens-titulo">Github</p>
+                        <p class="contato__titulo__imagens-texto">Lucasantunesribeiro</p>
+                    </div>
+                    <div class="contato__titulo__imagens-container">
+                        <a target="_blank" href="https://www.linkedin.com/in/lucasantunesferreira"><img
+                                src="assets/icons8-linkedin-50.png" alt="" style="width: 50px;"></a>
+                        <p class="contato__titulo__imagens-titulo">LinkedIn</p>
+                        <p class="contato__titulo__imagens-texto">Lucasantunesferreira</p>
+                    </div>
+                    <div class="contato__titulo__imagens-container">
+                        <a target="_blank"
+                            href="https://www.google.com/maps/place/Rio+de+Janeiro,+RJ/@-22.9137295,-43.6107904,11z/data=!3m1!4b1!4m6!3m5!1s0x9bde559108a05b:0x50dc426c672fd24e!8m2!3d-22.9068467!4d-43.1728965!16zL20vMDZnbXI?entry=ttu&g_ep=EgoyMDI0MDkwOS4wIKXMDSoASAFQAw%3D%3D">
+                            <img src="assets/icons8-endereço-50.png" style="width: 50px;"></a>
+                        <p class="contato__titulo__imagens-titulo">Endereço</p>
+                        <p class="contato__titulo__imagens-texto">Rio de Janeiro</p>
+                    </div>
+                    <div class="contato__titulo__imagens-container">
+                        <a target="_blank" href="https://mail.google.com/"><img src="assets/icons8-nova-mensagem-50.png"
+                                style="width: 50px;"></a>
+                        <p class="contato__titulo__imagens-titulo">Email</p>
+                        <p class="contato__titulo__imagens-texto">Lucas.afvr@gmail.com</p>
+                    </div>
+                </div>
+                <form id="contact-form" onsubmit="sendEmail(event)" class="contato__registro">
+                    <div class="contato__registro_box">
+                        <div class="contato__registro__campo campo">
+                            <input type="text" id="nome" name="from_name" placeholder="Seu nome completo"
+                                autocomplete="off" class="item" required>
+                            <div class="error-text">Seu nome completo não pode ser deixado em branco</div>
+                        </div>
+                        <div class="contato__registro__campo campo">
+                            <input type="email" id="email" name="from_email" placeholder="Seu e-mail" autocomplete="off"
+                                class="item" required>
+                            <div class="error-text email">Seu e-mail não pode ser deixado em branco</div>
+                        </div>
+                    </div>
+                    <div class="contato__registro_box">
+                        <div class="contato__registro__campo campo">
+                            <input type="tel" id="numero" name="phone" placeholder="Seu celular" autocomplete="off"
+                                class="item" required>
+                            <div class="error-text">Seu celular não pode ser deixado em branco</div>
+                        </div>
+                        <div class="contato__registro__campo campo">
+                            <input type="text" id="assunto" name="subject" placeholder="Seu assunto" autocomplete="off"
+                                class="item" required>
+                            <div class="error-text">Seu assunto não pode ser deixado em branco</div>
+                        </div>
+                    </div>
+                    <div class="contato__registro__areatexto campo">
+                        <textarea id="message" name="message" cols="30" rows="10" placeholder="Sua mensagem"
+                            autocomplete="off" class="item" required></textarea>
+                        <div class="error-text">A sua mensagem não pode ser deixado em branco</div>
+                    </div>
+                    <div>
+                        <button type="submit">Enviar mensagem</button>
+                    </div>
+                </form>
 
             </div>
         </div>
     </section>
-    <script>
-        const formDesktop = document.querySelector(".contato__registro");
-        const fullNameDesktop = document.getElementById("nome");
-        const emailDesktop = document.getElementById("email");
-        const phoneDesktop = document.getElementById("numero");
-        const subjectDesktop = document.getElementById("assunto");
-        const messDesktop = document.getElementById("message");
+
+    <section>
+        <div class="contato__celular">
+            <div class="heading-section"></div>
+            <div class="projeto__titulo-container">
+                <h1 class="projeto_titulo-t1" style="top: 20%">Contato</h1>
+                <h2 class="projeto_titulo-t2" style="font-size: 8vw;">Entre em Contato</h2>
+            </div>
+        </div>
+        <div class="contato__container__celular">
+
+            <form onsubmit="sendEmail(event)" class="contato__registro__celular">
+                <div class="contato__registro_box">
+                    <div class="contato__registro__campo campo">
+                        <input type="text" id="nomecelular"  name="from_name" placeholder="Seu nome completo" autocomplete="off"
+                            class="item" style="width: 50vw;">
+                        <div class="error-text">Seu nome completo não pode ser deixado em branco</div>
+                    </div>
+                    <div class="contato__registro__campo campo">
+                        <input type="text" id="emailcelular" name="from_email" placeholder="Seu e-mail" autocomplete="off" class="item"
+                            style="width: 50vw;">
+                        <div class="error-text email">Seu e-mail não pode ser deixado em branco</div>
+                    </div>
+                    <div class="contato__registro__campo campo">
+                        <input type="tel" id="numerocelular"  name="phone" placeholder="Seu celular" autocomplete="off" class="item"
+                            style="width: 50vw;">
+                        <div class="error-text">Seu celular não pode ser deixado em branco</div>
+                    </div>
+                    <div class="contato__registro__campo campo">
+                        <input type="text" id="assuntocelular" name="subject" placeholder="Seu assunto" autocomplete="off" class="item"
+                            style="width: 50vw;">
+                        <div class="error-text">Seu assunto não pode ser deixado em branco</div>
+                    </div>
+
+                    <div class="contato__registro__areatexto campo">
+                        <textarea id="messagecelular" cols="30" rows="10" placeholder="Sua mensagem" autocomplete="off"
+                            class="item" style="width: 50vw;"></textarea>
+                        <div class="error-text">A sua mensagem não pode ser deixado em branco</div>
+                    </div>
+                    <div>
+                        <button type="submit">Enviar mensagem</button>
+                    </div>
+            </form>
+        </div>
+        </div>
+    </section>
 
 
-        const formMobile = document.querySelector(".contato__registro__celular");
-        const fullNameMobile = document.getElementById("nomecelular");
-        const emailMobile = document.getElementById("emailcelular");
-        const phoneMobile = document.getElementById("numerocelular");
-        const subjectMobile = document.getElementById("assuntocelular");
-        const messMobile = document.getElementById("messagecelular");
+    <footer>
+        <div class="footer ftco-animate">
+            <div class="footer__container">
+                <div class="footer__container-geral">
+                    <div class="footer-coluna">
+                        <div class="footer-coluna__container">
+                            <h2 class="footer__titulo">Sobre</h2>
+                            <p class="footer__texto">Lucas, residente do Rio de Janeiro, é movido pela paixão por
+                                explorar
+                                novas
+                                ideias e enfrentar desafios. Com uma curiosidade constante e determinação, busca
+                                oportunidades
+                                para aprendizado e crescimento contínuos. Atualmente, está ampliando suas habilidades no
+                                mercado
+                                de trabalho através do estudo de PHP.</p>
+                        </div>
+                    </div>
+                    <div class="footer-coluna">
+                        <div class="footer-coluna__container">
+                            <h2 class="footer__titulo">Links</h2>
+                            <ul class="footer__links">
+                                <li><a href="#home-section"><i class="fas fa-long-arrow-alt-right"></i>Início</a></li>
+                                <li><a href="#about-section"><i class="fas fa-long-arrow-alt-right"></i>Sobre</a></li>
+                                <li><a href="#resume-section"><i class="fas fa-long-arrow-alt-right"></i>Carreira</a>
+                                </li>
+                                <li><a href="#projects-section"><i class="fas fa-long-arrow-alt-right"></i>Projetos</a>
+                                </li>
+                                <li><a href="#contact-section"><i class="fas fa-long-arrow-alt-right"></i>Contato</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-coluna">
+                        <div class="footer-coluna__container">
+                            <h2 class="footer__titulo">Contato</h2>
+                            <div class="footer__coluna__container">
+                                <ul class="footer__contato">
+                                    <li class="footer-contato-item">
+                                        <div class="icon-text-pair">
+                                            <span class="icon"><i class="fas fa-map-marker-alt"
+                                                    style="color: var(--roxo);"></i></span>
+                                            <span class="text" style="font-weight: 700;">Rio de Janeiro, RJ</span>
+                                        </div>
+                                    </li>
+                                    <li class="footer-contato-item">
+                                        <div class="icon-text-pair">
+                                            <span class="icon"><i class="fas fa-phone"
+                                                    style="color: var(--roxo);"></i></span>
+                                            <span class="text" style="font-weight: 700;">(21) 99680-5944</span>
+                                        </div>
+                                    </li>
+                                    <li class="footer-contato-item">
+                                        <div class="icon-text-pair">
+                                            <span class="icon"><i class="fab fa-linkedin"
+                                                    style="color: var(--roxo);"></i></span>
+                                            <span class="text" style="font-weight: 700;">Linkedin</span>
+                                        </div>
+                                    </li>
+                                    <li class="footer-contato-item">
+                                        <div class="icon-text-pair">
+                                            <span class="icon"><i class="fab fa-github"
+                                                    style="color: var(--roxo);"></i></span>
+                                            <span class="text" style="font-weight: 700;">Github</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-        function sendEmail(fullName, email, phone, subject, mess) {
-            const bodyMessage = `Nome completo: ${fullName.value}<br> Email:${email.value}<br> Celular:${phone.value}<br> Assunto:${subject.value}<br> Messagem:${mess.value}`;
-            Email.send({
-                Host: "smtp.elasticemail.com",
-                Username: "lucas.afvr2006@gmail.com",
-                Password: "27DD77A1A9A6DE8D28D1649B29634E6FC65A",
-                To: "lucas.afvr2006@gmail.com",
-                From: "lucas.afvr2006@gmail.com",
-                Subject: subject.value,
-                Body: bodyMessage
-            }).then(
-                message => {
-                    if (message == "OK") {
-                        Swal.fire({
-                            title: "Realizado!",
-                            text: "Mensagem foi enviado com sucesso!",
-                            icon: "success"
-                        });
-                    }
-                }
-            );
-        }
 
-        function checkInputs(fullName, email, phone, subject, mess) {
-            const items = [fullName, email, phone, subject, mess];
+                </div>
+            </div>
+    </footer>
 
-            for (const item of items) {
-                item.addEventListener("keyup", () => {
-                    if (item.value.trim() !== "") {
-                        item.classList.remove("erro");
-                        item.parentElement.classList.remove("erro");
-                    } else {
-                        item.classList.add("erro");
-                        item.parentElement.classList.add("erro");
-                    }
-                });
-            }
-        }
 
-        function checkEmail(email) {
-            const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;
-            const errorTxtEmail = email.nextElementSibling;
 
-            if (!email.value.match(emailRegex)) {
-                email.classList.add("erro");
-                email.parentElement.classList.add("erro");
 
-                if (email.value.trim() !== "") {
-                    errorTxtEmail.innerText = "Coloque um endereço de email válido";
-                } else {
-                    errorTxtEmail.innerText = "Seu e-mail não pode ser deixado em branco";
-                }
-            } else {
-                email.classList.remove("erro");
-                email.parentElement.classList.remove("erro");
-            }
-        }
 
-        formDesktop.addEventListener("submit", (e) => {
-            e.preventDefault();
-            checkInputs(fullNameDesktop, emailDesktop, phoneDesktop, subjectDesktop, messDesktop);
-            checkEmail(emailDesktop);
+    <script src="js/script.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-            if (!fullNameDesktop.classList.contains("erro") && !emailDesktop.classList.contains("erro") && !phoneDesktop.classList.contains("erro") && !subjectDesktop.classList.contains("erro") && !messDesktop.classList.contains("erro")) {
-                sendEmail(fullNameDesktop, emailDesktop, phoneDesktop, subjectDesktop, messDesktop);
-
-                formDesktop.reset();
-                return false;
-            }
-        });
-
-        formMobile.addEventListener("submit", (e) => {
-            e.preventDefault();
-            checkInputs(fullNameMobile, emailMobile, phoneMobile, subjectMobile, messMobile);
-            checkEmail(emailMobile);
-
-            if (!fullNameMobile.classList.contains("erro") && !emailMobile.classList.contains("erro") && !phoneMobile.classList.contains("erro") && !subjectMobile.classList.contains("erro") && !messMobile.classList.contains("erro")) {
-                sendEmail(fullNameMobile, emailMobile, phoneMobile, subjectMobile, messMobile);
-
-                formMobile.reset();
-                return false;
-            }
-        });
-    </script>
 </body>
+
 
 </html>
