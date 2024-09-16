@@ -1247,6 +1247,7 @@ p {
     width: 50%;
     border-radius: 0.5em;
     padding: 2em;
+    margin: 2em;
 }
 
 
@@ -1625,6 +1626,12 @@ p {
     margin-top: 0.5em;
 }
 
+.projeto__item-botoes{
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+}
+
 /* Responsividade para telas grandes */
 @media (max-width: 1200px) {
     .projeto__titulo {
@@ -1748,6 +1755,18 @@ p {
     .btn-projetos {
       width: 70vw;
       margin-bottom: 2em;
+    }
+
+    .projeto__item-botoes{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .btn-projeto{
+      width: 70vw;
+      margin-bottom: 1em;
     }
   
   }
