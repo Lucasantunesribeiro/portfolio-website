@@ -1,9 +1,3 @@
-<<<<<<< HEAD
- AOS.init({
- 	duration: 800,
- 	easing: 'slide'
- });
-=======
 // Inicializa AOS
 AOS.init({
 	duration: 800,
@@ -91,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		observer.observe(element);
 	});
 });
->>>>>>> 58bb85b (chore: salva alterações locais antes do rebase)
 
 (function($) {
 
@@ -365,8 +358,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })(jQuery);
 
-<<<<<<< HEAD
-=======
 // Mouse tracking para efeito magic card
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.magic-card');
@@ -394,4 +385,3 @@ window.addEventListener('mousemove', (e) => {
     heroBackground.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
->>>>>>> 58bb85b (chore: salva alterações locais antes do rebase)
