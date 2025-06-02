@@ -1,7 +1,97 @@
+<<<<<<< HEAD
  AOS.init({
  	duration: 800,
  	easing: 'slide'
  });
+=======
+// Inicializa AOS
+AOS.init({
+	duration: 800,
+	easing: 'slide'
+});
+
+// Menu Mobile
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+	menuToggle.classList.toggle('active');
+	navLinks.classList.toggle('active');
+	document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+});
+
+// Fechar menu ao clicar em um link
+navLinks.querySelectorAll('a').forEach(link => {
+	link.addEventListener('click', () => {
+		menuToggle.classList.remove('active');
+		navLinks.classList.remove('active');
+		document.body.style.overflow = '';
+	});
+});
+
+// Fechar menu ao clicar fora
+document.addEventListener('click', (e) => {
+	if (!menuToggle.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+		menuToggle.classList.remove('active');
+		navLinks.classList.remove('active');
+		document.body.style.overflow = '';
+	}
+});
+
+// Barra de Progresso
+window.addEventListener('scroll', () => {
+	const progressBar = document.querySelector('.progress-bar');
+	const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+	const scrolled = (window.scrollY / windowHeight) * 100;
+	progressBar.style.width = `${scrolled}%`;
+});
+
+// Inicializa o Splide
+document.addEventListener('DOMContentLoaded', () => {
+	new Splide('.splide', {
+		type: 'slide',
+		perPage: 3,
+		perMove: 1,
+		gap: '2rem',
+		pagination: true,
+		arrows: true,
+		autoplay: true,
+		interval: 3000,
+		breakpoints: {
+			1200: {
+				perPage: 3
+			},
+			992: {
+				perPage: 2
+			},
+			768: {
+				perPage: 2
+			},
+			576: {
+				perPage: 1
+			}
+		}
+	}).mount();
+
+	const animateElements = document.querySelectorAll('.hero-content, .sobre-grid, .skill-card, .project-card');
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('animate-in');
+				observer.unobserve(entry.target);
+			}
+		});
+	}, {
+		threshold: 0.1,
+		rootMargin: '0px 0px -50px 0px'
+	});
+
+	animateElements.forEach(element => {
+		element.classList.add('animate-hidden');
+		observer.observe(element);
+	});
+});
+>>>>>>> 58bb85b (chore: salva alterações locais antes do rebase)
 
 (function($) {
 
@@ -275,3 +365,33 @@
 
 })(jQuery);
 
+<<<<<<< HEAD
+=======
+// Mouse tracking para efeito magic card
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.magic-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+});
+
+// Efeito Parallax no Hero
+const heroBackground = document.querySelector('.hero-background');
+window.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+    const moveX = (mouseX - 0.5) * 20;
+    const moveY = (mouseY - 0.5) * 20;
+    
+    heroBackground.style.transform = `translate(${moveX}px, ${moveY}px)`;
+});
+
+>>>>>>> 58bb85b (chore: salva alterações locais antes do rebase)

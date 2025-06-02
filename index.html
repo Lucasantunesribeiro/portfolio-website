@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
+=======
+<html lang="pt-BR">
+>>>>>>> 58bb85b (chore: salva alterações locais antes do rebase)
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>PORTFOLIO</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,10 +151,374 @@
                             style="color: #ffbd39; font-size: 2em;"></i>
                         <i class="fab fa-wordpress apresentacao__linguagens-imagens"
                             style="color: #ffbd39; font-size: 2em;"></i>
+=======
+    <title>Portfólio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <!-- Splide CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Barra de progresso -->
+    <div class="progress-bar"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Lucas Antunes</a>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#experiencias">Experiências</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#projetos">Projetos</a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animated-text">Olá, eu sou <span class="highlight">Lucas Antunes</span></h1>
+                <p>Desenvolvedor Fullstack C#, ASP.NET Core, React e Clean Architecture</p>
+                <div class="hero-buttons">
+                    <a href="assets/Curriculo.pdf" class="btn btn-primary" target="_blank"
+                        rel="noopener noreferrer">Currículo</a>
+                    <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                    <div class="social-links">
+                        <a href="https://github.com/Lucasantunesribeiro" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <h2>Sobre Mim</h2>
+            <div class="sobre-grid">
+                <div class="sobre-texto">
+                    <p>Desenvolvedor Fullstack com experiência comprovada em C#, .NET Core, ASP.NET Core, React, Node.js
+                        e TypeScript. Especialista em desenvolvimento de APIs RESTful escaláveis, implementação de Clean
+                        Architecture, princípios SOLID e metodologias ágeis (Scrum/Kanban). Experiência em todo o ciclo
+                        de desenvolvimento de software, desde análise de requisitos até deploy em produção, com foco em
+                        código limpo e testes automatizados. Conhecimento em Cloud Computing (AWS, Azure), DevOps
+                        (Docker, Kubernetes, CI/CD), bancos de dados SQL e NoSQL. Proativo com forte capacidade
+                        analítica para resolução de problemas complexos.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>2+</h3>
+                            <p>Anos de Experiência</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>20+</h3>
+                            <p>Projetos Entregues</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15+</h3>
+                            <p>Tecnologias Dominadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sobre-imagem">
+                    <div class="image-container">
+                        <img src="assets/Profile.jpg" alt="Minha foto de perfil" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiências Section -->
+    <section id="experiencias" class="section experiencias-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Experiências</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>RSM Brasil</h3>
+                        <span class="timeline-period">Dezembro 2024 - Atual</span>
+                        <p class="timeline-role">Analista de Suporte de TI</p>
+                        <p class="timeline-tech">Azure, Windows, Linux, SQL Server, MySQL</p>
+                        <p>Responsável pelo atendimento e registro de chamados técnicos (Nível 1 e 2), garantindo a
+                            continuidade das operações de TI. Encarregado do diagnóstico e resolução de problemas de
+                            hardware e software, assegurando a eficiência operacional. Realiza a instalação,
+                            configuração e manutenção de aplicativos, sistemas operacionais (Windows, Linux) e
+                            periféricos. Presta suporte à infraestrutura de redes, computadores e impressoras, além de
+                            otimizar processos internos através de suporte técnico proativo.
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Alura</h3>
+                        <span class="timeline-period">2022 - Atual</span>
+                        <p class="timeline-role">Formação para Programação</p>
+                        <p>Na Alura, estou seguindo as principais formações no assunto Full-stack, tendo a oportunidade
+                            de aprender sobre programação, construção e desenvolvimento de software.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Estácio</h3>
+                        <span class="timeline-period">2023 - 2027 (previsão)</span>
+                        <p class="timeline-role">Ciência da Computação</p>
+                        <p>Atualmente, estou cursando Ciência da Computação na Universidade Veiga de Almeida, onde tenho
+                            a oportunidade de aprimorar minhas habilidades e conhecimentos em programação desenvolvendo
+                            software e projetos para trabalhos escolares.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Freelancer </h3>
+                        <span class="timeline-period">Janeiro de 2024 - Novembro de 2024</span>
+                        <p class="timeline-role">Desenvolvedor Fullstack</p>
+                        <p class="timeline-tech">C#,.NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript</p>
+                        <p>Responsável pelo desenvolvimento fullstack de aplicações web e APIs RESTful utilizando C#,
+                            .NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript. Experiência em modelagem e
+                            otimização de bancos de dados relacionais (SQL Server, MySQL) e NoSQL (MongoDB). Implementa
+                            princípios SOLID, Clean Architecture e Design Patterns para garantir código limpo e
+                            manutenível. Desenvolve testes automatizados (unitários e de integração) com xUnit e
+                            PHPUnit. Atua em todo o ciclo de vida do desenvolvimento: análise de requisitos, design,
+                            desenvolvimento, testes e deploy, utilizando metodologias ágeis (Scrum/Kanban) e
+                            versionamento com Git.</p>
+                    </div>
+                </div>
+                <!-- Adicione mais experiências aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades Section -->
+    <section id="habilidades" class="habilidades">
+        <div class="container">
+            <h2>Minhas Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3>Backend</h3>
+                    <p>.NET Core, ASP.NET Core, .NET Framework, Entity Framework, Node.js, Express.js, Laravel</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-laptop-code skill-icon"></i>
+                    <h3>Frontend</h3>
+                    <p>.NET Core, ASP.NET Core, .NET Framework, Entity Framework, Node.js, Express.js, Laravel</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>Banco de Dados</h3>
+                    <p>SQL Server, MySQL, SQLite, MongoDB</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cloud skill-icon"></i>
+                    <h3>DevOps & Cloud</h3>
+                    <p>AWS (EC2, S3, Lambda, SQS), Azure, Docker, Kubernetes, CI/CD, GitHub Actions</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-vial skill-icon"></i>
+                    <h3>Testes</h3>
+                    <p>xUnit, PHPUnit, TDD, BDD, Clean Code, SOLID, Design Patterns</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-plug skill-icon"></i>
+                    <h3>APIs & Auth</h3>
+                    <p>REST APIs, JWT Authentication, SignalR, Swagger, Postman</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-tasks skill-icon"></i>
+                    <h3>Metodologias</h3>
+                    <p>Scrum, Kanban, Agile, Git, Code Review</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos Section -->
+    <section id="projetos" class="projetos">
+        <div class="container">
+            <h2 class="highlight">Projetos</h2>
+            <div class="splide" role="group" aria-label="Projetos">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <!-- Projeto 1 -->
+                        <li class="splide__slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="assets/linkguardiao_com_moldura.png" alt="LinkGuardião">
+                                </div>
+                                <div class="project-content">
+                                    <h3>LinkGuardião </h3>
+                                    <p>Sistema completo de encurtamento de URLs com proteção e estatísticas. Oferece recursos como proteção por senha, expiração automática e análise detalhada de acessos.</p>
+                                    <div class="project-tags">
+                                        <span>ASP.NET Core 8.0</span>
+                                        <span>React</span>
+                                        <span>TypeScript</span>
+                                        <span>Tailwind CSS</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://github.com/Lucasantunesribeiro/LinkGuardiao" class="btn-project">
+                                            <i class="fas fa-code"></i>
+                                            Ver Código
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Projeto 2 -->
+                        <li class="splide__slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="assets/nfe_api_swagger_com_moldura.png" alt="Emissão NF-e">
+                                </div>
+                                <div class="project-content">
+                                    <h3>Emissão Automatizada de NF-e</h3>
+                                    <p>Sistema completo para emissão automatizada de Nota Fiscal Eletrônica com .NET 9, arquitetura em camadas, testes automatizados e CI/CD.</p>
+                                    <div class="project-tags">
+                                        <span>.NET 9</span>
+                                        <span>Docker</span>
+                                        <span>CI/CD</span>
+                                        <span>Clean Architecture</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://github.com/Lucasantunesribeiro/simulador_emissor" class="btn-project">
+                                            <i class="fas fa-code"></i>
+                                            Ver Código
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Projeto 3 -->
+                        <li class="splide__slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="assets/super_burger_com_moldura.png" alt="Hamburgueria Website">
+                                </div>
+                                <div class="project-content">
+                                    <h3>Hamburgueria Website</h3>
+                                    <p>Website responsivo para uma hamburgueria fictícia, desenvolvido com HTML, CSS e JavaScript.</p>
+                                    <div class="project-tags">
+                                        <span>HTML</span>
+                                        <span>CSS</span>
+                                        <span>JavaScript</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://github.com/Lucasantunesribeiro/hamburgueria-website" class="btn-project">
+                                            <i class="fas fa-code"></i>
+                                            Ver Código
+                                        </a>
+                                        <a href="https://projeto-hamburgueria-pi.vercel.app/" class="btn-project">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            Demo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Projeto 4 -->
+                        <li class="splide__slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="assets/jogo_numero_secreto_com_moldura.png" alt="Número Secreto">
+                                </div>
+                                <div class="project-content">
+                                    <h3>Número Secreto</h3>
+                                    <p>Jogo interativo onde o jogador deve adivinhar um número secreto, desenvolvido com HTML, CSS e JavaScript.</p>
+                                    <div class="project-tags">
+                                        <span>HTML</span>
+                                        <span>CSS</span>
+                                        <span>JavaScript</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://github.com/Lucasantunesribeiro/Numero-Secreto" class="btn-project">
+                                            <i class="fas fa-code"></i>
+                                            Ver Código
+                                        </a>
+                                        <a href="https://jogo-do-numero-secreto-orpin-iota.vercel.app/" class="btn-project">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            Demo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <p>Entre em contato: </p> 
+
+                    <div>
+                        <a href="mailto:Lucas.afvr@gmail.com" class="email-link" aria-label="Enviar email para Lucas.afvr@gmail.com">
+                            <i class="fas fa-envelope"></i> Lucas.afvr@gmail.com
+                        </a>
+                        <br>
+                    </div>
+                    
+                   
+                </p>
+                </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Lucasantunesribeiro/" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+>>>>>>> 58bb85b (chore: salva alterações locais antes do rebase)
+                    </div>
+                </div>
+            </div>
+        </div>
+<<<<<<< HEAD
     </section>
 
     <section id="resume-section">
@@ -568,4 +937,16 @@
 </body>
 
 
+=======
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+>>>>>>> 58bb85b (chore: salva alterações locais antes do rebase)
 </html>
