@@ -8,29 +8,40 @@ AOS.init({
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-menuToggle.addEventListener('click', () => {
-	menuToggle.classList.toggle('active');
-	navLinks.classList.toggle('active');
-	document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-});
-
-// Fechar menu ao clicar em um link
-navLinks.querySelectorAll('a').forEach(link => {
-	link.addEventListener('click', () => {
-		menuToggle.classList.remove('active');
-		navLinks.classList.remove('active');
-		document.body.style.overflow = '';
+if (menuToggle && navLinks) {
+	menuToggle.addEventListener('click', () => {
+		menuToggle.classList.toggle('active');
+		navLinks.classList.toggle('active');
+		document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
 	});
-});
 
-// Fechar menu ao clicar fora
-document.addEventListener('click', (e) => {
-	if (!menuToggle.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-		menuToggle.classList.remove('active');
-		navLinks.classList.remove('active');
-		document.body.style.overflow = '';
-	}
-});
+	// Fechar menu ao clicar em um link
+	navLinks.querySelectorAll('a').forEach(link => {
+		link.addEventListener('click', () => {
+			menuToggle.classList.remove('active');
+			navLinks.classList.remove('active');
+			document.body.style.overflow = '';
+		});
+	});
+
+	// Fechar menu ao clicar fora
+	document.addEventListener('click', (e) => {
+		if (!menuToggle.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+			menuToggle.classList.remove('active');
+			navLinks.classList.remove('active');
+			document.body.style.overflow = '';
+		}
+	});
+
+	// Fechar menu ao redimensionar para desktop
+	window.addEventListener('resize', () => {
+		if (window.innerWidth > 992) {
+			menuToggle.classList.remove('active');
+			navLinks.classList.remove('active');
+			document.body.style.overflow = '';
+		}
+	});
+}
 
 // Barra de Progresso
 window.addEventListener('scroll', () => {
@@ -42,6 +53,18 @@ window.addEventListener('scroll', () => {
 
 // Inicializa o Splide
 document.addEventListener('DOMContentLoaded', () => {
+	// Forçar menu-toggle visível em telas <= 992px
+	if (window.innerWidth <= 992) {
+		menuToggle.style.display = 'block';
+	}
+	window.addEventListener('resize', () => {
+		if (window.innerWidth <= 992) {
+			menuToggle.style.display = 'block';
+		} else {
+			menuToggle.style.display = 'none';
+		}
+	});
+
 	new Splide('.splide', {
 		type: 'slide',
 		perPage: 3,
@@ -51,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		arrows: true,
 		autoplay: true,
 		interval: 3000,
+		padding: { right: '1.5rem' },
 		breakpoints: {
 			1200: {
 				perPage: 3
