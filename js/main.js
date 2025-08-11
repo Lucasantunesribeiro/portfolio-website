@@ -114,14 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	"use strict";
 
-	$(window).stellar({
-    responsive: true,
-    parallaxBackgrounds: true,
-    parallaxElements: true,
-    horizontalScrolling: false,
-    hideDistantElements: false,
-    scrollProperty: 'scroll'
-  });
+	// Stellar parallax removido para evitar erros de dependência
 
 
 	var fullHeight = function() {
@@ -144,8 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 	loader();
 
-	// Scrollax
-   $.Scrollax();
+	// Scrollax removido para simplificar dependências
 
 
 

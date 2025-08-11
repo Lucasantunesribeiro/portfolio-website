@@ -11,19 +11,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
     <!-- Splide CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- SEO and Meta Tags -->
+    <meta name="description" content="Portfólio profissional de Lucas Antunes - Desenvolvedor Full Stack especializado em .NET, React, arquitetura Clean e microserviços.">
+    <meta name="keywords" content="desenvolvedor, full stack, .NET, React, TypeScript, Clean Architecture, microserviços">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta property="og:title" content="Lucas Antunes - Desenvolvedor Full Stack">
+    <meta property="og:description" content="Especialista em .NET, React, arquitetura Clean e microserviços. Confira meus projetos enterprise.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
@@ -45,7 +56,7 @@
                 <a href="#experiencias">Experiências</a>
                 <a href="#habilidades">Habilidades</a>
                 <a href="#projetos">Projetos</a>
-                
+
             </div>
         </div>
     </nav>
@@ -184,37 +195,47 @@
                 <div class="skill-card">
                     <i class="fas fa-code skill-icon"></i>
                     <h3>Backend</h3>
-                    <p>.NET Core, ASP.NET Core, .NET Framework, Entity Framework, Node.js, Express.js, Laravel</p>
+                    <p>.NET 8/9, ASP.NET Core, Entity Framework, Java 17, Spring Boot, Node.js, Express.js, PHP, Laravel</p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-laptop-code skill-icon"></i>
                     <h3>Frontend</h3>
-                    <p>.NET Core, ASP.NET Core, .NET Framework, Entity Framework, Node.js, Express.js, Laravel</p>
+                    <p>React 18, Next.js 14, TypeScript, JavaScript ES6+, HTML5, CSS3, Tailwind CSS, Material-UI</p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-database skill-icon"></i>
                     <h3>Banco de Dados</h3>
-                    <p>SQL Server, MySQL, SQLite, MongoDB</p>
+                    <p>SQL Server, PostgreSQL, MySQL, SQLite, MongoDB, Redis, Entity Framework, Supabase</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-microchip skill-icon"></i>
+                    <h3>Arquitetura & Padrões</h3>
+                    <p>Clean Architecture, SOLID, DDD, Event Sourcing, CQRS, Microservices, Design Patterns</p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-cloud skill-icon"></i>
                     <h3>DevOps & Cloud</h3>
-                    <p>AWS (EC2, S3, Lambda, SQS), Azure, Docker, Kubernetes, CI/CD, GitHub Actions</p>
+                    <p>AWS (EC2, S3, Lambda, SQS), Azure, Docker, Kubernetes, CI/CD, GitHub Actions, Vercel</p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-vial skill-icon"></i>
-                    <h3>Testes</h3>
-                    <p>xUnit, PHPUnit, TDD, BDD, Clean Code, SOLID, Design Patterns</p>
+                    <h3>Testes & Qualidade</h3>
+                    <p>xUnit, PHPUnit, Jest, TDD, BDD, Clean Code, SOLID, Code Review, Sonar</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt skill-icon"></i>
+                    <h3>Segurança & Auth</h3>
+                    <p>JWT, OAuth 2.0, Row Level Security, HTTPS, CORS, Security Headers, Input Validation</p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-plug skill-icon"></i>
-                    <h3>APIs & Auth</h3>
-                    <p>REST APIs, JWT Authentication, SignalR, Swagger, Postman</p>
+                    <h3>APIs & Integração</h3>
+                    <p>REST APIs, GraphQL, SignalR, WebSockets, Swagger/OpenAPI, Postman, RabbitMQ</p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-tasks skill-icon"></i>
                     <h3>Metodologias</h3>
-                    <p>Scrum, Kanban, Agile, Git, Code Review</p>
+                    <p>Scrum, Kanban, Agile, Git Flow, Code Review, Pair Programming, DevOps Culture</p>
                 </div>
             </div>
         </div>
@@ -227,33 +248,128 @@
             <div class="splide" role="group" aria-label="Projetos">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <!-- Projeto 1 -->
+                        <!-- Projeto 1: SmartFinance -->
+                        <li class="splide__slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23111827'/%3E%3Ctext x='200' y='125' text-anchor='middle' dominant-baseline='middle' fill='%232563eb' font-family='Inter, sans-serif' font-size='24' font-weight='600'%3ESmartFinance%3C/text%3E%3Ctext x='200' y='150' text-anchor='middle' dominant-baseline='middle' fill='%239ca3af' font-family='Inter, sans-serif' font-size='14'%3EDashboard Enterprise%3C/text%3E%3C/svg%3E" alt="SmartFinance Dashboard">
+                                </div>
+                                <div class="project-content">
+                                    <h3>SmartFinance - Enterprise Financial System</h3>
+                                    <p>Sistema financeiro enterprise completo com dashboard em tempo real, processamento assíncrono de pagamentos, microserviços, autenticação JWT, e monitoramento avançado com Prometheus/Grafana.</p>
+                                    <div class="project-tags">
+                                        <span>.NET 8</span>
+                                        <span>Next.js 14</span>
+                                        <span>SignalR</span>
+                                        <span>Docker</span>
+                                        <span>PostgreSQL</span>
+                                        <span>Redis</span>
+                                        <span>Microservices</span>
+                                        <span>Clean Architecture</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://github.com/Lucasantunesribeiro/smartfinance" class="btn-project">
+                                            <i class="fas fa-code"></i>
+                                            Ver Código
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Projeto 2: LinkGuardião -->
                         <li class="splide__slide">
                             <div class="project-card">
                                 <div class="project-image">
                                     <img src="assets/linkguardiao_com_moldura.png" alt="LinkGuardião">
                                 </div>
                                 <div class="project-content">
-                                    <h3>LinkGuardião </h3>
-                                    <p>Sistema completo de encurtamento de URLs com proteção e estatísticas. Oferece recursos como proteção por senha, expiração automática e análise detalhada de acessos.</p>
+                                    <h3>LinkGuardião</h3>
+                                    <p>Sistema enterprise de encurtamento de URLs com proteção avançada, analytics em tempo real, dashboard administrativo, API RESTful completa e arquitetura Clean com testes automatizados.</p>
                                     <div class="project-tags">
-                                        <span>ASP.NET Core 8.0</span>
+                                        <span>ASP.NET Core 8</span>
                                         <span>React</span>
                                         <span>TypeScript</span>
-                                        <span>Tailwind CSS</span>
+                                        <span>SQL Server</span>
+                                        <span>Entity Framework</span>
+                                        <span>JWT Auth</span>
+                                        <span>Clean Architecture</span>
+                                        <span>xUnit</span>
                                     </div>
                                     <div class="project-links">
-                                        <a href="https://github.com/Lucasantunesribeiro/LinkGuardiao" class="btn-project">
+                                        <a href="https://github.com/Lucasantunesribeiro/LinkGuardiao"
+                                            class="btn-project">
                                             <i class="fas fa-code"></i>
                                             Ver Código
                                         </a>
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </li>
 
-                        <!-- Projeto 2 -->
+                        <!-- Projeto 3: Sistema de Gestão Distribuído -->
+                        <li class="splide__slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23111827'/%3E%3Ctext x='200' y='115' text-anchor='middle' dominant-baseline='middle' fill='%237c3aed' font-family='Inter, sans-serif' font-size='20' font-weight='600'%3EOrder Management%3C/text%3E%3Ctext x='200' y='140' text-anchor='middle' dominant-baseline='middle' fill='%239ca3af' font-family='Inter, sans-serif' font-size='14'%3EEvent Sourcing + CQRS%3C/text%3E%3C/svg%3E" alt="Sistema Distribuído">
+                                </div>
+                                <div class="project-content">
+                                    <h3>Sistema de Gestão Distribuído com Event Sourcing</h3>
+                                    <p>Arquitetura de microserviços com Event Sourcing, CQRS, comunicação assíncrona via RabbitMQ, frontend React 18 e observabilidade completa com métricas e health checks.</p>
+                                    <div class="project-tags">
+                                        <span>Java 17</span>
+                                        <span>Spring Boot</span>
+                                        <span>Event Sourcing</span>
+                                        <span>CQRS</span>
+                                        <span>RabbitMQ</span>
+                                        <span>PostgreSQL</span>
+                                        <span>React 18</span>
+                                        <span>Docker</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://github.com/Lucasantunesribeiro/order-management-system" class="btn-project">
+                                            <i class="fas fa-code"></i>
+                                            Ver Código
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Projeto 4: Armazém São Joaquim -->
+                        <li class="splide__slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23111827'/%3E%3Ctext x='200' y='115' text-anchor='middle' dominant-baseline='middle' fill='%2310b981' font-family='Inter, sans-serif' font-size='18' font-weight='600'%3EArmazém São Joaquim%3C/text%3E%3Ctext x='200' y='140' text-anchor='middle' dominant-baseline='middle' fill='%239ca3af' font-family='Inter, sans-serif' font-size='14'%3E%3C/text%3E%3C/svg%3E" alt="Armazém São Joaquim">
+                                </div>
+                                <div class="project-content">
+                                    <h3>Armazém São Joaquim</h3>
+                                    <p>Sistema completo de reservas e cardápio online para restaurante com painel administrativo, gestão de conteúdo, autenticação Supabase e design responsivo moderno.</p>
+                                    <div class="project-tags">
+                                        <span>Next.js 14</span>
+                                        <span>TypeScript</span>
+                                        <span>Supabase</span>
+                                        <span>Tailwind CSS</span>
+                                        <span>PostgreSQL</span>
+                                        <span>Resend API</span>
+                                        <span>Row Level Security</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://github.com/Lucasantunesribeiro/armazemsaojoaquim" class="btn-project">
+                                            <i class="fas fa-code"></i>
+                                            Ver Código
+                                        </a>
+                                        <a href="https://armazemsaojoaquim.netlify.app/" class="btn-project">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            Demo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Projeto 5: Emissão NF-e -->
                         <li class="splide__slide">
                             <div class="project-card">
                                 <div class="project-image">
@@ -261,15 +377,20 @@
                                 </div>
                                 <div class="project-content">
                                     <h3>Emissão Automatizada de NF-e</h3>
-                                    <p>Sistema completo para emissão automatizada de Nota Fiscal Eletrônica com .NET 9, arquitetura em camadas, testes automatizados e CI/CD.</p>
+                                    <p>Sistema enterprise para emissão automatizada de Nota Fiscal Eletrônica com arquitetura em camadas, background services, health checks, cache distribuído e pronto para CI/CD.</p>
                                     <div class="project-tags">
                                         <span>.NET 9</span>
-                                        <span>Docker</span>
-                                        <span>CI/CD</span>
                                         <span>Clean Architecture</span>
+                                        <span>Redis Cache</span>
+                                        <span>Docker</span>
+                                        <span>Health Checks</span>
+                                        <span>Background Services</span>
+                                        <span>xUnit</span>
+                                        <span>CI/CD</span>
                                     </div>
                                     <div class="project-links">
-                                        <a href="https://github.com/Lucasantunesribeiro/simulador_emissor" class="btn-project">
+                                        <a href="https://github.com/Lucasantunesribeiro/simulador_emissor"
+                                            class="btn-project">
                                             <i class="fas fa-code"></i>
                                             Ver Código
                                         </a>
@@ -278,62 +399,7 @@
                             </div>
                         </li>
 
-                        <!-- Projeto 3 -->
-                        <li class="splide__slide">
-                            <div class="project-card">
-                                <div class="project-image">
-                                    <img src="assets/super_burger_com_moldura.png" alt="Hamburgueria Website">
-                                </div>
-                                <div class="project-content">
-                                    <h3>Hamburgueria Website</h3>
-                                    <p>Website responsivo para uma hamburgueria fictícia, desenvolvido com HTML, CSS e JavaScript.</p>
-                                    <div class="project-tags">
-                                        <span>HTML</span>
-                                        <span>CSS</span>
-                                        <span>JavaScript</span>
-                                    </div>
-                                    <div class="project-links">
-                                        <a href="https://github.com/Lucasantunesribeiro/hamburgueria-website" class="btn-project">
-                                            <i class="fas fa-code"></i>
-                                            Ver Código
-                                        </a>
-                                        <a href="https://projeto-hamburgueria-pi.vercel.app/" class="btn-project">
-                                            <i class="fas fa-external-link-alt"></i>
-                                            Demo
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Projeto 4 -->
-                        <li class="splide__slide">
-                            <div class="project-card">
-                                <div class="project-image">
-                                    <img src="assets/jogo_numero_secreto_com_moldura.png" alt="Número Secreto">
-                                </div>
-                                <div class="project-content">
-                                    <h3>Número Secreto</h3>
-                                    <p>Jogo interativo onde o jogador deve adivinhar um número secreto, desenvolvido com HTML, CSS e JavaScript.</p>
-                                    <div class="project-tags">
-                                        <span>HTML</span>
-                                        <span>CSS</span>
-                                        <span>JavaScript</span>
-                                    </div>
-                                    <div class="project-links">
-                                        <a href="https://github.com/Lucasantunesribeiro/Numero-Secreto" class="btn-project">
-                                            <i class="fas fa-code"></i>
-                                            Ver Código
-                                        </a>
-                                        <a href="https://sorteador-de-numeros-six-pi.vercel.app/" class="btn-project">
-                                            <i class="fas fa-external-link-alt"></i>
-                                            Demo
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- Projeto 5 -->
+                        <!-- Projeto 6: Article Summarizer Agent -->
                         <li class="splide__slide">
                             <div class="project-card">
                                 <div class="project-image">
@@ -341,7 +407,8 @@
                                 </div>
                                 <div class="project-content">
                                     <h3>Article Summarizer Agent</h3>
-                                    <p>Aplicação Python que extrai, processa e resume artigos de qualquer site, com bypass de WAFs avançados e geração de sumários em múltiplos formatos.</p>
+                                    <p>Aplicação Python que extrai, processa e resume artigos de qualquer site, com
+                                        bypass de WAFs avançados e geração de sumários em múltiplos formatos.</p>
                                     <div class="project-tags">
                                         <span>Python</span>
                                         <span>Flask</span>
@@ -349,7 +416,8 @@
                                         <span>NLP</span>
                                     </div>
                                     <div class="project-links">
-                                        <a href="https://github.com/Lucasantunesribeiro/article_summarizer_agent" class="btn-project">
+                                        <a href="https://github.com/Lucasantunesribeiro/article_summarizer_agent"
+                                            class="btn-project">
                                             <i class="fas fa-code"></i>
                                             Ver Código
                                         </a>
@@ -372,30 +440,31 @@
         <div class="container">
             <div class="footer-content">
                 <div class="contact-info">
-                    <p>Entre em contato: </p> 
+                    <p>Entre em contato: </p>
 
                     <div>
-                        <a href="mailto:Lucas.afvr@gmail.com" class="email-link" aria-label="Enviar email para Lucas.afvr@gmail.com">
+                        <a href="mailto:Lucas.afvr@gmail.com" class="email-link"
+                            aria-label="Enviar email para Lucas.afvr@gmail.com">
                             <i class="fas fa-envelope"></i> Lucas.afvr@gmail.com
                         </a>
                         <br>
                     </div>
-                    
-                   
-                </p>
+
+
+                    </p>
                 </div>
-                    <div class="social-links">
-                        <a href="https://github.com/Lucasantunesribeiro/" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank" rel="noopener noreferrer"
-                            aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+                <div class="social-links">
+                    <a href="https://github.com/Lucasantunesribeiro/" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
             </div>
+        </div>
         </div>
     </footer>
 
