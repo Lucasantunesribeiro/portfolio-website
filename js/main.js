@@ -51,7 +51,7 @@ window.addEventListener('scroll', () => {
 	progressBar.style.width = `${scrolled}%`;
 });
 
-// Inicializa o Splide
+// Inicializa quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
 	// Forçar menu-toggle visível em telas <= 992px
 	if (window.innerWidth <= 992) {
@@ -64,32 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			menuToggle.style.display = 'none';
 		}
 	});
-
-	new Splide('.splide', {
-		type: 'slide',
-		perPage: 3,
-		perMove: 1,
-		gap: '2rem',
-		pagination: true,
-		arrows: true,
-		autoplay: true,
-		interval: 3000,
-		padding: { right: '1.5rem' },
-		breakpoints: {
-			1200: {
-				perPage: 3
-			},
-			992: {
-				perPage: 2
-			},
-			768: {
-				perPage: 2
-			},
-			576: {
-				perPage: 1
-			}
-		}
-	}).mount();
 
 	const animateElements = document.querySelectorAll('.hero-content, .sobre-grid, .skill-card, .project-card');
 	const observer = new IntersectionObserver((entries) => {

@@ -24,3 +24,6 @@ Thumbs.db
 # Outros
 .env
 .env.*
+
+# Pasta de documentação README
+readme/
