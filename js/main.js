@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	const stackBtns = document.querySelectorAll('.stack-btn');
 	const projectCards = document.querySelectorAll('.project-card');
-	const menuToggle = document.querySelector('.menu-toggle');
-	const navLinks = document.querySelector('.nav-links');
+	let menuToggle = document.querySelector('.menu-toggle');
+	let navLinks = document.querySelector('.nav-links');
 
 	stackBtns.forEach(btn => {
 		btn.addEventListener('click', function () {
@@ -52,19 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
-	// Forçar menu-toggle visível em telas <= 992px
-	if (menuToggle) {
-		if (window.innerWidth <= 992) {
-			menuToggle.style.display = 'block';
-		}
-		window.addEventListener('resize', () => {
-			if (window.innerWidth <= 992) {
-				menuToggle.style.display = 'block';
-			} else {
-				menuToggle.style.display = 'none';
-			}
-		});
-	}
+	// Apenas CSS controla a exibição do menu-toggle
+	console.log('DOM fully loaded, JS running');
 
 	// Animações de entrada
 	const animateElements = document.querySelectorAll('.hero-content, .sobre-grid, .skill-card, .project-card');
@@ -106,41 +95,38 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (heroBackground) heroBackground.style.transform = `translate(${moveX}px, ${moveY}px)`;
 	});
 
-	// Menu mobile
-	if (menuToggle && navLinks) {
-		menuToggle.addEventListener('click', () => {
-			menuToggle.classList.toggle('active');
-			navLinks.classList.toggle('active');
-			document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-		});
-
-		// Fechar menu ao clicar em um link
-		navLinks.querySelectorAll('a').forEach(link => {
-			link.addEventListener('click', () => {
-				menuToggle.classList.remove('active');
-				navLinks.classList.remove('active');
-				document.body.style.overflow = '';
+	// Função para aplicar os listeners do menu hamburguer
+	function applyMenuListeners() {
+		menuToggle = document.querySelector('.menu-toggle');
+		navLinks = document.querySelector('.nav-links');
+		if (menuToggle && navLinks) {
+			menuToggle.onclick = function (e) {
+				e.stopPropagation();
+				navLinks.classList.toggle('active');
+				menuToggle.classList.toggle('active');
+				console.log('Menu toggle clicked');
+			};
+			navLinks.querySelectorAll('a, #toggle-lang').forEach(link => {
+				link.onclick = function () {
+					navLinks.classList.remove('active');
+					menuToggle.classList.remove('active');
+				};
 			});
-		});
-
-		// Fechar menu ao clicar fora
-		document.addEventListener('click', (e) => {
-			if (!menuToggle.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-				menuToggle.classList.remove('active');
-				navLinks.classList.remove('active');
-				document.body.style.overflow = '';
-			}
-		});
-
-		// Fechar menu ao redimensionar para desktop
-		window.addEventListener('resize', () => {
-			if (window.innerWidth > 992) {
-				menuToggle.classList.remove('active');
-				navLinks.classList.remove('active');
-				document.body.style.overflow = '';
-			}
-		});
+			document.addEventListener('click', function (e) {
+				if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+					navLinks.classList.remove('active');
+					menuToggle.classList.remove('active');
+				}
+			});
+			window.addEventListener('resize', function () {
+				if (window.innerWidth > 992) {
+					navLinks.classList.remove('active');
+					menuToggle.classList.remove('active');
+				}
+			});
+		}
 	}
+	applyMenuListeners();
 
 	// Barra de Progresso
 	window.addEventListener('scroll', () => {
@@ -157,6 +143,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	const langBtn = document.getElementById('toggle-lang');
 
 	// Texts for translation
+
+	// Exemplo de troca de idioma (substitua pela sua lógica real)
+	if (langBtn) {
+		langBtn.addEventListener('click', function () {
+			// ...sua lógica de troca de idioma...
+			// Após trocar o idioma, reaplique os listeners do menu hamburguer
+			setTimeout(applyMenuListeners, 100); // aguarda DOM atualizar
+		});
+	}
 	const translations = {
 		pt: {
 			home: 'Home',
