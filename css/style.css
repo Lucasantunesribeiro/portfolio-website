@@ -69,16 +69,14 @@ body {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    min-height: 56px;
-        flex-wrap: nowrap;
-}
-}
+    min-height: 64px;
+    flex-wrap: nowrap;
+    gap: 2rem;
 }
 
 .logo {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--text);
     text-decoration: none;
     letter-spacing: 1px;
     padding: 0.2rem 0.5rem;
@@ -86,13 +84,11 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
+    color: transparent;
     transition: var(--transition);
     display: inline-block;
-    align-items: center;
     border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(37,99,235,0.08);
-}
+    align-self: center;
 }
 
 .nav-links {
@@ -708,7 +704,7 @@ body {
         -webkit-text-fill-color: transparent;
         text-fill-color: transparent;
         border-radius: 6px;
-        box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+    /* box-shadow removido para mobile */
     }
     .language-toggle {
         margin-left: 0;
