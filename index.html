@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio</title>
 
+    <!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/main.js"></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,6 +66,9 @@
                 <a href="#experiencias">Experiências</a>
                 <a href="#habilidades">Habilidades</a>
                 <a href="#projetos">Projetos</a>
+            </div>
+            <div class="language-toggle">
+                <button id="toggle-lang" aria-label="Alternar idioma">PT / EN</button>
             </div>
         </div>
     </nav>
@@ -257,7 +272,20 @@
         <div class="container">
             <h2 class="highlight">Projetos</h2>
             <p class="projetos-subtitle">Explore minha jornada de desenvolvimento através destes projetos que demonstram diferentes tecnologias e arquiteturas</p>
-            
+
+            <!-- Filtro de Stacks -->
+            <div class="stacks-filter">
+                <button class="stack-btn active" data-stack="all"><i class="fas fa-layer-group"></i> Todos</button>
+                <button class="stack-btn" data-stack=".NET"><i class="fas fa-code"></i> .NET</button>
+                <button class="stack-btn" data-stack="React"><i class="fab fa-react"></i> React</button>
+                <button class="stack-btn" data-stack="TypeScript"><i class="fab fa-js-square"></i> TypeScript</button>
+                <button class="stack-btn" data-stack="Python"><i class="fab fa-python"></i> Python</button>
+                <button class="stack-btn" data-stack="Java"><i class="fab fa-java"></i> Java</button>
+                <button class="stack-btn" data-stack="PHP"><i class="fab fa-php"></i> PHP</button>
+                <button class="stack-btn" data-stack="Node.js"><i class="fab fa-node-js"></i> Node.js</button>
+                <button class="stack-btn" data-stack="CSS"><i class="fab fa-css3-alt"></i> CSS</button>
+            </div>
+
             <div class="projetos-grid">
                 <!-- Projeto 1: Armazém São Joaquim -->
                 <div class="project-card">
@@ -473,27 +501,71 @@
                         <img src="assets/Smart_finance.png" alt="SmartFinance">
                     </div>
                     <div class="project-content">
-                        <h3>SmartFinance - Enterprise Financial System</h3>
-                        <p>Sistema financeiro enterprise completo com dashboard em tempo real, gestão de transações, categorias, contas bancárias, orçamentos e relatórios avançados com gráficos interativos.</p>
+                        <h3>SmartFinance - Sistema de Gestão Financeira Empresarial</h3>
+                        <p>SmartFinance é um sistema completo para gestão financeira empresarial, com arquitetura moderna e tecnologias de ponta. Controle financeiro, análise de dados, processamento de pagamentos em tempo real e segurança enterprise-ready.</p>
                         <div class="project-tags">
-                            <span>Next.js 13.5</span>
-                            <span>React</span>
+                            <span>Next.js 14</span>
                             <span>TypeScript</span>
                             <span>Tailwind CSS</span>
+                            <span>Shadcn/ui</span>
+                            <span>.NET 8</span>
+                            <span>Clean Architecture</span>
+                            <span>CQRS</span>
+                            <span>SignalR</span>
                             <span>Node.js</span>
-                            <span>JWT Auth</span>
-                            <span>Chart.js</span>
-                            <span>PM2</span>
+                            <span>Express</span>
+                            <span>MongoDB</span>
+                            <span>SQL Server</span>
+                            <span>Redis</span>
+                            <span>Docker</span>
+                            <span>Nginx</span>
+                            <span>AWS</span>
+                            <span>Terraform</span>
                         </div>
+                        <ul class="project-features">
+                            <li>💰 Dashboard financeiro em tempo real</li>
+                            <li>📊 Gráficos interativos e métricas avançadas</li>
+                            <li>🔔 Alertas e notificações inteligentes</li>
+                            <li>� Análise de tendências e previsões</li>
+                            <li>�💸 Gestão de transações e reconciliação automática</li>
+                            <li>💳 Processamento de pagamentos (múltiplos métodos, filas, retry, antifraude)</li>
+                            <li>� Relatórios avançados e exportação PDF/Excel/CSV</li>
+                            <li>�️ Segurança: JWT, RBAC, CSRF/XSS, AES-256, LGPD/GDPR, PCI DSS, OWASP</li>
+                            <li>☁️ Deploy automatizado: Docker, Nginx, AWS, Terraform</li>
+                        </ul>
                         <div class="project-links">
-                            <a href="https://github.com/Lucasantunesribeiro/smart_finance" class="btn-project">
+                            <a href="https://github.com/lucasantunesribeiro/smart_finance" class="btn-project" target="_blank">
                                 <i class="fas fa-code"></i>
                                 Ver Código
                             </a>
-                            <a href="http://34.203.238.219:3000/dashboard" class="btn-project">
+                            <a href="http://204.236.248.148" class="btn-project" target="_blank">
                                 <i class="fas fa-external-link-alt"></i>
-                                Demo
+                                Demo Online
                             </a>
+                            <a href="http://204.236.248.148:5000/swagger" class="btn-project" target="_blank">
+                                <i class="fas fa-book"></i>
+                                API Docs
+                            </a>
+                            <a href="http://204.236.248.148:3001" class="btn-project" target="_blank">
+                                <i class="fas fa-credit-card"></i>
+                                Payment Service
+                            </a>
+                        </div>
+                        <div class="project-endpoints">
+                            <strong>Principais Endpoints:</strong>
+                            <ul>
+                                <li>GET /api/v1/health</li>
+                                <li>POST /api/v1/auth/login</li>
+                                <li>GET /api/v1/transactions</li>
+                                <li>POST /api/v1/transactions</li>
+                                <li>GET /api/v1/analytics/dashboard</li>
+                                <li>POST /api/v1/payments/process</li>
+                            </ul>
+                        </div>
+                        <div class="project-meta">
+                            <span><strong>Deploy:</strong> Docker Compose, Nginx, AWS, Terraform</span>
+                            <span><strong>Segurança:</strong> JWT, RBAC, CSRF/XSS, AES-256, LGPD/GDPR, PCI DSS, OWASP</span>
+                            <span><strong>Métricas:</strong> Uptime 99.9%, Response Time &lt;200ms, Cobertura &gt;80%</span>
                         </div>
                     </div>
                 </div>
