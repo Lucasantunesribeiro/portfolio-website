@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					desc: 'Sistema financeiro empresarial completo com dashboard em tempo real, gestão de transações, processamento de pagamentos, análise de dados e segurança enterprise-ready. Arquitetura moderna, microserviços e deploy automatizado.',
 					tags: ['Next.js 14','TypeScript','Tailwind CSS','.NET 8','Node.js','SQL Server','MongoDB','Docker','AWS'],
 					code: 'https://github.com/lucasantunesribeiro/smart_finance',
-					demo: 'http://204.236.248.148'
+					demo: 'http://34.203.238.219'
 				},
 				{
 					img: 'assets/jogo_numero_secreto_com_moldura.png',
