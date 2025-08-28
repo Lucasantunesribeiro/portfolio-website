@@ -285,10 +285,10 @@ document.addEventListener('DOMContentLoaded', function () {
 				},
 				{
 					img: 'assets/jogo_numero_secreto_com_moldura.png',
-					alt: 'Número Secreto',
-					title: 'Sorteador de Números',
-					desc: 'Aplicação interativa com múltiplas funcionalidades: sorteador de números, adivinhação, par ou ímpar e roleta. Interface moderna com tema escuro e design responsivo.',
-					tags: ['HTML','CSS','JavaScript','Responsivo','Dark Theme','Interativo'],
+					alt: 'Logic Games Suite',
+					title: 'Logic Games Suite',
+					desc: 'Suíte completa de jogos de lógica interativos com design moderno, estatísticas avançadas e experiência gamificada. Inclui Number Guess, Memory Game, Random Generator, Odd or Even e Reaction Time com sistema de conquistas e dashboard personalizado.',
+					tags: ['HTML5','CSS3','JavaScript ES6+','Responsivo','Dark/Light Theme','Gamificação','Web Audio API','LocalStorage'],
 					code: 'https://github.com/Lucasantunesribeiro/Numero-Secreto',
 					demo: 'https://sorteador-de-numeros-six-pi.vercel.app/'
 				},
