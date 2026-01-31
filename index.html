@@ -27,6 +27,7 @@
     <link rel="preload" href="css/style.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
         as="style">
+    <link rel="preload" href="assets/Photorealistic_Coder_Video_Generation.mp4" as="video" type="video/mp4">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -86,7 +87,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <video autoplay muted loop playsinline class="hero-video">
+        <video autoplay muted loop playsinline class="hero-video" fetchpriority="high">
             <source src="assets/Photorealistic_Coder_Video_Generation.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
