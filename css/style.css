@@ -904,17 +904,33 @@ body {
     box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.4);
 }
 
-.email-link:hover i {
-    transform: scale(1.1) rotate(-10deg);
-    color: #a78bfa;
-}
-
-/* Social Links */
+/* Social Links (Global/Hero) */
 .social-links {
     display: flex;
     gap: 1.5rem;
 }
 
+.social-links a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    transition: var(--transition);
+    color: var(--text);
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+    color: var(--light);
+}
+
+/* Footer Specific Social Buttons (Premium) */
 .social-btn {
     width: 3.5rem;
     height: 3.5rem;
@@ -929,6 +945,7 @@ body {
     font-size: 1.5rem;
     position: relative;
     overflow: hidden;
+    text-decoration: none;
 }
 
 .social-btn:hover {
