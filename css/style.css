@@ -1070,6 +1070,17 @@ body {
 /* Fallback extra (usamos via JS também) */
 .project-card.is-hidden,
 .skill-card.is-hidden,
-#projetos-empty.is-hidden {
-    display: none !important;
+/* ==================== RESPONSIVE UTILITIES ==================== */
+.mobile-text {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-text {
+        display: none;
+    }
+
+    .mobile-text {
+        display: block;
+    }
 }
