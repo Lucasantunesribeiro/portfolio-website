@@ -73,6 +73,17 @@ document.addEventListener('DOMContentLoaded', function () {
 		observer.observe(element);
 	});
 
+	// Acessibilidade: Prefers Reduced Motion e Economia de Bateria
+	const video = document.querySelector('.hero-video');
+	if (video) {
+		const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+		if (mediaQuery.matches || window.innerWidth < 768) {
+			video.pause();
+			// Opcional: esconder vídeo se tiver um poster definido no HTML
+			// video.style.display = 'none'; 
+		}
+	}
+
 	// Mouse tracking para efeito magic card
 	const cards = document.querySelectorAll('.magic-card');
 	cards.forEach(card => {
@@ -159,12 +170,14 @@ document.addEventListener('DOMContentLoaded', function () {
 			experiencias: 'Experiências',
 			habilidades: 'Habilidades',
 			projetos: 'Projetos',
-			heroTitle: 'Olá, eu sou <span class="highlight">Lucas Antunes</span>',
-			heroDesc: 'Desenvolvedor .NET Especialista | Azure Cloud | Sistemas Enterprise & Bancários',
+			heroTitle: 'Olá, eu sou <span class="highlight">Lucas Antunes Ferreira</span>',
+			heroDesc: 'Desenvolvedor Full Stack | .NET Specialist | Arquitetura de Software',
+			heroDescMobile: 'Desenvolvedor Full Stack | .NET Specialist',
 			btnCurriculo: 'Currículo',
 			btnProjetos: 'Ver Projetos',
 			sobreTitle: 'Sobre Mim',
-			sobreTexto: 'Desenvolvedor .NET com sólida experiência em <strong>C#</strong>, <strong>.NET 8/9</strong> e <strong>ASP.NET Core</strong>, especializado no desenvolvimento de sistemas enterprise críticos com foco no setor bancário e financeiro. Expertise comprovada em <strong>Clean Architecture</strong>, <strong>microserviços</strong> e <strong>Domain-Driven Design (DDD)</strong> para sistemas de alta disponibilidade 24/7.<br><br>Proficiente em <strong>Azure Cloud</strong>, <strong>DevOps</strong> e práticas de <strong>DevSecOps</strong> essenciais para compliance bancário. Experiência no desenvolvimento de <strong>APIs RESTful</strong> escaláveis, implementação de padrões de segurança (<strong>OAuth 2.0</strong>, <strong>JWT</strong>) e conhecimento em regulamentações financeiras (<strong>LGPD</strong>, <strong>Open Banking</strong>, <strong>PIX</strong>).<br><br>Capacidade analítica para resolução de problemas complexos em ambientes corporativos, com metodologias ágeis (<strong>Scrum</strong>/<strong>Kanban</strong>) e forte orientação para qualidade através de <strong>testes automatizados</strong> e <strong>CI/CD</strong>.',
+			sobreTexto: '<p>Sou um desenvolvedor Fullstack apaixonado por construir sistemas <strong class="highlight">robustos</strong> e <strong class="highlight">escaláveis</strong>.</p><p>Com uma base sólida em Ciência da Computação e experiência prática em ambientes corporativos, foco em entregar valor através de <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">testes automatizados</strong> e <strong class="highlight">boas práticas</strong>.</p><p>Transformo requisitos complexos em soluções eficientes, sempre priorizando performance, segurança e uma excelente experiência para o usuário.</p>',
+			sobreTextoMobile: 'Dev Fullstack focado em sistemas <strong class="highlight">robustos</strong>. Uso <strong class="highlight">Clean Architecture</strong> para criar soluções eficientes e de alta performance.',
 			statExp: 'Anos de Experiência',
 			statProj: 'Projetos Enterprise',
 			statDisp: 'Disponibilidade Sistemas',
@@ -193,113 +206,127 @@ document.addEventListener('DOMContentLoaded', function () {
 				empresa: 'Freelancer',
 				periodo: 'Janeiro de 2024 - Novembro de 2024',
 				cargo: 'Desenvolvedor Fullstack',
-				tech: 'C#,.NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript',
+				tech: 'C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript',
 				desc: 'Responsável pelo desenvolvimento fullstack de aplicações web e APIs RESTful utilizando C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript. Experiência em modelagem e otimização de bancos de dados relacionais (SQL Server, MySQL) e NoSQL (MongoDB). Implementa princípios SOLID, Clean Architecture e Design Patterns para garantir código limpo e manutenível. Desenvolve testes automatizados (unitários e de integração) com xUnit e PHPUnit. Atua em todo o ciclo de vida do desenvolvimento: análise de requisitos, design, desenvolvimento, testes e deploy, utilizando metodologias ágeis (Scrum/Kanban) e versionamento com Git.'
 			},
 			habilidadesTitle: 'Habilidades',
 			habilidades: [
-				{title: '.NET Development', desc: '.NET 8/9 (LTS), C#, ASP.NET Core, Entity Framework Core, Blazor, Worker Services, .NET Aspire'},
-				{title: 'Banco de Dados Enterprise', desc: 'SQL Server, T-SQL, Oracle Database, PostgreSQL, Entity Framework, Redis Cache, Azure SQL'},
-				{title: 'Azure Cloud & DevOps', desc: 'Azure DevOps, Azure Service Bus, Azure Key Vault, Docker, Kubernetes, CI/CD, GitHub Actions'},
-				{title: 'Arquitetura Enterprise', desc: 'Clean Architecture, DDD, CQRS, Event Sourcing, Microservices, API Gateway, Event-Driven Architecture'},
-				{title: 'Segurança & Compliance', desc: 'OAuth 2.0, JWT, mTLS, PCI-DSS, LGPD, Open Banking, DevSecOps, Security Headers, Input Validation'},
-				{title: 'APIs & Integração Bancária', desc: 'REST APIs, SignalR, Swagger/OpenAPI, Core Banking Systems, PIX, WebSockets, RabbitMQ'},
-				{title: 'Frontend Enterprise', desc: 'Angular, React, TypeScript, Blazor Server, HTML5, CSS3, Tailwind CSS, JavaScript ES6+'},
-				{title: 'Qualidade & Testes', desc: 'xUnit, NUnit, TDD, BDD, Clean Code, SOLID, Code Review, SonarQube, Integration Testing'},
-				{title: 'Metodologias Corporativas', desc: 'Scrum, Kanban, Agile, Git Flow, Azure Boards, Code Review, Pair Programming, ITIL'}
+				{ title: 'Backend', desc: 'C#/.NET (ASP.NET Core, EF Core), Node.js (Express), APIs REST, JWT, Clean Architecture' },
+				{ title: 'Frontend', desc: 'React, Next.js, TypeScript, Tailwind, shadcn/ui' },
+				{ title: 'Banco de Dados', desc: 'PostgreSQL, SQL, Prisma, Supabase (RLS)' },
+				{ title: 'Cloud/DevOps', desc: 'AWS, Docker, CI/CD (GitHub Actions), Observabilidade' },
+				{ title: 'Qualidade & Segurança', desc: 'Testes unitários/integração, Health Checks, Performance & Security' }
 			],
 			projetosTitle: 'Projetos',
-			projetosSubtitle: 'Explore minha jornada de desenvolvimento através destes projetos que demonstram diferentes tecnologias e arquiteturas',
+			projetosSubtitle: 'Explore minha jornada de desenvolvimento através destes projetos',
 			contato: 'Entre em contato: ',
-			stacks: ['Todos','.NET','React','TypeScript','Python','Java','JavaScript','PHP','Node.js','CSS'],
+			stacks: ['Todos', '.NET', 'React', 'TypeScript', 'Python', 'Java', 'JavaScript', 'PHP', 'Node.js', 'CSS'],
 			projetos: [
 				{
-					img: 'assets/Armazem_saojoaquim.png',
-					alt: 'Armazém São Joaquim',
-					title: 'Armazém São Joaquim',
-					desc: 'Sistema completo de restaurante com cardápio digital interativo, pousada, café e blog. Inclui gestão de reservas, painel administrativo e design responsivo multilíngue (PT/EN).',
-					tags: ['Next.js 14','TypeScript','Supabase','Tailwind CSS','PostgreSQL','Resend API','Row Level Security','Multilíngue'],
-					code: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
-					demo: 'https://armazemsaojoaquim.com.br/pt'
+					img: 'assets/sistema_distribuido_mockup.webp',
+					alt: 'Sistema Distribuído',
+					title: 'Sistema de Gestão Distribuído',
+					desc: 'Arquitetura complexa de Microsserviços utilizando Event Sourcing e CQRS. Implementado com Java Spring Boot, RabbitMQ e PostgreSQL para alta escalabilidade.',
+					tags: ['Java', 'Spring Boot', 'RabbitMQ', 'Event Sourcing', 'CQRS'],
+					code: 'https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing'
 				},
 				{
-					img: 'assets/article_summarizer_agent.png',
+					img: 'assets/emiss_o_automatizada_de_nf_e_mockup.webp',
+					alt: 'Emissão NF-e',
+					title: 'Emissão Automatizada de NF-e',
+					desc: 'Sistema distribuído Serverless Event-Driven na AWS. Utiliza Lambda (Go + .NET 9), EventBridge e SQS para emissão fiscal massiva e geração de PDFs com alta performance.',
+					tags: ['AWS Lambda', 'Go', '.NET 9', 'EventBridge', 'Serverless'],
+					code: 'https://github.com/Lucasantunesribeiro/emissao_nfe',
+					demo: 'https://d3065hze06690c.cloudfront.net/login'
+				},
+				{
+					img: 'assets/emailtriageai_mockup.webp',
+					alt: 'EmailTriageAI',
+					title: 'EmailTriageAI',
+					desc: 'Sistema inteligente de triagem de emails corporativos. Utiliza IA (Gemini) e NLP para classificar, resumir e gerar respostas automáticas para mensagens, otimizando o fluxo de trabalho.',
+					tags: ['Python', 'FastAPI', 'Gemini AI', 'NLP', 'Docker'],
+					code: 'https://github.com/Lucasantunesribeiro/EmailTriageAI',
+					demo: 'http://100.48.50.86/'
+				},
+				{
+					img: 'assets/linkguardi_o_mockup.webp',
+					alt: 'LinkGuardião',
+					title: 'LinkGuardião',
+					desc: 'Encurtador de URLs corporativo com proteção por senha e analytics detalhado. Backend robusto em ASP.NET Core 8 com arquitetura limpa.',
+					tags: ['ASP.NET Core 8', 'React', 'EF Core', 'Docker', 'Analytics'],
+					code: 'https://github.com/Lucasantunesribeiro/LinkGuardiao',
+					demo: 'https://linkguardiao.pages.dev/'
+				},
+				{
+					img: 'assets/article_summarizer_agent_mockup.webp',
 					alt: 'Article Summarizer Agent',
 					title: 'Article Summarizer Agent',
-					desc: 'Aplicação Python que extrai, processa e resume artigos de qualquer site, com bypass avançado de WAF (Cloudflare, DataCamp), múltiplos formatos de saída e API RESTful completa.',
-					tags: ['Python','Flask','Selenium','NLP','WAF Bypass','API REST','Docker'],
+					desc: 'Agente de IA capaz de contornar WAFs avançados (Cloudflare) para extrair e resumir artigos da web. Utiliza Selenium stealth e fallback strategies para garantia de coleta.',
+					tags: ['Python', 'Selenium Stealth', 'Flask', 'AI Agent', 'WAF Bypass'],
 					code: 'https://github.com/Lucasantunesribeiro/article_summarizer_agent',
 					demo: 'https://article-summarizer-agent.onrender.com/'
 				},
 				{
-					img: 'assets/Collab_docs.png',
+					img: 'assets/smartfinance_mockup.webp',
+					alt: 'SmartFinance',
+					title: 'SmartFinance',
+					desc: 'Aplicação Fullstack multi-idioma segura com ALB privado e ECS. Oferece gestão financeira com dashboards interativos, CSRF protection e autenticação JWT robusta.',
+					tags: ['Next.js', 'Node.js', 'AWS ECS', 'Terraform', 'Multi-tenant'],
+					code: 'https://github.com/Lucasantunesribeiro/smart_finance',
+					demo: 'http://smartfinance-prod-alb-1713518371.sa-east-1.elb.amazonaws.com/'
+				},
+				{
+					img: 'assets/kogui_pokedex_mockup.webp',
+					alt: 'Kogui Pokédx',
+					title: 'Kogui Pokédx',
+					desc: 'Desafio técnico Fullstack com Django 5.0 e Angular 17. Integração à PokéAPI, autenticação JWT, sistema de favoritos e painel administrativo.',
+					tags: ['Angular 17', 'Django 5.0', 'PostgreSQL', 'Docker', 'JWT'],
+					code: 'https://github.com/Lucasantunesribeiro/Kogui_pokedex'
+				},
+				{
+					img: 'assets/collabdocs_mockup.webp',
 					alt: 'CollabDocs',
 					title: 'CollabDocs',
-					desc: 'Plataforma de documentos colaborativos com Next.js 15, Cloudflare Workers, D1 database e KV storage. Sistema 100% funcional com autenticação OAuth e colaboração em tempo real.',
-					tags: ['Next.js 15','TypeScript','Cloudflare Workers','D1 Database','KV Storage','Tailwind CSS','OAuth','Edge Computing'],
+					desc: 'Plataforma de edição colaborativa de documentos em tempo real. Arquitetura serverless moderna com Cloudflare Workers e D1, construída em Monorepo.',
+					tags: ['Cloudflare Workers', 'Next.js', 'D1 SQL', 'Real-time', 'Monorepo'],
 					code: 'https://github.com/Lucasantunesribeiro/Collabdocs',
 					demo: 'https://collabdocs-app.vercel.app/'
 				},
 				{
-					img: 'assets/nfe_api_swagger_com_moldura.png',
-					alt: 'Emissão NF-e',
-					title: 'Emissão Automatizada de NF-e',
-					desc: 'Sistema enterprise para emissão automatizada de Nota Fiscal Eletrônica com .NET 9, Clean Architecture, background services, health checks e deploy automatizado na AWS Lambda.',
-					tags: ['.NET 9','Clean Architecture','PostgreSQL','Docker','Health Checks','Background Services','xUnit','AWS Lambda'],
-					code: 'https://github.com/Lucasantunesribeiro/simulador_emissor',
-					demo: 'https://42zqg8iw8b.execute-api.us-east-1.amazonaws.com/prod/swagger/index.html'
+					img: 'assets/armaz_m_s_o_joaquim_mockup.webp',
+					alt: 'Armazém São Joaquim',
+					title: 'Armazém São Joaquim',
+					desc: 'Plataforma digital completa com Next.js 15 e Supabase. Inclui cardápio interativo, sistema de reservas, blog e área administrativa, com foco em SEO e performance.',
+					tags: ['Next.js 15', 'TypeScript', 'Supabase', 'Tailwind', 'Shadcn/ui'],
+					code: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
+					demo: 'https://armazemsaojoaquim.com.br/'
 				},
 				{
-					img: 'assets/linkguardiao_com_moldura.png',
-					alt: 'LinkGuardião',
-					title: 'LinkGuardião',
-					desc: 'Sistema completo de encurtamento de URLs com proteção por senha, expiração automática, estatísticas detalhadas e dashboard administrativo. Inclui análise de cliques e localização geográfica.',
-					tags: ['ASP.NET Core 8','React','TypeScript','SQLite','Entity Framework','JWT Auth','Chart.js','Tailwind CSS'],
-					code: 'https://github.com/Lucasantunesribeiro/LinkGuardiao'
+					img: 'assets/parallel_store_mockup.webp',
+					alt: 'Parallel Store',
+					title: 'Parallel Store',
+					desc: 'E-commerce urbano moderno construído com Next.js 15 e React 18. Foco total em conversão, performance e experiência do usuário (UX).',
+					tags: ['Next.js 15', 'React 18', 'Tailwind', 'E-commerce'],
+					code: 'https://github.com/Lucasantunesribeiro/parallel_store',
+					demo: 'https://parallelstore.netlify.app/'
 				},
 				{
-					img: 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23111827\'/%3E%3Ctext x=\'200\' y=\'115\' text-anchor=\'middle\' dominant-baseline=\'middle\' fill=\'%237c3aed\' font-family=\'Inter, sans-serif\' font-size=\'20\' font-weight=\'600\'%3EOrder Management%3C/text%3E%3Ctext x=\'200\' y=\'140\' text-anchor=\'middle\' dominant-baseline=\'middle\' fill=\'%239ca3af\' font-family=\'Inter, sans-serif\' font-size=\'14\'%3EEvent Sourcing + CQRS%3C/text%3E%3C/svg%3E',
-					alt: 'Sistema Distribuído',
-					title: 'Sistema de Gestão Distribuído com Event Sourcing',
-					desc: 'Arquitetura de microserviços com Event Sourcing, CQRS, comunicação assíncrona via RabbitMQ, frontend React 18 e observabilidade completa com métricas e health checks.',
-					tags: ['Java 17','Spring Boot','Event Sourcing','CQRS','RabbitMQ','PostgreSQL','React 18','Docker'],
-					code: 'https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing'
-				},
-				{
-					img: 'assets/Locadora_decarros.png',
+					img: 'assets/locadora_de_carros_mockup.webp',
 					alt: 'Locadora de Carros',
-					title: 'Sistema de Locadora de Carros',
-					desc: 'Sistema completo de gestão de locadora com autenticação, CRUD de usuários e carros, sistema de aluguéis com validações, controle de permissões e interface responsiva moderna.',
-					tags: ['PHP 8.1+','SQLite','HTML5','CSS3','JavaScript','Design System','shadcn/ui','Responsivo'],
+					title: 'Locadora de Carros',
+					desc: 'Sistema de gestão de frota e locação desenvolvido em PHP 8.1+. Possui autenticação segura, controle de permissões (ACL) e CRUDs completos.',
+					tags: ['PHP 8.1', 'SQLite', 'MVC', 'Bootstrap', 'Auth'],
 					code: 'https://github.com/Lucasantunesribeiro/locadora_de_carros',
 					demo: 'https://locadora-de-carros.onrender.com/'
 				},
 				{
-					img: 'assets/Smart_finance.png',
-					alt: 'SmartFinance',
-					title: 'SmartFinance - Sistema de Gestão Financeira Empresarial',
-					desc: 'Sistema financeiro empresarial completo com dashboard em tempo real, gestão de transações, processamento de pagamentos, análise de dados e segurança enterprise-ready. Arquitetura moderna, microserviços e deploy automatizado.',
-					tags: ['Next.js 14','TypeScript','Tailwind CSS','.NET 8','Node.js','SQL Server','MongoDB','Docker','AWS'],
-					code: 'https://github.com/lucasantunesribeiro/smart_finance',
-					demo: 'http://34.203.238.219'
-				},
-				{
-					img: 'assets/jogo_numero_secreto_com_moldura.png',
+					img: 'assets/logic_games_suite_mockup.webp',
 					alt: 'Logic Games Suite',
 					title: 'Logic Games Suite',
-					desc: 'Suíte completa de jogos de lógica interativos com design moderno, estatísticas avançadas e experiência gamificada. Inclui Number Guess, Memory Game, Random Generator, Odd or Even e Reaction Time com sistema de conquistas e dashboard personalizado.',
-					tags: ['HTML5','CSS3','JavaScript ES6+','Responsivo','Dark/Light Theme','Gamificação','Web Audio API','LocalStorage'],
+					desc: 'Coleção de mini-jogos lógicos desenvolvidos com JavaScript puro, focando em lógica de programação e interatividade responsiva.',
+					tags: ['HTML5', 'CSS3', 'JavaScript', 'Logic'],
 					code: 'https://github.com/Lucasantunesribeiro/Numero-Secreto',
 					demo: 'https://sorteador-de-numeros-six-pi.vercel.app/'
-				},
-				{
-					img: 'assets/super_burger_com_moldura.png',
-					alt: 'Hamburgueria Website',
-					title: 'Super Burger - Website Premium',
-					desc: 'Website responsivo para hamburgueria artesanal com design premium, cardápio interativo, seção de equipe e contato. Interface moderna com tema escuro e elementos visuais atrativos.',
-					tags: ['HTML','CSS','JavaScript','Responsivo','Dark Theme','Premium Design','Mobile-First'],
-					code: 'https://github.com/Lucasantunesribeiro/hamburgueria-website',
-					demo: 'https://projeto-hamburgueria-pi.vercel.app/'
 				}
 			]
 		},
@@ -309,12 +336,14 @@ document.addEventListener('DOMContentLoaded', function () {
 			experiencias: 'Experience',
 			habilidades: 'Skills',
 			projetos: 'Projects',
-			heroTitle: 'Hi, I am <span class="highlight">Lucas Antunes</span>',
-			heroDesc: '.NET Specialist Developer | Azure Cloud | Enterprise & Banking Systems',
+			heroTitle: 'Hi, I am <span class="highlight">Lucas Antunes Ferreira</span>',
+			heroDesc: 'Full Stack Developer | .NET Specialist | Software Architecture',
+			heroDescMobile: 'Full Stack Developer | .NET Specialist',
 			btnCurriculo: 'Resume',
 			btnProjetos: 'See Projects',
 			sobreTitle: 'About Me',
-			sobreTexto: '.NET developer with solid experience in <strong>C#</strong>, <strong>.NET 8/9</strong> and <strong>ASP.NET Core</strong>, specialized in building critical enterprise systems for the banking and financial sector. Proven expertise in <strong>Clean Architecture</strong>, <strong>microservices</strong> and <strong>Domain-Driven Design (DDD)</strong> for high availability 24/7 systems.<br><br>Proficient in <strong>Azure Cloud</strong>, <strong>DevOps</strong> and <strong>DevSecOps</strong> practices essential for banking compliance. Experience in developing scalable <strong>RESTful APIs</strong>, implementing security standards (<strong>OAuth 2.0</strong>, <strong>JWT</strong>) and knowledge of financial regulations (<strong>LGPD</strong>, <strong>Open Banking</strong>, <strong>PIX</strong>).<br><br>Analytical skills for solving complex problems in corporate environments, with agile methodologies (<strong>Scrum</strong>/<strong>Kanban</strong>) and strong focus on quality through <strong>automated testing</strong> and <strong>CI/CD</strong>.',
+			sobreTexto: '<p>I am a Fullstack Developer passionate about building <strong class="highlight">robust</strong> and <strong class="highlight">scalable</strong> systems.</p><p>With a solid foundation in Computer Science and practical experience in corporate environments, I focus on delivering value through <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">automated testing</strong>, and <strong class="highlight">best practices</strong>.</p><p>I transform complex requirements into efficient solutions, always prioritizing performance, security, and an excellent user experience.</p>',
+			sobreTextoMobile: 'Fullstack Dev focused on <strong class="highlight">robust systems</strong>. Using <strong class="highlight">Clean Architecture</strong> to build efficient and high-performance solutions.',
 			statExp: 'Years of Experience',
 			statProj: 'Enterprise Projects',
 			statDisp: 'System Availability',
@@ -343,113 +372,127 @@ document.addEventListener('DOMContentLoaded', function () {
 				empresa: 'Freelancer',
 				periodo: 'Jan 2024 - Nov 2024',
 				cargo: 'Fullstack Developer',
-				tech: 'C#,.NET Core, React, Node.js, PHP, Laravel, TypeScript and JavaScript',
-				desc: 'Responsible for fullstack development of web applications and RESTful APIs using C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript and JavaScript. Experience in modeling and optimizing relational (SQL Server, MySQL) and NoSQL (MongoDB) databases. Implements SOLID principles, Clean Architecture and Design Patterns to ensure clean and maintainable code. Develops automated tests (unit and integration) with xUnit and PHPUnit. Works throughout the development lifecycle: requirements analysis, design, development, testing and deployment, using agile methodologies (Scrum/Kanban) and versioning with Git.'
+				tech: 'C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript and JavaScript',
+				desc: 'Responsible for fullstack development of web applications and RESTful APIs using C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript and JavaScript. Experience in modeling and optimizing relational (SQL Server, MySQL) and NoSQL (MongoDB). Implements SOLID principles, Clean Architecture and Design Patterns to ensure clean and maintainable code. Develops automated tests (unit and integration) with xUnit and PHPUnit. Works throughout the development lifecycle: requirements analysis, design, development, testing and deployment, using agile methodologies (Scrum/Kanban) and versioning with Git.'
 			},
 			habilidadesTitle: 'My Skills',
 			habilidades: [
-				{title: '.NET Development', desc: '.NET 8/9 (LTS), C#, ASP.NET Core, Entity Framework Core, Blazor, Worker Services, .NET Aspire'},
-				{title: 'Enterprise Databases', desc: 'SQL Server, T-SQL, Oracle Database, PostgreSQL, Entity Framework, Redis Cache, Azure SQL'},
-				{title: 'Azure Cloud & DevOps', desc: 'Azure DevOps, Azure Service Bus, Azure Key Vault, Docker, Kubernetes, CI/CD, GitHub Actions'},
-				{title: 'Enterprise Architecture', desc: 'Clean Architecture, DDD, CQRS, Event Sourcing, Microservices, API Gateway, Event-Driven Architecture'},
-				{title: 'Security & Compliance', desc: 'OAuth 2.0, JWT, mTLS, PCI-DSS, LGPD, Open Banking, DevSecOps, Security Headers, Input Validation'},
-				{title: 'Banking APIs & Integration', desc: 'REST APIs, SignalR, Swagger/OpenAPI, Core Banking Systems, PIX, WebSockets, RabbitMQ'},
-				{title: 'Enterprise Frontend', desc: 'Angular, React, TypeScript, Blazor Server, HTML5, CSS3, Tailwind CSS, JavaScript ES6+'},
-				{title: 'Quality & Testing', desc: 'xUnit, NUnit, TDD, BDD, Clean Code, SOLID, Code Review, SonarQube, Integration Testing'},
-				{title: 'Corporate Methodologies', desc: 'Scrum, Kanban, Agile, Git Flow, Azure Boards, Code Review, Pair Programming, ITIL'}
+				{ title: 'Backend', desc: 'C#/.NET (ASP.NET Core, EF Core), Node.js (Express), APIs REST, JWT, Clean Architecture' },
+				{ title: 'Frontend', desc: 'React, Next.js, TypeScript, Tailwind, shadcn/ui' },
+				{ title: 'Database', desc: 'PostgreSQL, SQL, Prisma, Supabase (RLS)' },
+				{ title: 'Cloud/DevOps', desc: 'AWS, Docker, CI/CD (GitHub Actions), Observability' },
+				{ title: 'Quality & Security', desc: 'Unit/Integration Testing, Health Checks, Performance & Security' }
 			],
 			projetosTitle: 'Projects',
-			projetosSubtitle: 'Explore my development journey through these projects showcasing different technologies and architectures',
+			projetosSubtitle: 'Explore my development journey through these projects',
 			contato: 'Contact: ',
-			stacks: ['All','.NET','React','TypeScript','Python','Java','JavaScript','PHP','Node.js','CSS'],
+			stacks: ['All', '.NET', 'React', 'TypeScript', 'Python', 'Java', 'JavaScript', 'PHP', 'Node.js', 'CSS'],
 			projetos: [
 				{
-					img: 'assets/Armazem_saojoaquim.png',
-					alt: 'Armazém São Joaquim',
-					title: 'Armazém São Joaquim',
-					desc: 'Complete restaurant system with interactive digital menu, inn, coffee shop and blog. Includes reservation management, admin panel and responsive multilingual design (PT/EN).',
-					tags: ['Next.js 14','TypeScript','Supabase','Tailwind CSS','PostgreSQL','Resend API','Row Level Security','Multilingual'],
-					code: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
-					demo: 'https://armazemsaojoaquim.com.br/pt'
+					img: 'assets/sistema_distribuido_mockup.webp',
+					alt: 'Distributed System',
+					title: 'Distributed Management System',
+					desc: 'Complex Microservices architecture using Event Sourcing and CQRS. Implemented with Java Spring Boot, RabbitMQ, and PostgreSQL for high scalability.',
+					tags: ['Java', 'Spring Boot', 'RabbitMQ', 'Event Sourcing', 'CQRS'],
+					code: 'https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing'
 				},
 				{
-					img: 'assets/article_summarizer_agent.png',
+					img: 'assets/emiss_o_automatizada_de_nf_e_mockup.webp',
+					alt: 'NF-e Automation',
+					title: 'Automated NF-e Issuance',
+					desc: 'Serverless Event-Driven Distributed System on AWS. Uses Lambda (Go + .NET 9), EventBridge, and SQS for massive fiscal issuing and high-performance PDF generation.',
+					tags: ['.NET', 'C#', 'PostgreSQL', 'Docker', 'AWS'],
+					code: 'https://github.com/Lucasantunesribeiro/emissao_nfe',
+					demo: 'https://d3065hze06690c.cloudfront.net/login'
+				},
+				{
+					img: 'assets/emailtriageai_mockup.webp',
+					alt: 'EmailTriageAI',
+					title: 'EmailTriageAI',
+					desc: 'Intelligent corporate email triage system. Uses AI (Gemini) and NLP to classify, summarize, and auto-reply to messages, optimizing workflow.',
+					tags: ['Python', 'FastAPI', 'Gemini AI', 'NLP', 'Docker'],
+					code: 'https://github.com/Lucasantunesribeiro/EmailTriageAI',
+					demo: 'http://100.48.50.86/'
+				},
+				{
+					img: 'assets/linkguardi_o_mockup.webp',
+					alt: 'LinkGuardião',
+					title: 'LinkGuardião',
+					desc: 'Corporate URL shortener with password protection and detailed analytics. Robust backend in ASP.NET Core 8 with clean architecture.',
+					tags: ['ASP.NET Core 8', 'React', 'TypeScript', 'Tailwind'],
+					code: 'https://github.com/Lucasantunesribeiro/LinkGuardiao',
+					demo: 'https://linkguardiao.pages.dev/'
+				},
+				{
+					img: 'assets/article_summarizer_agent_mockup.webp',
 					alt: 'Article Summarizer Agent',
 					title: 'Article Summarizer Agent',
-					desc: 'Python app that extracts, processes and summarizes articles from any site, with advanced WAF bypass (Cloudflare, DataCamp), multiple output formats and full RESTful API.',
-					tags: ['Python','Flask','Selenium','NLP','WAF Bypass','REST API','Docker'],
+					desc: 'AI Agent capable of bypassing advanced WAFs (Cloudflare) to extract and summarize web articles. Uses Selenium stealth and fallback strategies for reliable collection.',
+					tags: ['Python', 'Selenium Stealth', 'Flask', 'AI Agent', 'WAF Bypass'],
 					code: 'https://github.com/Lucasantunesribeiro/article_summarizer_agent',
 					demo: 'https://article-summarizer-agent.onrender.com/'
 				},
 				{
-					img: 'assets/Collab_docs.png',
+					img: 'assets/smartfinance_mockup.webp',
+					alt: 'SmartFinance',
+					title: 'SmartFinance',
+					desc: 'Secure multi-language Fullstack application with private ALB and ECS. Offers financial management with interactive dashboards, CSRF protection, and robust JWT auth.',
+					tags: ['Next.js', 'React', 'Node.js', 'Tailwind', 'JWT'],
+					code: 'https://github.com/Lucasantunesribeiro/smart_finance',
+					demo: 'http://smartfinance-prod-alb-1713518371.sa-east-1.elb.amazonaws.com/'
+				},
+				{
+					img: 'assets/kogui_pokedex_mockup.webp',
+					alt: 'Kogui Pokédx',
+					title: 'Kogui Pokédx',
+					desc: 'Fullstack technical challenge with Django 5.0 and Angular 17. PokéAPI integration, JWT authentication, favorites system and admin panel.',
+					tags: ['Angular 17', 'Django 5.0', 'PostgreSQL', 'Docker', 'JWT'],
+					code: 'https://github.com/Lucasantunesribeiro/Kogui_pokedex'
+				},
+				{
+					img: 'assets/collabdocs_mockup.webp',
 					alt: 'CollabDocs',
 					title: 'CollabDocs',
-					desc: 'Collaborative document platform with Next.js 15, Cloudflare Workers, D1 database and KV storage. Fully functional system with OAuth authentication and real-time collaboration.',
-					tags: ['Next.js 15','TypeScript','Cloudflare Workers','D1 Database','KV Storage','Tailwind CSS','OAuth','Edge Computing'],
+					desc: 'Real-time collaborative document editing platform. Modern serverless architecture with Cloudflare Workers and D1, built in Monorepo.',
+					tags: ['Next.js', 'TypeScript', 'Cloudflare', 'Tailwind'],
 					code: 'https://github.com/Lucasantunesribeiro/Collabdocs',
 					demo: 'https://collabdocs-app.vercel.app/'
 				},
 				{
-					img: 'assets/nfe_api_swagger_com_moldura.png',
-					alt: 'NF-e Automation',
-					title: 'Automated NF-e Issuance',
-					desc: 'Enterprise system for automated Electronic Invoice Issuance with .NET 9, Clean Architecture, background services, health checks and automated deployment on AWS Lambda.',
-					tags: ['.NET 9','Clean Architecture','PostgreSQL','Docker','Health Checks','Background Services','xUnit','AWS Lambda'],
-					code: 'https://github.com/Lucasantunesribeiro/simulador_emissor',
-					demo: 'https://42zqg8iw8b.execute-api.us-east-1.amazonaws.com/prod/swagger/index.html'
+					img: 'assets/armaz_m_s_o_joaquim_mockup.webp',
+					alt: 'Armazém São Joaquim',
+					title: 'Armazém São Joaquim',
+					desc: 'Complete digital platform with Next.js 15 and Supabase. Includes interactive menu, reservation system, blog, and admin area, focused on SEO and performance.',
+					tags: ['Next.js 15', 'TypeScript', 'Supabase', 'Tailwind', 'Shadcn/ui'],
+					code: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
+					demo: 'https://armazemsaojoaquim.com.br/'
 				},
 				{
-					img: 'assets/linkguardiao_com_moldura.png',
-					alt: 'LinkGuardião',
-					title: 'LinkGuardião',
-					desc: 'Complete URL shortener system with password protection, automatic expiration, detailed statistics and admin dashboard. Includes click analysis and geolocation.',
-					tags: ['ASP.NET Core 8','React','TypeScript','SQLite','Entity Framework','JWT Auth','Chart.js','Tailwind CSS'],
-					code: 'https://github.com/Lucasantunesribeiro/LinkGuardiao'
+					img: 'assets/parallel_store_mockup.webp',
+					alt: 'Parallel Store',
+					title: 'Parallel Store',
+					desc: 'Modern urban e-commerce built with Next.js 15 and React 18. Total focus on conversion, performance, and user experience (UX).',
+					tags: ['Next.js 15', 'React 18', 'Tailwind', 'E-commerce'],
+					code: 'https://github.com/Lucasantunesribeiro/parallel_store',
+					demo: 'https://parallelstore.netlify.app/'
 				},
 				{
-					img: 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%23111827\'/%3E%3Ctext x=\'200\' y=\'115\' text-anchor=\'middle\' dominant-baseline=\'middle\' fill=\'%237c3aed\' font-family=\'Inter, sans-serif\' font-size=\'20\' font-weight=\'600\'%3EOrder Management%3C/text%3E%3Ctext x=\'200\' y=\'140\' text-anchor=\'middle\' dominant-baseline=\'middle\' fill=\'%239ca3af\' font-family=\'Inter, sans-serif\' font-size=\'14\'%3EEvent Sourcing + CQRS%3C/text%3E%3C/svg%3E',
-					alt: 'Distributed System',
-					title: 'Distributed Order Management System with Event Sourcing',
-					desc: 'Microservices architecture with Event Sourcing, CQRS, asynchronous communication via RabbitMQ, React 18 frontend and full observability with metrics and health checks.',
-					tags: ['Java 17','Spring Boot','Event Sourcing','CQRS','RabbitMQ','PostgreSQL','React 18','Docker'],
-					code: 'https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing'
-				},
-				{
-					img: 'assets/Locadora_decarros.png',
+					img: 'assets/locadora_de_carros_mockup.webp',
 					alt: 'Car Rental System',
 					title: 'Car Rental System',
-					desc: 'Complete car rental management system with authentication, CRUD for users and cars, rental system with validations, permission control and modern responsive interface.',
-					tags: ['PHP 8.1+','SQLite','HTML5','CSS3','JavaScript','Design System','shadcn/ui','Responsive'],
+					desc: 'Fleet management and rental system developed in PHP 8.1+. Features secure authentication, permission control (ACL), and complete CRUDs.',
+					tags: ['PHP', 'SQLite', 'JavaScript'],
 					code: 'https://github.com/Lucasantunesribeiro/locadora_de_carros',
 					demo: 'https://locadora-de-carros.onrender.com/'
 				},
 				{
-					img: 'assets/Smart_finance.png',
-					alt: 'SmartFinance',
-					title: 'SmartFinance - Enterprise Financial System',
-					desc: 'Complete enterprise financial system with real-time dashboard, transaction management, categories, bank accounts, budgets and advanced reports with interactive charts.',
-					tags: ['Next.js 13.5','React','TypeScript','Tailwind CSS','Node.js','JWT Auth','Chart.js','PM2'],
-					code: 'https://github.com/Lucasantunesribeiro/smart_finance',
-					demo: 'http://34.203.238.219:3000/dashboard'
-				},
-				{
-					img: 'assets/jogo_numero_secreto_com_moldura.png',
-					alt: 'Secret Number',
-					title: 'Number Sorter',
-					desc: 'Interactive app with multiple features: number sorter, guessing, even or odd and roulette. Modern interface with dark theme and responsive design.',
-					tags: ['HTML','CSS','JavaScript','Responsive','Dark Theme','Interactive'],
+					img: 'assets/logic_games_suite_mockup.webp',
+					alt: 'Logic Games Suite',
+					title: 'Logic Games Suite',
+					desc: 'Collection of logic mini-games developed with vanilla JavaScript, focusing on programming logic and responsive interactivity.',
+					tags: ['HTML5', 'CSS3', 'JavaScript'],
 					code: 'https://github.com/Lucasantunesribeiro/Numero-Secreto',
 					demo: 'https://sorteador-de-numeros-six-pi.vercel.app/'
-				},
-				{
-					img: 'assets/super_burger_com_moldura.png',
-					alt: 'Burger Website',
-					title: 'Super Burger - Premium Website',
-					desc: 'Responsive website for artisanal burger shop with premium design, interactive menu, team and contact section. Modern interface with dark theme and attractive visuals.',
-					tags: ['HTML','CSS','JavaScript','Responsive','Dark Theme','Premium Design','Mobile-First'],
-					code: 'https://github.com/Lucasantunesribeiro/hamburgueria-website',
-					demo: 'https://projeto-hamburgueria-pi.vercel.app/'
 				}
 			]
 		}
@@ -461,16 +504,22 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (navLinks.length >= 5) {
 			navLinks[0].textContent = translations[lang].home;
 			navLinks[1].textContent = translations[lang].sobre;
-			navLinks[2].textContent = translations[lang].experiencias;
-			navLinks[3].textContent = translations[lang].habilidades;
-			navLinks[4].textContent = translations[lang].projetos;
+			navLinks[2].textContent = translations[lang].projetos;
+			navLinks[3].textContent = translations[lang].experiencias;
+			navLinks[4].textContent = translations[lang].habilidades;
 		}
+
+		// Hero section
 
 		// Hero section
 		const heroTitle = document.querySelector('.hero-content h1');
 		if (heroTitle) heroTitle.innerHTML = translations[lang].heroTitle;
-		const heroDesc = document.querySelector('.hero-content p');
-		if (heroDesc) heroDesc.textContent = translations[lang].heroDesc;
+
+		const heroDesc = document.querySelector('.hero-description.desktop-text');
+		if (heroDesc) heroDesc.innerHTML = translations[lang].heroDesc;
+
+		const heroDescMobile = document.querySelector('.hero-description.mobile-text');
+		if (heroDescMobile) heroDescMobile.innerHTML = translations[lang].heroDescMobile;
 
 		// Hero buttons
 		const btns = document.querySelectorAll('.hero-buttons .btn');
@@ -480,9 +529,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		// Sobre section
 		const sobreTitle = document.querySelector('#sobre h2');
 		if (sobreTitle) sobreTitle.textContent = translations[lang].sobreTitle;
-		const sobreTexto = document.querySelector('.sobre-texto p');
+
+		const sobreTexto = document.querySelector('.sobre-conteudo .desktop-text');
 		if (sobreTexto) sobreTexto.innerHTML = translations[lang].sobreTexto;
-		
+
+		const sobreTextoMobile = document.querySelector('#about-text-mobile');
+		if (sobreTextoMobile) sobreTextoMobile.innerHTML = translations[lang].sobreTextoMobile;
+
 		// Estatísticas
 		const statItems = document.querySelectorAll('.stat-item p');
 		if (statItems.length >= 3) {
@@ -490,7 +543,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			statItems[1].textContent = translations[lang].statProj;
 			statItems[2].textContent = translations[lang].statDisp;
 		}
-		
+
 		// Imagem alt
 		const sobreImg = document.querySelector('.profile-img');
 		if (sobreImg) sobreImg.alt = translations[lang].sobreImgAlt;
@@ -646,20 +699,20 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // jQuery functions simplificadas
-(function($) {
+(function ($) {
 	"use strict";
 
 	if (typeof $ === 'undefined') return;
 
 	// Full height function
 	$('.js-fullheight').css('height', $(window).height());
-	$(window).resize(function(){
+	$(window).resize(function () {
 		$('.js-fullheight').css('height', $(window).height());
 	});
 
 	// Loader
-	setTimeout(function() { 
-		if($('#ftco-loader').length > 0) {
+	setTimeout(function () {
+		if ($('#ftco-loader').length > 0) {
 			$('#ftco-loader').removeClass('show');
 		}
 	}, 1);
@@ -675,23 +728,26 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
-	// Scroll window
-	$(window).scroll(function(){
-		var $w = $(this),
-			st = $w.scrollTop(),
-			navbar = $('.ftco_navbar');
+	// Sticky Header com IntersectionObserver
+	const headerSentinel = document.getElementById('scroll-sentinel');
+	const navbar = document.querySelector('.navbar');
 
-		if (st > 150) {
-			navbar.addClass('scrolled');
-		} else {
-			navbar.removeClass('scrolled sleep');
-		}
-		
-		if (st > 350) {
-			navbar.addClass('awake');
-		} else {
-			navbar.removeClass('awake').addClass('sleep');
-		}
-	});
+	if (headerSentinel && navbar) {
+		const headerObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (!entry.isIntersecting) {
+					navbar.classList.add('scrolled');
+				} else {
+					navbar.classList.remove('scrolled');
+				}
+			});
+		}, {
+			root: null,
+			threshold: 0,
+			rootMargin: '0px'
+		});
+
+		headerObserver.observe(headerSentinel);
+	}
 
 })(window.jQuery);

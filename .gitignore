@@ -27,3 +27,8 @@ Thumbs.db
 
 # Pasta de documentação README
 readme/
+
+# node_modules
+node_modules
+# node_modules
+node_modules/

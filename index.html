@@ -7,16 +7,17 @@
     <title>Portfólio</title>
 
     <!-- Owl Carousel CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<!-- Owl Carousel JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="js/main.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,29 +26,38 @@
 
     <!-- Preload critical resources -->
     <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
-    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        as="style">
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sobre.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    
+
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <!-- SEO and Meta Tags -->
-    <meta name="description" content="Portfólio profissional de Lucas Antunes - Desenvolvedor .NET especializado em sistemas bancários, Clean Architecture e soluções enterprise escaláveis.">
-    <meta name="keywords" content="desenvolvedor .NET, sistemas bancários, ASP.NET Core, Azure, microserviços, compliance bancário">
+    <meta name="description"
+        content="Portfólio profissional de Lucas Antunes - Desenvolvedor .NET especializado em sistemas bancários, Clean Architecture e soluções enterprise escaláveis.">
+    <meta name="keywords"
+        content="desenvolvedor .NET, sistemas bancários, ASP.NET Core, Azure, microserviços, compliance bancário">
     <meta name="author" content="Lucas Antunes Ferreira">
     <meta property="og:title" content="Lucas Antunes - Desenvolvedor .NET Especialista">
-    <meta property="og:description" content="Especialista em .NET 8/9, Azure e arquitetura enterprise. Experiência em sistemas críticos e compliance bancário.">
+    <meta property="og:description"
+        content="Especialista em .NET 8/9, Azure e arquitetura enterprise. Experiência em sistemas críticos e compliance bancário.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
+    <!-- Sentinel for Sticky Header -->
+    <div id="scroll-sentinel" aria-hidden="true"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 1px; pointer-events: none; z-index: -1;"></div>
+
     <!-- Barra de progresso -->
     <div class="progress-bar"></div>
 
@@ -63,9 +73,9 @@
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#sobre">Sobre</a>
+                <a href="#projetos">Projetos</a>
                 <a href="#experiencias">Experiências</a>
                 <a href="#habilidades">Habilidades</a>
-                <a href="#projetos">Projetos</a>
                 <div class="language-toggle">
                     <button id="toggle-lang" aria-label="Alternar idioma">PT / EN</button>
                 </div>
@@ -75,59 +85,482 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="assets/Photorealistic_Coder_Video_Generation.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="animated-text">Olá, eu sou <span class="highlight">Lucas Antunes</span></h1>
-                <p>Desenvolvedor .NET Especialista | Azure Cloud | Sistemas Enterprise & Bancários</p>
+                <h1 class="animated-text">Olá, eu sou <span class="highlight">Lucas Antunes Ferreira</span></h1>
+
+                <p class="hero-subtitle">
+                    Desenvolvedor Fullstack | C# .NET | React | Node.js<br>
+                    APIs REST | Cloud & DevOps | CI/CD<br>
+                    Clean Architecture | Testes | Observabilidade | Segurança
+                </p>
+
+                <p class="hero-description desktop-text">
+                    Construo soluções <strong>robustas</strong> e <strong>escaláveis</strong> com foco em
+                    <strong>Clean Architecture</strong>, <strong>testes automatizados</strong>,
+                    <strong>deploy</strong>, <strong>observabilidade</strong> e <strong>segurança</strong>.
+                </p>
+                <p class="hero-description mobile-text">
+                    Construo soluções <strong>robustas</strong> e <strong>escaláveis</strong> com .NET e React.
+                </p>
+
                 <div class="hero-buttons">
                     <a href="assets/Curriculo.pdf" class="btn btn-primary" target="_blank"
                         rel="noopener noreferrer">Currículo</a>
                     <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
                     <div class="social-links">
-                        <a href="https://github.com/Lucasantunesribeiro" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub">
-                            <i class="fab fa-github"></i>
+                        <a href="https://lucasantunes-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Portfólio">
+                            <i class="fas fa-globe"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
                             rel="noopener noreferrer" aria-label="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
+                        <a href="mailto:lucasantunesribeiro@outlook.com" target="_blank" rel="noopener noreferrer"
+                            aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com/Lucasantunesribeiro" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hero-background"></div>
     </section>
 
     <!-- Sobre Section -->
     <section id="sobre" class="sobre">
         <div class="container">
-            <h2>Sobre Mim</h2>
             <div class="sobre-grid">
-                <div class="sobre-texto">
-                    <p>Desenvolvedor .NET com sólida experiência em <strong>C#</strong>, <strong>.NET 8/9</strong> e <strong>ASP.NET Core</strong>, especializado no desenvolvimento de sistemas enterprise críticos com foco no setor bancário e financeiro. Expertise comprovada em <strong>Clean Architecture</strong>, <strong>microserviços</strong> e <strong>Domain-Driven Design (DDD)</strong> para sistemas de alta disponibilidade 24/7. 
-                    
-                    <br><br>Proficiente em <strong>Azure Cloud</strong>, <strong>DevOps</strong> e práticas de <strong>DevSecOps</strong> essenciais para compliance bancário. Experiência no desenvolvimento de <strong>APIs RESTful</strong> escaláveis, implementação de padrões de segurança (<strong>OAuth 2.0</strong>, <strong>JWT</strong>) e conhecimento em regulamentações financeiras (<strong>LGPD</strong>, <strong>Open Banking</strong>, <strong>PIX</strong>). 
-                    
-                    <br><br>Capacidade analítica para resolução de problemas complexos em ambientes corporativos, com metodologias ágeis (<strong>Scrum</strong>/<strong>Kanban</strong>) e forte orientação para qualidade através de <strong>testes automatizados</strong> e <strong>CI/CD</strong>.</p>
-                    <div class="stats">
+                <div class="sobre-imagem">
+                    <div class="image-container">
+                        <video src="assets/Avatar_Animado_Para_Perfil_Instagram.mp4" class="profile-img" autoplay loop
+                            muted playsinline width="450" height="450"></video>
+                    </div>
+                </div>
+                <div class="sobre-conteudo">
+                    <h2>Sobre Mim</h2>
+                    <div class="desktop-text">
+                        <p>
+                            Sou um desenvolvedor Fullstack apaixonado por construir sistemas <strong
+                                class="highlight">robustos</strong> e <strong class="highlight">escaláveis</strong>.
+                        </p>
+                        <p>
+                            Com uma base sólida em Ciência da Computação e experiência prática em ambientes
+                            corporativos, foco em entregar valor através de <strong class="highlight">Clean
+                                Architecture</strong>, <strong class="highlight">testes automatizados</strong> e <strong
+                                class="highlight">boas práticas</strong>.
+                        </p>
+                        <p>
+                            Transformo requisitos complexos em soluções eficientes, sempre priorizando performance,
+                            segurança e uma excelente experiência para o usuário.
+                        </p>
+                    </div>
+                    <p id="about-text-mobile" class="mobile-text">
+                        Dev Fullstack focado em sistemas <strong class="highlight">robustos</strong>. Uso <strong
+                            class="highlight">Clean Architecture</strong> para criar soluções eficientes e de alta
+                        performance.
+                    </p>
+
+                    <div class="sobre-stats">
                         <div class="stat-item">
-                            <h3>2+</h3>
-                            <p>Anos de Experiência</p>
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Anos de Experiência</span>
                         </div>
                         <div class="stat-item">
-                            <h3>10+</h3>
-                            <p>Projetos Enterprise</p>
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Projetos Entregues</span>
                         </div>
                         <div class="stat-item">
-                            <h3>99.9%</h3>
-                            <p>Disponibilidade Sistemas</p>
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Comprometimento</span>
                         </div>
                     </div>
                 </div>
-                <div class="sobre-imagem">
-                    <div class="image-container">
-                        <img src="assets/Profile.jpg" alt="Minha foto de perfil" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos Section -->
+    <section id="projetos" class="projetos">
+        <div class="container">
+            <h2 class="highlight">Projetos</h2>
+            <p class="projetos-subtitle">Explore minha jornada de desenvolvimento através destes projetos que demonstram
+                diferentes tecnologias e arquiteturas</p>
+
+            <!-- Filtro de Stacks -->
+            <div class="stacks-filter">
+                <button class="stack-btn active" data-stack="all"><i class="fas fa-layer-group"></i> Todos</button>
+                <button class="stack-btn" data-stack=".NET"><i class="fas fa-code"></i> .NET</button>
+                <button class="stack-btn" data-stack="React"><i class="fab fa-react"></i> React</button>
+                <button class="stack-btn" data-stack="TypeScript"><i class="fab fa-js-square"></i> TypeScript</button>
+                <button class="stack-btn" data-stack="Python"><i class="fab fa-python"></i> Python</button>
+                <button class="stack-btn" data-stack="Java"><i class="fab fa-java"></i> Java</button>
+                <button class="stack-btn" data-stack="PHP"><i class="fab fa-php"></i> PHP</button>
+                <button class="stack-btn" data-stack="Node.js"><i class="fab fa-node-js"></i> Node.js</button>
+                <button class="stack-btn" data-stack="CSS"><i class="fab fa-css3-alt"></i> CSS</button>
+            </div>
+
+            <div class="projetos-grid">
+                <!-- 1. Armazém São Joaquim -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/Armazem_saojoaquim.png" alt="Armazém São Joaquim">
+                    </div>
+                    <div class="project-content">
+                        <h3>Armazém São Joaquim</h3>
+                        <p>Sistema completo com reservas, painel admin, multilíngue e UI responsiva.</p>
+                        <div class="project-tags">
+                            <span>Next.js</span>
+                            <span>TypeScript</span>
+                            <span>Supabase</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasantunesribeiro/armazemsaojoaquim" class="btn-project"><i
+                                    class="fas fa-code"></i> Repo</a>
+                            <a href="https://armazemsaojoaquim.com.br/" class="btn-project"><i
+                                    class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Emissão Automatizada de NF-e -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/nfe_api_swagger_com_moldura.png" alt="Emissão NF-e">
+                    </div>
+                    <div class="project-content">
+                        <h3>Emissão Automatizada de NF-e</h3>
+                        <p>Emissão fiscal automatizada com Clean Architecture, jobs e health checks.</p>
+                        <div class="project-tags">
+                            <span>.NET</span>
+                            <span>C#</span>
+                            <span>PostgreSQL</span>
+                            <span>Docker</span>
+                            <span>AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasantunesribeiro/emissao_nfe" class="btn-project"><i
+                                    class="fas fa-code"></i> Repo</a>
+                            <a href="https://d3065hze06690c.cloudfront.net/" class="btn-project"><i
+                                    class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. SmartFinance -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/Smart_finance.png" alt="SmartFinance">
+                    </div>
+                    <div class="project-content">
+                        <h3>SmartFinance</h3>
+                        <p>Gestão financeira com dashboard e relatórios com gráficos interativos.</p>
+                        <div class="project-tags">
+                            <span>Next.js</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>Tailwind</span>
+                            <span>JWT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasantunesribeiro/smart_finance" class="btn-project"><i
+                                    class="fas fa-code"></i> Repo</a>
+                            <a href="http://smartfinance-prod-alb-1713518371.sa-east-1.elb.amazonaws.com/"
+                                class="btn-project"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Article Summarizer Agent -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/article_summarizer_agent.png" alt="Article Summarizer Agent">
+                    </div>
+                    <div class="project-content">
+                        <h3>Article Summarizer Agent</h3>
+                        <p>Agente de IA para extração e resumo de artigos (API REST + automação).</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>Selenium</span>
+                            <span>Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasantunesribeiro/article_summarizer_agent"
+                                class="btn-project"><i class="fas fa-code"></i> Repo</a>
+                            <a href="https://article-summarizer-agent.onrender.com/" class="btn-project"><i
+                                    class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. CollabDocs -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/Collab_docs.png" alt="CollabDocs">
+                    </div>
+                    <div class="project-content">
+                        <h3>CollabDocs</h3>
+                        <p>Documentos colaborativos em tempo real com infra serverless.</p>
+                        <div class="project-tags">
+                            <span>Next.js</span>
+                            <span>TypeScript</span>
+                            <span>Cloudflare</span>
+                            <span>Tailwind</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasantunesribeiro/Collabdocs" class="btn-project"><i
+                                    class="fas fa-code"></i> Repo</a>
+                            <a href="https://collabdocs-app.vercel.app/" class="btn-project"><i
+                                    class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. LinkGuardião -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/linkguardiao_com_moldura.png" alt="LinkGuardião">
+                    </div>
+                    <div class="project-content">
+                        <h3>LinkGuardião</h3>
+                        <p>Encurtador de URLs seguro com senha, expiração e métricas.</p>
+                        <div class="project-tags">
+                            <span>ASP.NET Core</span>
+                            <span>React</span>
+                            <span>TypeScript</span>
+                            <span>Tailwind</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasantunesribeiro/LinkGuardiao" class="btn-project"><i
+                                    class="fas fa-code"></i> Repo</a>
+                            <a href="https://linkguardiao.pages.dev/" class="btn-project"><i
+                                    class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Locadora de Carros -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/Locadora_decarros.png" alt="Locadora de Carros">
+                    </div>
+                    <div class="project-content">
+                        <h3>Locadora de Carros</h3>
+                        <p>Gestão de locadora com autenticação, CRUDs e permissões.</p>
+                        <div class="project-tags">
+                            <span>PHP</span>
+                            <span>SQLite</span>
+
+                            <!-- Experiências Section -->
+                            <section id="experiencias" class="section experiencias-section">
+                                <div class="container">
+                                    <h2 class="section-title" data-aos="fade-up">Experiências</h2>
+                                    <div class="timeline">
+                                        <div class="timeline-item" data-aos="fade-right">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h3>RSM Brasil</h3>
+                                                <span class="timeline-period">Dezembro 2024 - Atual</span>
+                                                <p class="timeline-role">Analista de Suporte de TI</p>
+                                                <p class="timeline-tech">Azure, Windows, Linux, SQL Server, MySQL</p>
+                                                <p>Responsável pelo atendimento e registro de chamados técnicos (Nível 1
+                                                    e 2), garantindo a
+                                                    continuidade das operações de TI. Encarregado do diagnóstico e
+                                                    resolução de problemas de
+                                                    hardware e software, assegurando a eficiência operacional. Realiza a
+                                                    instalação,
+                                                    configuração e manutenção de aplicativos, sistemas operacionais
+                                                    (Windows, Linux) e
+                                                    periféricos. Presta suporte à infraestrutura de redes, computadores
+                                                    e impressoras, além de
+                                                    otimizar processos internos através de suporte técnico proativo.
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item" data-aos="fade-right">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h3>Alura</h3>
+                                                <span class="timeline-period">2022 - Atual</span>
+                                                <p class="timeline-role">Formação para Programação</p>
+                                                <p>Na Alura, estou seguindo as principais formações no assunto
+                                                    Full-stack, tendo a oportunidade
+                                                    de aprender sobre programação, construção e desenvolvimento de
+                                                    software.</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item" data-aos="fade-left">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h3>Estácio</h3>
+                                                <span class="timeline-period">2023 - 2027 (previsão)</span>
+                                                <p class="timeline-role">Ciência da Computação</p>
+                                                <p>Atualmente, estou cursando Ciência da Computação na Universidade
+                                                    Veiga de Almeida, onde tenho
+                                                    a oportunidade de aprimorar minhas habilidades e conhecimentos em
+                                                    programação desenvolvendo
+                                                    software e projetos para trabalhos escolares.</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item" data-aos="fade-left">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h3>Freelancer </h3>
+                                                <span class="timeline-period">Janeiro de 2024 - Novembro de 2024</span>
+                                                <p class="timeline-role">Desenvolvedor Fullstack</p>
+                                                <p class="timeline-tech">C#,.NET Core, React, Node.js, PHP, Laravel,
+                                                    TypeScript e JavaScript</p>
+                                                <p>Responsável pelo desenvolvimento fullstack de aplicações web e APIs
+                                                    RESTful utilizando C#,
+                                                    .NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript.
+                                                    Experiência em modelagem e
+                                                    otimização de bancos de dados relacionais (SQL Server, MySQL) e
+                                                    NoSQL (MongoDB). Implementa
+                                                    princípios SOLID, Clean Architecture e Design Patterns para garantir
+                                                    código limpo e
+                                                    manutenível. Desenvolve testes automatizados (unitários e de
+                                                    integração) com xUnit e
+                                                    PHPUnit. Atua em todo o ciclo de vida do desenvolvimento: análise de
+                                                    requisitos, design,
+                                                    desenvolvimento, testes e deploy, utilizando metodologias ágeis
+                                                    (Scrum/Kanban) e
+                                                    versionamento com Git.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Habilidades Section -->
+                            <section id="habilidades" class="habilidades">
+                                <div class="container">
+                                    <h2>Minhas Habilidades</h2>
+                                    <div class="skills-grid">
+                                        <!-- Backend -->
+                                        <div class="skill-card">
+                                            <i class="fas fa-server skill-icon"></i>
+                                            <h3>Backend</h3>
+                                            <p>C#/.NET (ASP.NET Core, EF Core), Node.js (Express), APIs REST, JWT, Clean
+                                                Architecture</p>
+                                        </div>
+
+                                        <!-- Frontend -->
+                                        <div class="skill-card">
+                                            <i class="fas fa-laptop-code skill-icon"></i>
+                                            <h3>Frontend</h3>
+                                            <p>React, Next.js, TypeScript, Tailwind, shadcn/ui</p>
+                                        </div>
+
+                                        <!-- Banco de Dados -->
+                                        <div class="skill-card">
+                                            <i class="fas fa-database skill-icon"></i>
+                                            <h3>Banco de Dados</h3>
+                                            <p>PostgreSQL, SQL, Prisma, Supabase (RLS)</p>
+                                        </div>
+
+                                        <!-- Cloud/DevOps -->
+                                        <div class="skill-card">
+                                            <i class="fas fa-cloud skill-icon"></i>
+                                            <h3>Cloud/DevOps</h3>
+                                            <p>AWS, Docker, CI/CD (GitHub Actions), Observabilidade</p>
+                                        </div>
+
+                                        <!-- Qualidade -->
+                                        <div class="skill-card">
+                                            <i class="fas fa-check-double skill-icon"></i>
+                                            <h3>Qualidade & Segurança</h3>
+                                            <p>Testes unitários/integração, Health Checks, Performance & Security</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasantunesribeiro/locadora_de_carros" class="btn-project"><i
+                                    class="fas fa-code"></i> Repo</a>
+                            <a href="https://locadora-de-carros.onrender.com/" class="btn-project"><i
+                                    class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Logic Games Suite -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/jogo_numero_secreto_com_moldura.png" alt="Logic Games Suite">
+                    </div>
+                    <div class="project-content">
+                        <h3>Logic Games Suite</h3>
+                        <p>Mini-jogos lógicos com UI moderna e responsiva.</p>
+                        <div class="project-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasantunesribeiro/Numero-Secreto" class="btn-project"><i
+                                    class="fas fa-code"></i> Repo</a>
+                            <a href="https://sorteador-de-numeros-six-pi.vercel.app/" class="btn-project"><i
+                                    class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Parallel Store -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23111827'/%3E%3Ctext x='200' y='115' text-anchor='middle' dominant-baseline='middle' fill='%232563eb' font-family='Inter, sans-serif' font-size='20' font-weight='600'%3EParallel Store%3C/text%3E%3Ctext x='200' y='140' text-anchor='middle' dominant-baseline='middle' fill='%239ca3af' font-family='Inter, sans-serif' font-size='14'%3EE-commerce & UX%3C/text%3E%3C/svg%3E"
+                            alt="Parallel Store">
+                    </div>
+                    <div class="project-content">
+                        <h3>Parallel Store</h3>
+                        <p>E-commerce moderno com foco em conversão e UX.</p>
+                        <div class="project-tags">
+                            <span>Next.js</span>
+                            <span>TypeScript</span>
+                            <span>React</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasantunesribeiro/parallel_store" class="btn-project"><i
+                                    class="fas fa-code"></i> Repo</a>
+                            <a href="https://parallelstore.netlify.app/" class="btn-project"><i
+                                    class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. Sistema de Gestão Distribuído -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23111827'/%3E%3Ctext x='200' y='115' text-anchor='middle' dominant-baseline='middle' fill='%237c3aed' font-family='Inter, sans-serif' font-size='20' font-weight='600'%3EOrder Management%3C/text%3E%3Ctext x='200' y='140' text-anchor='middle' dominant-baseline='middle' fill='%239ca3af' font-family='Inter, sans-serif' font-size='14'%3EEvent Sourcing + CQRS%3C/text%3E%3C/svg%3E"
+                            alt="Sistema Distribuído">
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema de Gestão Distribuído</h3>
+                        <p>Microsserviços com Event Sourcing, CQRS e mensageria assíncrona.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>RabbitMQ</span>
+                            <span>PostgreSQL</span>
+                            <span>Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing"
+                                class="btn-project"><i class="fas fa-code"></i> Repo</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,7 +568,7 @@
     </section>
 
     <!-- Experiências Section -->
-    <section id="experiencias" class="section experiencias-section">
+    <section id="experiencias" class="section experiences-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Experiências</h2>
             <div class="timeline">
@@ -201,434 +634,39 @@
         <div class="container">
             <h2>Minhas Habilidades</h2>
             <div class="skills-grid">
-                <!-- Prioridade 1: .NET Stack -->
+                <!-- Backend -->
                 <div class="skill-card">
-                    <i class="fas fa-code skill-icon"></i>
-                    <h3>.NET Development</h3>
-                    <p>.NET 8/9 (LTS), C#, ASP.NET Core, Entity Framework Core, Blazor, Worker Services, .NET Aspire</p>
+                    <i class="fas fa-server skill-icon"></i>
+                    <h3>Backend</h3>
+                    <p>C#/.NET (ASP.NET Core, EF Core), Node.js (Express), APIs REST, JWT, Clean Architecture</p>
                 </div>
-                
-                <!-- Prioridade 2: Bancos de Dados Bancários -->
-                <div class="skill-card">
-                    <i class="fas fa-database skill-icon"></i>
-                    <h3>Banco de Dados Enterprise</h3>
-                    <p>SQL Server, T-SQL, Oracle Database, PostgreSQL, Entity Framework, Redis Cache, Azure SQL</p>
-                </div>
-                
-                <!-- Prioridade 3: Azure Cloud -->
-                <div class="skill-card">
-                    <i class="fas fa-cloud skill-icon"></i>
-                    <h3>Azure Cloud & DevOps</h3>
-                    <p>Azure DevOps, Azure Service Bus, Azure Key Vault, Docker, Kubernetes, CI/CD, GitHub Actions</p>
-                </div>
-                
-                <!-- Prioridade 4: Arquitetura Enterprise -->
-                <div class="skill-card">
-                    <i class="fas fa-microchip skill-icon"></i>
-                    <h3>Arquitetura Enterprise</h3>
-                    <p>Clean Architecture, DDD, CQRS, Event Sourcing, Microservices, API Gateway, Event-Driven Architecture</p>
-                </div>
-                
-                <!-- Prioridade 5: Segurança & Compliance Bancário -->
-                <div class="skill-card">
-                    <i class="fas fa-shield-alt skill-icon"></i>
-                    <h3>Segurança & Compliance</h3>
-                    <p>OAuth 2.0, JWT, mTLS, PCI-DSS, LGPD, Open Banking, DevSecOps, Security Headers, Input Validation</p>
-                </div>
-                
-                <!-- Prioridade 6: APIs & Integração -->
-                <div class="skill-card">
-                    <i class="fas fa-plug skill-icon"></i>
-                    <h3>APIs & Integração Bancária</h3>
-                    <p>REST APIs, SignalR, Swagger/OpenAPI, Core Banking Systems, PIX, WebSockets, RabbitMQ</p>
-                </div>
-                
-                <!-- Prioridade 7: Frontend (Secondary) -->
+
+                <!-- Frontend -->
                 <div class="skill-card">
                     <i class="fas fa-laptop-code skill-icon"></i>
-                    <h3>Frontend Enterprise</h3>
-                    <p>Angular, React, TypeScript, Blazor Server, HTML5, CSS3, Tailwind CSS, JavaScript ES6+</p>
+                    <h3>Frontend</h3>
+                    <p>React, Next.js, TypeScript, Tailwind, shadcn/ui</p>
                 </div>
-                
-                <!-- Prioridade 8: Testes & Qualidade -->
+
+                <!-- Banco de Dados -->
                 <div class="skill-card">
-                    <i class="fas fa-vial skill-icon"></i>
-                    <h3>Qualidade & Testes</h3>
-                    <p>xUnit, NUnit, TDD, BDD, Clean Code, SOLID, Code Review, SonarQube, Integration Testing</p>
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>Banco de Dados</h3>
+                    <p>PostgreSQL, SQL, Prisma, Supabase (RLS)</p>
                 </div>
-                
-                <!-- Prioridade 9: Metodologias Corporativas -->
+
+                <!-- Cloud/DevOps -->
                 <div class="skill-card">
-                    <i class="fas fa-tasks skill-icon"></i>
-                    <h3>Metodologias Corporativas</h3>
-                    <p>Scrum, Kanban, Agile, Git Flow, Azure Boards, Code Review, Pair Programming, ITIL</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projetos Section -->
-    <section id="projetos" class="projetos">
-        <div class="container">
-            <h2 class="highlight">Projetos</h2>
-            <p class="projetos-subtitle">Explore minha jornada de desenvolvimento através destes projetos que demonstram diferentes tecnologias e arquiteturas</p>
-
-            <!-- Filtro de Stacks -->
-            <div class="stacks-filter">
-                <button class="stack-btn active" data-stack="all"><i class="fas fa-layer-group"></i> Todos</button>
-                <button class="stack-btn" data-stack=".NET"><i class="fas fa-code"></i> .NET</button>
-                <button class="stack-btn" data-stack="React"><i class="fab fa-react"></i> React</button>
-                <button class="stack-btn" data-stack="TypeScript"><i class="fab fa-js-square"></i> TypeScript</button>
-                <button class="stack-btn" data-stack="Python"><i class="fab fa-python"></i> Python</button>
-                <button class="stack-btn" data-stack="Java"><i class="fab fa-java"></i> Java</button>
-                <button class="stack-btn" data-stack="PHP"><i class="fab fa-php"></i> PHP</button>
-                <button class="stack-btn" data-stack="Node.js"><i class="fab fa-node-js"></i> Node.js</button>
-                <button class="stack-btn" data-stack="CSS"><i class="fab fa-css3-alt"></i> CSS</button>
-            </div>
-
-            <div class="projetos-grid">
-                <!-- Projeto 1: Armazém São Joaquim -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/Armazem_saojoaquim.png" alt="Armazém São Joaquim">
-                    </div>
-                    <div class="project-content">
-                        <h3>Armazém São Joaquim</h3>
-                        <p>Sistema completo de restaurante com cardápio digital interativo, pousada, café e blog. Inclui gestão de reservas, painel administrativo e design responsivo multilíngue (PT/EN).</p>
-                        <div class="project-tags">
-                            <span>Next.js 14</span>
-                            <span>TypeScript</span>
-                            <span>Supabase</span>
-                            <span>Tailwind CSS</span>
-                            <span>PostgreSQL</span>
-                            <span>Resend API</span>
-                            <span>Row Level Security</span>
-                            <span>Multilíngue</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Lucasantunesribeiro/armazemsaojoaquim" class="btn-project">
-                                <i class="fas fa-code"></i>
-                                Ver Código
-                            </a>
-                            <a href="https://armazemsaojoaquim.com.br/pt" class="btn-project">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
-                        </div>
-                    </div>
+                    <i class="fas fa-cloud skill-icon"></i>
+                    <h3>Cloud/DevOps</h3>
+                    <p>AWS, Docker, CI/CD (GitHub Actions), Observabilidade</p>
                 </div>
 
-                <!-- Projeto 2: Article Summarizer Agent -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/article_summarizer_agent.png" alt="Article Summarizer Agent">
-                    </div>
-                    <div class="project-content">
-                        <h3>Article Summarizer Agent</h3>
-                        <p>Aplicação Python que extrai, processa e resume artigos de qualquer site, com bypass avançado de WAF (Cloudflare, DataCamp), múltiplos formatos de saída e API RESTful completa.</p>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>Flask</span>
-                            <span>Selenium</span>
-                            <span>NLP</span>
-                            <span>WAF Bypass</span>
-                            <span>API REST</span>
-                            <span>Docker</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Lucasantunesribeiro/article_summarizer_agent" class="btn-project">
-                                <i class="fas fa-code"></i>
-                                Ver Código
-                            </a>
-                            <a href="https://article-summarizer-agent.onrender.com/" class="btn-project">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projeto 3: CollabDocs -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/Collab_docs.png" alt="CollabDocs">
-                    </div>
-                    <div class="project-content">
-                        <h3>CollabDocs</h3>
-                        <p>Plataforma de documentos colaborativos com Next.js 15, Cloudflare Workers, D1 database e KV storage. Sistema 100% funcional com autenticação OAuth e colaboração em tempo real.</p>
-                        <div class="project-tags">
-                            <span>Next.js 15</span>
-                            <span>TypeScript</span>
-                            <span>Cloudflare Workers</span>
-                            <span>D1 Database</span>
-                            <span>KV Storage</span>
-                            <span>Tailwind CSS</span>
-                            <span>OAuth</span>
-                            <span>Edge Computing</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Lucasantunesribeiro/Collabdocs" class="btn-project">
-                                <i class="fas fa-code"></i>
-                                Ver Código
-                            </a>
-                            <a href="https://collabdocs-app.vercel.app/" class="btn-project">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projeto 4: Emissão NF-e -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/nfe_api_swagger_com_moldura.png" alt="Emissão NF-e">
-                    </div>
-                    <div class="project-content">
-                        <h3>Emissão Automatizada de NF-e</h3>
-                        <p>Sistema enterprise para emissão automatizada de Nota Fiscal Eletrônica com .NET 9, Clean Architecture, background services, health checks e deploy automatizado na AWS Lambda.</p>
-                        <div class="project-tags">
-                            <span>.NET 9</span>
-                            <span>Clean Architecture</span>
-                            <span>PostgreSQL</span>
-                            <span>Docker</span>
-                            <span>Health Checks</span>
-                            <span>Background Services</span>
-                            <span>xUnit</span>
-                            <span>AWS Lambda</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Lucasantunesribeiro/simulador_emissor" class="btn-project">
-                                <i class="fas fa-code"></i>
-                                Ver Código
-                            </a>
-                            <a href="https://42zqg8iw8b.execute-api.us-east-1.amazonaws.com/prod/swagger/index.html" class="btn-project">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projeto 5: LinkGuardião -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/linkguardiao_com_moldura.png" alt="LinkGuardião">
-                    </div>
-                    <div class="project-content">
-                        <h3>LinkGuardião</h3>
-                        <p>Sistema completo de encurtamento de URLs com proteção por senha, expiração automática, estatísticas detalhadas e dashboard administrativo. Inclui análise de cliques e localização geográfica.</p>
-                        <div class="project-tags">
-                            <span>ASP.NET Core 8</span>
-                            <span>React</span>
-                            <span>TypeScript</span>
-                            <span>SQLite</span>
-                            <span>Entity Framework</span>
-                            <span>JWT Auth</span>
-                            <span>Chart.js</span>
-                            <span>Tailwind CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Lucasantunesribeiro/LinkGuardiao" class="btn-project">
-                                <i class="fas fa-code"></i>
-                                Ver Código
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projeto 6: Sistema de Gestão Distribuído -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23111827'/%3E%3Ctext x='200' y='115' text-anchor='middle' dominant-baseline='middle' fill='%237c3aed' font-family='Inter, sans-serif' font-size='20' font-weight='600'%3EOrder Management%3C/text%3E%3Ctext x='200' y='140' text-anchor='middle' dominant-baseline='middle' fill='%239ca3af' font-family='Inter, sans-serif' font-size='14'%3EEvent Sourcing + CQRS%3C/text%3E%3C/svg%3E" alt="Sistema Distribuído">
-                    </div>
-                    <div class="project-content">
-                        <h3>Sistema de Gestão Distribuído com Event Sourcing</h3>
-                        <p>Arquitetura de microserviços com Event Sourcing, CQRS, comunicação assíncrona via RabbitMQ, frontend React 18 e observabilidade completa com métricas e health checks.</p>
-                        <div class="project-tags">
-                            <span>Java 17</span>
-                            <span>Spring Boot</span>
-                            <span>Event Sourcing</span>
-                            <span>CQRS</span>
-                            <span>RabbitMQ</span>
-                            <span>PostgreSQL</span>
-                            <span>React 18</span>
-                            <span>Docker</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing" class="btn-project">
-                                <i class="fas fa-code"></i>
-                                Ver Código
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projeto 7: Sistema de Locadora de Carros -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/Locadora_decarros.png" alt="Locadora de Carros">
-                    </div>
-                    <div class="project-content">
-                        <h3>Sistema de Locadora de Carros</h3>
-                        <p>Sistema completo de gestão de locadora com autenticação, CRUD de usuários e carros, sistema de aluguéis com validações, controle de permissões e interface responsiva moderna.</p>
-                        <div class="project-tags">
-                            <span>PHP 8.1+</span>
-                            <span>SQLite</span>
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>Design System</span>
-                            <span>shadcn/ui</span>
-                            <span>Responsivo</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Lucasantunesribeiro/locadora_de_carros" class="btn-project">
-                                <i class="fas fa-code"></i>
-                                Ver Código
-                            </a>
-                            <a href="https://locadora-de-carros.onrender.com/" class="btn-project">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projeto 8: SmartFinance -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/Smart_finance.png" alt="SmartFinance">
-                    </div>
-                    <div class="project-content">
-                        <h3>SmartFinance - Sistema de Gestão Financeira Empresarial</h3>
-                        <p>SmartFinance é um sistema completo para gestão financeira empresarial, com arquitetura moderna e tecnologias de ponta. Controle financeiro, análise de dados, processamento de pagamentos em tempo real e segurança enterprise-ready.</p>
-                        <div class="project-tags">
-                            <span>Next.js 14</span>
-                            <span>TypeScript</span>
-                            <span>Tailwind CSS</span>
-                            <span>Shadcn/ui</span>
-                            <span>.NET 8</span>
-                            <span>Clean Architecture</span>
-                            <span>CQRS</span>
-                            <span>SignalR</span>
-                            <span>Node.js</span>
-                            <span>Express</span>
-                            <span>MongoDB</span>
-                            <span>SQL Server</span>
-                            <span>Redis</span>
-                            <span>Docker</span>
-                            <span>Nginx</span>
-                            <span>AWS</span>
-                            <span>Terraform</span>
-                        </div>
-                        <ul class="project-features">
-                            <li>💰 Dashboard financeiro em tempo real</li>
-                            <li>📊 Gráficos interativos e métricas avançadas</li>
-                            <li>🔔 Alertas e notificações inteligentes</li>
-                            <li>� Análise de tendências e previsões</li>
-                            <li>�💸 Gestão de transações e reconciliação automática</li>
-                            <li>💳 Processamento de pagamentos (múltiplos métodos, filas, retry, antifraude)</li>
-                            <li>� Relatórios avançados e exportação PDF/Excel/CSV</li>
-                            <li>�️ Segurança: JWT, RBAC, CSRF/XSS, AES-256, LGPD/GDPR, PCI DSS, OWASP</li>
-                            <li>☁️ Deploy automatizado: Docker, Nginx, AWS, Terraform</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/lucasantunesribeiro/smart_finance" class="btn-project" target="_blank">
-                                <i class="fas fa-code"></i>
-                                Ver Código
-                            </a>
-                            <a href="http://204.236.248.148" class="btn-project" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo Online
-                            </a>
-                            <a href="http://204.236.248.148:5000/swagger" class="btn-project" target="_blank">
-                                <i class="fas fa-book"></i>
-                                API Docs
-                            </a>
-                            <a href="http://204.236.248.148:3001" class="btn-project" target="_blank">
-                                <i class="fas fa-credit-card"></i>
-                                Payment Service
-                            </a>
-                        </div>
-                        <div class="project-endpoints">
-                            <strong>Principais Endpoints:</strong>
-                            <ul>
-                                <li>GET /api/v1/health</li>
-                                <li>POST /api/v1/auth/login</li>
-                                <li>GET /api/v1/transactions</li>
-                                <li>POST /api/v1/transactions</li>
-                                <li>GET /api/v1/analytics/dashboard</li>
-                                <li>POST /api/v1/payments/process</li>
-                            </ul>
-                        </div>
-                        <div class="project-meta">
-                            <span><strong>Deploy:</strong> Docker Compose, Nginx, AWS, Terraform</span>
-                            <span><strong>Segurança:</strong> JWT, RBAC, CSRF/XSS, AES-256, LGPD/GDPR, PCI DSS, OWASP</span>
-                            <span><strong>Métricas:</strong> Uptime 99.9%, Response Time &lt;200ms, Cobertura &gt;80%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projeto 9: Logic Games Suite -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/jogo_numero_secreto_com_moldura.png" alt="Logic Games Suite">
-                    </div>
-                    <div class="project-content">
-                        <h3>Logic Games Suite</h3>
-                        <p>Suíte completa de jogos de lógica interativos com design moderno, estatísticas avançadas e experiência gamificada. Inclui Number Guess, Memory Game, Random Generator, Odd or Even e Reaction Time com sistema de conquistas e dashboard personalizado.</p>
-                        <div class="project-tags">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript ES6+</span>
-                            <span>Responsivo</span>
-                            <span>Dark/Light Theme</span>
-                            <span>Gamificação</span>
-                            <span>Web Audio API</span>
-                            <span>LocalStorage</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Lucasantunesribeiro/Numero-Secreto" class="btn-project">
-                                <i class="fas fa-code"></i>
-                                Ver Código
-                            </a>
-                            <a href="https://sorteador-de-numeros-six-pi.vercel.app/" class="btn-project">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projeto 10: Hamburgueria Website -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/super_burger_com_moldura.png" alt="Hamburgueria Website">
-                    </div>
-                    <div class="project-content">
-                        <h3>Super Burger - Website Premium</h3>
-                        <p>Website responsivo para hamburgueria artesanal com design premium, cardápio interativo, seção de equipe e contato. Interface moderna com tema escuro e elementos visuais atrativos.</p>
-                        <div class="project-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>Responsivo</span>
-                            <span>Dark Theme</span>
-                            <span>Premium Design</span>
-                            <span>Mobile-First</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Lucasantunesribeiro/hamburgueria-website" class="btn-project">
-                                <i class="fas fa-code"></i>
-                                Ver Código
-                            </a>
-                            <a href="https://projeto-hamburgueria-pi.vercel.app/" class="btn-project">
-                                <i class="fas fa-external-link-alt"></i>
-                                Demo
-                            </a>
-                        </div>
-                    </div>
+                <!-- Qualidade -->
+                <div class="skill-card">
+                    <i class="fas fa-check-double skill-icon"></i>
+                    <h3>Qualidade & Segurança</h3>
+                    <p>Testes unitários/integração, Health Checks, Performance & Security</p>
                 </div>
             </div>
         </div>
@@ -642,9 +680,9 @@
                     <p>Entre em contato: </p>
 
                     <div>
-                        <a href="mailto:Lucas.afvr@gmail.com" class="email-link"
-                            aria-label="Enviar email para Lucas.afvr@gmail.com">
-                            <i class="fas fa-envelope"></i> Lucas.afvr@gmail.com
+                        <a href="mailto:lucasantunesribeiro@outlook.com" class="email-link"
+                            aria-label="Enviar email para lucasantunesribeiro@outlook.com">
+                            <i class="fas fa-envelope"></i> lucasantunesribeiro@outlook.com
                         </a>
                         <br>
                     </div>
