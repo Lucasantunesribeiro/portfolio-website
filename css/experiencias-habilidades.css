@@ -1,0 +1,1056 @@
+/*
+  ========================================
+  EXPERIÊNCIAS & HABILIDADES - CSS PREMIUM 2026
+  ========================================
+
+  Design system moderno para:
+  - Timeline de experiências com cards premium
+  - Grid de habilidades com filtro interativo
+  - Acessibilidade completa
+  - Responsividade mobile-first
+  - Microinterações suaves
+*/
+
+/* ==================== CSS VARIABLES ==================== */
+:root {
+    /* Reutilizando tokens da seção de projetos */
+    --exp-bg: #0f1419;
+    --exp-surface: rgba(255, 255, 255, 0.03);
+    --exp-surface-hover: rgba(255, 255, 255, 0.06);
+    --exp-border: rgba(255, 255, 255, 0.08);
+    --exp-border-hover: rgba(124, 58, 237, 0.4);
+
+    --exp-text: #e5e7eb;
+    --exp-text-secondary: #9ca3af;
+    --exp-text-muted: #6b7280;
+
+    --exp-primary: #2563eb;
+    --exp-primary-hover: #3b82f6;
+    --exp-secondary: #7c3aed;
+    --exp-accent: #ec4899;
+
+    /* Shadows */
+    --exp-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --exp-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --exp-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    --exp-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    --exp-shadow-glow: 0 0 30px rgba(124, 58, 237, 0.2);
+
+    /* Spacing */
+    --exp-spacing-xs: 0.5rem;
+    --exp-spacing-sm: 0.75rem;
+    --exp-spacing-md: 1rem;
+    --exp-spacing-lg: 1.5rem;
+    --exp-spacing-xl: 2rem;
+    --exp-spacing-2xl: 3rem;
+    --exp-spacing-3xl: 4rem;
+
+    /* Border Radius */
+    --exp-radius-sm: 0.375rem;
+    --exp-radius: 0.5rem;
+    --exp-radius-md: 0.75rem;
+    --exp-radius-lg: 1rem;
+    --exp-radius-full: 9999px;
+
+    /* Transitions */
+    --exp-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --exp-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --exp-transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Timeline specific */
+    --timeline-rail-width: 2px;
+    --timeline-dot-size: 16px;
+    --timeline-gap: clamp(2rem, 4vw, 3rem);
+}
+
+/* ==================== EXPERIÊNCIAS SECTION ==================== */
+.experiencias {
+    padding: clamp(4rem, 10vw, 8rem) 0;
+    background: var(--exp-bg);
+    position: relative;
+}
+
+/* Header */
+.experiencias-header {
+    text-align: center;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.experiencias-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: var(--exp-spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.experiencias-title-accent {
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.experiencias-subtitle {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: var(--exp-text-secondary);
+    max-width: 48rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ==================== TIMELINE (PREMIUM 2026) ==================== */
+.timeline {
+    position: relative;
+    max-width: 64rem;
+    /* Largura ideal para layout alternado */
+    margin: 0 auto;
+    padding: var(--exp-spacing-xl) 0;
+}
+
+/* Timeline rail (Base) - PREMIUM com profundidade */
+.timeline-rail {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(-50%);
+    z-index: 1;
+    border-radius: 999px;
+    /* Efeito de profundidade sutil */
+    box-shadow:
+        0 0 8px rgba(0, 0, 0, 0.5),
+        inset 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Timeline progress (Fill) - PREMIUM com glow */
+.timeline-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    /* JS vai atualizar isso */
+    background: linear-gradient(to bottom,
+            var(--exp-primary),
+            var(--exp-secondary),
+            #ec4899);
+    border-radius: 999px;
+    box-shadow:
+        0 0 15px rgba(124, 58, 237, 0.6),
+        0 0 25px rgba(124, 58, 237, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: height 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Timeline item */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding-right: 3rem;
+    /* Espaço para o dot/rail */
+    margin-bottom: 4rem;
+    opacity: 0;
+    /* Para animação de entrada JS */
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.timeline-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alternating Layout */
+.timeline-item:nth-child(even) {
+    margin-left: auto;
+    padding-right: 0;
+    padding-left: 3rem;
+    text-align: left;
+    /* Card content alignment */
+}
+
+.timeline-item:nth-child(odd) {
+    margin-right: auto;
+    text-align: right;
+    /* Card content alignment */
+}
+
+/* Timeline dot - PREMIUM com múltiplas camadas */
+.timeline-dot {
+    position: absolute;
+    top: 1.5rem;
+    /* Alinhado com o header do card */
+    right: -10.5px;
+    /* Ajuste para dot 20px */
+    width: 20px;
+    height: 20px;
+    background: var(--exp-bg);
+    border: 3px solid rgba(37, 99, 235, 0.5);
+    border-radius: 50%;
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.15),
+        0 0 0 8px rgba(37, 99, 235, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Inner dot para mais profundidade */
+.timeline-dot::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: var(--exp-primary);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    right: auto;
+    left: -10.5px;
+}
+
+.timeline-item.is-visible .timeline-dot {
+    border-color: var(--exp-primary);
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-secondary));
+    box-shadow:
+        0 0 0 6px rgba(37, 99, 235, 0.25),
+        0 0 0 12px rgba(37, 99, 235, 0.15),
+        0 0 0 18px rgba(37, 99, 235, 0.08),
+        0 0 20px rgba(37, 99, 235, 0.6),
+        0 2px 12px rgba(0, 0, 0, 0.4);
+    transform: scale(1.15);
+    animation: dotPulse 2s ease-in-out infinite;
+}
+
+.timeline-item.is-visible .timeline-dot::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Pulse animation sutil */
+@keyframes dotPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 6px rgba(37, 99, 235, 0.25),
+            0 0 0 12px rgba(37, 99, 235, 0.15),
+            0 0 0 18px rgba(37, 99, 235, 0.08),
+            0 0 20px rgba(37, 99, 235, 0.6),
+            0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 8px rgba(37, 99, 235, 0.3),
+            0 0 0 14px rgba(37, 99, 235, 0.2),
+            0 0 0 20px rgba(37, 99, 235, 0.1),
+            0 0 25px rgba(37, 99, 235, 0.7),
+            0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Timeline Card Premium - Ultra refinado */
+.timeline-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    position: relative;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+    overflow: hidden;
+    /* Para o gradiente animado */
+}
+
+/* Gradiente animado na borda (efeito premium) */
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg,
+            transparent,
+            rgba(37, 99, 235, 0.3),
+            rgba(124, 58, 237, 0.3),
+            transparent);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    animation: borderRotate 3s linear infinite;
+    background-size: 200% 200%;
+}
+
+.timeline-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--exp-bg);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.timeline-item:nth-child(odd) .timeline-card {
+    text-align: left;
+    margin-left: auto;
+}
+
+.timeline-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-8px);
+    box-shadow:
+        0 15px 40px -15px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(124, 58, 237, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-card:hover::before {
+    opacity: 1;
+}
+
+/* Animação sutil do gradiente da borda */
+@keyframes borderRotate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.timeline-company {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.timeline-period {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--exp-primary);
+    background: rgba(37, 99, 235, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+}
+
+.timeline-role {
+    font-size: 1.1rem;
+    color: var(--exp-text-secondary);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.timeline-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-description {
+    margin-top: 1rem;
+}
+
+/* Buttons and Text */
+.timeline-text {
+    line-height: 1.7;
+    color: var(--exp-text-muted);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease;
+}
+
+.timeline-toggle {
+    margin-top: 1rem;
+    background: transparent;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    color: var(--exp-primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-toggle:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-secondary));
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.timeline-toggle:focus-visible {
+    outline: 2px solid var(--exp-primary);
+    outline-offset: 2px;
+}
+
+.timeline-toggle i {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+/* Responsive (Mobile/Tablet) */
+@media (max-width: 992px) {
+    .timeline {
+        padding-left: 2rem;
+    }
+
+    .timeline-rail {
+        left: 0;
+        transform: none;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 3rem;
+        margin-bottom: 3rem;
+        text-align: left !important;
+    }
+
+    .timeline-item:nth-child(even),
+    .timeline-item:nth-child(odd) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: -9px;
+        /* (18px / 2) */
+        right: auto;
+    }
+}
+
+/* ==================== HABILIDADES SECTION ==================== */
+.habilidades {
+    padding: clamp(4rem, 10vw, 8rem) 0;
+    background: var(--exp-bg);
+    position: relative;
+}
+
+/* Header */
+.habilidades-header {
+    text-align: center;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.habilidades-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: var(--exp-spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.habilidades-title-accent {
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.habilidades-subtitle {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: var(--exp-text-secondary);
+    max-width: 48rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ==================== SKILLS FILTER ==================== */
+.skills-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--exp-spacing-sm);
+    justify-content: center;
+    margin-bottom: var(--exp-spacing-2xl);
+    padding: var(--exp-spacing-sm);
+    background: var(--exp-surface);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius-full);
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--exp-radius-full);
+    color: var(--exp-text-secondary);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all var(--exp-transition);
+    white-space: nowrap;
+}
+
+.skill-filter-btn:hover:not(.active) {
+    background: var(--exp-surface-hover);
+    color: var(--exp-text);
+    transform: translateY(-1px);
+}
+
+.skill-filter-btn.active {
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-secondary));
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: var(--exp-shadow), var(--exp-shadow-glow);
+}
+
+.skill-filter-btn:focus-visible {
+    outline: 2px solid var(--exp-primary);
+    outline-offset: 2px;
+}
+
+.skill-filter-btn i {
+    font-size: 1rem;
+}
+
+/* ==================== SKILLS GRID ==================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: clamp(1.5rem, 3vw, 2rem);
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+/* Skill card */
+.skill-card {
+    background: var(--exp-surface);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius-lg);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    transition: all var(--exp-transition-slow);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--exp-spacing-md);
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba(124, 58, 237, 0.2), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity var(--exp-transition-slow);
+    pointer-events: none;
+}
+
+.skill-card:hover {
+    background: var(--exp-surface-hover);
+    border-color: var(--exp-border-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--exp-shadow-lg), var(--exp-shadow-glow);
+}
+
+.skill-card:hover::before {
+    opacity: 1;
+}
+
+/* Icon wrapper */
+.skill-icon-wrapper {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(124, 58, 237, 0.1);
+    border-radius: var(--exp-radius-md);
+    margin-bottom: var(--exp-spacing-sm);
+}
+
+.skill-icon {
+    font-size: 1.75rem;
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    /* Align fix */
+}
+
+.skill-title {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 600;
+    color: var(--exp-text);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.skill-description {
+    font-size: clamp(0.9375rem, 1.5vw, 1rem);
+    line-height: 1.6;
+    color: var(--exp-text-secondary);
+    margin: 0;
+    flex: 1;
+}
+
+/* Skill tags */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: var(--exp-radius-sm);
+    color: var(--exp-primary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    transition: all var(--exp-transition);
+}
+
+.skill-tag:hover {
+    background: rgba(124, 58, 237, 0.15);
+    border-color: rgba(124, 58, 237, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Filter animation */
+.skill-card.filtering-out {
+    animation: skillFilterOut 0.3s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.skill-card.filtering-in {
+    animation: skillFilterIn 0.4s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+@keyframes skillFilterOut {
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes skillFilterIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 1rem;
+    }
+
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeline-period {
+        align-self: flex-start;
+    }
+
+    .skills-filter {
+        max-width: 100%;
+        background: transparent;
+        border: none;
+        padding: 0;
+        gap: var(--exp-spacing-xs);
+    }
+
+    .skill-filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline::before {
+        left: 7px;
+    }
+
+    .timeline-dot {
+        width: 14px;
+        height: 14px;
+    }
+
+    .timeline-item {
+        padding-left: 1.25rem;
+    }
+
+    .skill-filter-btn span {
+        display: none;
+    }
+
+    .skill-filter-btn[data-category="all"] span {
+        display: inline;
+    }
+
+    .skill-filter-btn i {
+        margin: 0;
+    }
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+@media (prefers-reduced-motion: reduce) {
+
+    /* Desativa TODAS as animações */
+    .timeline-card,
+    .timeline-card::before,
+    .timeline-dot,
+    .timeline-dot::before,
+    .timeline-item,
+    .timeline-progress,
+    .skill-card,
+    .timeline-toggle,
+    .skill-filter-btn,
+    .tech-chip,
+    .skill-tag {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .timeline-item:hover .timeline-card,
+    .skill-card:hover {
+        transform: none;
+    }
+
+    .timeline-item.is-visible .timeline-dot {
+        transform: none;
+    }
+
+    /* Mantém apenas feedback visual básico */
+    .timeline-card:hover {
+        border-color: rgba(124, 58, 237, 0.4);
+    }
+
+    .timeline-toggle:hover {
+        background: var(--exp-primary);
+        color: #ffffff;
+    }
+}
+
+@media (prefers-contrast: high) {
+
+    .timeline-card,
+    .skill-card {
+        border-width: 2px;
+    }
+
+    .timeline-toggle,
+    .skill-filter-btn {
+        border-width: 2px;
+    }
+
+    .skill-filter-btn.active {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+}
+
+/* Focus visible */
+@supports selector(:focus-visible) {
+    .timeline-toggle:focus {
+        outline: none;
+    }
+
+    .skill-filter-btn:focus {
+        outline: none;
+    }
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+
+    .experiencias,
+    .habilidades {
+        padding: 2rem 0;
+    }
+
+    .timeline-toggle,
+    .skills-filter {
+        display: none;
+    }
+
+    .timeline-text {
+        max-height: none !important;
+    }
+
+    .skill-card,
+    .timeline-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+
+/* ==================== EXPERIÊNCIAS — UPGRADE PREMIUM ==================== */
+
+/* Glow ambiental sutil (não “neon”) */
+.experiencias::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(700px 350px at 20% 10%, rgba(124, 58, 237, 0.14), transparent 60%),
+        radial-gradient(700px 350px at 80% 30%, rgba(37, 99, 235, 0.12), transparent 60%),
+        radial-gradient(900px 400px at 50% 100%, rgba(236, 72, 153, 0.08), transparent 55%);
+    opacity: 0.9;
+}
+
+/* Rail: base + textura + blur leve */
+.timeline-rail {
+    width: 4px;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.10),
+            rgba(255, 255, 255, 0.05));
+    overflow: hidden;
+}
+
+.timeline-rail::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(10px 80px at 50% 10%, rgba(255, 255, 255, 0.14), transparent 65%),
+        radial-gradient(10px 80px at 50% 90%, rgba(255, 255, 255, 0.10), transparent 65%);
+    opacity: 0.7;
+    filter: blur(0.2px);
+}
+
+/* Progress: em vez de height “crua”, usamos scaleY (mais suave e sem “jank”) */
+.timeline-progress {
+    height: 100%;
+    transform-origin: top;
+    transform: scaleY(var(--timeline-progress, 0));
+    will-change: transform;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Linha conectora dot -> card (faz MUITA diferença no “efeito timeline”) */
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    top: 1.95rem;
+    height: 1px;
+    width: clamp(18px, 2.4vw, 34px);
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.0), rgba(124, 58, 237, 0.55));
+    opacity: 0.55;
+    transition: opacity var(--exp-transition), transform var(--exp-transition);
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: calc(-1 * clamp(18px, 2.4vw, 34px) - 2px);
+    transform: translateX(6px);
+}
+
+.timeline-item:nth-child(even)::after {
+    left: calc(-1 * clamp(18px, 2.4vw, 34px) - 2px);
+    background: linear-gradient(90deg, rgba(124, 58, 237, 0.55), rgba(37, 99, 235, 0.0));
+    transform: translateX(-6px);
+}
+
+.timeline-item.is-visible::after {
+    opacity: 0.95;
+    transform: translateX(0);
+}
+
+/* Ajuste fino de alternância (para ficar “clean”) */
+.timeline-item {
+    margin-bottom: clamp(2.25rem, 4vw, 4rem);
+}
+
+.timeline-item:nth-child(odd) {
+    text-align: left;
+    /* evita “efeito estranho” */
+}
+
+/* Dot mais “premium”: menos grosso, mais elegante */
+.timeline-dot {
+    width: 18px;
+    height: 18px;
+    border-width: 2px;
+    right: -9px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -9px;
+}
+
+.timeline-dot::before {
+    inset: 4px;
+}
+
+/* Dot ativo: halo mais sofisticado (menos “balão”) */
+.timeline-item.is-visible .timeline-dot {
+    transform: scale(1.08);
+    animation: none;
+    /* remove pulse infinito pra ficar mais premium */
+    box-shadow:
+        0 0 0 6px rgba(37, 99, 235, 0.18),
+        0 0 0 12px rgba(124, 58, 237, 0.12),
+        0 0 18px rgba(37, 99, 235, 0.35),
+        0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* Card: borda/hover mais “produto”, menos chamativo */
+.timeline-card {
+    background: rgba(255, 255, 255, 0.028);
+    border-color: rgba(255, 255, 255, 0.085);
+}
+
+.timeline-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(124, 58, 237, 0.45);
+    box-shadow:
+        0 18px 45px -20px rgba(0, 0, 0, 0.75),
+        0 0 26px rgba(124, 58, 237, 0.18);
+}
+
+/* Header: mais respirável, hierarquia mais forte */
+.timeline-company {
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    letter-spacing: -0.02em;
+}
+
+.timeline-role {
+    font-size: clamp(0.98rem, 1.5vw, 1.05rem);
+    margin-bottom: 1rem;
+}
+
+/* Chips (no seu CSS estava faltando a classe tech-chip) */
+.tech-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.38rem 0.72rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(229, 231, 235, 0.92);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform var(--exp-transition), background var(--exp-transition), border-color var(--exp-transition);
+}
+
+.tech-chip:hover {
+    transform: translateY(-1px);
+    background: rgba(124, 58, 237, 0.10);
+    border-color: rgba(124, 58, 237, 0.22);
+}
+
+/* Texto: leitura mais premium */
+.timeline-text {
+    color: rgba(156, 163, 175, 0.92);
+    max-width: 60ch;
+}
+
+/* Toggle: mais “SaaS” */
+.timeline-toggle {
+    border-radius: 12px;
+    padding: 0.55rem 0.95rem;
+    border-color: rgba(124, 58, 237, 0.28);
+}
+
+.timeline-toggle:hover {
+    box-shadow: 0 8px 22px rgba(124, 58, 237, 0.20);
+}
+
+/* Tablet/Mobile: rail à esquerda + conectores curtos */
+@media (max-width: 992px) {
+    .timeline {
+        padding-left: 1.25rem;
+    }
+
+    .timeline-item::after {
+        left: 6px;
+        right: auto;
+        width: 18px;
+        background: linear-gradient(90deg, rgba(124, 58, 237, 0.55), rgba(37, 99, 235, 0.0));
+    }
+
+    .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: -10px;
+    }
+}
+
+/* Garantir que [hidden] sempre suma (evita override acidental) */
+.project-card[hidden],
+.skill-card[hidden],
+.projetos-empty[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+    FIX CRÍTICO: garante que filtros funcionem
+    Mesmo que exista display:flex/block !important em cards
+========================================= */
+[hidden] {
+    display: none !important;
+}
+
+/* Fallback extra (usamos via JS também) */
+.project-card.is-hidden,
+.skill-card.is-hidden,
+#projetos-empty.is-hidden {
+    display: none !important;
+}

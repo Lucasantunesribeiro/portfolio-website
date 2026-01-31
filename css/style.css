@@ -975,3 +975,18 @@ body {
         font-size: 0.95rem;
     }
 }
+
+/* =========================================
+   FIX CRÍTICO: garante que filtros funcionem
+   Mesmo que exista display:flex/block !important em cards
+========================================= */
+[hidden] {
+    display: none !important;
+}
+
+/* Fallback extra (usamos via JS também) */
+.project-card.is-hidden,
+.skill-card.is-hidden,
+#projetos-empty.is-hidden {
+    display: none !important;
+}

@@ -263,4 +263,27 @@
     margin: 0 auto;
     aspect-ratio: 1/1;
   }
+
+  /* Garantir que [hidden] sempre suma (evita override acidental) */
+  .project-card[hidden],
+  .skill-card[hidden],
+  .projetos-empty[hidden] {
+    display: none !important;
+  }
+
+  /* =========================================
+   FIX CRÍTICO: garante que filtros funcionem
+   Mesmo que exista display:flex/block !important em cards
+========================================= */
+  [hidden] {
+    display: none !important;
+  }
+
+  /* Fallback extra (usamos via JS também) */
+  .project-card.is-hidden,
+  .skill-card.is-hidden,
+  #projetos-empty.is-hidden {
+    display: none !important;
+  }
+
 }

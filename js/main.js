@@ -5,52 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		easing: 'slide'
 	});
 
-	const stackBtns = document.querySelectorAll('.stack-btn');
-	const projectCards = document.querySelectorAll('.project-card');
-	let menuToggle = document.querySelector('.menu-toggle');
-	let navLinks = document.querySelector('.nav-links');
 
-	stackBtns.forEach(btn => {
-		btn.addEventListener('click', function () {
-			stackBtns.forEach(b => b.classList.remove('active'));
-			btn.classList.add('active');
-			const stack = btn.getAttribute('data-stack').toLowerCase();
-			const projectCards = document.querySelectorAll('.project-card');
-			projectCards.forEach(card => {
-				if (stack === 'all' || stack === 'todos') {
-					card.style.display = '';
-				} else {
-					const tags = Array.from(card.querySelectorAll('.project-tags span')).map(s => s.textContent.trim().toLowerCase());
-					let match = false;
-					if (stack === 'java') {
-						match = tags.some(t => t === 'java' || t.startsWith('java '));
-					} else if (stack === 'javascript') {
-						match = tags.some(t => t === 'javascript' || t === 'js' || t.includes('javascript'));
-					} else if (stack === 'php') {
-						match = tags.some(t => t === 'php' || t.startsWith('php') || t.includes('php'));
-					} else if (stack === '.net') {
-						match = tags.some(t =>
-							t === '.net' ||
-							t === '.net 8' ||
-							t === '.net 9' ||
-							t === '.net core' ||
-							t === '.net aspire' ||
-							t === 'asp.net core' ||
-							t === 'entity framework' ||
-							t === 'c#' ||
-							t.includes('.net') ||
-							t.includes('asp.net') ||
-							t.includes('entity framework') ||
-							t.includes('c#')
-						);
-					} else {
-						match = tags.some(t => t === stack);
-					}
-					card.style.display = match ? '' : 'none';
-				}
-			});
-		});
-	});
+	// Variáveis globais de navegação controladas por applyMenuListeners
+	// A lógica de filtragem de projetos foi movida para js/projetos.js
+
 
 	// Apenas CSS controla a exibição do menu-toggle
 	console.log('DOM fully loaded, JS running');
@@ -204,9 +162,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			},
 			expFreela: {
 				empresa: 'Freelancer',
-				periodo: 'Janeiro de 2024 - Novembro de 2024',
+				periodo: 'Janeiro de 2024 - Atual',
 				cargo: 'Desenvolvedor Fullstack',
-				tech: 'C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript',
+				tech: 'C#, .NET Core, React, Java, Spring, Python, Django, Flask, Node.js, PHP, Laravel, TypeScript e JavaScript',
 				desc: 'Responsável pelo desenvolvimento fullstack de aplicações web e APIs RESTful utilizando C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript. Experiência em modelagem e otimização de bancos de dados relacionais (SQL Server, MySQL) e NoSQL (MongoDB). Implementa princípios SOLID, Clean Architecture e Design Patterns para garantir código limpo e manutenível. Desenvolve testes automatizados (unitários e de integração) com xUnit e PHPUnit. Atua em todo o ciclo de vida do desenvolvimento: análise de requisitos, design, desenvolvimento, testes e deploy, utilizando metodologias ágeis (Scrum/Kanban) e versionamento com Git.'
 			},
 			habilidadesTitle: 'Habilidades',
@@ -634,12 +592,19 @@ document.addEventListener('DOMContentLoaded', function () {
 		const projetosSubtitle = document.querySelector('.projetos-subtitle');
 		if (projetosSubtitle) projetosSubtitle.textContent = translations[lang].projetosSubtitle;
 		// Traduz botões de stacks
+		// Traduz botões de stacks
 		const stackBtns = document.querySelectorAll('.stack-btn');
 		if (stackBtns.length === translations[lang].stacks.length) {
 			translations[lang].stacks.forEach((stackText, i) => {
 				const btn = stackBtns[i];
-				const icon = btn.querySelector('i');
-				btn.innerHTML = icon ? icon.outerHTML + ' ' + stackText : stackText;
+				const span = btn.querySelector('span');
+				if (span) {
+					span.textContent = stackText;
+				} else {
+					// Fallback caso não tenha span (estrutura antiga)
+					const icon = btn.querySelector('i');
+					btn.innerHTML = icon ? icon.outerHTML + ' ' + stackText : stackText;
+				}
 			});
 		}
 
@@ -657,7 +622,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		const contato = document.querySelector('.contact-info p');
 		if (contato) contato.textContent = translations[lang].contato;
 
-		// Projetos traduzidos
+		// Projetos section - A regeneração dinâmica foi desativada para manter a compatibilidade com o sistema de filtros (js/projetos.js)
+		// e a estrutura HTML Premium.
+		/*
 		const projetosGrid = document.querySelector('.projetos-grid');
 		if (projetosGrid && translations[lang].projetos && translations[lang].projetos.length > 0) {
 			projetosGrid.innerHTML = '';
@@ -683,7 +650,78 @@ document.addEventListener('DOMContentLoaded', function () {
 				projetosGrid.appendChild(card);
 			});
 		}
+		*/
+
+		if (typeof window.updateProjectsLabels === 'function') {
+			window.updateProjectsLabels(lang);
+		}
+
+		// Atualizar labels das seções Experiências e Habilidades
+		if (typeof window.updateExperienciasHabilidadesLabels === 'function') {
+			window.updateExperienciasHabilidadesLabels(lang);
+		}
 	}
+
+	// ==================== TIMELINE PREMIUM 2026 ====================
+	function initTimeline() {
+		const timelineSection = document.querySelector('#experiencias');
+		const timelineProgress = document.querySelector('.timeline-progress');
+		const timelineItems = document.querySelectorAll('.timeline-item');
+
+		if (!timelineSection || !timelineProgress) return;
+
+		// 1. Scroll Progress Logic
+		function updateTimelineProgress() {
+			const sectionTop = timelineSection.offsetTop;
+			const sectionHeight = timelineSection.offsetHeight;
+			const scrollY = window.scrollY;
+			const windowHeight = window.innerHeight;
+
+			// Start progress when section enters viewport (buffer of 200px)
+			const startOffset = sectionTop - windowHeight + 200;
+			// End progress when section leaves viewport
+			const endOffset = sectionTop + sectionHeight - 200;
+
+			let percentage = 0;
+
+			if (scrollY > startOffset) {
+				const scrolled = scrollY - startOffset;
+				const totalScrollable = endOffset - startOffset;
+				percentage = Math.min(100, Math.max(0, (scrolled / totalScrollable) * 100));
+			}
+
+			timelineProgress.style.height = `${percentage}%`;
+		}
+
+		window.addEventListener('scroll', () => {
+			requestAnimationFrame(updateTimelineProgress);
+		}, { passive: true });
+
+		// Initial check
+		updateTimelineProgress();
+
+		// 2. Intersection Observer for Items (Slide-in)
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const timelineObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('is-visible');
+					// Optional: Stop observing once visible to save performance
+					timelineObserver.unobserve(entry.target);
+				}
+			});
+		}, observerOptions);
+
+		timelineItems.forEach(item => {
+			timelineObserver.observe(item);
+		});
+	}
+
+	initTimeline();
 
 	// Event listener para botão de idioma
 	if (langBtn) {
