@@ -192,10 +192,10 @@ document.addEventListener('DOMContentLoaded', function () {
 					img: 'assets/emiss_o_automatizada_de_nf_e_mockup.webp',
 					alt: 'Emissão NF-e',
 					title: 'Emissão Automatizada de NF-e',
-					desc: 'Sistema distribuído Serverless Event-Driven na AWS. Utiliza Lambda (Go + .NET 9), EventBridge e SQS para emissão fiscal massiva e geração de PDFs com alta performance.',
-					tags: ['AWS Lambda', 'Go', '.NET 9', 'EventBridge', 'Serverless'],
+					desc: 'Sistema distribuído 100% serverless com arquitetura Event-Driven e FinOps. Microserviços poliglotas (Go + .NET 9), DynamoDB Single-Table e geração dinâmica de PDFs.',
+					tags: ['AWS Serverless', 'Go + .NET 9', 'Angular 18', 'DynamoDB', 'EventBridge'],
 					code: 'https://github.com/Lucasantunesribeiro/emissao_nfe',
-					demo: 'https://d3065hze06690c.cloudfront.net/login'
+					demo: 'https://d19fn3hv30xsoq.cloudfront.net'
 				},
 				{
 					img: 'assets/emailtriageai_mockup.webp',
@@ -228,10 +228,10 @@ document.addEventListener('DOMContentLoaded', function () {
 					img: 'assets/smartfinance_mockup.webp',
 					alt: 'SmartFinance',
 					title: 'SmartFinance',
-					desc: 'Aplicação Fullstack multi-idioma segura com ALB privado e ECS. Oferece gestão financeira com dashboards interativos, CSRF protection e autenticação JWT robusta.',
+					desc: 'Plataforma full-stack de gestão financeira com foco em performance e otimização de custos. Destaque para migração cloud zero-downtime, redução de 100% em custos AWS e dashboards real-time via SignalR.',
 					tags: ['Next.js', 'Node.js', 'AWS ECS', 'Terraform', 'Multi-tenant'],
 					code: 'https://github.com/Lucasantunesribeiro/smart_finance',
-					demo: 'http://smartfinance-prod-alb-1713518371.sa-east-1.elb.amazonaws.com/'
+					demo: 'http://98.84.92.190'
 				},
 				{
 					img: 'assets/kogui_pokedex_mockup.webp',
@@ -358,10 +358,10 @@ document.addEventListener('DOMContentLoaded', function () {
 					img: 'assets/emiss_o_automatizada_de_nf_e_mockup.webp',
 					alt: 'NF-e Automation',
 					title: 'Automated NF-e Issuance',
-					desc: 'Serverless Event-Driven Distributed System on AWS. Uses Lambda (Go + .NET 9), EventBridge, and SQS for massive fiscal issuing and high-performance PDF generation.',
-					tags: ['.NET', 'C#', 'PostgreSQL', 'Docker', 'AWS'],
+					desc: '100% serverless distributed system with Event-Driven architecture and FinOps. Polyglot microservices (Go + .NET 9), Single-Table DynamoDB, and dynamic PDF generation.',
+					tags: ['AWS Serverless', 'Go + .NET 9', 'Angular 18', 'DynamoDB', 'EventBridge'],
 					code: 'https://github.com/Lucasantunesribeiro/emissao_nfe',
-					demo: 'https://d3065hze06690c.cloudfront.net/login'
+					demo: 'https://d19fn3hv30xsoq.cloudfront.net'
 				},
 				{
 					img: 'assets/emailtriageai_mockup.webp',
@@ -394,10 +394,10 @@ document.addEventListener('DOMContentLoaded', function () {
 					img: 'assets/smartfinance_mockup.webp',
 					alt: 'SmartFinance',
 					title: 'SmartFinance',
-					desc: 'Secure multi-language Fullstack application with private ALB and ECS. Offers financial management with interactive dashboards, CSRF protection, and robust JWT auth.',
+					desc: 'Full-stack financial management platform focused on performance and cost optimization. Features zero-downtime cloud migration, 100% AWS cost reduction, and real-time dashboards via SignalR.',
 					tags: ['Next.js', 'React', 'Node.js', 'Tailwind', 'JWT'],
 					code: 'https://github.com/Lucasantunesribeiro/smart_finance',
-					demo: 'http://smartfinance-prod-alb-1713518371.sa-east-1.elb.amazonaws.com/'
+					demo: 'http://98.84.92.190'
 				},
 				{
 					img: 'assets/kogui_pokedex_mockup.webp',
