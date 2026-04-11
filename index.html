@@ -96,7 +96,7 @@
                 <h1 class="animated-text">Olá, eu sou <span class="highlight">Lucas Antunes Ferreira</span></h1>
 
                 <p class="hero-subtitle desktop-text">
-                    Desenvolvedor Fullstack | C# .NET | React | Node.js<br>
+                    Desenvolvedor Fullstack | .NET Specialist | Backend Heavy<br>
                     APIs REST | Cloud & DevOps | CI/CD<br>
                     Clean Architecture | Testes | Observabilidade | Segurança
                 </p>
@@ -111,7 +111,7 @@
                         rel="noopener noreferrer">Currículo</a>
                     <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
                     <div class="social-links">
-                        <a href="https://lucasantunes-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.lucasafvr.com.br/" target="_blank" rel="noopener noreferrer"
                             aria-label="Portfólio">
                             <i class="fas fa-globe"></i>
                         </a>
@@ -119,7 +119,7 @@
                             rel="noopener noreferrer" aria-label="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="mailto:lucasantunesribeiro@outlook.com" target="_blank" rel="noopener noreferrer"
+                        <a href="mailto:lucas.afvr@gmail.com" target="_blank" rel="noopener noreferrer"
                             aria-label="Email">
                             <i class="fas fa-envelope"></i>
                         </a>
@@ -294,24 +294,55 @@
                 </button>
             </div>
 
-            <!-- Grid de Projetos -->
-            <div class="projetos-grid" id="projetos-grid" role="region" aria-live="polite">
+            <div class="projetos-grid" id="projetos-grid">
+                <!-- 1. SmartFinance -->
+                <article class="project-card" data-tags=".net,c#,next.js,typescript,postgresql,rabbitmq,aws">
+                    <div class="project-image zoom">
+                        <img src="assets/smartfinance_mockup.jpg" alt="SmartFinance" loading="lazy" decoding="async"
+                            width="400" height="250">
+                        <div class="project-image-overlay" aria-hidden="true"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">SmartFinance</h3>
+                        <p class="project-description">Ecossistema de finanças pessoais com .NET 9, RabbitMQ e Next.js. Implementa Clean Architecture, Outbox Pattern e processamento assíncrono de transações para máxima consistência e resiliência financeira.</p>
+                        <div class="project-tags" aria-label="Tecnologias utilizadas">
+                            <span class="project-tag">.NET 9</span>
+                            <span class="project-tag">C#</span>
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">RabbitMQ</span>
+                            <span class="project-tag">AWS</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Lucasantunesribeiro/smart_finance"
+                                class="btn-project btn-project-secondary" target="_blank">
+                                <i class="fas fa-code" aria-hidden="true"></i>
+                                <span>Repo</span>
+                            </a>
+                            <a href="http://3.223.37.57/login" class="btn-project btn-project-primary" target="_blank">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                <span>Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
 
-                <!-- 1. TenantCore -->
-                <article class="project-card" data-tags=".net,react,postgresql,redis,azure">
-                    <div class="project-image">
-                        <img src="assets/tenant_core_mockup.png" alt="TenantCore — Multi-Tenant SaaS Platform"
+                <!-- 2. TenantCore -->
+                <article class="project-card" data-tags=".net,c#,react,typescript,sql-server,redis,azure">
+                    <div class="project-image zoom">
+                        <img src="assets/tenant_core_mockup.jpg" alt="TenantCore — Multi-Tenant SaaS Platform"
                             loading="lazy" decoding="async" width="400" height="250">
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">TenantCore — Multi-Tenant SaaS Platform</h3>
-                        <p class="project-description">Plataforma SaaS B2B multi-tenant com isolamento de tenants, RBAC,
-                            planos, auditoria, jobs em background (Quartz) e observabilidade completa (OTEL).</p>
+                        <h3 class="project-title">TenantCore — Multi-Tenant SaaS</h3>
+                        <p class="project-description">Plataforma SaaS B2B em .NET 9 com isolamento de dados por schema. Possui autenticação robusta (JWT + Refresh Tokens), RBAC granular, monólito modular e observabilidade completa com OpenTelemetry.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
                             <span class="project-tag">.NET 9</span>
-                            <span class="project-tag">React 18</span>
-                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">C#</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">SQL Server</span>
                             <span class="project-tag">Redis</span>
                             <span class="project-tag">Azure</span>
                         </div>
@@ -330,184 +361,23 @@
                     </div>
                 </article>
 
-                <!-- 2. Billing Ledger -->
-                <article class="project-card" data-tags=".net,c#,postgresql,aws,ddd">
-                    <div class="project-image">
-                        <img src="assets/billing_ledger_mockup.png" alt="Billing Ledger — Event-Driven Payments"
-                            loading="lazy" decoding="async" width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Billing Ledger — Event-Driven Payments</h3>
-                        <p class="project-description">Sistema de cobrança e conciliação com arquitetura DDD, SAGA de
-                            pagamentos e mensageria (MassTransit) na AWS SNS/SQS.</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">.NET 9</span>
-                            <span class="project-tag">C#</span>
-                            <span class="project-tag">PostgreSQL</span>
-                            <span class="project-tag">AWS SNS/SQS</span>
-                            <span class="project-tag">DDD</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/billing_ledger"
-                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 3. Sistema de Gestão Distribuído -->
-                <article class="project-card" data-tags="java,spring-boot,rabbitmq,postgresql,event-sourcing,cqrs">
-                    <div class="project-image">
-                        <img src="assets/sistema_distribuido_mockup.webp"
-                            alt="Sistema de Gestão Distribuído — Microserviços" loading="lazy" decoding="async"
-                            width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Sistema de Gestão Distribuído — Microserviços</h3>
-                        <p class="project-description">Arquitetura complexa de Microsserviços utilizando Event Sourcing
-                            e CQRS. Implementado com Java Spring Boot, RabbitMQ e PostgreSQL para alta escalabilidade.
-                        </p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">Spring Boot</span>
-                            <span class="project-tag">RabbitMQ</span>
-                            <span class="project-tag">Event Sourcing</span>
-                            <span class="project-tag">CQRS</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing"
-                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                            <a href="http://98.92.208.98/dashboard" class="btn-project btn-project-primary"
-                                target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                <span>Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 4. SmartFinance -->
-                <article class="project-card" data-tags=".net,c#,next.js,aws,terraform">
-                    <div class="project-image">
-                        <img src="assets/smartfinance_mockup.webp" alt="SmartFinance" loading="lazy" decoding="async"
-                            width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">SmartFinance</h3>
-                        <p class="project-description">Plataforma full-stack de gestão financeira com foco em
-                            performance e otimização de custos. Dashboards real-time via SignalR.</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">.NET 8</span>
-                            <span class="project-tag">C#</span>
-                            <span class="project-tag">Next.js</span>
-                            <span class="project-tag">AWS ECS</span>
-                            <span class="project-tag">Terraform</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/smart_finance"
-                                class="btn-project btn-project-secondary" target="_blank">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                            <a href="http://98.84.92.190" class="btn-project btn-project-primary" target="_blank">
-                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                <span>Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 5. Emissão Automatizada de NF-e -->
-                <article class="project-card" data-tags="aws,go,.net,angular,dynamodb,eventbridge">
-                    <div class="project-image">
-                        <img src="assets/emiss_o_automatizada_de_nf_e_mockup.webp" alt="Emissão Automatizada de NF-e"
-                            loading="lazy" decoding="async" width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Emissão Automatizada de NF-e</h3>
-                        <p class="project-description">Sistema distribuído 100% serverless com arquitetura Event-Driven
-                            e FinOps. Microserviços poliglotas (Go + .NET 9).</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">AWS Serverless</span>
-                            <span class="project-tag">Go + .NET 9</span>
-                            <span class="project-tag">Angular 18</span>
-                            <span class="project-tag">DynamoDB</span>
-                            <span class="project-tag">EventBridge</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/emissao_nfe"
-                                class="btn-project btn-project-secondary" target="_blank">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                            <a href="https://d19fn3hv30xsoq.cloudfront.net" class="btn-project btn-project-primary"
-                                target="_blank">
-                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                <span>Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 6. Armazém São Joaquim -->
-                <article class="project-card" data-tags="next.js,typescript,supabase,tailwind,shadcn/ui">
-                    <div class="project-image">
-                        <img src="assets/armaz_m_s_o_joaquim_mockup.webp" alt="Armazém São Joaquim" loading="lazy"
-                            decoding="async" width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Armazém São Joaquim</h3>
-                        <p class="project-description">Plataforma digital completa com Next.js 15 e Supabase. Inclui
-                            cardápio interativo e sistema de reservas.</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">Next.js 15</span>
-                            <span class="project-tag">TypeScript</span>
-                            <span class="project-tag">Supabase</span>
-                            <span class="project-tag">Tailwind</span>
-                            <span class="project-tag">Shadcn/ui</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/armazemsaojoaquim"
-                                class="btn-project btn-project-secondary" target="_blank">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                            <a href="https://armazemsaojoaquim.com.br/" class="btn-project btn-project-primary"
-                                target="_blank">
-                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                <span>Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 7. LinkGuardião -->
-                <article class="project-card" data-tags="asp.net-core,react,ef-core,docker">
-                    <div class="project-image">
-                        <img src="assets/linkguardi_o_mockup.webp" alt="LinkGuardião" loading="lazy" decoding="async"
+                <!-- 3. LinkGuardião -->
+                <article class="project-card" data-tags=".net,c#,react,typescript,postgresql,redis,docker">
+                    <div class="project-image zoom">
+                        <img src="assets/linkguardiao_mockup.jpg" alt="LinkGuardião" loading="lazy" decoding="async"
                             width="400" height="250">
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">LinkGuardião</h3>
-                        <p class="project-description">Encurtador de URLs corporativo com proteção por senha e analytics
-                            detalhado. Backend em ASP.NET Core 8.</p>
+                        <p class="project-description">Encurtador de links premium com foco em segurança. .NET 9 + React, links protegidos por senha, expiração configurável, rate limiting e analytics assíncrono processado via AWS Lambda.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">ASP.NET Core 8</span>
+                            <span class="project-tag">.NET 9</span>
                             <span class="project-tag">React</span>
-                            <span class="project-tag">EF Core</span>
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">Redis</span>
                             <span class="project-tag">Docker</span>
-                            <span class="project-tag">Analytics</span>
                         </div>
                         <div class="project-actions">
                             <a href="https://github.com/Lucasantunesribeiro/LinkGuardiao"
@@ -524,58 +394,30 @@
                     </div>
                 </article>
 
-                <!-- 8. ERP — Order Management -->
-                <article class="project-card" data-tags="python,django,redis,mysql,celery">
-                    <div class="project-image">
-                        <img src="assets/erp_orders_mockup.png" alt="ERP — Order Management" loading="lazy"
+                <!-- 4. Armazém São Joaquim -->
+                <article class="project-card" data-tags=".net,c#,next.js,react,typescript,supabase,postgresql">
+                    <div class="project-image zoom">
+                        <img src="assets/armazem_sao_joaquim_mockup.jpg" alt="Armazém São Joaquim" loading="lazy"
                             decoding="async" width="400" height="250">
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">ERP — Order Management</h3>
-                        <p class="project-description">Módulo ERP de gestão de pedidos com Modular Monolith, Celery jobs
-                            e cobertura de testes >97%.</p>
+                        <h3 class="project-title">Armazém São Joaquim</h3>
+                        <p class="project-description">Portal para gestão de armazém, restaurante e pousada. Utiliza Next.js e Supabase para um frontend de alta performance com CMS dinâmico, fluxo de reservas e controle administrativo integrado.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">Python 3.12</span>
-                            <span class="project-tag">Django 5</span>
-                            <span class="project-tag">Redis</span>
-                            <span class="project-tag">MySQL</span>
-                            <span class="project-tag">Celery</span>
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">Supabase</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">React</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/sistema_erp_modulo_de_gestao_de_pedidos"
+                            <a href="https://github.com/Lucasantunesribeiro/armazemsaojoaquim"
                                 class="btn-project btn-project-secondary" target="_blank">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 9. Parallel Store -->
-                <article class="project-card" data-tags="next.js,react,tailwind,e-commerce">
-                    <div class="project-image">
-                        <img src="assets/parallel_store_mockup.webp" alt="Parallel Store" loading="lazy"
-                            decoding="async" width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Parallel Store</h3>
-                        <p class="project-description">E-commerce urbano moderno construído com Next.js 15 e React 18.
-                            Foco total em conversão e UX.</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">Next.js 15</span>
-                            <span class="project-tag">React 18</span>
-                            <span class="project-tag">Tailwind</span>
-                            <span class="project-tag">E-commerce</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/parallel_store"
-                                class="btn-project btn-project-secondary" target="_blank">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                            <a href="https://parallelstore.netlify.app/" class="btn-project btn-project-primary"
+                            <a href="https://armazemsaojoaquim.com.br/" class="btn-project btn-project-primary"
                                 target="_blank">
                                 <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                 <span>Demo</span>
@@ -584,23 +426,55 @@
                     </div>
                 </article>
 
-                <!-- 10. CollabDocs -->
-                <article class="project-card" data-tags="cloudflare,next.js,sql,real-time,monorepo">
-                    <div class="project-image">
-                        <img src="assets/collabdocs_mockup.webp" alt="CollabDocs" loading="lazy" decoding="async"
+                <!-- 5. Emissão de NF-e e Controle Est. -->
+                <article class="project-card" data-tags=".net,c#,angular,eventbridge,sqs,dynamodb,aws">
+                    <div class="project-image zoom">
+                        <img src="assets/nfe_estoque_mockup.jpg" alt="Módulo de NF-e e Estoque"
+                            loading="lazy" decoding="async" width="400" height="250">
+                        <div class="project-image-overlay" aria-hidden="true"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Emissão de NF-e e Controle de Estoque</h3>
+                        <p class="project-description">Sistema serverless orquestrado por eventos para faturamento e gestão de inventário. .NET 9, AWS Lambda, EventBridge para desacoplamento e DynamoDB para persistência de alta performance.</p>
+                        <div class="project-tags" aria-label="Tecnologias utilizadas">
+                            <span class="project-tag">.NET 9</span>
+                            <span class="project-tag">Angular 19</span>
+                            <span class="project-tag">EventBridge</span>
+                            <span class="project-tag">SQS</span>
+                            <span class="project-tag">DynamoDB</span>
+                            <span class="project-tag">AWS</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Lucasantunesribeiro/emissao_nfe"
+                                class="btn-project btn-project-secondary" target="_blank">
+                                <i class="fas fa-code" aria-hidden="true"></i>
+                                <span>Repo</span>
+                            </a>
+                            <a href="https://d1gdw7rlsi8u42.cloudfront.net/" class="btn-project btn-project-primary"
+                                target="_blank">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                <span>Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6. CollabDocs -->
+                <article class="project-card" data-tags=".net,c#,next.js,react,typescript,signalr,redis,docker">
+                    <div class="project-image zoom">
+                        <img src="assets/collabdocs_mockup.jpg" alt="CollabDocs" loading="lazy" decoding="async"
                             width="400" height="250">
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">CollabDocs</h3>
-                        <p class="project-description">Plataforma de edição colaborativa em tempo real com Cloudflare
-                            Workers e D1.</p>
+                        <p class="project-description">Editor de documentos em tempo real com .NET 9 e SignalR. Implementa sincronização de estado via WebSockets, RBAC para documentos e infraestrutura Cloudflare (Workers/D1) para máxima agilidade.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">Cloudflare Workers</span>
+                            <span class="project-tag">.NET 9</span>
                             <span class="project-tag">Next.js</span>
-                            <span class="project-tag">D1 SQL</span>
-                            <span class="project-tag">Real-time</span>
-                            <span class="project-tag">Monorepo</span>
+                            <span class="project-tag">SignalR</span>
+                            <span class="project-tag">Redis</span>
+                            <span class="project-tag">Docker</span>
                         </div>
                         <div class="project-actions">
                             <a href="https://github.com/Lucasantunesribeiro/Collabdocs"
@@ -617,21 +491,134 @@
                     </div>
                 </article>
 
+                <!-- 7. ERP — Gestão de Pedidos -->
+                <article class="project-card" data-tags=".net,c#,sql-server,docker,ddd">
+                    <div class="project-image zoom">
+                        <img src="assets/erp_orders_mockup.png" alt="ERP — Gestão de Pedidos" loading="lazy"
+                            decoding="async" width="400" height="250">
+                        <div class="project-image-overlay" aria-hidden="true"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">ERP — Gestão de Pedidos</h3>
+                        <p class="project-description">Módulo transacional para fluxos complexos de checkout e inventário. .NET 9, Domain-Driven Design (DDD), SQL Server e uma fundação robusta focada em integridade e performance corporativa.</p>
+                        <div class="project-tags" aria-label="Tecnologias utilizadas">
+                            <span class="project-tag">.NET 9</span>
+                            <span class="project-tag">C#</span>
+                            <span class="project-tag">SQL Server</span>
+                            <span class="project-tag">DDD</span>
+                            <span class="project-tag">Docker</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Lucasantunesribeiro/sistema_erp_modulo_de_gestao_de_pedidos"
+                                class="btn-project btn-project-secondary" target="_blank">
+                                <i class="fas fa-code" aria-hidden="true"></i>
+                                <span>Repo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 8. Agente de Sumarização AI -->
+                <article class="project-card" data-tags="python,fastapi,langchain,openai,postgresql,docker">
+                    <div class="project-image zoom">
+                        <img src="assets/article_summarizer_mockup.jpg" alt="Sumarização de Artigos com IA"
+                            loading="lazy" decoding="async" width="400" height="250">
+                        <div class="project-image-overlay" aria-hidden="true"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Agente de Sumarização AI</h3>
+                        <p class="project-description">Agente inteligente que utiliza LLMs para processar e sumarizar artigos complexos de forma assíncrona. Python, FastAPI, LangChain e Celery para orquestração de tarefas inteligentes em background.</p>
+                        <div class="project-tags" aria-label="Tecnologias utilizadas">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">FastAPI</span>
+                            <span class="project-tag">LangChain</span>
+                            <span class="project-tag">OpenAI</span>
+                            <span class="project-tag">RabbitMQ</span>
+                            <span class="project-tag">Docker</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Lucasantunesribeiro/article_summarizer_agent"
+                                class="btn-project btn-project-secondary" target="_blank">
+                                <i class="fas fa-code" aria-hidden="true"></i>
+                                <span>Repo</span>
+                            </a>
+                            <a href="https://article-summarizer-agent.onrender.com/" class="btn-project btn-project-primary"
+                                target="_blank">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                <span>Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 9. BillingLedger -->
+                <article class="project-card" data-tags=".net,c#,postgresql,rabbitmq,redis">
+                    <div class="project-image zoom">
+                        <img src="assets/billing_ledger_mockup.webp" alt="BillingLedger — Backend Distribuído"
+                            loading="lazy" decoding="async" width="400" height="250">
+                        <div class="project-image-overlay" aria-hidden="true"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">BillingLedger</h3>
+                        <p class="project-description">Backend especializado em faturamento e reconciliação financeira via ledger. .NET 9, Outbox Pattern para mensageria resiliente e auditoria completa de transações de pagamento.</p>
+                        <div class="project-tags" aria-label="Tecnologias utilizadas">
+                            <span class="project-tag">.NET 9</span>
+                            <span class="project-tag">MassTransit</span>
+                            <span class="project-tag">RabbitMQ</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">Redis</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Lucasantunesribeiro/billing_ledger"
+                                class="btn-project btn-project-secondary" target="_blank">
+                                <i class="fas fa-code" aria-hidden="true"></i>
+                                <span>Repo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 10. Pedidos Event Sourcing -->
+                <article class="project-card" data-tags=".net,c#,event-store,rabbitmq,docker,cqrs">
+                    <div class="project-image zoom">
+                        <img src="assets/sistema_pedidos_distribuido_mockup.jpg" alt="Sistema de Pedidos Distribuído"
+                            loading="lazy" decoding="async" width="400" height="250">
+                        <div class="project-image-overlay" aria-hidden="true"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Pedidos Event Sourcing</h3>
+                        <p class="project-description">Arquitetura avançada em .NET 9 implementando Event Sourcing e CQRS. Permite rastreabilidade absoluta de cada estado do pedido e máxima escalabilidade horizontal.</p>
+                        <div class="project-tags" aria-label="Tecnologias utilizadas">
+                            <span class="project-tag">.NET 9</span>
+                            <span class="project-tag">Event Store</span>
+                            <span class="project-tag">CQRS</span>
+                            <span class="project-tag">RabbitMQ</span>
+                            <span class="project-tag">Docker</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing"
+                                class="btn-project btn-project-secondary" target="_blank">
+                                <i class="fas fa-code" aria-hidden="true"></i>
+                                <span>Repo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
                 <!-- 11. EmailTriageAI -->
-                <article class="project-card" data-tags="python,fastapi,gemini,nlp,docker">
-                    <div class="project-image">
-                        <img src="assets/emailtriageai_mockup.webp" alt="EmailTriageAI" loading="lazy" decoding="async"
+                <article class="project-card" data-tags="python,fastapi,langchain,openai,docker">
+                    <div class="project-image zoom">
+                        <img src="assets/email_triage_mockup.jpg" alt="EmailTriageAI" loading="lazy" decoding="async"
                             width="400" height="250">
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">EmailTriageAI</h3>
-                        <p class="project-description">Sistema inteligente de triagem de emails corporativos. Utiliza IA
-                            (Gemini) e NLP.</p>
+                        <p class="project-description">Triagem automática de emails corporativos utilizando NLP e Inteligência Artificial. Python e FastAPI para processar e categorizar demandas em escala com alta precisão.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
                             <span class="project-tag">Python</span>
                             <span class="project-tag">FastAPI</span>
-                            <span class="project-tag">Gemini AI</span>
+                            <span class="project-tag">Google Gemini</span>
                             <span class="project-tag">NLP</span>
                             <span class="project-tag">Docker</span>
                         </div>
@@ -641,34 +628,29 @@
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
-                            <a href="http://100.48.50.86/" class="btn-project btn-project-primary" target="_blank">
-                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                <span>Demo</span>
-                            </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- 12. Kogui Pokédx -->
-                <article class="project-card" data-tags="angular,django,postgresql,docker,jwt">
-                    <div class="project-image">
-                        <img src="assets/kogui_pokedex_mockup.webp" alt="Kogui Pokédx" loading="lazy" decoding="async"
+                <!-- 12. Kogui Pokedx -->
+                <article class="project-card" data-tags="python,django,angular,aws,docker">
+                    <div class="project-image zoom">
+                        <img src="assets/kogui_mockup.png" alt="Kogui Pokedx" loading="lazy" decoding="async"
                             width="400" height="250">
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Kogui Pokédx</h3>
-                        <p class="project-description">Desafio técnico Fullstack com Django 5.0 e Angular 17.
-                            Autenticação JWT e PokéAPI.</p>
+                        <h3 class="project-title">Kogui Pokedx</h3>
+                        <p class="project-description">Aplicação Fullstack robusta com Django e Angular. Implementa autenticação JWT, integração fluida com a PokeAPI e infraestrutura moderna orquestrada em container.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">Angular 17</span>
-                            <span class="project-tag">Django 5.0</span>
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">AWS</span>
                             <span class="project-tag">PostgreSQL</span>
-                            <span class="project-tag">Docker</span>
-                            <span class="project-tag">JWT</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/Kogui_pokedex"
+                            <a href="https://github.com/Lucasantunesribeiro/Kogui"
                                 class="btn-project btn-project-secondary" target="_blank">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
@@ -677,66 +659,81 @@
                     </div>
                 </article>
 
-                <!-- 13. Locadora de Carros -->
-                <article class="project-card" data-tags="php,sqlite,mvc,bootstrap,auth">
-                    <div class="project-image">
-                        <img src="assets/locadora_de_carros_mockup.webp" alt="Locadora de Carros" loading="lazy"
-                            decoding="async" width="400" height="250">
+                <!-- 13. Parallel Store -->
+                <article class="project-card" data-tags="next.js,react,typescript,supabase,stripe">
+                    <div class="project-image zoom">
+                        <img src="assets/parallel_store_mockup.png" alt="Parallel Store (E-commerce)" loading="lazy" decoding="async"
+                            width="400" height="250">
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Locadora de Carros</h3>
-                        <p class="project-description">Sistema de gestão de frota e locação desenvolvido em PHP 8.1+.
-                            Controle de permissões (ACL).</p>
+                        <h3 class="project-title">Parallel Store</h3>
+                        <p class="project-description">E-commerce de moda urbana minimalista construído com Next.js 15 e Supabase. Integração completa com Stripe, gerenciamento de pedidos e design mobile-first premium.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">PHP 8.1</span>
-                            <span class="project-tag">SQLite</span>
-                            <span class="project-tag">MVC</span>
-                            <span class="project-tag">Bootstrap</span>
-                            <span class="project-tag">Auth</span>
+                            <span class="project-tag">Next.js 15</span>
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">Supabase</span>
+                            <span class="project-tag">Stripe</span>
+                            <span class="project-tag">Tailwind</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/locadora_de_carros"
+                            <a href="https://github.com/Lucasantunesribeiro/Parallel_Store"
                                 class="btn-project btn-project-secondary" target="_blank">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
-                            </a>
-                            <a href="https://locadora-de-carros.onrender.com/" class="btn-project btn-project-primary"
-                                target="_blank">
-                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                <span>Demo</span>
                             </a>
                         </div>
                     </div>
                 </article>
 
                 <!-- 14. Logic Games Suite -->
-                <article class="project-card" data-tags="html5,css3,javascript,logic">
-                    <div class="project-image">
-                        <img src="assets/logic_games_suite_mockup.webp" alt="Logic Games Suite" loading="lazy"
-                            decoding="async" width="400" height="250">
+                <article class="project-card" data-tags="javascript,html5,css,typescript,pwa">
+                    <div class="project-image zoom">
+                        <img src="assets/logic_games_mockup.png" alt="Logic Games Suite" loading="lazy" decoding="async"
+                            width="400" height="250">
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Logic Games Suite</h3>
-                        <p class="project-description">Coleção de mini-jogos lógicos desenvolvidos com JavaScript puro.
-                        </p>
+                        <p class="project-description">Suite de jogos de lógica e treino cognitivo (Sudoku, 2048, etc). Foco em algoritmos eficientes, suporte offline via PWA e uma experiência de usuário limpa e intuitiva.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">HTML5</span>
-                            <span class="project-tag">CSS3</span>
                             <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Logic</span>
+                            <span class="project-tag">PWA</span>
+                            <span class="project-tag">Algorithm</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">HTML5</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/Numero-Secreto"
+                            <a href="https://github.com/Lucasantunesribeiro/logic_games"
                                 class="btn-project btn-project-secondary" target="_blank">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
-                            <a href="https://sorteador-de-numeros-six-pi.vercel.app/"
-                                class="btn-project btn-project-primary" target="_blank">
-                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                                <span>Demo</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 15. Locadora de Carros -->
+                <article class="project-card" data-tags="php,docker,sqlite,apache">
+                    <div class="project-image zoom">
+                        <img src="assets/locadora_mockup.png" alt="Sistema de Locadora de Carros" loading="lazy" decoding="async"
+                            width="400" height="250">
+                        <div class="project-image-overlay" aria-hidden="true"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Locadora de Carros</h3>
+                        <p class="project-description">Sistema robusto de gerenciamento de frota e contratos de locação. Desenvolvido com PHP, Docker e SQLite, focando em simplicidade operacional e persistência confiável.</p>
+                        <div class="project-tags" aria-label="Tecnologias utilizadas">
+                            <span class="project-tag">PHP 8.4</span>
+                            <span class="project-tag">Docker</span>
+                            <span class="project-tag">SQLite</span>
+                            <span class="project-tag">Apache</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Lucasantunesribeiro/sistema_de_locadora_de_carros"
+                                class="btn-project btn-project-secondary" target="_blank">
+                                <i class="fas fa-code" aria-hidden="true"></i>
+                                <span>Repo</span>
                             </a>
                         </div>
                     </div>

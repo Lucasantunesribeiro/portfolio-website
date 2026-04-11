@@ -259,6 +259,7 @@
     background: linear-gradient(135deg, transparent, rgba(124, 58, 237, 0.2), transparent);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     opacity: 0;
     transition: opacity var(--proj-transition-slow);
@@ -294,13 +295,17 @@
 .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform var(--proj-transition-slow);
 }
 
-.project-card:hover .project-image img {
-    transform: scale(1.03);
+.project-image.zoom img {
+    object-fit: cover;
+    transform: scale(1.4);
+    transform-origin: center center;
 }
+
+
 
 .project-image-overlay {
     position: absolute;
