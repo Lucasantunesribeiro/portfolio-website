@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Armazém São Joaquim — Lucas Antunes Ferreira</title>
+    <meta name="description" content="Plataforma digital fullstack para o Armazém São Joaquim, combinando site institucional, cardápio online, blog, área de pousada, catálogo do café, galeria de arte e um painel admini">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="canonical" href="https://www.lucasafvr.com.br/projetos/armazem-sao-joaquim.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.lucasafvr.com.br/projetos/armazem-sao-joaquim.html">
+    <meta property="og:site_name" content="Lucas Antunes Ferreira">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Armazém São Joaquim — Plataforma digital para restaurante, pousada e café">
+    <meta property="og:description" content="Plataforma digital fullstack para o Armazém São Joaquim, combinando site institucional, cardápio online, blog, área de pousada, catálogo do café, galeria de arte e um painel admini">
+    <meta property="og:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Armazém São Joaquim — Plataforma digital para restaurante, pousada e café">
+    <meta name="twitter:description" content="Plataforma digital fullstack para o Armazém São Joaquim, combinando site institucional, cardápio online, blog, área de pousada, catálogo do café, galeria de arte e um painel admini">
+    <meta name="twitter:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "Armazém São Joaquim",
+      "description": "Plataforma digital fullstack para o Armazém São Joaquim, combinando site institucional, cardápio online, blog, área de pousada, catálogo do café, galeria de arte e um painel admini",
+      "codeRepository": "https://github.com/Lucasantunesribeiro/armazemsaojoaquim",
+      "programmingLanguage": ["Next.js","TypeScript","Supabase","PostgreSQL","RLS","Tailwind","i18n"],
+      "author": {
+        "@type": "Person",
+        "name": "Lucas Antunes Ferreira",
+        "url": "https://www.lucasafvr.com.br/"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projeto-detalhe.css">
+
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="pd-body">
+    <a class="pd-skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <nav class="pd-nav">
+        <div class="pd-container">
+            <a href="../index.html" class="pd-back">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Voltar ao portfólio</span>
+            </a>
+            <a href="../index.html#projetos" class="pd-nav-link">Todos os projetos</a>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <!-- ==================== HERO ==================== -->
+        <header class="pd-hero">
+            <div class="pd-container">
+                <p class="pd-badge">Cliente real · em produção</p>
+                <h1 class="pd-title">Armazém São Joaquim</h1>
+                <p class="pd-subtitle">Plataforma digital para restaurante, pousada e café</p>
+
+                <div class="pd-tags" aria-label="Tecnologias utilizadas">
+                    <span class="pd-tag">Next.js</span>
+                    <span class="pd-tag">TypeScript</span>
+                    <span class="pd-tag">Supabase</span>
+                    <span class="pd-tag">PostgreSQL</span>
+                    <span class="pd-tag">RLS</span>
+                    <span class="pd-tag">Tailwind</span>
+                    <span class="pd-tag">i18n</span>
+                </div>
+
+                <div class="pd-actions">
+                    <a class="pd-btn pd-btn-primary" href="https://github.com/Lucasantunesribeiro/armazemsaojoaquim" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>Ver código no GitHub</span>
+                    </a>
+                    <a class="pd-btn pd-btn-secondary" href="https://armazemsaojoaquim.com.br/" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        <span>Ver demo</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="pd-container pd-content">
+            <img class="pd-image" src="../assets/armazem_sao_joaquim_mockup.jpg" alt="Interface do projeto Armazém São Joaquim"
+                loading="lazy" decoding="async" width="1200" height="750">
+
+            <!-- ==================== FICHA TÉCNICA ==================== -->
+            <dl class="pd-facts">
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Status</dt>
+                    <dd class="pd-fact-value">Em produção, em domínio próprio</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Arquitetura</dt>
+                    <dd class="pd-fact-value">Monólito modular serverless</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Banco</dt>
+                    <dd class="pd-fact-value">PostgreSQL com RLS e migrations</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Idiomas</dt>
+                    <dd class="pd-fact-value">Rotas separadas para PT e EN</dd>
+                </div>
+            </dl>
+
+            <!-- ==================== VISÃO GERAL ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Visão geral</h2>
+                <p>Plataforma digital fullstack para o Armazém São Joaquim, combinando site institucional, cardápio online, blog, área de pousada, catálogo do café, galeria de arte e um painel administrativo para operação do negócio.</p>
+                <p>É o único projeto deste portfólio com <strong>cliente real e tráfego real</strong>. Em vez de uma landing page, o sistema centraliza exposição de produtos e conteúdo, autenticação, reservas, gestão administrativa e integrações de comunicação e analytics.</p>
+            </section>
+
+            <!-- ==================== ARQUITETURA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Arquitetura</h2>
+                <p>Monólito modular serverless sobre o App Router do Next.js, com Supabase como backend-as-a-service. A escolha prioriza velocidade de entrega para um cliente real em vez de rigor arquitetural.</p>
+                <ul class="pd-layers">
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">app/[locale]</code>
+                        <span class="pd-layer-desc">Páginas públicas e administrativas, com internacionalização por segmento de rota.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">app/api</code>
+                        <span class="pd-layer-desc">Endpoints serverless (route handlers) públicos, administrativos e de diagnóstico.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">components</code>
+                        <span class="pd-layer-desc">UI organizada em admin, atoms, molecules, sections e ui — inspiração em Atomic Design.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">lib</code>
+                        <span class="pd-layer-desc">Autenticação, acesso ao Supabase, cache, retry, monitoramento e validações.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">supabase/migrations</code>
+                        <span class="pd-layer-desc">Evolução do banco, políticas RLS, funções SQL e correções de segurança.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ==================== FLUXO ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Fluxo de reserva</h2>
+                <ol class="pd-steps">
+                    <li>O visitante acessa páginas públicas em <code>app/[locale]</code>, com conteúdo estático e conteúdo dinâmico vindo do Supabase.</li>
+                    <li>O usuário se autentica via Supabase Auth.</li>
+                    <li>Ao criar uma reserva, o frontend chama <code>/api/reservas</code>.</li>
+                    <li>A rota valida os dados, grava no banco e gera um token de confirmação.</li>
+                    <li>O usuário confirma a reserva via <code>/api/reservas/confirm?token=...</code>.</li>
+                    <li>O painel administrativo consome <code>/api/admin/*</code> para gerir blog, cardápio, usuários, reservas, pousada e galeria.</li>
+                    <li>O PostgreSQL, protegido por RLS em várias tabelas, sustenta os módulos operacionais.</li>
+                </ol>
+            </section>
+
+            <!-- ==================== PONTOS FORTES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Pontos fortes</h2>
+                <ul class="pd-list pd-list-positive">
+                    <li>Escopo real de negócio, com cliente e domínio próprio — muito acima de projeto tutorial.</li>
+                    <li>Painel administrativo amplo, cobrindo múltiplos módulos operacionais.</li>
+                    <li>Internacionalização por rota (pt e en).</li>
+                    <li>PostgreSQL com migrations versionadas e Row Level Security.</li>
+                    <li>Build de produção funcionando em Next.js, com type-check passando.</li>
+                    <li>Deploy com headers e política de cache configurados.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== LIMITES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
+                <p class="pd-limits-intro">
+                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
+                    que exagerar o escopo.
+                </p>
+                <ul class="pd-list pd-list-caveat">
+                    <li>Não aplica Clean Architecture, DDD, CQRS nem Event Driven — as rotas falam diretamente com o Supabase e carregam a regra de negócio nelas mesmas.</li>
+                    <li>Existe <em>drift</em> arquitetural: convivem implementações antiga e nova para o mesmo domínio (por exemplo, contratos de blog em versão simples e multilíngue).</li>
+                    <li>A autorização depende mais de verificação procedural e do service role key do que de uma camada de autorização coesa.</li>
+                    <li>O escopo cresceu mais rápido que a disciplina arquitetural — é um projeto de produto, não uma vitrine de arquitetura.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== NAVEGAÇÃO ==================== -->
+            <nav class="pd-pager" aria-label="Navegação entre projetos">
+                <a class="pd-pager-link pd-pager-prev" href="agente-sumarizacao.html">
+                    <span class="pd-pager-label"><i class="fas fa-chevron-left" aria-hidden="true"></i> Anterior</span>
+                    <span class="pd-pager-title">Agente de Sumarização AI</span>
+                </a>
+                <a class="pd-pager-link pd-pager-next" href="smartfinance.html">
+                    <span class="pd-pager-label">Próximo <i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                    <span class="pd-pager-title">SmartFinance</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="pd-footer">
+        <div class="pd-container">
+            <p>
+                <a href="mailto:lucas.afvr@gmail.com">lucas.afvr@gmail.com</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/Lucasantunesribeiro" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="pd-footer-copy">&copy; 2026 Lucas Antunes Ferreira</p>
+        </div>
+    </footer>
+</body>
+
+</html>

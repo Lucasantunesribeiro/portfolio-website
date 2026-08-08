@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BillingLedger — Lucas Antunes Ferreira</title>
+    <meta name="description" content="Sistema backend para emissão de cobranças, recebimento de pagamentos e conciliação em ledger. Modela o ciclo de vida de uma fatura (Draft → Issued → Paid/Cancelled/Overdue), recebe">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="canonical" href="https://www.lucasafvr.com.br/projetos/billing-ledger.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.lucasafvr.com.br/projetos/billing-ledger.html">
+    <meta property="og:site_name" content="Lucas Antunes Ferreira">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="BillingLedger — Cobrança, pagamentos e conciliação em ledger">
+    <meta property="og:description" content="Sistema backend para emissão de cobranças, recebimento de pagamentos e conciliação em ledger. Modela o ciclo de vida de uma fatura (Draft → Issued → Paid/Cancelled/Overdue), recebe">
+    <meta property="og:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BillingLedger — Cobrança, pagamentos e conciliação em ledger">
+    <meta name="twitter:description" content="Sistema backend para emissão de cobranças, recebimento de pagamentos e conciliação em ledger. Modela o ciclo de vida de uma fatura (Draft → Issued → Paid/Cancelled/Overdue), recebe">
+    <meta name="twitter:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "BillingLedger",
+      "description": "Sistema backend para emissão de cobranças, recebimento de pagamentos e conciliação em ledger. Modela o ciclo de vida de uma fatura (Draft → Issued → Paid/Cancelled/Overdue), recebe",
+      "codeRepository": "https://github.com/Lucasantunesribeiro/billing_ledger",
+      "programmingLanguage": [".NET 9","C#","MassTransit","SQS/SNS","PostgreSQL","EF Core","AWS CDK","Serilog"],
+      "author": {
+        "@type": "Person",
+        "name": "Lucas Antunes Ferreira",
+        "url": "https://www.lucasafvr.com.br/"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projeto-detalhe.css">
+
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="pd-body">
+    <a class="pd-skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <nav class="pd-nav">
+        <div class="pd-container">
+            <a href="../index.html" class="pd-back">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Voltar ao portfólio</span>
+            </a>
+            <a href="../index.html#projetos" class="pd-nav-link">Todos os projetos</a>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <!-- ==================== HERO ==================== -->
+        <header class="pd-hero">
+            <div class="pd-container">
+                <h1 class="pd-title">BillingLedger</h1>
+                <p class="pd-subtitle">Cobrança, pagamentos e conciliação em ledger</p>
+
+                <div class="pd-tags" aria-label="Tecnologias utilizadas">
+                    <span class="pd-tag">.NET 9</span>
+                    <span class="pd-tag">C#</span>
+                    <span class="pd-tag">MassTransit</span>
+                    <span class="pd-tag">SQS/SNS</span>
+                    <span class="pd-tag">PostgreSQL</span>
+                    <span class="pd-tag">EF Core</span>
+                    <span class="pd-tag">AWS CDK</span>
+                    <span class="pd-tag">Serilog</span>
+                </div>
+
+                <div class="pd-actions">
+                    <a class="pd-btn pd-btn-primary" href="https://github.com/Lucasantunesribeiro/billing_ledger" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>Ver código no GitHub</span>
+                    </a>
+
+                </div>
+            </div>
+        </header>
+
+        <div class="pd-container pd-content">
+            <img class="pd-image" src="../assets/billing_ledger_mockup.webp" alt="Interface do projeto BillingLedger"
+                loading="lazy" decoding="async" width="1200" height="750">
+
+            <!-- ==================== FICHA TÉCNICA ==================== -->
+            <dl class="pd-facts">
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Arquitetura</dt>
+                    <dd class="pd-fact-value">Distribuída orientada a eventos</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Contextos</dt>
+                    <dd class="pd-fact-value">billing · payments · ledger (schemas separados)</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Testes</dt>
+                    <dd class="pd-fact-value">39/39 testes de domínio no Billing</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Infra</dt>
+                    <dd class="pd-fact-value">AWS CDK · ECS Fargate · SNS/SQS + DLQ</dd>
+                </div>
+            </dl>
+
+            <!-- ==================== VISÃO GERAL ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Visão geral</h2>
+                <p>Sistema backend para emissão de cobranças, recebimento de pagamentos e conciliação em ledger. Modela o ciclo de vida de uma fatura (<code>Draft → Issued → Paid/Cancelled/Overdue</code>), recebe notificações externas de pagamento via webhook, processa o evento de forma assíncrona e registra os efeitos financeiros em um livro-caixa imutável.</p>
+                <p>O problema é típico de ambientes financeiros: separar as responsabilidades de faturamento, pagamento e contabilização <strong>sem acoplar tudo em uma única transação síncrona</strong>.</p>
+            </section>
+
+            <!-- ==================== ARQUITETURA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Arquitetura</h2>
+                <p>Não é microservices puro nem monólito simples. A classificação precisa é: sistema distribuído orientado a eventos, em monorepo com bounded contexts separados e banco físico compartilhado com schemas isolados por contexto.</p>
+                <ul class="pd-layers">
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">Billing.Api</code>
+                        <span class="pd-layer-desc">API pública e contexto de faturamento. Aggregate root Invoice com regras encapsuladas.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">Payments.Worker</code>
+                        <span class="pd-layer-desc">Processamento de pagamentos com idempotência por (Provider, ExternalPaymentId).</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">Ledger.Worker</code>
+                        <span class="pd-layer-desc">Materialização contábil: lançamentos de débito e crédito.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">Contracts</code>
+                        <span class="pd-layer-desc">Contratos de integração versionados (V1) com EventId, CorrelationId e SchemaVersion.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">SharedKernel / BuildingBlocks</code>
+                        <span class="pd-layer-desc">Primitivas, eventos de domínio e abstrações técnicas compartilhadas.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ==================== FLUXO ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Fluxo de emissão, pagamento e conciliação</h2>
+                <ol class="pd-steps">
+                    <li>Um usuário autenticado cria uma invoice pela API; o aggregate nasce em <code>Draft</code> e um <code>AuditLog</code> é gravado.</li>
+                    <li>Ao emitir, a invoice muda para <code>Issued</code> e gera <code>InvoiceIssuedDomainEvent</code>.</li>
+                    <li>Um interceptor do EF Core converte o evento de domínio em uma linha na tabela <code>infra.outbox_messages</code> — na mesma transação da mudança de estado.</li>
+                    <li>O <code>OutboxDispatcherService</code> publica o contrato <code>InvoiceIssuedV1</code>.</li>
+                    <li>O <code>Ledger.Worker</code> consome o evento e cria um lançamento de <strong>débito</strong>.</li>
+                    <li>O provedor externo chama <code>POST /api/payments/webhook</code>; a API valida a assinatura <strong>HMAC-SHA256</strong> e publica <code>PaymentReceivedV1</code>.</li>
+                    <li>O <code>Payments.Worker</code> grava o <code>PaymentAttempt</code> com idempotência e publica <code>PaymentConfirmedV1</code>.</li>
+                    <li>O Billing marca a invoice como <code>Paid</code> e emite <code>InvoicePaidV1</code>; o Ledger cria o lançamento de <strong>crédito</strong> e o saldo da invoice tende a zero.</li>
+                </ol>
+            </section>
+
+            <!-- ==================== PONTOS FORTES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Pontos fortes</h2>
+                <ul class="pd-list pd-list-positive">
+                    <li>Domínio bem representado: aggregate <code>Invoice</code>, regras de transição, domain events e <code>Money</code> como value object.</li>
+                    <li>Mensageria real na AWS com MassTransit sobre SQS/SNS.</li>
+                    <li>Outbox implementado exatamente no ponto mais sensível: a mudança de estado da invoice.</li>
+                    <li>Idempotência consciente, com índices únicos e guards nos consumers.</li>
+                    <li>Infraestrutura como código em CDK: VPC, RDS, Redis, ECS, ECR, SNS/SQS, DLQ e CloudWatch.</li>
+                    <li>Segurança baseline sólida: JWT + RBAC, webhook com HMAC, rate limiting, correlation id validado e segredos no Secrets Manager.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== LIMITES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
+                <p class="pd-limits-intro">
+                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
+                    que exagerar o escopo.
+                </p>
+                <ul class="pd-list pd-list-caveat">
+                    <li>A arquitetura é <em>layered + DDD-inspired</em>, não Clean Architecture rigorosa: a Billing.Api concentra tudo no mesmo assembly e os controllers chamam repositórios diretamente.</li>
+                    <li>As pastas <code>Application/Handlers</code> existem, mas estão vazias — não há pipeline formal de casos de uso com MediatR.</li>
+                    <li>A transição <code>Overdue</code> e o contrato <code>InvoiceOverdueV1</code> existem no domínio, mas não há job agendado nem consumer correspondente implementado.</li>
+                    <li>Parte da arquitetura está mais madura no desenho do que na execução completa.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== NAVEGAÇÃO ==================== -->
+            <nav class="pd-pager" aria-label="Navegação entre projetos">
+                <a class="pd-pager-link pd-pager-prev" href="linkguardiao.html">
+                    <span class="pd-pager-label"><i class="fas fa-chevron-left" aria-hidden="true"></i> Anterior</span>
+                    <span class="pd-pager-title">LinkGuardião</span>
+                </a>
+                <a class="pd-pager-link pd-pager-next" href="emissao-nfe.html">
+                    <span class="pd-pager-label">Próximo <i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                    <span class="pd-pager-title">Emissão de NF-e e Controle de Estoque</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="pd-footer">
+        <div class="pd-container">
+            <p>
+                <a href="mailto:lucas.afvr@gmail.com">lucas.afvr@gmail.com</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/Lucasantunesribeiro" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="pd-footer-copy">&copy; 2026 Lucas Antunes Ferreira</p>
+        </div>
+    </footer>
+</body>
+
+</html>

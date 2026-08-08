@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LinkGuardião — Lucas Antunes Ferreira</title>
+    <meta name="description" content="Sistema de encurtamento de URLs com autenticação, links protegidos por senha, expiração configurável e analytics de acesso processado de forma assíncrona.">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="canonical" href="https://www.lucasafvr.com.br/projetos/linkguardiao.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.lucasafvr.com.br/projetos/linkguardiao.html">
+    <meta property="og:site_name" content="Lucas Antunes Ferreira">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="LinkGuardião — Encurtador de URLs com controle de acesso">
+    <meta property="og:description" content="Sistema de encurtamento de URLs com autenticação, links protegidos por senha, expiração configurável e analytics de acesso processado de forma assíncrona.">
+    <meta property="og:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LinkGuardião — Encurtador de URLs com controle de acesso">
+    <meta name="twitter:description" content="Sistema de encurtamento de URLs com autenticação, links protegidos por senha, expiração configurável e analytics de acesso processado de forma assíncrona.">
+    <meta name="twitter:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "LinkGuardião",
+      "description": "Sistema de encurtamento de URLs com autenticação, links protegidos por senha, expiração configurável e analytics de acesso processado de forma assíncrona.",
+      "codeRepository": "https://github.com/Lucasantunesribeiro/LinkGuardiao",
+      "programmingLanguage": [".NET 8","C#","React","TypeScript","DynamoDB","PostgreSQL","SQS","Lambda","AWS CDK"],
+      "author": {
+        "@type": "Person",
+        "name": "Lucas Antunes Ferreira",
+        "url": "https://www.lucasafvr.com.br/"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projeto-detalhe.css">
+
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="pd-body">
+    <a class="pd-skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <nav class="pd-nav">
+        <div class="pd-container">
+            <a href="../index.html" class="pd-back">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Voltar ao portfólio</span>
+            </a>
+            <a href="../index.html#projetos" class="pd-nav-link">Todos os projetos</a>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <!-- ==================== HERO ==================== -->
+        <header class="pd-hero">
+            <div class="pd-container">
+                <h1 class="pd-title">LinkGuardião</h1>
+                <p class="pd-subtitle">Encurtador de URLs com controle de acesso</p>
+
+                <div class="pd-tags" aria-label="Tecnologias utilizadas">
+                    <span class="pd-tag">.NET 8</span>
+                    <span class="pd-tag">C#</span>
+                    <span class="pd-tag">React</span>
+                    <span class="pd-tag">TypeScript</span>
+                    <span class="pd-tag">DynamoDB</span>
+                    <span class="pd-tag">PostgreSQL</span>
+                    <span class="pd-tag">SQS</span>
+                    <span class="pd-tag">Lambda</span>
+                    <span class="pd-tag">AWS CDK</span>
+                </div>
+
+                <div class="pd-actions">
+                    <a class="pd-btn pd-btn-primary" href="https://github.com/Lucasantunesribeiro/LinkGuardiao" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>Ver código no GitHub</span>
+                    </a>
+                    <a class="pd-btn pd-btn-secondary" href="https://linkguardiao.pages.dev/" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        <span>Ver demo</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="pd-container pd-content">
+            <img class="pd-image" src="../assets/linkguardiao_mockup.jpg" alt="Interface do projeto LinkGuardião"
+                loading="lazy" decoding="async" width="1200" height="750">
+
+            <!-- ==================== FICHA TÉCNICA ==================== -->
+            <dl class="pd-facts">
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Arquitetura</dt>
+                    <dd class="pd-fact-value">Monólito modular + consumer assíncrono</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Persistência</dt>
+                    <dd class="pd-fact-value">DynamoDB ou PostgreSQL (intercambiável)</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Assíncrono</dt>
+                    <dd class="pd-fact-value">SQS + Lambda com retry e DLQ</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Infra</dt>
+                    <dd class="pd-fact-value">AWS CDK · API Gateway · WAF</dd>
+                </div>
+            </dl>
+
+            <!-- ==================== VISÃO GERAL ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Visão geral</h2>
+                <p>Sistema de encurtamento de URLs com autenticação, links protegidos por senha, expiração configurável e analytics de acesso processado de forma assíncrona.</p>
+                <p>O problema é mais sofisticado do que um encurtador comum: controlar quem acessa um link, por quanto tempo ele permanece válido e como esse acesso é monitorado <strong>sem degradar a latência do redirecionamento</strong>.</p>
+            </section>
+
+            <!-- ==================== ARQUITETURA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Arquitetura</h2>
+                <p>Backend em camadas com um componente assíncrono separado para analytics via SQS + Lambda. A decisão evita complexidade prematura e aplica arquitetura distribuída só onde ela paga.</p>
+                <ul class="pd-layers">
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">LinkGuardiao.Api</code>
+                        <span class="pd-layer-desc">Composição da aplicação, controllers, middlewares, health checks e integração com AWS Lambda.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">LinkGuardiao.Application</code>
+                        <span class="pd-layer-desc">DTOs, entidades, contratos, validações, serviços de aplicação e métricas.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">LinkGuardiao.Infrastructure</code>
+                        <span class="pd-layer-desc">Implementações para DynamoDB, SQS, Redis, JWT e segurança.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">LinkGuardiao.Infrastructure.PostgreSQL</code>
+                        <span class="pd-layer-desc">Implementação alternativa de persistência relacional com EF Core.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">LinkGuardiao.AnalyticsConsumer</code>
+                        <span class="pd-layer-desc">Consumer dedicado para a fila de analytics.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ==================== FLUXO ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Fluxo de redirecionamento e analytics</h2>
+                <ol class="pd-steps">
+                    <li>O usuário autenticado cria um link; a API valida a URL, verifica o limite diário, aplica hash na senha (se houver) e persiste no storage configurado.</li>
+                    <li>Alguém acessa o link curto e o backend resolve o destino.</li>
+                    <li>Se o link for protegido, a UI consulta o endpoint público para saber se existe senha e solicita um <em>access grant</em> temporário.</li>
+                    <li>O redirect oficial valida o grant, <strong>enfileira a mensagem de analytics no SQS</strong> e responde imediatamente com o redirecionamento.</li>
+                    <li>A Lambda consumer processa a mensagem fora do caminho crítico, grava o acesso e incrementa o contador de cliques.</li>
+                    <li>O dashboard consulta as estatísticas agregadas e exibe cliques por data, navegador e top IPs.</li>
+                </ol>
+            </section>
+
+            <!-- ==================== PONTOS FORTES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Pontos fortes</h2>
+                <ul class="pd-list pd-list-positive">
+                    <li>Decisão arquitetural correta de tirar o analytics do fluxo síncrono de redirect — troca consciente de consistência forte por latência.</li>
+                    <li>Suporte a dois modelos de persistência (DynamoDB e PostgreSQL), mostrando abstração real de storage.</li>
+                    <li>Mensageria real com SQS e Lambda consumer, incluindo retry e DLQ.</li>
+                    <li>Infraestrutura como código em CDK, incluindo WAF, alarmes e dashboard.</li>
+                    <li>Segurança acima da média: rate limiting, JWT com issuer/audience, PBKDF2, CORS restrito, security headers e access grant temporário.</li>
+                    <li>Testes automatizados distribuídos entre Application, API e persistência PostgreSQL.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== LIMITES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
+                <p class="pd-limits-intro">
+                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
+                    que exagerar o escopo.
+                </p>
+                <ul class="pd-list pd-list-caveat">
+                    <li>Não existe uma camada Domain separada da Application — as entidades são modelos anêmicos, sem comportamento rico.</li>
+                    <li>Sem aggregates, value objects, domain events explícitos ou bounded contexts formalizados.</li>
+                    <li>O uso de Event Driven é pontual (apenas o pipeline de analytics), não sistêmico.</li>
+                    <li>O analytics é eventualmente consistente: as estatísticas podem aparecer alguns instantes depois do clique.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== NAVEGAÇÃO ==================== -->
+            <nav class="pd-pager" aria-label="Navegação entre projetos">
+                <a class="pd-pager-link pd-pager-prev" href="tenantcore.html">
+                    <span class="pd-pager-label"><i class="fas fa-chevron-left" aria-hidden="true"></i> Anterior</span>
+                    <span class="pd-pager-title">TenantCore</span>
+                </a>
+                <a class="pd-pager-link pd-pager-next" href="billing-ledger.html">
+                    <span class="pd-pager-label">Próximo <i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                    <span class="pd-pager-title">BillingLedger</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="pd-footer">
+        <div class="pd-container">
+            <p>
+                <a href="mailto:lucas.afvr@gmail.com">lucas.afvr@gmail.com</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/Lucasantunesribeiro" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="pd-footer-copy">&copy; 2026 Lucas Antunes Ferreira</p>
+        </div>
+    </footer>
+</body>
+
+</html>

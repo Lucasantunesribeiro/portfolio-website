@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Emissão de NF-e e Controle de Estoque — Lucas Antunes Ferreira</title>
+    <meta name="description" content="Sistema distribuído de faturamento interno inspirado no domínio de emissão de NF-e. Cobre cadastro de produtos, criação e fechamento de notas, reserva assíncrona de estoque e geraç">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="canonical" href="https://www.lucasafvr.com.br/projetos/emissao-nfe.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.lucasafvr.com.br/projetos/emissao-nfe.html">
+    <meta property="og:site_name" content="Lucas Antunes Ferreira">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Emissão de NF-e e Controle de Estoque — Sistema distribuído serverless orientado a eventos">
+    <meta property="og:description" content="Sistema distribuído de faturamento interno inspirado no domínio de emissão de NF-e. Cobre cadastro de produtos, criação e fechamento de notas, reserva assíncrona de estoque e geraç">
+    <meta property="og:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Emissão de NF-e e Controle de Estoque — Sistema distribuído serverless orientado a eventos">
+    <meta name="twitter:description" content="Sistema distribuído de faturamento interno inspirado no domínio de emissão de NF-e. Cobre cadastro de produtos, criação e fechamento de notas, reserva assíncrona de estoque e geraç">
+    <meta name="twitter:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "Emissão de NF-e e Controle de Estoque",
+      "description": "Sistema distribuído de faturamento interno inspirado no domínio de emissão de NF-e. Cobre cadastro de produtos, criação e fechamento de notas, reserva assíncrona de estoque e geraç",
+      "codeRepository": "https://github.com/Lucasantunesribeiro/emissao_nfe",
+      "programmingLanguage": [".NET 8","C#","Go","Angular","DynamoDB","EventBridge","SQS","Lambda","AWS CDK","Cognito"],
+      "author": {
+        "@type": "Person",
+        "name": "Lucas Antunes Ferreira",
+        "url": "https://www.lucasafvr.com.br/"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projeto-detalhe.css">
+
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="pd-body">
+    <a class="pd-skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <nav class="pd-nav">
+        <div class="pd-container">
+            <a href="../index.html" class="pd-back">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Voltar ao portfólio</span>
+            </a>
+            <a href="../index.html#projetos" class="pd-nav-link">Todos os projetos</a>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <!-- ==================== HERO ==================== -->
+        <header class="pd-hero">
+            <div class="pd-container">
+                <h1 class="pd-title">Emissão de NF-e e Controle de Estoque</h1>
+                <p class="pd-subtitle">Sistema distribuído serverless orientado a eventos</p>
+
+                <div class="pd-tags" aria-label="Tecnologias utilizadas">
+                    <span class="pd-tag">.NET 8</span>
+                    <span class="pd-tag">C#</span>
+                    <span class="pd-tag">Go</span>
+                    <span class="pd-tag">Angular</span>
+                    <span class="pd-tag">DynamoDB</span>
+                    <span class="pd-tag">EventBridge</span>
+                    <span class="pd-tag">SQS</span>
+                    <span class="pd-tag">Lambda</span>
+                    <span class="pd-tag">AWS CDK</span>
+                    <span class="pd-tag">Cognito</span>
+                </div>
+
+                <div class="pd-actions">
+                    <a class="pd-btn pd-btn-primary" href="https://github.com/Lucasantunesribeiro/emissao_nfe" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>Ver código no GitHub</span>
+                    </a>
+                    <a class="pd-btn pd-btn-secondary" href="https://d1gdw7rlsi8u42.cloudfront.net/" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        <span>Ver demo</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="pd-container pd-content">
+            <img class="pd-image" src="../assets/nfe_estoque_mockup.jpg" alt="Interface do projeto Emissão de NF-e e Controle de Estoque"
+                loading="lazy" decoding="async" width="1200" height="750">
+
+            <!-- ==================== FICHA TÉCNICA ==================== -->
+            <dl class="pd-facts">
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Arquitetura</dt>
+                    <dd class="pd-fact-value">Serverless distribuída, event-driven</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Runtimes</dt>
+                    <dd class="pd-fact-value">.NET 8 (estoque) + Go (faturamento e PDF)</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Persistência</dt>
+                    <dd class="pd-fact-value">DynamoDB single-table + GSIs</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Infra</dt>
+                    <dd class="pd-fact-value">AWS CDK · API Gateway · X-Ray</dd>
+                </div>
+            </dl>
+
+            <!-- ==================== VISÃO GERAL ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Visão geral</h2>
+                <p>Sistema distribuído de faturamento interno inspirado no domínio de emissão de NF-e. Cobre cadastro de produtos, criação e fechamento de notas, reserva assíncrona de estoque e geração de PDF após a solicitação de impressão.</p>
+                <p><strong>Importante:</strong> este projeto não é um emissor fiscal oficial. Não há integração com a SEFAZ, XML fiscal oficial, certificado A1/A3 ou regras tributárias reais. O domínio correto é "faturamento interno inspirado em NF-e" — o foco é arquitetura, integração assíncrona, cloud e qualidade de engenharia.</p>
+            </section>
+
+            <!-- ==================== ARQUITETURA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Arquitetura</h2>
+                <p>Sistema distribuído serverless com contextos de faturamento e estoque, inspirado em microservices e event-driven architecture, mas com persistência compartilhada no DynamoDB.</p>
+                <ul class="pd-layers">
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">servico-estoque (.NET 8)</code>
+                        <span class="pd-layer-desc">Clean Architecture enxuta: Api, Aplicacao, Dominio e Infraestrutura. Entidade Produto com DebitarEstoque().</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">servico-faturamento (Go)</code>
+                        <span class="pd-layer-desc">Lambdas de faturamento e geração de PDF. Entidade NotaFiscal com Fechar().</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">web-app (Angular)</code>
+                        <span class="pd-layer-desc">Frontend integrado ao Cognito, propagando JWT e X-Correlation-Id.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">infra/cdk</code>
+                        <span class="pd-layer-desc">EventBridge, SQS, DLQ, DynamoDB, CloudFront, alarmes, dashboard e X-Ray.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ==================== FLUXO ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Fluxo de fechamento de nota e reserva de estoque</h2>
+                <ol class="pd-steps">
+                    <li>O usuário autentica via Cognito no frontend Angular, que passa a enviar JWT e <code>X-Correlation-Id</code>.</li>
+                    <li>O usuário cadastra produtos no serviço de estoque (.NET) e cria uma nota no serviço de faturamento (Go).</li>
+                    <li>Ao fechar a nota, o faturamento atualiza o status e grava o evento <code>Faturamento.NotaFechada</code> usando <code>TransactWriteItems</code> — nota e evento na mesma transação.</li>
+                    <li>Uma regra do EventBridge encaminha o evento para a fila SQS de reserva.</li>
+                    <li>O consumer de estoque em Go lê a nota, reserva saldo no DynamoDB e publica <code>ReservaConfirmada</code> ou <code>ReservaFalhou</code>.</li>
+                    <li>O faturamento consome a confirmação e atualiza a nota para <code>RESERVADA</code> ou <code>CANCELADA</code>.</li>
+                    <li>Na impressão, a API exige <code>Idempotency-Key</code>; a Lambda de PDF gera o arquivo, salva no S3 e a solicitação passa para <code>CONCLUIDA</code>.</li>
+                </ol>
+            </section>
+
+            <!-- ==================== PONTOS FORTES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Pontos fortes</h2>
+                <ul class="pd-list pd-list-positive">
+                    <li>Event-driven implementado de verdade: EventBridge, SQS e DLQ provisionados no CDK e usados em código executável.</li>
+                    <li>Outbox publisher em .NET usando DynamoDB Streams — um diferencial técnico incomum.</li>
+                    <li>DynamoDB com single-table design e GSIs, raro em portfólios júnior.</li>
+                    <li>Propagação de correlation-id entre frontend, APIs e eventos.</li>
+                    <li>Observabilidade provisionada: logs estruturados, alarmes, dashboard e X-Ray.</li>
+                    <li>Sistema poliglota, com o serviço .NET demonstrando Clean Architecture aplicada.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== LIMITES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
+                <p class="pd-limits-intro">
+                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
+                    que exagerar o escopo.
+                </p>
+                <ul class="pd-list pd-list-caveat">
+                    <li>Estoque e faturamento compartilham a mesma tabela principal no DynamoDB, o que reduz a autonomia dos contextos — não são microservices puros.</li>
+                    <li>A atomicidade do outbox não é uniforme: <code>FecharNota()</code> usa transação, mas <code>CriarSolicitacaoImpressao()</code> e <code>ReservarEstoqueHandler</code> gravam em operações separadas.</li>
+                    <li>O CDK ainda instancia uma <code>NetworkStack</code> com VPC e recursos pensados para ECS/RDS, herdados de uma arquitetura anterior, mesmo com as Lambdas rodando fora da VPC.</li>
+                    <li>Convivem artefatos da trilha ativa serverless e de uma fase antiga com PostgreSQL, RabbitMQ e Docker Compose, o que reduz a clareza do repositório.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== NAVEGAÇÃO ==================== -->
+            <nav class="pd-pager" aria-label="Navegação entre projetos">
+                <a class="pd-pager-link pd-pager-prev" href="billing-ledger.html">
+                    <span class="pd-pager-label"><i class="fas fa-chevron-left" aria-hidden="true"></i> Anterior</span>
+                    <span class="pd-pager-title">BillingLedger</span>
+                </a>
+                <a class="pd-pager-link pd-pager-next" href="collabdocs.html">
+                    <span class="pd-pager-label">Próximo <i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                    <span class="pd-pager-title">CollabDocs</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="pd-footer">
+        <div class="pd-container">
+            <p>
+                <a href="mailto:lucas.afvr@gmail.com">lucas.afvr@gmail.com</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/Lucasantunesribeiro" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="pd-footer-copy">&copy; 2026 Lucas Antunes Ferreira</p>
+        </div>
+    </footer>
+</body>
+
+</html>

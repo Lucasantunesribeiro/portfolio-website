@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agente de Sumarização AI — Lucas Antunes Ferreira</title>
+    <meta name="description" content="Plataforma fullstack para extração, processamento e sumarização assíncrona de artigos públicos na web. O sistema recebe uma URL, executa o scraping com proteções de segurança, proc">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="canonical" href="https://www.lucasafvr.com.br/projetos/agente-sumarizacao.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.lucasafvr.com.br/projetos/agente-sumarizacao.html">
+    <meta property="og:site_name" content="Lucas Antunes Ferreira">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Agente de Sumarização AI — Extração e resumo assíncrono de artigos">
+    <meta property="og:description" content="Plataforma fullstack para extração, processamento e sumarização assíncrona de artigos públicos na web. O sistema recebe uma URL, executa o scraping com proteções de segurança, proc">
+    <meta property="og:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agente de Sumarização AI — Extração e resumo assíncrono de artigos">
+    <meta name="twitter:description" content="Plataforma fullstack para extração, processamento e sumarização assíncrona de artigos públicos na web. O sistema recebe uma URL, executa o scraping com proteções de segurança, proc">
+    <meta name="twitter:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "Agente de Sumarização AI",
+      "description": "Plataforma fullstack para extração, processamento e sumarização assíncrona de artigos públicos na web. O sistema recebe uma URL, executa o scraping com proteções de segurança, proc",
+      "codeRepository": "https://github.com/Lucasantunesribeiro/article_summarizer_agent",
+      "programmingLanguage": ["Python","Flask","Celery","RabbitMQ","SQLAlchemy","Google Gemini","React","TypeScript","Docker"],
+      "author": {
+        "@type": "Person",
+        "name": "Lucas Antunes Ferreira",
+        "url": "https://www.lucasafvr.com.br/"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projeto-detalhe.css">
+
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="pd-body">
+    <a class="pd-skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <nav class="pd-nav">
+        <div class="pd-container">
+            <a href="../index.html" class="pd-back">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Voltar ao portfólio</span>
+            </a>
+            <a href="../index.html#projetos" class="pd-nav-link">Todos os projetos</a>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <!-- ==================== HERO ==================== -->
+        <header class="pd-hero">
+            <div class="pd-container">
+                <h1 class="pd-title">Agente de Sumarização AI</h1>
+                <p class="pd-subtitle">Extração e resumo assíncrono de artigos</p>
+
+                <div class="pd-tags" aria-label="Tecnologias utilizadas">
+                    <span class="pd-tag">Python</span>
+                    <span class="pd-tag">Flask</span>
+                    <span class="pd-tag">Celery</span>
+                    <span class="pd-tag">RabbitMQ</span>
+                    <span class="pd-tag">SQLAlchemy</span>
+                    <span class="pd-tag">Google Gemini</span>
+                    <span class="pd-tag">React</span>
+                    <span class="pd-tag">TypeScript</span>
+                    <span class="pd-tag">Docker</span>
+                </div>
+
+                <div class="pd-actions">
+                    <a class="pd-btn pd-btn-primary" href="https://github.com/Lucasantunesribeiro/article_summarizer_agent" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>Ver código no GitHub</span>
+                    </a>
+                    <a class="pd-btn pd-btn-secondary" href="https://article-summarizer-agent.onrender.com/" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        <span>Ver demo</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="pd-container pd-content">
+            <img class="pd-image" src="../assets/article_summarizer_mockup.jpg" alt="Interface do projeto Agente de Sumarização AI"
+                loading="lazy" decoding="async" width="1200" height="750">
+
+            <!-- ==================== FICHA TÉCNICA ==================== -->
+            <dl class="pd-facts">
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Arquitetura</dt>
+                    <dd class="pd-fact-value">Monólito modular em camadas</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Assíncrono</dt>
+                    <dd class="pd-fact-value">Celery + outbox relay para RabbitMQ</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Testes</dt>
+                    <dd class="pd-fact-value">75,78% de cobertura</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Observabilidade</dt>
+                    <dd class="pd-fact-value">Prometheus · Grafana · OpenTelemetry</dd>
+                </div>
+            </dl>
+
+            <!-- ==================== VISÃO GERAL ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Visão geral</h2>
+                <p>Plataforma fullstack para extração, processamento e sumarização assíncrona de artigos públicos na web. O sistema recebe uma URL, executa o scraping com proteções de segurança, processa o texto e gera um resumo — por método extrativo baseado em TF-IDF ou por integração com o Google Gemini.</p>
+                <p>Oferece histórico, download dos artefatos em <code>txt</code>, <code>md</code> ou <code>json</code> e painel administrativo com estatísticas, limpeza de cache e rotação de segredo JWT.</p>
+            </section>
+
+            <!-- ==================== ARQUITETURA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Arquitetura</h2>
+                <p>Monólito modular com separação explícita de camadas, adequado para demonstrar organização de código sem assumir a complexidade operacional de microservices reais.</p>
+                <ul class="pd-layers">
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">presentation/</code>
+                        <span class="pd-layer-desc">Borda HTTP com Flask Blueprints para API, autenticação e entrega da SPA React.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">application/</code>
+                        <span class="pd-layer-desc">Comandos, queries, handlers e um event bus de aplicação.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">domain/</code>
+                        <span class="pd-layer-desc">Entidades (SummarizationTask, User, AuditLogEntry), eventos e contratos de repositório.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">infrastructure/</code>
+                        <span class="pd-layer-desc">Repositórios SQLAlchemy, wiring de dependências, auth e pipeline runner.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">modules/ e tasks/</code>
+                        <span class="pd-layer-desc">Scraper, sumarizador, cache, rate limiting, tracing — e execução assíncrona com Celery.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ==================== FLUXO ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Fluxo de sumarização</h2>
+                <ol class="pd-steps">
+                    <li>O usuário envia <code>POST /api/sumarizar</code> com a URL e os parâmetros de resumo.</li>
+                    <li>A API normaliza a URL, valida o formato, aplica rate limit e aceita um <code>X-Idempotency-Key</code> opcional.</li>
+                    <li>O handler cria a <code>SummarizationTask</code>, persiste e registra o evento <code>TaskSubmitted</code>.</li>
+                    <li>O <code>AsyncTaskDispatcher</code> despacha o processamento para o Celery; se o Celery estiver indisponível, cai para uma thread local.</li>
+                    <li>O pipeline executa scraping, <strong>proteção contra SSRF</strong>, limpeza de texto, detecção de idioma, sumarização e geração dos arquivos de saída.</li>
+                    <li>A tarefa é atualizada para <code>done</code> ou <code>failed</code>, métricas são publicadas e os eventos vão para a auditoria.</li>
+                    <li>O frontend faz polling em <code>GET /api/tarefa/&lt;task_id&gt;</code> até a conclusão.</li>
+                    <li>Em paralelo, um job periódico lê a tabela de outbox e publica os eventos pendentes no RabbitMQ.</li>
+                </ol>
+            </section>
+
+            <!-- ==================== PONTOS FORTES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Pontos fortes</h2>
+                <ul class="pd-list pd-list-positive">
+                    <li>Mensageria real com RabbitMQ e Celery, com fallback para thread local quando o broker está fora.</li>
+                    <li>Outbox, idempotência e audit log — combinação rara em projetos pessoais.</li>
+                    <li>Segurança acima da média: proteção SSRF, JWT, CSRF, RBAC, rate limiting, security headers e rotação de segredo.</li>
+                    <li>Observabilidade completa: Prometheus, Grafana, OpenTelemetry, Jaeger e logs estruturados.</li>
+                    <li>Persistência versionada com SQLAlchemy e Alembic.</li>
+                    <li>Cobertura de testes de 75,78% na validação executada.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== LIMITES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
+                <p class="pd-limits-intro">
+                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
+                    que exagerar o escopo.
+                </p>
+                <ul class="pd-list pd-list-caveat">
+                    <li>O domínio é relativamente simples e anêmico — a maior regra de negócio explícita é a máquina de estados da tarefa.</li>
+                    <li>Não há bounded contexts claros, aggregates complexos ou linguagem ubíqua forte.</li>
+                    <li>O CQRS é organizacional: não existe segregação física de banco, read models especializados ou event sourcing.</li>
+                    <li>O event bus é interno e em memória — não é uma plataforma distribuída orientada a eventos de ponta a ponta.</li>
+                    <li>A demo está hospedada no plano gratuito do Render, então a primeira requisição pode levar cerca de 30 segundos (cold start).</li>
+                </ul>
+            </section>
+
+            <!-- ==================== NAVEGAÇÃO ==================== -->
+            <nav class="pd-pager" aria-label="Navegação entre projetos">
+                <a class="pd-pager-link pd-pager-prev" href="pedidos-event-sourcing.html">
+                    <span class="pd-pager-label"><i class="fas fa-chevron-left" aria-hidden="true"></i> Anterior</span>
+                    <span class="pd-pager-title">Gestão de Pedidos Distribuído</span>
+                </a>
+                <a class="pd-pager-link pd-pager-next" href="armazem-sao-joaquim.html">
+                    <span class="pd-pager-label">Próximo <i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                    <span class="pd-pager-title">Armazém São Joaquim</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="pd-footer">
+        <div class="pd-container">
+            <p>
+                <a href="mailto:lucas.afvr@gmail.com">lucas.afvr@gmail.com</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/Lucasantunesribeiro" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="pd-footer-copy">&copy; 2026 Lucas Antunes Ferreira</p>
+        </div>
+    </footer>
+</body>
+
+</html>

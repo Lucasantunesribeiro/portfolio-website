@@ -43,27 +43,35 @@ function clearSkillTimers(card) {
     /**
      * Handle toggle button click for experience descriptions
      */
+    /**
+     * Rotulo do botao ("Ver mais"/"Ver menos") no idioma atual.
+     * Cai para portugues se o dicionario do main.js ainda nao tiver carregado.
+     */
+    function toggleLabel(expanded) {
+        const lang = typeof window.getCurrentLang === 'function' ? window.getCurrentLang() : 'pt';
+        const key = expanded ? 'toggleLess' : 'toggleMore';
+        const fallback = expanded ? 'Ver menos' : 'Ver mais';
+
+        if (typeof window.i18nText === 'function') {
+            return window.i18nText(lang, key) || fallback;
+        }
+        return fallback;
+    }
+
     function handleTimelineToggle(button) {
-        const textElement = button.previousElementSibling;
+        const textElement = button.parentElement.querySelector('.timeline-text');
         if (!textElement) return;
 
-        const fullText = textElement.getAttribute('data-full-text');
         const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        const nextText = isExpanded
+            ? textElement.getAttribute('data-short')
+            : textElement.getAttribute('data-full');
 
-        if (isExpanded) {
-            // Collapse
-            const preview = fullText.substring(0, 150) + '...';
-            textElement.textContent = preview;
-            button.setAttribute('aria-expanded', 'false');
-            button.querySelector('.toggle-text').textContent = 'Ver mais';
-            textElement.classList.remove('expanded');
-        } else {
-            // Expand
-            textElement.textContent = fullText;
-            button.setAttribute('aria-expanded', 'true');
-            button.querySelector('.toggle-text').textContent = 'Ver menos';
-            textElement.classList.add('expanded');
-        }
+        if (nextText) textElement.textContent = nextText;
+
+        button.setAttribute('aria-expanded', String(!isExpanded));
+        button.querySelector('.toggle-text').textContent = toggleLabel(!isExpanded);
+        textElement.classList.toggle('expanded', !isExpanded);
 
         // Announce to screen readers
         const company = button.closest('.timeline-card').querySelector('.timeline-company')?.textContent;
@@ -92,16 +100,19 @@ function clearSkillTimers(card) {
                 }
             });
 
-            // Initialize with preview text
-            const textElement = button.previousElementSibling;
-            const fullText = textElement.getAttribute('data-full-text');
-            if (fullText && fullText.length > 150) {
-                const preview = fullText.substring(0, 150) + '...';
-                textElement.textContent = preview;
-            } else {
-                // No need for toggle if text is short
+            // Sem texto longo, o botao nao tem funcao
+            const textElement = button.parentElement.querySelector('.timeline-text');
+            const shortText = textElement?.getAttribute('data-short');
+            const fullText = textElement?.getAttribute('data-full');
+
+            if (!shortText || !fullText || shortText === fullText) {
                 button.style.display = 'none';
+                return;
             }
+
+            textElement.textContent = shortText;
+            button.setAttribute('aria-expanded', 'false');
+            button.querySelector('.toggle-text').textContent = toggleLabel(false);
         });
     }
 
@@ -317,7 +328,6 @@ function clearSkillTimers(card) {
         initTimelineToggles();
         initSkillFilters();
 
-        console.log(`✅ Experiências & Habilidades module initialized. Found ${elements.skillCards.length} skills.`);
     }
 
     // ==================== AUTO-INIT ====================
@@ -329,129 +339,8 @@ function clearSkillTimers(card) {
     }
 })();
 
-/**
- * ========================================
- * TRANSLATION SUPPORT (INTEGRATION)
- * ========================================
+/*
+ * As traducoes desta secao passaram a ser resolvidas pelo motor data-i18n
+ * em js/main.js, que le as chaves diretamente do HTML. Manter um segundo
+ * dicionario aqui era a causa dos textos dessincronizados entre PT e EN.
  */
-(function () {
-    'use strict';
-
-    /**
-     * Update labels when language changes
-     */
-    function updateExperienciasHabilidadesLabels(lang) {
-        const translations = {
-            pt: {
-                // Experiências
-                experienciasTitle: 'Experiências',
-                experienciasSubtitle: 'Minha trajetória profissional e formação acadêmica',
-                verMais: 'Ver mais',
-                verMenos: 'Ver menos',
-
-                // Habilidades
-                habilidadesTitle: 'Habilidades',
-                habilidadesSubtitle: 'Tecnologias e competências que domino',
-                filterAll: 'Todas',
-                filterBackend: 'Backend',
-                filterFrontend: 'Frontend',
-                filterDatabase: 'Database',
-                filterCloud: 'Cloud/DevOps',
-                filterQuality: 'Qualidade',
-
-                // Skills descriptions
-                skillBackendDesc: 'Desenvolvimento de APIs robustas e escaláveis com foco em Clean Architecture e boas práticas.',
-                skillFrontendDesc: 'Criação de interfaces modernas e responsivas com foco em performance e experiência do usuário.',
-                skillDatabaseDesc: 'Modelagem e otimização de bancos de dados relacionais com foco em performance e integridade.',
-                skillCloudDesc: 'Deploy e gerenciamento de infraestrutura cloud com automação e monitoramento contínuo.',
-                skillQualityDesc: 'Garantia de qualidade através de testes automatizados e práticas de segurança robustas.',
-            },
-            en: {
-                // Experiências
-                experienciasTitle: 'Experience',
-                experienciasSubtitle: 'My professional journey and academic background',
-                verMais: 'Read more',
-                verMenos: 'Read less',
-
-                // Habilidades
-                habilidadesTitle: 'Skills',
-                habilidadesSubtitle: 'Technologies and skills I master',
-                filterAll: 'All',
-                filterBackend: 'Backend',
-                filterFrontend: 'Frontend',
-                filterDatabase: 'Database',
-                filterCloud: 'Cloud/DevOps',
-                filterQuality: 'Quality',
-
-                // Skills descriptions
-                skillBackendDesc: 'Development of robust and scalable APIs focused on Clean Architecture and best practices.',
-                skillFrontendDesc: 'Creation of modern and responsive interfaces focused on performance and user experience.',
-                skillDatabaseDesc: 'Modeling and optimization of relational databases focused on performance and integrity.',
-                skillCloudDesc: 'Cloud infrastructure deployment and management with automation and continuous monitoring.',
-                skillQualityDesc: 'Quality assurance through automated testing and robust security practices.',
-            },
-        };
-
-        const t = translations[lang] || translations.pt;
-
-        // Update Experiências
-        const expTitle = document.querySelector('.experiencias-title-accent');
-        if (expTitle) expTitle.textContent = t.experienciasTitle;
-
-        const expSubtitle = document.querySelector('.experiencias-subtitle');
-        if (expSubtitle) expSubtitle.textContent = t.experienciasSubtitle;
-
-        const toggles = document.querySelectorAll('.timeline-toggle .toggle-text');
-        toggles.forEach(toggle => {
-            const isExpanded = toggle.closest('.timeline-toggle').getAttribute('aria-expanded') === 'true';
-            toggle.textContent = isExpanded ? t.verMenos : t.verMais;
-        });
-
-        // Update Habilidades
-        const habTitle = document.querySelector('.habilidades-title-accent');
-        if (habTitle) habTitle.textContent = t.habilidadesTitle;
-
-        const habSubtitle = document.querySelector('.habilidades-subtitle');
-        if (habSubtitle) habSubtitle.textContent = t.habilidadesSubtitle;
-
-        // Update filter buttons
-        const filterBtns = document.querySelectorAll('.skill-filter-btn');
-        const filterMap = {
-            'all': t.filterAll,
-            'backend': t.filterBackend,
-            'frontend': t.filterFrontend,
-            'database': t.filterDatabase,
-            'cloud': t.filterCloud,
-            'quality': t.filterQuality,
-        };
-
-        filterBtns.forEach(btn => {
-            const category = btn.getAttribute('data-category');
-            const span = btn.querySelector('span');
-            if (span && filterMap[category]) {
-                span.textContent = filterMap[category];
-            }
-        });
-
-        // Update skill descriptions
-        const skillCards = document.querySelectorAll('.skill-card');
-        const descriptionMap = {
-            'backend': t.skillBackendDesc,
-            'frontend': t.skillFrontendDesc,
-            'database': t.skillDatabaseDesc,
-            'cloud': t.skillCloudDesc,
-            'quality': t.skillQualityDesc,
-        };
-
-        skillCards.forEach(card => {
-            const category = card.getAttribute('data-category');
-            const desc = card.querySelector('.skill-description');
-            if (desc && descriptionMap[category]) {
-                desc.textContent = descriptionMap[category];
-            }
-        });
-    }
-
-    // Expose function globally for integration with main.js
-    window.updateExperienciasHabilidadesLabels = updateExperienciasHabilidadesLabels;
-})();

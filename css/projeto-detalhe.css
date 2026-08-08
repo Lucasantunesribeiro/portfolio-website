@@ -1,0 +1,493 @@
+/*
+  ========================================
+  PÁGINAS DE DETALHE DOS PROJETOS
+  ========================================
+
+  Usada apenas pelos arquivos em `projetos/`. Carrega depois de style.css,
+  de onde herda a fonte, o reset e as variáveis --primary/--secondary.
+*/
+
+:root {
+    --pd-bg: #0f1419;
+    --pd-surface: rgba(255, 255, 255, 0.03);
+    --pd-surface-hover: rgba(255, 255, 255, 0.06);
+    --pd-border: rgba(255, 255, 255, 0.08);
+    --pd-text: #e5e7eb;
+    --pd-text-secondary: #9ca3af;
+    --pd-text-muted: #6b7280;
+    --pd-primary: #2563eb;
+    --pd-secondary: #7c3aed;
+    --pd-radius: 0.75rem;
+}
+
+.pd-body {
+    background: var(--pd-bg);
+    color: var(--pd-text);
+}
+
+.pd-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+/* Link de acessibilidade, visível só no foco por teclado */
+.pd-skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    padding: 0.75rem 1.25rem;
+    background: var(--pd-primary);
+    color: #fff;
+    z-index: 100;
+    border-radius: 0 0 var(--pd-radius) 0;
+}
+
+.pd-skip:focus {
+    left: 0;
+}
+
+/* ==================== NAV ==================== */
+.pd-nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 1rem 0;
+    background: rgba(15, 20, 25, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--pd-border);
+}
+
+.pd-nav .pd-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.pd-back,
+.pd-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--pd-text-secondary);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.pd-back:hover,
+.pd-nav-link:hover {
+    color: var(--pd-text);
+}
+
+/* ==================== HERO ==================== */
+.pd-hero {
+    padding: 3.5rem 0 2rem;
+}
+
+.pd-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    border-radius: 9999px;
+    background: rgba(34, 197, 94, 0.1);
+    color: #86efac;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.pd-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--pd-primary), var(--pd-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pd-subtitle {
+    font-size: 1.125rem;
+    color: var(--pd-text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.pd-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.pd-tag {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--pd-border);
+    border-radius: 9999px;
+    background: var(--pd-surface);
+    font-size: 0.8125rem;
+    color: var(--pd-text-secondary);
+}
+
+.pd-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.pd-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--pd-radius);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.pd-btn-primary {
+    background: linear-gradient(135deg, var(--pd-primary), var(--pd-secondary));
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.pd-btn-secondary {
+    background: transparent;
+    color: var(--pd-text);
+    border: 1px solid var(--pd-border);
+}
+
+.pd-btn:hover {
+    transform: translateY(-2px);
+}
+
+.pd-btn-secondary:hover {
+    background: var(--pd-surface-hover);
+    border-color: var(--pd-primary);
+}
+
+.pd-btn:focus-visible {
+    outline: 2px solid var(--pd-primary);
+    outline-offset: 2px;
+}
+
+/* ==================== CONTEÚDO ==================== */
+.pd-content {
+    padding-bottom: 4rem;
+}
+
+.pd-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--pd-border);
+    border-radius: var(--pd-radius);
+    margin-bottom: 2rem;
+}
+
+/* Ficha técnica */
+.pd-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--pd-border);
+    border: 1px solid var(--pd-border);
+    border-radius: var(--pd-radius);
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.pd-fact {
+    padding: 1rem 1.25rem;
+    background: var(--pd-bg);
+}
+
+.pd-fact-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--pd-text-muted);
+    margin-bottom: 0.35rem;
+}
+
+.pd-fact-value {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--pd-text);
+    margin: 0;
+}
+
+/* Seções */
+.pd-section {
+    margin-bottom: 3rem;
+}
+
+.pd-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--pd-text);
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--pd-border);
+}
+
+.pd-section p {
+    color: var(--pd-text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+}
+
+.pd-section strong {
+    color: var(--pd-text);
+    font-weight: 600;
+}
+
+.pd-section code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.875em;
+    padding: 0.1rem 0.35rem;
+    border-radius: 0.25rem;
+    background: rgba(124, 58, 237, 0.12);
+    color: #c4b5fd;
+    word-break: break-word;
+}
+
+/* Camadas da arquitetura */
+.pd-layers {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+    padding: 0;
+}
+
+.pd-layer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.75rem;
+    padding: 0.85rem 1rem;
+    background: var(--pd-surface);
+    border: 1px solid var(--pd-border);
+    border-radius: 0.5rem;
+}
+
+.pd-layer-name {
+    flex-shrink: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #93c5fd;
+}
+
+.pd-layer-desc {
+    flex: 1 1 16rem;
+    font-size: 0.9375rem;
+    color: var(--pd-text-secondary);
+    line-height: 1.6;
+}
+
+/* Passos do fluxo */
+.pd-steps {
+    counter-reset: pd-step;
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0 0;
+}
+
+.pd-steps li {
+    counter-increment: pd-step;
+    position: relative;
+    padding: 0 0 1.35rem 2.75rem;
+    color: var(--pd-text-secondary);
+    line-height: 1.7;
+}
+
+.pd-steps li::before {
+    content: counter(pd-step);
+    position: absolute;
+    left: 0;
+    top: -0.1rem;
+    width: 1.9rem;
+    height: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pd-primary), var(--pd-secondary));
+    color: #fff;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+/* Linha vertical ligando os passos */
+.pd-steps li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 0.94rem;
+    top: 2.1rem;
+    bottom: 0.35rem;
+    width: 1px;
+    background: var(--pd-border);
+}
+
+/* Listas de pontos fortes e limites */
+.pd-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0 0;
+}
+
+.pd-list li {
+    position: relative;
+    padding: 0 0 0.9rem 1.75rem;
+    color: var(--pd-text-secondary);
+    line-height: 1.7;
+}
+
+.pd-list li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.8125rem;
+}
+
+.pd-list-positive li::before {
+    content: '\f058';
+    /* circle-check */
+    color: #4ade80;
+}
+
+.pd-list-caveat li::before {
+    content: '\f06a';
+    /* circle-exclamation */
+    color: #fbbf24;
+}
+
+.pd-limits-intro {
+    padding: 0.9rem 1.1rem;
+    border-left: 3px solid #fbbf24;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background: rgba(251, 191, 36, 0.07);
+    font-size: 0.9375rem;
+}
+
+/* ==================== PAGINAÇÃO ==================== */
+.pd-pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--pd-border);
+}
+
+.pd-pager-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.15rem;
+    background: var(--pd-surface);
+    border: 1px solid var(--pd-border);
+    border-radius: var(--pd-radius);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.pd-pager-link:hover {
+    background: var(--pd-surface-hover);
+    border-color: var(--pd-primary);
+    transform: translateY(-2px);
+}
+
+.pd-pager-next {
+    text-align: right;
+}
+
+.pd-pager-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--pd-text-muted);
+}
+
+.pd-pager-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--pd-text);
+}
+
+/* ==================== FOOTER ==================== */
+.pd-footer {
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--pd-border);
+    text-align: center;
+}
+
+.pd-footer p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--pd-text-muted);
+    font-size: 0.9375rem;
+}
+
+.pd-footer a {
+    color: var(--pd-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.pd-footer a:hover {
+    color: var(--pd-primary);
+}
+
+.pd-footer-copy {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+}
+
+/* ==================== RESPONSIVO ==================== */
+@media (max-width: 640px) {
+    .pd-hero {
+        padding-top: 2.5rem;
+    }
+
+    .pd-pager {
+        grid-template-columns: 1fr;
+    }
+
+    .pd-pager-next {
+        text-align: left;
+    }
+
+    .pd-nav-link {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pd-btn,
+    .pd-pager-link,
+    .pd-back,
+    .pd-nav-link,
+    .pd-footer a {
+        transition: none;
+    }
+
+    .pd-btn:hover,
+    .pd-pager-link:hover {
+        transform: none;
+    }
+}

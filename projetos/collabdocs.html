@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CollabDocs — Lucas Antunes Ferreira</title>
+    <meta name="description" content="Plataforma de documentos colaborativos com autenticação OAuth, controle de visibilidade, gestão de colaboradores e edição em tempo real. Resolve um problema típico de produto SaaS:">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="canonical" href="https://www.lucasafvr.com.br/projetos/collabdocs.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.lucasafvr.com.br/projetos/collabdocs.html">
+    <meta property="og:site_name" content="Lucas Antunes Ferreira">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="CollabDocs — Documentos colaborativos em tempo real">
+    <meta property="og:description" content="Plataforma de documentos colaborativos com autenticação OAuth, controle de visibilidade, gestão de colaboradores e edição em tempo real. Resolve um problema típico de produto SaaS:">
+    <meta property="og:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CollabDocs — Documentos colaborativos em tempo real">
+    <meta name="twitter:description" content="Plataforma de documentos colaborativos com autenticação OAuth, controle de visibilidade, gestão de colaboradores e edição em tempo real. Resolve um problema típico de produto SaaS:">
+    <meta name="twitter:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "CollabDocs",
+      "description": "Plataforma de documentos colaborativos com autenticação OAuth, controle de visibilidade, gestão de colaboradores e edição em tempo real. Resolve um problema típico de produto SaaS:",
+      "codeRepository": "https://github.com/Lucasantunesribeiro/Collabdocs",
+      "programmingLanguage": [".NET 9","C#","MediatR","Next.js","PostgreSQL","Redis","RabbitMQ","Cloudflare Workers","Testcontainers"],
+      "author": {
+        "@type": "Person",
+        "name": "Lucas Antunes Ferreira",
+        "url": "https://www.lucasafvr.com.br/"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projeto-detalhe.css">
+
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="pd-body">
+    <a class="pd-skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <nav class="pd-nav">
+        <div class="pd-container">
+            <a href="../index.html" class="pd-back">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Voltar ao portfólio</span>
+            </a>
+            <a href="../index.html#projetos" class="pd-nav-link">Todos os projetos</a>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <!-- ==================== HERO ==================== -->
+        <header class="pd-hero">
+            <div class="pd-container">
+                <h1 class="pd-title">CollabDocs</h1>
+                <p class="pd-subtitle">Documentos colaborativos em tempo real</p>
+
+                <div class="pd-tags" aria-label="Tecnologias utilizadas">
+                    <span class="pd-tag">.NET 9</span>
+                    <span class="pd-tag">C#</span>
+                    <span class="pd-tag">MediatR</span>
+                    <span class="pd-tag">Next.js</span>
+                    <span class="pd-tag">PostgreSQL</span>
+                    <span class="pd-tag">Redis</span>
+                    <span class="pd-tag">RabbitMQ</span>
+                    <span class="pd-tag">Cloudflare Workers</span>
+                    <span class="pd-tag">Testcontainers</span>
+                </div>
+
+                <div class="pd-actions">
+                    <a class="pd-btn pd-btn-primary" href="https://github.com/Lucasantunesribeiro/Collabdocs" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>Ver código no GitHub</span>
+                    </a>
+                    <a class="pd-btn pd-btn-secondary" href="https://collabdocs-app.vercel.app/" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        <span>Ver demo</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="pd-container pd-content">
+            <img class="pd-image" src="../assets/collabdocs_mockup.jpg" alt="Interface do projeto CollabDocs"
+                loading="lazy" decoding="async" width="1200" height="750">
+
+            <!-- ==================== FICHA TÉCNICA ==================== -->
+            <dl class="pd-facts">
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Arquitetura</dt>
+                    <dd class="pd-fact-value">Contextos distribuídos (.NET + edge)</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Padrão</dt>
+                    <dd class="pd-fact-value">Clean Architecture + CQRS com MediatR</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Tempo real</dt>
+                    <dd class="pd-fact-value">WebSocket + Durable Objects</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Testes</dt>
+                    <dd class="pd-fact-value">Integração com Testcontainers</dd>
+                </div>
+            </dl>
+
+            <!-- ==================== VISÃO GERAL ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Visão geral</h2>
+                <p>Plataforma de documentos colaborativos com autenticação OAuth, controle de visibilidade, gestão de colaboradores e edição em tempo real. Resolve um problema típico de produto SaaS: permitir que múltiplos usuários criem, compartilhem e editem documentos com regras de acesso e sincronização entre clientes.</p>
+                <p>O sistema tem três frentes: gerenciamento de documentos (CRUD, versionamento e compartilhamento), colaboração em tempo real (presença e broadcast via WebSocket) e autenticação com login via GitHub/Google.</p>
+            </section>
+
+            <!-- ==================== ARQUITETURA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Arquitetura</h2>
+                <p>Aplicação distribuída por contextos, com backend principal em .NET (monólito modular em camadas) e um contexto edge separado, na Cloudflare, dedicado à colaboração em tempo real.</p>
+                <ul class="pd-layers">
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">CollabDocs.Domain</code>
+                        <span class="pd-layer-desc">Entidades, enums, eventos e interfaces. Regras explícitas como Document.CanEdit() e CanView().</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">CollabDocs.Application</code>
+                        <span class="pd-layer-desc">Commands, queries, DTOs e handlers (CreateDocumentHandler, UpdateDocumentHandler...).</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">CollabDocs.Infrastructure</code>
+                        <span class="pd-layer-desc">EF Core, repositórios, cache Redis, mensageria RabbitMQ e outbox.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">CollabDocs.API</code>
+                        <span class="pd-layer-desc">Controllers finos, autenticação JWT, Swagger, DI e observabilidade.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">workers/ (Cloudflare)</code>
+                        <span class="pd-layer-desc">Runtime edge: WebSocket, Durable Objects, rate limiting e integrações.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ==================== FLUXO ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Fluxo de escrita e colaboração em tempo real</h2>
+                <ol class="pd-steps">
+                    <li>O usuário faz login via GitHub ou Google no NextAuth; é gerada uma sessão JWT HS256 compartilhada entre frontend, Worker e .NET.</li>
+                    <li>O cliente chama <code>/api/dotnet/[...path]</code> no Next.js, que faz proxy server-side para a API .NET.</li>
+                    <li>A API valida o JWT, resolve o usuário via claims e executa o caso de uso através do MediatR.</li>
+                    <li>O handler aplica a regra de negócio, persiste no PostgreSQL e, quando aplicável, grava uma mensagem na outbox.</li>
+                    <li>Após a escrita, o backend invalida o cache Redis do usuário.</li>
+                    <li>No editor, o cliente abre um WebSocket para o Worker da Cloudflare — o JWT vai por query string, porque o browser não permite header customizado no upgrade do WebSocket.</li>
+                    <li>O Worker valida o token, consulta a permissão e encaminha a sessão a um <strong>Durable Object por documento</strong>, que mantém os usuários conectados e faz o broadcast das atualizações.</li>
+                </ol>
+            </section>
+
+            <!-- ==================== PONTOS FORTES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Pontos fortes</h2>
+                <ul class="pd-list pd-list-positive">
+                    <li>CQRS com MediatR aplicado de forma real e visível: commands e queries com handlers dedicados por caso de uso.</li>
+                    <li>Uso real de RabbitMQ e Transactional Outbox, raro em portfólios júnior.</li>
+                    <li>Regras de autorização encapsuladas na entidade de domínio, não espalhadas em controllers.</li>
+                    <li>Colaboração em tempo real com Cloudflare Workers e Durable Objects.</li>
+                    <li>Deploy multi-cloud: Vercel, Cloudflare e AWS, com CI/CD no GitHub Actions e OIDC.</li>
+                    <li>Testes .NET fortes para nível de portfólio, incluindo integração com Testcontainers.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== LIMITES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
+                <p class="pd-limits-intro">
+                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
+                    que exagerar o escopo.
+                </p>
+                <ul class="pd-list pd-list-caveat">
+                    <li>O principal débito estrutural é a <strong>divisão de fonte de verdade</strong>: o frontend usa .NET + PostgreSQL para documentos, enquanto o Worker mantém lógica equivalente no D1 e autoriza o WebSocket consultando o D1, não o PostgreSQL.</li>
+                    <li>O consumer de eventos hoje apenas registra logs — não materializa projeções nem sincroniza contextos.</li>
+                    <li>O DDD é tático e parcial: faltam aggregates ricos, value objects e bounded contexts formalizados.</li>
+                    <li>A arquitetura está em transição: o desenho é interessante, mas a consistência entre contextos ainda não está consolidada.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== NAVEGAÇÃO ==================== -->
+            <nav class="pd-pager" aria-label="Navegação entre projetos">
+                <a class="pd-pager-link pd-pager-prev" href="emissao-nfe.html">
+                    <span class="pd-pager-label"><i class="fas fa-chevron-left" aria-hidden="true"></i> Anterior</span>
+                    <span class="pd-pager-title">Emissão de NF-e e Controle de Estoque</span>
+                </a>
+                <a class="pd-pager-link pd-pager-next" href="pedidos-event-sourcing.html">
+                    <span class="pd-pager-label">Próximo <i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                    <span class="pd-pager-title">Gestão de Pedidos Distribuído</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="pd-footer">
+        <div class="pd-container">
+            <p>
+                <a href="mailto:lucas.afvr@gmail.com">lucas.afvr@gmail.com</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/Lucasantunesribeiro" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="pd-footer-copy">&copy; 2026 Lucas Antunes Ferreira</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestão de Pedidos Distribuído — Lucas Antunes Ferreira</title>
+    <meta name="description" content="Sistema de gestão de pedidos que cobre todo o ciclo operacional: autenticação, criação do pedido, reserva de estoque, processamento de pagamento, confirmação/cancelamento, painel o">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="canonical" href="https://www.lucasafvr.com.br/projetos/pedidos-event-sourcing.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.lucasafvr.com.br/projetos/pedidos-event-sourcing.html">
+    <meta property="og:site_name" content="Lucas Antunes Ferreira">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Gestão de Pedidos Distribuído — Pedidos, estoque e pagamento com outbox e compensação">
+    <meta property="og:description" content="Sistema de gestão de pedidos que cobre todo o ciclo operacional: autenticação, criação do pedido, reserva de estoque, processamento de pagamento, confirmação/cancelamento, painel o">
+    <meta property="og:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gestão de Pedidos Distribuído — Pedidos, estoque e pagamento com outbox e compensação">
+    <meta name="twitter:description" content="Sistema de gestão de pedidos que cobre todo o ciclo operacional: autenticação, criação do pedido, reserva de estoque, processamento de pagamento, confirmação/cancelamento, painel o">
+    <meta name="twitter:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "Gestão de Pedidos Distribuído",
+      "description": "Sistema de gestão de pedidos que cobre todo o ciclo operacional: autenticação, criação do pedido, reserva de estoque, processamento de pagamento, confirmação/cancelamento, painel o",
+      "codeRepository": "https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing",
+      "programmingLanguage": ["Java","Spring Boot","PostgreSQL","RabbitMQ","Outbox","Docker","JWT"],
+      "author": {
+        "@type": "Person",
+        "name": "Lucas Antunes Ferreira",
+        "url": "https://www.lucasafvr.com.br/"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projeto-detalhe.css">
+
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="pd-body">
+    <a class="pd-skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <nav class="pd-nav">
+        <div class="pd-container">
+            <a href="../index.html" class="pd-back">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Voltar ao portfólio</span>
+            </a>
+            <a href="../index.html#projetos" class="pd-nav-link">Todos os projetos</a>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <!-- ==================== HERO ==================== -->
+        <header class="pd-hero">
+            <div class="pd-container">
+                <h1 class="pd-title">Gestão de Pedidos Distribuído</h1>
+                <p class="pd-subtitle">Pedidos, estoque e pagamento com outbox e compensação</p>
+
+                <div class="pd-tags" aria-label="Tecnologias utilizadas">
+                    <span class="pd-tag">Java</span>
+                    <span class="pd-tag">Spring Boot</span>
+                    <span class="pd-tag">PostgreSQL</span>
+                    <span class="pd-tag">RabbitMQ</span>
+                    <span class="pd-tag">Outbox</span>
+                    <span class="pd-tag">Docker</span>
+                    <span class="pd-tag">JWT</span>
+                </div>
+
+                <div class="pd-actions">
+                    <a class="pd-btn pd-btn-primary" href="https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>Ver código no GitHub</span>
+                    </a>
+
+                </div>
+            </div>
+        </header>
+
+        <div class="pd-container pd-content">
+            <img class="pd-image" src="../assets/sistema_pedidos_distribuido_mockup.jpg" alt="Interface do projeto Gestão de Pedidos Distribuído"
+                loading="lazy" decoding="async" width="1200" height="750">
+
+            <!-- ==================== FICHA TÉCNICA ==================== -->
+            <dl class="pd-facts">
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Arquitetura</dt>
+                    <dd class="pd-fact-value">Monólito modular por domínio</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Mensageria</dt>
+                    <dd class="pd-fact-value">Outbox + RabbitMQ</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Testes</dt>
+                    <dd class="pd-fact-value">217 testes · 63,3% de cobertura de linhas</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Extras</dt>
+                    <dd class="pd-fact-value">Testes E2E e teste de carga</dd>
+                </div>
+            </dl>
+
+            <!-- ==================== VISÃO GERAL ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Visão geral</h2>
+                <p>Sistema de gestão de pedidos que cobre todo o ciclo operacional: autenticação, criação do pedido, reserva de estoque, processamento de pagamento, confirmação/cancelamento, painel operacional e trilha de eventos.</p>
+                <p>O problema resolvido é o típico de plataformas transacionais: evitar venda sem estoque, manter o fluxo de pagamento integrado ao pedido, reduzir acoplamento entre módulos e dar visibilidade operacional.</p>
+                <p><strong>Nota de honestidade arquitetural:</strong> apesar do nome do repositório sugerir Event Sourcing e microservices, o runtime ativo hoje está consolidado em um monólito modular bem estruturado. Isso não diminui o projeto — apenas muda a forma correta de apresentá-lo.</p>
+            </section>
+
+            <!-- ==================== ARQUITETURA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Arquitetura</h2>
+                <p>Monólito modular por domínio, com módulos separados e comunicação assíncrona via outbox → RabbitMQ. O núcleo ativo foi consolidado a partir de uma fase anterior mais fragmentada.</p>
+                <ul class="pd-layers">
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">order</code>
+                        <span class="pd-layer-desc">Casos de uso do pedido (CreateOrderUseCase, CancelOrderUseCase) e OrderBusinessRules.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">inventory</code>
+                        <span class="pd-layer-desc">Reserva e liberação de estoque, com locking otimista e pessimista.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">payment</code>
+                        <span class="pd-layer-desc">Processamento de cobrança via gateway HTTP ou sandbox local.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">auth / websocket</code>
+                        <span class="pd-layer-desc">Autenticação JWT com RBAC e notificações em tempo real.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">infrastructure</code>
+                        <span class="pd-layer-desc">EventPublisher, DomainEventEntity e DomainEventOutboxPublisher.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ==================== FLUXO ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Fluxo de criação de pedido com compensação</h2>
+                <ol class="pd-steps">
+                    <li>O usuário autentica e recebe um token JWT.</li>
+                    <li>O frontend chama a API de pedidos; o backend valida a requisição e executa o <code>CreateOrderUseCase</code>.</li>
+                    <li>O módulo de estoque verifica disponibilidade e <strong>cria uma reserva</strong> para evitar overselling.</li>
+                    <li>O módulo de pagamento processa a tentativa de cobrança via gateway ou sandbox.</li>
+                    <li>Se tudo der certo, o pedido é confirmado. Se estoque ou pagamento falharem, o fluxo executa <strong>compensação</strong> e atualiza o estado do pedido.</li>
+                    <li>Eventos de domínio são persistidos em tabela própria — não é <em>fire and forget</em> direto para o broker.</li>
+                    <li>Um publisher de outbox envia os eventos pendentes ao RabbitMQ.</li>
+                    <li>Um scheduler trata a expiração automática de reservas, evitando estoque preso indefinidamente.</li>
+                </ol>
+            </section>
+
+            <!-- ==================== PONTOS FORTES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Pontos fortes</h2>
+                <ul class="pd-list pd-list-positive">
+                    <li>Domínio forte para mercado enterprise: pedidos, estoque e pagamento coordenados.</li>
+                    <li>Preocupação concreta com consistência e concorrência, incluindo locking otimista e pessimista no estoque.</li>
+                    <li>Uso real de mensageria com RabbitMQ e padrão Outbox.</li>
+                    <li>Segurança acima da média: JWT, RBAC, CORS, CSP, HSTS e rate limiting.</li>
+                    <li>Suíte de testes robusta: 217 testes sem falhas, 63,29% de cobertura de linhas via JaCoCo.</li>
+                    <li>Existência de testes E2E e teste de carga, incomum em portfólios.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== LIMITES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
+                <p class="pd-limits-intro">
+                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
+                    que exagerar o escopo.
+                </p>
+                <ul class="pd-list pd-list-caveat">
+                    <li>Não é um conjunto de microservices independentes ativos, apesar do nome do repositório.</li>
+                    <li>O Event Sourcing não é aplicado de forma completa no runtime atual — o que existe é outbox de eventos de domínio.</li>
+                    <li>A pasta <code>legacy/</code> mantém artefatos de uma fase anterior mais fragmentada, o que reduz a clareza do repositório.</li>
+                    <li>A cobertura de branches (40,84%) é bem menor que a de linhas.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== NAVEGAÇÃO ==================== -->
+            <nav class="pd-pager" aria-label="Navegação entre projetos">
+                <a class="pd-pager-link pd-pager-prev" href="collabdocs.html">
+                    <span class="pd-pager-label"><i class="fas fa-chevron-left" aria-hidden="true"></i> Anterior</span>
+                    <span class="pd-pager-title">CollabDocs</span>
+                </a>
+                <a class="pd-pager-link pd-pager-next" href="agente-sumarizacao.html">
+                    <span class="pd-pager-label">Próximo <i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                    <span class="pd-pager-title">Agente de Sumarização AI</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="pd-footer">
+        <div class="pd-container">
+            <p>
+                <a href="mailto:lucas.afvr@gmail.com">lucas.afvr@gmail.com</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/Lucasantunesribeiro" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="pd-footer-copy">&copy; 2026 Lucas Antunes Ferreira</p>
+        </div>
+    </footer>
+</body>
+
+</html>

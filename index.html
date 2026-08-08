@@ -4,19 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio</title>
 
-    <!-- Owl Carousel CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- ============================================================
+         SEO / METADADOS
+         Mantidos no topo do <head> para que crawlers e scrapers de
+         preview leiam antes de qualquer script.
+         ============================================================ -->
+    <title>Lucas Antunes Ferreira — Desenvolvedor .NET &amp; React</title>
+    <meta name="description"
+        content="Desenvolvedor .NET e React no Rio de Janeiro. C#, ASP.NET Core, EF Core, SQL Server, Clean Architecture, DDD, Docker e AWS. Veja projetos em produção e o código no GitHub.">
+    <meta name="keywords"
+        content="desenvolvedor .NET, desenvolvedor C#, ASP.NET Core, EF Core, SQL Server, React, TypeScript, Clean Architecture, DDD, Docker, AWS, Azure, desenvolvedor júnior, Rio de Janeiro">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="canonical" href="https://www.lucasafvr.com.br/">
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- Owl Carousel JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lucasafvr.com.br/">
+    <meta property="og:site_name" content="Lucas Antunes Ferreira">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Lucas Antunes Ferreira — Desenvolvedor .NET &amp; React">
+    <meta property="og:description"
+        content="C#, ASP.NET Core, EF Core, SQL Server, React e TypeScript. Projetos em produção com Clean Architecture, DDD, Docker e AWS.">
+    <meta property="og:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Lucas Antunes Ferreira — Desenvolvedor .NET &amp; React">
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lucas Antunes Ferreira — Desenvolvedor .NET &amp; React">
+    <meta name="twitter:description"
+        content="C#, ASP.NET Core, EF Core, SQL Server, React e TypeScript. Projetos em produção com Clean Architecture, DDD, Docker e AWS.">
+    <meta name="twitter:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- Dados estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Lucas Antunes Ferreira",
+      "url": "https://www.lucasafvr.com.br/",
+      "image": "https://www.lucasafvr.com.br/assets/og-image.png",
+      "email": "mailto:lucas.afvr@gmail.com",
+      "jobTitle": "Desenvolvedor .NET & React",
+      "description": "Desenvolvedor de software com foco em backend .NET e aplicações fullstack.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rio de Janeiro",
+        "addressRegion": "RJ",
+        "addressCountry": "BR"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Estácio"
+      },
+      "knowsLanguage": ["pt-BR", "en"],
+      "knowsAbout": [
+        "C#", ".NET", "ASP.NET Core", "Entity Framework Core", "SQL Server",
+        "PostgreSQL", "React", "TypeScript", "Clean Architecture", "DDD",
+        "Docker", "AWS", "Azure", "CI/CD"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/lucasantunesferreira/",
+        "https://github.com/Lucasantunesribeiro"
+      ]
+    }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,9 +83,6 @@
 
     <!-- Preload critical resources -->
     <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        as="style">
-    <link rel="preload" href="assets/Photorealistic_Coder_Video_Generation.mp4" as="video" type="video/mp4">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -37,22 +92,16 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/projetos.css">
     <link rel="stylesheet" href="css/experiencias-habilidades.css">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/certificados.css">
 
-    <!-- AOS CSS -->
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- SEO and Meta Tags -->
-    <meta name="description"
-        content="Portfólio profissional de Lucas Antunes - Desenvolvedor .NET especializado em sistemas bancários, Clean Architecture e soluções enterprise escaláveis.">
-    <meta name="keywords"
-        content="desenvolvedor .NET, sistemas bancários, ASP.NET Core, Azure, microserviços, compliance bancário">
-    <meta name="author" content="Lucas Antunes Ferreira">
-    <meta property="og:title" content="Lucas Antunes - Desenvolvedor .NET Especialista">
-    <meta property="og:description"
-        content="Especialista em .NET 8/9, Azure e arquitetura enterprise. Experiência em sistemas críticos e compliance bancário.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- Vercel Web Analytics.
+         Requer "Web Analytics" habilitado no painel do projeto na Vercel.
+         O script é servido pela própria Vercel (sem CDN externo, sem cookies). -->
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
 <body>
@@ -73,11 +122,12 @@
                 <span></span>
             </button>
             <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#sobre">Sobre</a>
-                <a href="#projetos">Projetos</a>
-                <a href="#experiencias">Experiências</a>
-                <a href="#habilidades">Habilidades</a>
+                <a href="#home" data-i18n="navHome">Home</a>
+                <a href="#sobre" data-i18n="navSobre">Sobre</a>
+                <a href="#projetos" data-i18n="navProjetos">Projetos</a>
+                <a href="#experiencias" data-i18n="navExperiencias">Experiências</a>
+                <a href="#habilidades" data-i18n="navHabilidades">Habilidades</a>
+                <a href="#certificados" data-i18n="navCertificados">Certificados</a>
                 <div class="language-toggle">
                     <button id="toggle-lang" aria-label="Alternar idioma">PT / EN</button>
                 </div>
@@ -87,29 +137,36 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <video autoplay muted loop playsinline class="hero-video" fetchpriority="high">
+        <video autoplay muted loop playsinline class="hero-video" preload="metadata" fetchpriority="low"
+            poster="assets/hero-poster.jpg">
             <source src="assets/Photorealistic_Coder_Video_Generation.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="animated-text">Olá, eu sou <span class="highlight">Lucas Antunes Ferreira</span></h1>
-
-                <p class="hero-subtitle desktop-text">
-                    Desenvolvedor Fullstack | .NET Specialist | Backend Heavy<br>
-                    APIs REST | Cloud & DevOps | CI/CD<br>
-                    Clean Architecture | Testes | Observabilidade | Segurança
+                <p class="hero-badge" data-i18n-html="heroBadge">
+                    <span class="hero-badge-dot" aria-hidden="true"></span>
+                    Disponível para vagas Júnior / Estágio
                 </p>
-                <p class="hero-subtitle mobile-text">
-                    Desenvolvedor Full Stack | .NET Specialist | Arquitetura de Software
+
+                <h1 class="animated-text" data-i18n-html="heroTitle">Olá, eu sou <span
+                        class="highlight">Lucas Antunes Ferreira</span></h1>
+
+                <p class="hero-subtitle desktop-text" data-i18n-html="heroDesc">
+                    Desenvolvedor .NET &amp; React<br>
+                    C# | ASP.NET Core | EF Core | SQL Server<br>
+                    Clean Architecture | DDD | Docker | AWS
+                </p>
+                <p class="hero-subtitle mobile-text" data-i18n-html="heroDescMobile">
+                    Desenvolvedor .NET &amp; React | C# | ASP.NET Core
                 </p>
 
 
 
                 <div class="hero-buttons">
-                    <a href="assets/Curriculo.pdf" class="btn btn-primary" target="_blank"
-                        rel="noopener noreferrer">Currículo</a>
-                    <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                    <a href="assets/Curriculo.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer"
+                        data-i18n="btnCurriculo">Currículo</a>
+                    <a href="#projetos" class="btn btn-primary" data-i18n="btnProjetos">Ver Projetos</a>
                     <div class="social-links">
                         <a href="https://www.lucasafvr.com.br/" target="_blank" rel="noopener noreferrer"
                             aria-label="Portfólio">
@@ -144,41 +201,44 @@
                     </div>
                 </div>
                 <div class="sobre-conteudo">
-                    <h2>Sobre Mim</h2>
-                    <div class="desktop-text">
+                    <h2 data-i18n="sobreTitle">Sobre Mim</h2>
+                    <div class="desktop-text" data-i18n-html="sobreTexto">
                         <p>
-                            Sou um desenvolvedor Fullstack apaixonado por construir sistemas <strong
-                                class="highlight">robustos</strong> e <strong class="highlight">escaláveis</strong>.
+                            Sou desenvolvedor de software com foco em <strong class="highlight">backend .NET</strong> e
+                            aplicações fullstack. Construo sistemas com <strong class="highlight">C#</strong> e
+                            <strong class="highlight">ASP.NET Core</strong>.
                         </p>
                         <p>
-                            Com uma base sólida em Ciência da Computação e experiência prática em ambientes
-                            corporativos, foco em entregar valor através de <strong class="highlight">Clean
-                                Architecture</strong>, <strong class="highlight">testes automatizados</strong> e <strong
-                                class="highlight">boas práticas</strong>.
+                            Curso Ciência da Computação e trabalho com desenvolvimento e sustentação de uma plataforma
+                            SaaS corporativa. Nos meus projetos, aplico <strong class="highlight">Clean
+                                Architecture</strong>, <strong class="highlight">DDD</strong> e
+                            <strong class="highlight">testes automatizados</strong>, com mensageria, cloud e
+                            observabilidade na prática.
                         </p>
                         <p>
-                            Transformo requisitos complexos em soluções eficientes, sempre priorizando performance,
-                            segurança e uma excelente experiência para o usuário.
+                            Busco vagas <strong class="highlight">Júnior</strong> e de <strong
+                                class="highlight">estágio</strong>, onde eu possa aprender rápido e entregar código
+                            confiável desde o primeiro dia.
                         </p>
                     </div>
-                    <p id="about-text-mobile" class="mobile-text">
-                        Dev Fullstack focado em sistemas <strong class="highlight">robustos</strong>. Uso <strong
-                            class="highlight">Clean Architecture</strong> para criar soluções eficientes e de alta
-                        performance.
+                    <p id="about-text-mobile" class="mobile-text" data-i18n-html="sobreTextoMobile">
+                        Dev com foco em <strong class="highlight">backend .NET</strong>. Uso <strong
+                            class="highlight">Clean Architecture</strong> e <strong class="highlight">DDD</strong> para
+                        construir sistemas confiáveis. Buscando vagas Júnior/Estágio.
                     </p>
 
                     <div class="sobre-stats">
                         <div class="stat-item">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Anos de Experiência</span>
+                            <span class="stat-number">9</span>
+                            <span class="stat-label" data-i18n="statProj">Projetos publicados</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">20+</span>
-                            <span class="stat-label">Projetos Entregues</span>
+                            <span class="stat-number">30</span>
+                            <span class="stat-label" data-i18n="statCert">Certificados Alura</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Comprometimento</span>
+                            <span class="stat-number">2027</span>
+                            <span class="stat-label" data-i18n="statForm">Formatura prevista</span>
                         </div>
                     </div>
                 </div>
@@ -186,49 +246,17 @@
         </div>
     </section>
 
-    <!--
-  SEÇÃO DE PROJETOS - VERSÃO PREMIUM 2026
-
-  Substitua a seção #projetos (linhas 192-568) do index.html por este código.
-
-  MELHORIAS IMPLEMENTADAS:
-  - Grid consistente com altura uniforme
-  - Filtro estilo segmented control premium
-  - Acessibilidade completa (ARIA, teclado)
-  - Performance otimizada (lazy loading, dimensions)
-  - Microinterações suaves
-  - Busca de projetos integrada
-  - Sem layout shift
-  - Design premium 2026
--->
-
-    <!--
-  SEÇÃO DE PROJETOS - VERSÃO PREMIUM 2026
-
-  Substitua a seção #projetos (linhas 192-568) do index.html por este código.
-
-  MELHORIAS IMPLEMENTADAS:
-  - Grid consistente com altura uniforme
-  - Filtro estilo segmented control premium
-  - Acessibilidade completa (ARIA, teclado)
-  - Performance otimizada (lazy loading, dimensions)
-  - Microinterações suaves
-  - Busca de projetos integrada
-  - Sem layout shift
-  - Design premium 2026
--->
-
+    <!-- Seção de Projetos -->
     <section id="projetos" class="projetos">
         <div class="container">
             <!-- Header da Seção -->
             <div class="projetos-header">
                 <h2 class="projetos-title">
-                    <span class="projetos-title-accent">Projetos</span>
+                    <span class="projetos-title-accent" data-i18n="projetosTitle">Projetos</span>
                 </h2>
-                <p class="projetos-subtitle">
-                    Explore minha jornada de desenvolvimento através destes projetos que demonstram diferentes
-                    tecnologias e
-                    arquiteturas
+                <p class="projetos-subtitle" data-i18n="projetosSubtitle">
+                    Nove projetos com código aberto no GitHub. Cada um tem uma página com a arquitetura, as decisões
+                    técnicas e os limites do que foi construído.
                 </p>
             </div>
 
@@ -241,6 +269,7 @@
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     <input type="search" id="project-search" class="search-input" placeholder="Buscar projeto..."
+                        data-i18n-placeholder="searchPlaceholder"
                         aria-label="Buscar projetos por título, descrição ou tecnologia" autocomplete="off">
                 </div>
             </div>
@@ -250,7 +279,7 @@
                 <button class="stack-btn active" data-stack="all" role="tab" aria-selected="true"
                     aria-controls="projetos-grid">
                     <i class="fas fa-layer-group" aria-hidden="true"></i>
-                    <span>Todos</span>
+                    <span data-i18n="filterAllProjects">Todos</span>
                 </button>
                 <button class="stack-btn" data-stack=".NET" role="tab" aria-selected="false"
                     aria-controls="projetos-grid">
@@ -267,6 +296,16 @@
                     <i class="fab fa-js-square" aria-hidden="true"></i>
                     <span>TypeScript</span>
                 </button>
+                <button class="stack-btn" data-stack="AWS" role="tab" aria-selected="false"
+                    aria-controls="projetos-grid">
+                    <i class="fab fa-aws" aria-hidden="true"></i>
+                    <span>AWS</span>
+                </button>
+                <button class="stack-btn" data-stack="Docker" role="tab" aria-selected="false"
+                    aria-controls="projetos-grid">
+                    <i class="fab fa-docker" aria-hidden="true"></i>
+                    <span>Docker</span>
+                </button>
                 <button class="stack-btn" data-stack="Python" role="tab" aria-selected="false"
                     aria-controls="projetos-grid">
                     <i class="fab fa-python" aria-hidden="true"></i>
@@ -276,21 +315,6 @@
                     aria-controls="projetos-grid">
                     <i class="fab fa-java" aria-hidden="true"></i>
                     <span>Java</span>
-                </button>
-                <button class="stack-btn" data-stack="PHP" role="tab" aria-selected="false"
-                    aria-controls="projetos-grid">
-                    <i class="fab fa-php" aria-hidden="true"></i>
-                    <span>PHP</span>
-                </button>
-                <button class="stack-btn" data-stack="Node.js" role="tab" aria-selected="false"
-                    aria-controls="projetos-grid">
-                    <i class="fab fa-node-js" aria-hidden="true"></i>
-                    <span>Node.js</span>
-                </button>
-                <button class="stack-btn" data-stack="CSS" role="tab" aria-selected="false"
-                    aria-controls="projetos-grid">
-                    <i class="fab fa-css3-alt" aria-hidden="true"></i>
-                    <span>CSS</span>
                 </button>
             </div>
 
@@ -303,8 +327,8 @@
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">SmartFinance</h3>
-                        <p class="project-description">Ecossistema de finanças pessoais com .NET 9, RabbitMQ e Next.js. Implementa Clean Architecture, Outbox Pattern e processamento assíncrono de transações para máxima consistência e resiliência financeira.</p>
+                        <h3 class="project-title" data-i18n="projSmartFinanceTitle">SmartFinance</h3>
+                        <p class="project-description" data-i18n="projSmartFinanceDesc">Ecossistema de finanças pessoais com .NET 9, RabbitMQ e Next.js. Implementa Clean Architecture, Outbox Pattern e processamento assíncrono de transações para máxima consistência e resiliência financeira.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
                             <span class="project-tag">.NET 9</span>
                             <span class="project-tag">C#</span>
@@ -315,12 +339,17 @@
                             <span class="project-tag">AWS</span>
                         </div>
                         <div class="project-actions">
+                            <a href="projetos/smartfinance.html" class="btn-project btn-project-primary">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i>
+                                <span data-i18n="btnDetalhes">Detalhes</span>
+                            </a>
                             <a href="https://github.com/Lucasantunesribeiro/smart_finance"
-                                class="btn-project btn-project-secondary" target="_blank">
+                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
-                            <a href="http://3.223.37.57/login" class="btn-project btn-project-primary" target="_blank">
+                            <a href="http://3.223.37.57/login" class="btn-project btn-project-secondary" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                 <span>Demo</span>
                             </a>
@@ -336,8 +365,8 @@
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">TenantCore — Multi-Tenant SaaS</h3>
-                        <p class="project-description">Plataforma SaaS B2B em .NET 9 com isolamento de dados por schema. Possui autenticação robusta (JWT + Refresh Tokens), RBAC granular, monólito modular e observabilidade completa com OpenTelemetry.</p>
+                        <h3 class="project-title" data-i18n="projTenantCoreTitle">TenantCore — Multi-Tenant SaaS</h3>
+                        <p class="project-description" data-i18n="projTenantCoreDesc">Plataforma SaaS B2B em .NET 9 com isolamento por tenant via query filters do EF Core. JWT com refresh token rotativo, RBAC, cotas por plano, cache Redis, jobs Quartz e observabilidade com OpenTelemetry.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
                             <span class="project-tag">.NET 9</span>
                             <span class="project-tag">C#</span>
@@ -347,13 +376,17 @@
                             <span class="project-tag">Azure</span>
                         </div>
                         <div class="project-actions">
+                            <a href="projetos/tenantcore.html" class="btn-project btn-project-primary">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i>
+                                <span data-i18n="btnDetalhes">Detalhes</span>
+                            </a>
                             <a href="https://github.com/Lucasantunesribeiro/tenant_core"
                                 class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
                             <a href="https://purple-dune-018763b0f.4.azurestaticapps.net"
-                                class="btn-project btn-project-primary" target="_blank" rel="noopener noreferrer">
+                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                 <span>Demo</span>
                             </a>
@@ -369,8 +402,8 @@
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">LinkGuardião</h3>
-                        <p class="project-description">Encurtador de links premium com foco em segurança. .NET 9 + React, links protegidos por senha, expiração configurável, rate limiting e analytics assíncrono processado via AWS Lambda.</p>
+                        <h3 class="project-title" data-i18n="projLinkGuardiaoTitle">LinkGuardião</h3>
+                        <p class="project-description" data-i18n="projLinkGuardiaoDesc">Encurtador de links com foco em segurança. .NET + React, links protegidos por senha, expiração configurável, rate limiting e analytics assíncrono processado fora do caminho da requisição.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
                             <span class="project-tag">.NET 9</span>
                             <span class="project-tag">React</span>
@@ -380,13 +413,17 @@
                             <span class="project-tag">Docker</span>
                         </div>
                         <div class="project-actions">
+                            <a href="projetos/linkguardiao.html" class="btn-project btn-project-primary">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i>
+                                <span data-i18n="btnDetalhes">Detalhes</span>
+                            </a>
                             <a href="https://github.com/Lucasantunesribeiro/LinkGuardiao"
-                                class="btn-project btn-project-secondary" target="_blank">
+                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
-                            <a href="https://linkguardiao.pages.dev/" class="btn-project btn-project-primary"
-                                target="_blank">
+                            <a href="https://linkguardiao.pages.dev/" class="btn-project btn-project-secondary"
+                                target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                 <span>Demo</span>
                             </a>
@@ -395,15 +432,16 @@
                 </article>
 
                 <!-- 4. Armazém São Joaquim -->
-                <article class="project-card" data-tags=".net,c#,next.js,react,typescript,supabase,postgresql">
+                <article class="project-card" data-tags="next.js,react,typescript,supabase,postgresql,cliente-real">
                     <div class="project-image zoom">
                         <img src="assets/armazem_sao_joaquim_mockup.jpg" alt="Armazém São Joaquim" loading="lazy"
                             decoding="async" width="400" height="250">
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Armazém São Joaquim</h3>
-                        <p class="project-description">Portal para gestão de armazém, restaurante e pousada. Utiliza Next.js e Supabase para um frontend de alta performance com CMS dinâmico, fluxo de reservas e controle administrativo integrado.</p>
+                        <span class="project-badge" data-i18n="badgeClienteReal">Cliente real · em produção</span>
+                        <h3 class="project-title" data-i18n="projArmazemTitle">Armazém São Joaquim</h3>
+                        <p class="project-description" data-i18n="projArmazemDesc">Portal para gestão de armazém, restaurante e pousada, no ar em domínio próprio. Next.js e Supabase com CMS dinâmico, fluxo de reservas, área administrativa e foco em SEO e performance.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
                             <span class="project-tag">Next.js</span>
                             <span class="project-tag">TypeScript</span>
@@ -412,13 +450,17 @@
                             <span class="project-tag">React</span>
                         </div>
                         <div class="project-actions">
+                            <a href="projetos/armazem-sao-joaquim.html" class="btn-project btn-project-primary">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i>
+                                <span data-i18n="btnDetalhes">Detalhes</span>
+                            </a>
                             <a href="https://github.com/Lucasantunesribeiro/armazemsaojoaquim"
-                                class="btn-project btn-project-secondary" target="_blank">
+                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
-                            <a href="https://armazemsaojoaquim.com.br/" class="btn-project btn-project-primary"
-                                target="_blank">
+                            <a href="https://armazemsaojoaquim.com.br/" class="btn-project btn-project-secondary"
+                                target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                 <span>Demo</span>
                             </a>
@@ -434,8 +476,8 @@
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Emissão de NF-e e Controle de Estoque</h3>
-                        <p class="project-description">Sistema serverless orquestrado por eventos para faturamento e gestão de inventário. .NET 9, AWS Lambda, EventBridge para desacoplamento e DynamoDB para persistência de alta performance.</p>
+                        <h3 class="project-title" data-i18n="projNfeTitle">Emissão de NF-e e Controle de Estoque</h3>
+                        <p class="project-description" data-i18n="projNfeDesc">Sistema serverless orquestrado por eventos para faturamento e gestão de inventário. .NET, AWS Lambda, EventBridge para desacoplamento e DynamoDB com modelagem single-table.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
                             <span class="project-tag">.NET 9</span>
                             <span class="project-tag">Angular 19</span>
@@ -445,13 +487,17 @@
                             <span class="project-tag">AWS</span>
                         </div>
                         <div class="project-actions">
+                            <a href="projetos/emissao-nfe.html" class="btn-project btn-project-primary">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i>
+                                <span data-i18n="btnDetalhes">Detalhes</span>
+                            </a>
                             <a href="https://github.com/Lucasantunesribeiro/emissao_nfe"
-                                class="btn-project btn-project-secondary" target="_blank">
+                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
-                            <a href="https://d1gdw7rlsi8u42.cloudfront.net/" class="btn-project btn-project-primary"
-                                target="_blank">
+                            <a href="https://d1gdw7rlsi8u42.cloudfront.net/" class="btn-project btn-project-secondary"
+                                target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                 <span>Demo</span>
                             </a>
@@ -467,8 +513,8 @@
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">CollabDocs</h3>
-                        <p class="project-description">Editor de documentos em tempo real com .NET 9 e SignalR. Implementa sincronização de estado via WebSockets, RBAC para documentos e infraestrutura Cloudflare (Workers/D1) para máxima agilidade.</p>
+                        <h3 class="project-title" data-i18n="projCollabDocsTitle">CollabDocs</h3>
+                        <p class="project-description" data-i18n="projCollabDocsDesc">Editor de documentos em tempo real com .NET e SignalR. Sincronização de estado via WebSockets, controle de permissão por documento e deploy em infraestrutura serverless.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
                             <span class="project-tag">.NET 9</span>
                             <span class="project-tag">Next.js</span>
@@ -477,13 +523,17 @@
                             <span class="project-tag">Docker</span>
                         </div>
                         <div class="project-actions">
+                            <a href="projetos/collabdocs.html" class="btn-project btn-project-primary">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i>
+                                <span data-i18n="btnDetalhes">Detalhes</span>
+                            </a>
                             <a href="https://github.com/Lucasantunesribeiro/Collabdocs"
-                                class="btn-project btn-project-secondary" target="_blank">
+                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
-                            <a href="https://collabdocs-app.vercel.app/" class="btn-project btn-project-primary"
-                                target="_blank">
+                            <a href="https://collabdocs-app.vercel.app/" class="btn-project btn-project-secondary"
+                                target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                 <span>Demo</span>
                             </a>
@@ -491,34 +541,7 @@
                     </div>
                 </article>
 
-                <!-- 7. ERP — Gestão de Pedidos -->
-                <article class="project-card" data-tags=".net,c#,sql-server,docker,ddd">
-                    <div class="project-image zoom">
-                        <img src="assets/erp_orders_mockup.png" alt="ERP — Gestão de Pedidos" loading="lazy"
-                            decoding="async" width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">ERP — Gestão de Pedidos</h3>
-                        <p class="project-description">Módulo transacional para fluxos complexos de checkout e inventário. .NET 9, Domain-Driven Design (DDD), SQL Server e uma fundação robusta focada em integridade e performance corporativa.</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">.NET 9</span>
-                            <span class="project-tag">C#</span>
-                            <span class="project-tag">SQL Server</span>
-                            <span class="project-tag">DDD</span>
-                            <span class="project-tag">Docker</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/sistema_erp_modulo_de_gestao_de_pedidos"
-                                class="btn-project btn-project-secondary" target="_blank">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 8. Agente de Sumarização AI -->
+                <!-- 7. Agente de Sumarização AI -->
                 <article class="project-card" data-tags="python,fastapi,langchain,openai,postgresql,docker">
                     <div class="project-image zoom">
                         <img src="assets/article_summarizer_mockup.jpg" alt="Sumarização de Artigos com IA"
@@ -526,8 +549,8 @@
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Agente de Sumarização AI</h3>
-                        <p class="project-description">Agente inteligente que utiliza LLMs para processar e sumarizar artigos complexos de forma assíncrona. Python, FastAPI, LangChain e Celery para orquestração de tarefas inteligentes em background.</p>
+                        <h3 class="project-title" data-i18n="projSummarizerTitle">Agente de Sumarização AI</h3>
+                        <p class="project-description" data-i18n="projSummarizerDesc">Agente que usa LLMs para extrair e resumir artigos da web de forma assíncrona. Python, FastAPI e fila de tarefas em background, com estratégias de fallback para coleta confiável.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
                             <span class="project-tag">Python</span>
                             <span class="project-tag">FastAPI</span>
@@ -537,13 +560,17 @@
                             <span class="project-tag">Docker</span>
                         </div>
                         <div class="project-actions">
+                            <a href="projetos/agente-sumarizacao.html" class="btn-project btn-project-primary">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i>
+                                <span data-i18n="btnDetalhes">Detalhes</span>
+                            </a>
                             <a href="https://github.com/Lucasantunesribeiro/article_summarizer_agent"
-                                class="btn-project btn-project-secondary" target="_blank">
+                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
-                            <a href="https://article-summarizer-agent.onrender.com/" class="btn-project btn-project-primary"
-                                target="_blank">
+                            <a href="https://article-summarizer-agent.onrender.com/"
+                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                                 <span>Demo</span>
                             </a>
@@ -551,7 +578,7 @@
                     </div>
                 </article>
 
-                <!-- 9. BillingLedger -->
+                <!-- 8. BillingLedger -->
                 <article class="project-card" data-tags=".net,c#,postgresql,rabbitmq,redis">
                     <div class="project-image zoom">
                         <img src="assets/billing_ledger_mockup.webp" alt="BillingLedger — Backend Distribuído"
@@ -559,8 +586,8 @@
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">BillingLedger</h3>
-                        <p class="project-description">Backend especializado em faturamento e reconciliação financeira via ledger. .NET 9, Outbox Pattern para mensageria resiliente e auditoria completa de transações de pagamento.</p>
+                        <h3 class="project-title" data-i18n="projBillingTitle">BillingLedger</h3>
+                        <p class="project-description" data-i18n="projBillingDesc">Backend de cobrança, pagamentos e conciliação em ledger. .NET 9 com contextos separados, Outbox Pattern para integração confiável e idempotência no processamento de webhooks de pagamento.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
                             <span class="project-tag">.NET 9</span>
                             <span class="project-tag">MassTransit</span>
@@ -569,8 +596,12 @@
                             <span class="project-tag">Redis</span>
                         </div>
                         <div class="project-actions">
+                            <a href="projetos/billing-ledger.html" class="btn-project btn-project-primary">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i>
+                                <span data-i18n="btnDetalhes">Detalhes</span>
+                            </a>
                             <a href="https://github.com/Lucasantunesribeiro/billing_ledger"
-                                class="btn-project btn-project-secondary" target="_blank">
+                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
@@ -578,160 +609,31 @@
                     </div>
                 </article>
 
-                <!-- 10. Pedidos Event Sourcing -->
-                <article class="project-card" data-tags=".net,c#,event-store,rabbitmq,docker,cqrs">
+                <!-- 9. Pedidos Event Sourcing -->
+                <article class="project-card" data-tags="java,spring boot,postgresql,rabbitmq,outbox,docker">
                     <div class="project-image zoom">
                         <img src="assets/sistema_pedidos_distribuido_mockup.jpg" alt="Sistema de Pedidos Distribuído"
                             loading="lazy" decoding="async" width="400" height="250">
                         <div class="project-image-overlay" aria-hidden="true"></div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Pedidos Event Sourcing</h3>
-                        <p class="project-description">Arquitetura avançada em .NET 9 implementando Event Sourcing e CQRS. Permite rastreabilidade absoluta de cada estado do pedido e máxima escalabilidade horizontal.</p>
+                        <h3 class="project-title" data-i18n="projEventSourcingTitle">Gestão de Pedidos Distribuído</h3>
+                        <p class="project-description" data-i18n="projEventSourcingDesc">Pedidos, estoque e pagamento coordenados em Java + Spring Boot. Reserva de estoque com locking, compensação em caso de falha e eventos publicados via Outbox + RabbitMQ. 217 testes automatizados.</p>
                         <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">.NET 9</span>
-                            <span class="project-tag">Event Store</span>
-                            <span class="project-tag">CQRS</span>
-                            <span class="project-tag">RabbitMQ</span>
-                            <span class="project-tag">Docker</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing"
-                                class="btn-project btn-project-secondary" target="_blank">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 11. EmailTriageAI -->
-                <article class="project-card" data-tags="python,fastapi,langchain,openai,docker">
-                    <div class="project-image zoom">
-                        <img src="assets/email_triage_mockup.jpg" alt="EmailTriageAI" loading="lazy" decoding="async"
-                            width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">EmailTriageAI</h3>
-                        <p class="project-description">Triagem automática de emails corporativos utilizando NLP e Inteligência Artificial. Python e FastAPI para processar e categorizar demandas em escala com alta precisão.</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">FastAPI</span>
-                            <span class="project-tag">Google Gemini</span>
-                            <span class="project-tag">NLP</span>
-                            <span class="project-tag">Docker</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/EmailTriageAI"
-                                class="btn-project btn-project-secondary" target="_blank">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 12. Kogui Pokedx -->
-                <article class="project-card" data-tags="python,django,angular,aws,docker">
-                    <div class="project-image zoom">
-                        <img src="assets/kogui_mockup.png" alt="Kogui Pokedx" loading="lazy" decoding="async"
-                            width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Kogui Pokedx</h3>
-                        <p class="project-description">Aplicação Fullstack robusta com Django e Angular. Implementa autenticação JWT, integração fluida com a PokeAPI e infraestrutura moderna orquestrada em container.</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">Django</span>
-                            <span class="project-tag">Angular</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">AWS</span>
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">Spring Boot</span>
                             <span class="project-tag">PostgreSQL</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/Kogui"
-                                class="btn-project btn-project-secondary" target="_blank">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 13. Parallel Store -->
-                <article class="project-card" data-tags="next.js,react,typescript,supabase,stripe">
-                    <div class="project-image zoom">
-                        <img src="assets/parallel_store_mockup.png" alt="Parallel Store (E-commerce)" loading="lazy" decoding="async"
-                            width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Parallel Store</h3>
-                        <p class="project-description">E-commerce de moda urbana minimalista construído com Next.js 15 e Supabase. Integração completa com Stripe, gerenciamento de pedidos e design mobile-first premium.</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">Next.js 15</span>
-                            <span class="project-tag">TypeScript</span>
-                            <span class="project-tag">Supabase</span>
-                            <span class="project-tag">Stripe</span>
-                            <span class="project-tag">Tailwind</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/Parallel_Store"
-                                class="btn-project btn-project-secondary" target="_blank">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 14. Logic Games Suite -->
-                <article class="project-card" data-tags="javascript,html5,css,typescript,pwa">
-                    <div class="project-image zoom">
-                        <img src="assets/logic_games_mockup.png" alt="Logic Games Suite" loading="lazy" decoding="async"
-                            width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Logic Games Suite</h3>
-                        <p class="project-description">Suite de jogos de lógica e treino cognitivo (Sudoku, 2048, etc). Foco em algoritmos eficientes, suporte offline via PWA e uma experiência de usuário limpa e intuitiva.</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">PWA</span>
-                            <span class="project-tag">Algorithm</span>
-                            <span class="project-tag">CSS3</span>
-                            <span class="project-tag">HTML5</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/logic_games"
-                                class="btn-project btn-project-secondary" target="_blank">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                                <span>Repo</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 15. Locadora de Carros -->
-                <article class="project-card" data-tags="php,docker,sqlite,apache">
-                    <div class="project-image zoom">
-                        <img src="assets/locadora_mockup.png" alt="Sistema de Locadora de Carros" loading="lazy" decoding="async"
-                            width="400" height="250">
-                        <div class="project-image-overlay" aria-hidden="true"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Locadora de Carros</h3>
-                        <p class="project-description">Sistema robusto de gerenciamento de frota e contratos de locação. Desenvolvido com PHP, Docker e SQLite, focando em simplicidade operacional e persistência confiável.</p>
-                        <div class="project-tags" aria-label="Tecnologias utilizadas">
-                            <span class="project-tag">PHP 8.4</span>
+                            <span class="project-tag">RabbitMQ</span>
+                            <span class="project-tag">Outbox</span>
                             <span class="project-tag">Docker</span>
-                            <span class="project-tag">SQLite</span>
-                            <span class="project-tag">Apache</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/Lucasantunesribeiro/sistema_de_locadora_de_carros"
-                                class="btn-project btn-project-secondary" target="_blank">
+                            <a href="projetos/pedidos-event-sourcing.html" class="btn-project btn-project-primary">
+                                <i class="fas fa-circle-info" aria-hidden="true"></i>
+                                <span data-i18n="btnDetalhes">Detalhes</span>
+                            </a>
+                            <a href="https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing"
+                                class="btn-project btn-project-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-code" aria-hidden="true"></i>
                                 <span>Repo</span>
                             </a>
@@ -748,8 +650,8 @@
                         d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <p class="projetos-empty-text">Nenhum projeto encontrado</p>
-                <p class="projetos-empty-hint">Tente buscar por outra tecnologia ou termo</p>
+                <p class="projetos-empty-text" data-i18n="emptyText">Nenhum projeto encontrado</p>
+                <p class="projetos-empty-hint" data-i18n="emptyHint">Tente buscar por outra tecnologia ou termo</p>
             </div>
         </div>
     </section>
@@ -760,15 +662,54 @@
         <div class="container">
             <div class="experiencias-header">
                 <h2 class="experiencias-title">
-                    <span class="experiencias-title-accent">Experiências</span>
+                    <span class="experiencias-title-accent" data-i18n="experienciasTitle">Experiências</span>
                 </h2>
-                <p class="experiencias-subtitle">Minha trajetória profissional e formação acadêmica</p>
+                <p class="experiencias-subtitle" data-i18n="experienciasSubtitle">Minha trajetória profissional e
+                    formação acadêmica</p>
             </div>
 
             <div class="timeline" role="list" aria-label="Linha do tempo de experiências">
                 <div class="timeline-rail" aria-hidden="true">
                     <div class="timeline-progress" aria-hidden="true"></div>
                 </div>
+
+                <!-- SinergyRH — emprego atual -->
+                <article class="timeline-item" role="listitem">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <h3 class="timeline-company">SinergyRH</h3>
+                            <time class="timeline-period" datetime="2026-04" data-i18n="expSinergyPeriod">Abr 2026 —
+                                Atual</time>
+                        </div>
+
+                        <p class="timeline-role" data-i18n="expSinergyRole">Desenvolvedor Trainee — .NET | SQL Server |
+                            ASP.NET</p>
+
+                        <div class="timeline-tech" aria-label="Tecnologias utilizadas">
+                            <span class="tech-chip">C#</span>
+                            <span class="tech-chip">.NET</span>
+                            <span class="tech-chip">ASP.NET</span>
+                            <span class="tech-chip">SQL Server</span>
+                        </div>
+
+                        <div class="timeline-description">
+                            <p id="exp-sinergy-text" class="timeline-text" data-i18n-short="expSinergyShort"
+                                data-i18n-full="expSinergyFull"
+                                data-short="Atuação no desenvolvimento e sustentação de plataforma SaaS corporativa, com foco em estabilidade, manutenção e evolução contínua do sistema..."
+                                data-full="Atuação no desenvolvimento e sustentação de plataforma SaaS corporativa, com foco em estabilidade, manutenção e evolução contínua do sistema. Implementação e manutenção de funcionalidades em C# / ASP.NET, incluindo ajustes em regras de negócio, APIs e rotinas de suporte à operação. Uso intensivo de SQL Server para consultas, análise de dados, procedures e apoio na geração de relatórios e extrações operacionais. Apoio à qualidade do software por meio de testes, análise de falhas, correção de bugs e colaboração com diferentes áreas do negócio.">
+                                Atuação no desenvolvimento e sustentação de plataforma SaaS corporativa, com foco em
+                                estabilidade, manutenção e evolução contínua do sistema...
+                            </p>
+
+                            <button class="timeline-toggle" aria-expanded="false" aria-controls="exp-sinergy-text">
+                                <span class="toggle-text">Ver mais</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
 
                 <!-- RSM Brasil -->
                 <article class="timeline-item" role="listitem">
@@ -777,26 +718,27 @@
                     <div class="timeline-card">
                         <div class="timeline-header">
                             <h3 class="timeline-company">RSM Brasil</h3>
-                            <time class="timeline-period" datetime="2024-12">Dez 2024 — Atual</time>
+                            <time class="timeline-period" datetime="2024-11" data-i18n="expRsmPeriod">Nov 2024 — Abr
+                                2026</time>
                         </div>
 
-                        <p class="timeline-role">Analista de Suporte de TI</p>
+                        <p class="timeline-role" data-i18n="expRsmRole">Suporte de TI</p>
 
                         <div class="timeline-tech" aria-label="Tecnologias utilizadas">
                             <span class="tech-chip">Azure</span>
+                            <span class="tech-chip">PowerShell</span>
                             <span class="tech-chip">Windows</span>
                             <span class="tech-chip">Linux</span>
                             <span class="tech-chip">SQL Server</span>
-                            <span class="tech-chip">MySQL</span>
                         </div>
 
                         <div class="timeline-description">
-                            <p id="exp-rsm-text" class="timeline-text"
-                                data-short="Responsável pelo atendimento e registro de chamados técnicos (Nível 1 e 2), garantindo a continuidade das operações de TI. Encarregado do diagnóstico e resolução de problemas..."
-                                data-full="Responsável pelo atendimento e registro de chamados técnicos (Nível 1 e 2), garantindo a continuidade das operações de TI. Encarregado do diagnóstico e resolução de problemas de hardware e software, assegurando a eficiência operacional. Realiza a instalação, configuração e manutenção de aplicativos, sistemas operacionais (Windows, Linux) e periféricos. Presta suporte à infraestrutura de redes, computadores e impressoras, além de otimizar processos internos através de suporte técnico proativo.">
-                                Responsável pelo atendimento e registro de chamados técnicos (Nível 1 e 2), garantindo a
-                                continuidade das
-                                operações de TI. Encarregado do diagnóstico e resolução de problemas...
+                            <p id="exp-rsm-text" class="timeline-text" data-i18n-short="expRsmShort"
+                                data-i18n-full="expRsmFull"
+                                data-short="Triagem, registro e atendimento de incidentes (Nível 1 e 2), garantindo continuidade operacional e comunicação clara com usuários..."
+                                data-full="Triagem, registro e atendimento de incidentes (Nível 1 e 2), garantindo continuidade operacional e comunicação clara com usuários. Diagnóstico e resolução de problemas de hardware e software, com foco em causa raiz e prevenção de recorrência. Instalação, configuração e manutenção de aplicativos, sistemas operacionais (Windows, Linux) e periféricos. Suporte à infraestrutura de redes, computadores e impressoras. Padronização e documentação técnica de procedimentos, reduzindo retrabalho e melhorando o tempo de resolução.">
+                                Triagem, registro e atendimento de incidentes (Nível 1 e 2), garantindo continuidade
+                                operacional e comunicação clara com usuários...
                             </p>
 
                             <button class="timeline-toggle" aria-expanded="false" aria-controls="exp-rsm-text">
@@ -807,24 +749,45 @@
                     </div>
                 </article>
 
-                <!-- Alura -->
+                <!-- Freelancer -->
                 <article class="timeline-item" role="listitem">
                     <div class="timeline-dot" aria-hidden="true"></div>
 
                     <div class="timeline-card">
                         <div class="timeline-header">
-                            <h3 class="timeline-company">Alura</h3>
-                            <time class="timeline-period" datetime="2022">2022 — Atual</time>
+                            <h3 class="timeline-company">Freelance</h3>
+                            <time class="timeline-period" datetime="2024-01" data-i18n="expFreelaPeriod">Jan 2024 — Abr
+                                2026</time>
                         </div>
 
-                        <p class="timeline-role">Formação para Programação</p>
+                        <p class="timeline-role" data-i18n="expFreelaRole">Desenvolvedor Full Stack Jr (.NET/C# +
+                            React)</p>
+
+                        <div class="timeline-tech" aria-label="Tecnologias utilizadas">
+                            <span class="tech-chip">C#</span>
+                            <span class="tech-chip">ASP.NET Core</span>
+                            <span class="tech-chip">EF Core</span>
+                            <span class="tech-chip">React</span>
+                            <span class="tech-chip">TypeScript</span>
+                            <span class="tech-chip">SQL Server</span>
+                            <span class="tech-chip">PostgreSQL</span>
+                            <span class="tech-chip">Docker</span>
+                            <span class="tech-chip">AWS</span>
+                        </div>
 
                         <div class="timeline-description">
-                            <p class="timeline-text">
-                                Na Alura, estou seguindo as principais formações no assunto Full-stack, tendo a
-                                oportunidade de aprender
-                                sobre programação, construção e desenvolvimento de software.
+                            <p id="exp-freelancer-text" class="timeline-text" data-i18n-short="expFreelaShort"
+                                data-i18n-full="expFreelaFull"
+                                data-short="Desenvolvimento full stack com ASP.NET Core Web API e React + TypeScript, cobrindo modelagem, regras de negócio, autenticação e integrações..."
+                                data-full="Desenvolvimento full stack com ASP.NET Core Web API e React + TypeScript, cobrindo modelagem, regras de negócio, autenticação e integrações. Implementação de processamento assíncrono (workers e filas) e padrões de resiliência para tarefas de backoffice e integrações. Persistência com SQL Server e PostgreSQL, com camada de dados em Entity Framework Core. Aplicação de SOLID, Clean Architecture e Design Patterns, com testes automatizados em xUnit. Deploy na AWS e ambientes locais com Docker, com automações de entrega via CI/CD.">
+                                Desenvolvimento full stack com ASP.NET Core Web API e React + TypeScript, cobrindo
+                                modelagem, regras de negócio, autenticação e integrações...
                             </p>
+
+                            <button class="timeline-toggle" aria-expanded="false" aria-controls="exp-freelancer-text">
+                                <span class="toggle-text">Ver mais</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -836,64 +799,39 @@
                     <div class="timeline-card">
                         <div class="timeline-header">
                             <h3 class="timeline-company">Estácio</h3>
-                            <time class="timeline-period" datetime="2023">2023 — 2027 (previsão)</time>
+                            <time class="timeline-period" datetime="2024-01" data-i18n="expEstacioPeriod">Jan 2024 — Dez
+                                2027 (previsão)</time>
                         </div>
 
-                        <p class="timeline-role">Ciência da Computação</p>
+                        <p class="timeline-role" data-i18n="expEstacioRole">Ciência da Computação</p>
 
                         <div class="timeline-description">
-                            <p class="timeline-text">
-                                Atualmente, estou cursando Ciência da Computação na Universidade Veiga de Almeida, onde
-                                tenho a
-                                oportunidade de aprimorar minhas habilidades e conhecimentos em programação
-                                desenvolvendo software e
-                                projetos para trabalhos escolares.
+                            <p class="timeline-text" data-i18n="expEstacioDesc">
+                                Graduação em Ciência da Computação, com formatura prevista para dezembro de 2027. Base
+                                em algoritmos, estruturas de dados, banco de dados e engenharia de software, aplicada
+                                diretamente nos projetos deste portfólio.
                             </p>
                         </div>
                     </div>
                 </article>
 
-                <!-- Freelancer -->
+                <!-- Alura -->
                 <article class="timeline-item" role="listitem">
                     <div class="timeline-dot" aria-hidden="true"></div>
 
                     <div class="timeline-card">
                         <div class="timeline-header">
-                            <h3 class="timeline-company">Freelancer</h3>
-                            <time class="timeline-period" datetime="2024-01">Jan 2024 — Atual</time>
+                            <h3 class="timeline-company">Alura</h3>
+                            <time class="timeline-period" datetime="2022" data-i18n="expAluraPeriod">2022 — Atual</time>
                         </div>
 
-                        <p class="timeline-role">Desenvolvedor Fullstack</p>
-
-                        <div class="timeline-tech" aria-label="Tecnologias utilizadas">
-                            <span class="tech-chip">C#</span>
-                            <span class="tech-chip">.NET Core</span>
-                            <span class="tech-chip">React</span>
-                            <span class="tech-chip">Java</span>
-                            <span class="tech-chip">Spring</span>
-                            <span class="tech-chip">Node.js</span>
-                            <span class="tech-chip">Python</span>
-                            <span class="tech-chip">Django</span>
-                            <span class="tech-chip">Flask</span>
-                            <span class="tech-chip">PHP</span>
-                            <span class="tech-chip">Laravel</span>
-                            <span class="tech-chip">TypeScript</span>
-                            <span class="tech-chip">JavaScript</span>
-                        </div>
+                        <p class="timeline-role" data-i18n="expAluraRole">Formação em Programação</p>
 
                         <div class="timeline-description">
-                            <p id="exp-freelancer-text" class="timeline-text"
-                                data-short="Responsável pelo desenvolvimento fullstack de aplicações web e APIs RESTful utilizando C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript. Experiência em modelagem e otimização..."
-                                data-full="Responsável pelo desenvolvimento fullstack de aplicações web e APIs RESTful utilizando C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript. Experiência em modelagem e otimização de bancos de dados relacionais (SQL Server, MySQL) e NoSQL (MongoDB). Implementa princípios SOLID, Clean Architecture e Design Patterns para garantir código limpo e manutenível. Desenvolve testes automatizados (unitários e de integração) com xUnit e PHPUnit. Atua em todo o ciclo de vida do desenvolvimento: análise de requisitos, design, desenvolvimento, testes e deploy, utilizando metodologias ágeis (Scrum/Kanban) e versionamento com Git.">
-                                Responsável pelo desenvolvimento fullstack de aplicações web e APIs RESTful utilizando
-                                C#, .NET Core, React,
-                                Node.js, PHP, Laravel, TypeScript e JavaScript. Experiência em modelagem e otimização...
+                            <p class="timeline-text" data-i18n="expAluraDesc">
+                                Formações Full-stack e .NET, com 30 certificados emitidos. Cobrem orientação a objetos
+                                com C#, ASP.NET Core, consumo de APIs, LINQ e boas práticas de desenvolvimento.
                             </p>
-
-                            <button class="timeline-toggle" aria-expanded="false" aria-controls="exp-freelancer-text">
-                                <span class="toggle-text">Ver mais</span>
-                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                            </button>
                         </div>
                     </div>
                 </article>
@@ -907,10 +845,10 @@
         <div class="container">
             <div class="habilidades-header">
                 <h2 class="habilidades-title">
-                    <span class="habilidades-title-accent">Habilidades</span>
+                    <span class="habilidades-title-accent" data-i18n="habilidadesTitle">Habilidades</span>
                 </h2>
-                <p class="habilidades-subtitle">
-                    Tecnologias e competências que domino
+                <p class="habilidades-subtitle" data-i18n="habilidadesSubtitle">
+                    Tecnologias e competências que uso no dia a dia
                 </p>
             </div>
 
@@ -919,32 +857,32 @@
                 <button class="skill-filter-btn active" data-category="all" role="tab" aria-selected="true"
                     aria-controls="skills-grid">
                     <i class="fas fa-th" aria-hidden="true"></i>
-                    <span>Todas</span>
+                    <span data-i18n="filterAll">Todas</span>
                 </button>
                 <button class="skill-filter-btn" data-category="backend" role="tab" aria-selected="false"
                     aria-controls="skills-grid">
                     <i class="fas fa-server" aria-hidden="true"></i>
-                    <span>Backend</span>
+                    <span data-i18n="filterBackend">Backend</span>
                 </button>
                 <button class="skill-filter-btn" data-category="frontend" role="tab" aria-selected="false"
                     aria-controls="skills-grid">
                     <i class="fas fa-laptop-code" aria-hidden="true"></i>
-                    <span>Frontend</span>
+                    <span data-i18n="filterFrontend">Frontend</span>
                 </button>
                 <button class="skill-filter-btn" data-category="database" role="tab" aria-selected="false"
                     aria-controls="skills-grid">
                     <i class="fas fa-database" aria-hidden="true"></i>
-                    <span>Database</span>
+                    <span data-i18n="filterDatabase">Database</span>
                 </button>
                 <button class="skill-filter-btn" data-category="cloud" role="tab" aria-selected="false"
                     aria-controls="skills-grid">
                     <i class="fas fa-cloud" aria-hidden="true"></i>
-                    <span>Cloud/DevOps</span>
+                    <span data-i18n="filterCloud">Cloud/DevOps</span>
                 </button>
                 <button class="skill-filter-btn" data-category="quality" role="tab" aria-selected="false"
                     aria-controls="skills-grid">
                     <i class="fas fa-check-double" aria-hidden="true"></i>
-                    <span>Qualidade</span>
+                    <span data-i18n="filterQuality">Qualidade</span>
                 </button>
             </div>
 
@@ -954,9 +892,8 @@
                     <div class="skill-icon-wrapper">
                         <i class="fas fa-server skill-icon" aria-hidden="true"></i>
                     </div>
-                    <h3 class="skill-title">Backend</h3>
-                    <p class="skill-description">Desenvolvimento de APIs robustas e escaláveis com foco em Clean
-                        Architecture e boas práticas.</p>
+                    <h3 class="skill-title" data-i18n="skillBackendTitle">Backend</h3>
+                    <p class="skill-description" data-i18n="skillBackendDesc">Desenvolvimento de APIs e serviços em C# e ASP.NET Core, com Clean Architecture, validação e tratamento de erros padronizado.</p>
                     <div class="skill-tags" aria-label="Tecnologias de backend">
                         <span class="skill-tag">C#</span>
                         <span class="skill-tag">.NET</span>
@@ -974,9 +911,8 @@
                     <div class="skill-icon-wrapper">
                         <i class="fas fa-laptop-code skill-icon" aria-hidden="true"></i>
                     </div>
-                    <h3 class="skill-title">Frontend</h3>
-                    <p class="skill-description">Criação de interfaces modernas e responsivas com foco em performance e
-                        experiência do usuário.</p>
+                    <h3 class="skill-title" data-i18n="skillFrontendTitle">Frontend</h3>
+                    <p class="skill-description" data-i18n="skillFrontendDesc">Interfaces em React e Next.js com TypeScript, consumo de APIs, estados de carregamento e erro, e layout responsivo.</p>
                     <div class="skill-tags" aria-label="Tecnologias de frontend">
                         <span class="skill-tag">React</span>
                         <span class="skill-tag">Next.js</span>
@@ -991,9 +927,8 @@
                     <div class="skill-icon-wrapper">
                         <i class="fas fa-database skill-icon" aria-hidden="true"></i>
                     </div>
-                    <h3 class="skill-title">Banco de Dados</h3>
-                    <p class="skill-description">Modelagem e otimização de bancos de dados relacionais com foco em
-                        performance e integridade.</p>
+                    <h3 class="skill-title" data-i18n="skillDatabaseTitle">Banco de Dados</h3>
+                    <p class="skill-description" data-i18n="skillDatabaseDesc">Modelagem relacional, consultas e procedures em SQL Server e PostgreSQL, migrations com EF Core e índices pensados para performance.</p>
                     <div class="skill-tags" aria-label="Tecnologias de banco de dados">
                         <span class="skill-tag">PostgreSQL</span>
                         <span class="skill-tag">SQL</span>
@@ -1008,15 +943,14 @@
                     <div class="skill-icon-wrapper">
                         <i class="fas fa-cloud skill-icon" aria-hidden="true"></i>
                     </div>
-                    <h3 class="skill-title">Cloud/DevOps</h3>
-                    <p class="skill-description">Deploy e gerenciamento de infraestrutura cloud com automação e
-                        monitoramento contínuo.</p>
+                    <h3 class="skill-title" data-i18n="skillCloudTitle">Cloud/DevOps</h3>
+                    <p class="skill-description" data-i18n="skillCloudDesc">Containers com Docker, pipelines de CI/CD no GitHub Actions e deploy em AWS e Azure, com logs estruturados e health checks.</p>
                     <div class="skill-tags" aria-label="Tecnologias de cloud e devops">
                         <span class="skill-tag">AWS</span>
                         <span class="skill-tag">Docker</span>
                         <span class="skill-tag">CI/CD</span>
                         <span class="skill-tag">GitHub Actions</span>
-                        <span class="skill-tag">Observabilidade</span>
+                        <span class="skill-tag" data-i18n="tagObservability">Observabilidade</span>
                     </div>
                 </article>
 
@@ -1025,12 +959,11 @@
                     <div class="skill-icon-wrapper">
                         <i class="fas fa-check-double skill-icon" aria-hidden="true"></i>
                     </div>
-                    <h3 class="skill-title">Qualidade & Segurança</h3>
-                    <p class="skill-description">Garantia de qualidade através de testes automatizados e práticas de
-                        segurança robustas.</p>
+                    <h3 class="skill-title" data-i18n="skillQualityTitle">Qualidade &amp; Segurança</h3>
+                    <p class="skill-description" data-i18n="skillQualityDesc">Testes unitários e de integração com xUnit, autenticação JWT com refresh token, RBAC e rate limiting.</p>
                     <div class="skill-tags" aria-label="Tecnologias de qualidade e segurança">
-                        <span class="skill-tag">Testes unitários</span>
-                        <span class="skill-tag">Testes de integração</span>
+                        <span class="skill-tag" data-i18n="tagUnitTests">Testes unitários</span>
+                        <span class="skill-tag" data-i18n="tagIntegrationTests">Testes de integração</span>
                         <span class="skill-tag">Health Checks</span>
                         <span class="skill-tag">Performance</span>
                         <span class="skill-tag">Security</span>
@@ -1040,12 +973,112 @@
         </div>
     </section>
 
+    <!-- Certificados & Idiomas -->
+    <section id="certificados" class="certificados">
+        <div class="container">
+            <div class="certificados-header">
+                <h2 class="certificados-title">
+                    <span class="certificados-title-accent" data-i18n="certTitle">Certificados &amp; Idiomas</span>
+                </h2>
+                <p class="certificados-subtitle" data-i18n="certSubtitle">
+                    Formação contínua registrada e verificável
+                </p>
+            </div>
+
+            <div class="cert-layout">
+                <!-- Coluna: certificados -->
+                <div class="cert-main">
+                    <div class="cert-highlight">
+                        <div class="cert-highlight-number">30</div>
+                        <div class="cert-highlight-body">
+                            <p class="cert-highlight-title" data-i18n="certCountTitle">certificados emitidos pela Alura
+                            </p>
+                            <p class="cert-highlight-desc" data-i18n="certCountDesc">
+                                Formações de C#, .NET e desenvolvimento web, com credencial verificável em cada
+                                certificado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <i class="fas fa-certificate cert-item-icon" aria-hidden="true"></i>
+                            <div class="cert-item-body">
+                                <p class="cert-item-name">C#: dominando Orientação a Objetos</p>
+                                <p class="cert-item-meta">
+                                    <span>Alura</span>
+                                    <span aria-hidden="true">·</span>
+                                    <span data-i18n="certIssuedMar2025">Emitido em março de 2025</span>
+                                </p>
+                                <p class="cert-item-code">
+                                    <span data-i18n="certCredential">Credencial</span>:
+                                    <code>bd0c2511-634b-4fbe-9f7f-484b42765dbd</code>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="cert-item">
+                            <i class="fas fa-certificate cert-item-icon" aria-hidden="true"></i>
+                            <div class="cert-item-body">
+                                <p class="cert-item-name">C#: consumindo API, gravando arquivos e utilizando o LINQ</p>
+                                <p class="cert-item-meta">
+                                    <span>Alura</span>
+                                    <span aria-hidden="true">·</span>
+                                    <span data-i18n="certIssuedMar2025">Emitido em março de 2025</span>
+                                </p>
+                                <p class="cert-item-code">
+                                    <span data-i18n="certCredential">Credencial</span>:
+                                    <code>d45ddb39-48cd-46c4-b551-3f38f9a2ade9</code>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a class="cert-link"
+                        href="https://www.linkedin.com/in/lucasantunesferreira/details/certifications/"
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        <span data-i18n="certSeeAll">Ver os 30 certificados no LinkedIn</span>
+                    </a>
+                </div>
+
+                <!-- Coluna: idiomas -->
+                <div class="cert-side">
+                    <h3 class="idiomas-title" data-i18n="idiomasTitle">Idiomas</h3>
+
+                    <div class="idioma-item">
+                        <div class="idioma-header">
+                            <span class="idioma-nome" data-i18n="idiomaPt">Português</span>
+                            <span class="idioma-nivel" data-i18n="idiomaPtNivel">Nativo</span>
+                        </div>
+                        <div class="idioma-barra" role="img" aria-label="Português: nativo">
+                            <span class="idioma-preenchimento" style="width: 100%"></span>
+                        </div>
+                    </div>
+
+                    <div class="idioma-item">
+                        <div class="idioma-header">
+                            <span class="idioma-nome" data-i18n="idiomaEn">Inglês</span>
+                            <span class="idioma-nivel" data-i18n="idiomaEnNivel">Avançado</span>
+                        </div>
+                        <div class="idioma-barra" role="img" aria-label="Inglês: avançado">
+                            <span class="idioma-preenchimento" style="width: 80%"></span>
+                        </div>
+                    </div>
+
+                    <p class="idiomas-nota" data-i18n="idiomasNota">
+                        Leitura de documentação técnica e comunicação escrita em inglês no dia a dia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="contact-info">
-                    <p class="footer-label">Vamos construir algo incrível juntos?</p>
+                    <p class="footer-label" data-i18n="footerLabel">Vamos construir algo incrível juntos?</p>
 
                     <a href="mailto:lucas.afvr@gmail.com" class="email-link"
                         aria-label="Enviar email para lucas.afvr@gmail.com">
@@ -1066,16 +1099,14 @@
                 </div>
 
                 <div class="copyright">
-                    <p>&copy; 2026 Lucas Antunes Ferreira. Todos os direitos reservados.</p>
+                    <p data-i18n="footerRights">&copy; 2026 Lucas Antunes Ferreira. Todos os direitos reservados.</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- jQuery -->
+    <!-- jQuery (usado apenas para o scroll suave e o full-height legado) -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
     <script src="js/projetos.js"></script>
     <script src="js/experiencias-habilidades.js"></script>

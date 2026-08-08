@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TenantCore — Lucas Antunes Ferreira</title>
+    <meta name="description" content="Sistema fullstack para operação de um SaaS B2B multi-tenant. O domínio central é a gestão de workspaces empresariais compartilhados por múltiplas empresas, com isolamento por tenan">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="canonical" href="https://www.lucasafvr.com.br/projetos/tenantcore.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.lucasafvr.com.br/projetos/tenantcore.html">
+    <meta property="og:site_name" content="Lucas Antunes Ferreira">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="TenantCore — Plataforma SaaS B2B multi-tenant">
+    <meta property="og:description" content="Sistema fullstack para operação de um SaaS B2B multi-tenant. O domínio central é a gestão de workspaces empresariais compartilhados por múltiplas empresas, com isolamento por tenan">
+    <meta property="og:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TenantCore — Plataforma SaaS B2B multi-tenant">
+    <meta name="twitter:description" content="Sistema fullstack para operação de um SaaS B2B multi-tenant. O domínio central é a gestão de workspaces empresariais compartilhados por múltiplas empresas, com isolamento por tenan">
+    <meta name="twitter:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "TenantCore",
+      "description": "Sistema fullstack para operação de um SaaS B2B multi-tenant. O domínio central é a gestão de workspaces empresariais compartilhados por múltiplas empresas, com isolamento por tenan",
+      "codeRepository": "https://github.com/Lucasantunesribeiro/tenant_core",
+      "programmingLanguage": [".NET 9","C#","MediatR","EF Core","SQL Server","Dapper","Redis","Quartz","React 18","Azure"],
+      "author": {
+        "@type": "Person",
+        "name": "Lucas Antunes Ferreira",
+        "url": "https://www.lucasafvr.com.br/"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projeto-detalhe.css">
+
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="pd-body">
+    <a class="pd-skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <nav class="pd-nav">
+        <div class="pd-container">
+            <a href="../index.html" class="pd-back">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Voltar ao portfólio</span>
+            </a>
+            <a href="../index.html#projetos" class="pd-nav-link">Todos os projetos</a>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <!-- ==================== HERO ==================== -->
+        <header class="pd-hero">
+            <div class="pd-container">
+                <h1 class="pd-title">TenantCore</h1>
+                <p class="pd-subtitle">Plataforma SaaS B2B multi-tenant</p>
+
+                <div class="pd-tags" aria-label="Tecnologias utilizadas">
+                    <span class="pd-tag">.NET 9</span>
+                    <span class="pd-tag">C#</span>
+                    <span class="pd-tag">MediatR</span>
+                    <span class="pd-tag">EF Core</span>
+                    <span class="pd-tag">SQL Server</span>
+                    <span class="pd-tag">Dapper</span>
+                    <span class="pd-tag">Redis</span>
+                    <span class="pd-tag">Quartz</span>
+                    <span class="pd-tag">React 18</span>
+                    <span class="pd-tag">Azure</span>
+                </div>
+
+                <div class="pd-actions">
+                    <a class="pd-btn pd-btn-primary" href="https://github.com/Lucasantunesribeiro/tenant_core" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>Ver código no GitHub</span>
+                    </a>
+                    <a class="pd-btn pd-btn-secondary" href="https://purple-dune-018763b0f.4.azurestaticapps.net" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        <span>Ver demo</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="pd-container pd-content">
+            <img class="pd-image" src="../assets/tenant_core_mockup.jpg" alt="Interface do projeto TenantCore"
+                loading="lazy" decoding="async" width="1200" height="750">
+
+            <!-- ==================== FICHA TÉCNICA ==================== -->
+            <dl class="pd-facts">
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Arquitetura</dt>
+                    <dd class="pd-fact-value">Monólito modular + Clean Architecture</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Isolamento</dt>
+                    <dd class="pd-fact-value">Query filters globais por tenant</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Testes</dt>
+                    <dd class="pd-fact-value">33 testes (25 unitários, 8 de integração)</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Infra</dt>
+                    <dd class="pd-fact-value">Azure App Service · Static Web Apps</dd>
+                </div>
+            </dl>
+
+            <!-- ==================== VISÃO GERAL ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Visão geral</h2>
+                <p>Sistema fullstack para operação de um SaaS B2B multi-tenant. O domínio central é a gestão de workspaces empresariais compartilhados por múltiplas empresas, com isolamento por tenant, controle de usuários e perfis, cadastro de clientes, projetos e tarefas, assinatura por plano, limites de uso e auditoria.</p>
+                <p>O problema resolvido não é apenas CRUD: o sistema simula um backend corporativo em que várias empresas usam a mesma plataforma sem vazar dados entre si, mantendo segurança, governança e visibilidade operacional.</p>
+            </section>
+
+            <!-- ==================== ARQUITETURA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Arquitetura</h2>
+                <p>Monólito modular com Clean Architecture dentro de um monorepo fullstack. A escolha entrega complexidade enterprise sem o custo operacional de uma malha de serviços.</p>
+                <ul class="pd-layers">
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">TenantCore.Api</code>
+                        <span class="pd-layer-desc">Borda HTTP: controllers, middlewares, auth, rate limit, health checks e Swagger.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">TenantCore.Application</code>
+                        <span class="pd-layer-desc">Casos de uso, handlers do MediatR, validação com FluentValidation e contratos.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">TenantCore.Domain</code>
+                        <span class="pd-layer-desc">Entidades com comportamento (UpdateSettings, ChangeRole, ChangePlan, Rotate) e enums.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">TenantCore.Infrastructure</code>
+                        <span class="pd-layer-desc">EF Core, SQL Server, Redis, Quartz, JWT, password hashing e observabilidade.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ==================== FLUXO ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Fluxo de autenticação e isolamento por tenant</h2>
+                <ol class="pd-steps">
+                    <li>O usuário informa email, senha e <code>TenantId</code> na tela de login.</li>
+                    <li>O frontend envia o header <code>X-Tenant-Id</code> junto das credenciais para <code>/api/auth/login</code>.</li>
+                    <li>O middleware valida o tenant, busca o usuário dentro do tenant correto e valida a senha.</li>
+                    <li>O handler gera access token JWT e refresh token, salva o <em>hash</em> do refresh token no banco e grava auditoria de login.</li>
+                    <li>Em toda requisição seguinte, o middleware compara o header <code>X-Tenant-Id</code> com o claim <code>tenantId</code> do token.</li>
+                    <li>O <code>TenantCoreDbContext</code> aplica <strong>query filters globais</strong> por <code>TenantId</code> — consultas normais não conseguem enxergar dados de outro tenant.</li>
+                    <li>Operações de escrita checam permissão por papel, validam limites do plano, gravam <code>AuditLog</code> e invalidam caches como <code>usage:{tenantId}</code>.</li>
+                    <li>Jobs Quartz atualizam snapshots de uso, recalculam o estado de cota e limpam tokens expirados.</li>
+                </ol>
+            </section>
+
+            <!-- ==================== PONTOS FORTES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Pontos fortes</h2>
+                <ul class="pd-list pd-list-positive">
+                    <li>Multi-tenancy com defesa em profundidade: middleware, claims do token e query filters do EF Core.</li>
+                    <li>JWT com refresh token rotativo e revogação, acima da média de projetos júnior.</li>
+                    <li>RBAC real por papel (Admin/Manager/User) com enforcement no backend.</li>
+                    <li>CQRS pragmático: MediatR para comandos e queries, e um read model com Dapper para o dashboard agregado.</li>
+                    <li>Observabilidade com Serilog, OpenTelemetry, health checks e Jaeger local.</li>
+                    <li>CI/CD e deploy real na Azure, com documentação de arquitetura, segurança, runbook e ADRs.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== LIMITES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
+                <p class="pd-limits-intro">
+                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
+                    que exagerar o escopo.
+                </p>
+                <ul class="pd-list pd-list-caveat">
+                    <li>Não há arquitetura orientada a eventos: sem broker, filas, consumidores, outbox ou sagas. O que existe é trilha de auditoria e processamento agendado.</li>
+                    <li>O DDD é parcial — as entidades têm comportamento, mas não há value objects, domain events, aggregate roots explícitos ou bounded contexts formais.</li>
+                    <li>É um monólito modular, não microservices: uma única API e um único banco relacional.</li>
+                    <li>O README principal menciona Neon PostgreSQL, mas o código atual está acoplado a SQL Server.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== NAVEGAÇÃO ==================== -->
+            <nav class="pd-pager" aria-label="Navegação entre projetos">
+                <a class="pd-pager-link pd-pager-prev" href="smartfinance.html">
+                    <span class="pd-pager-label"><i class="fas fa-chevron-left" aria-hidden="true"></i> Anterior</span>
+                    <span class="pd-pager-title">SmartFinance</span>
+                </a>
+                <a class="pd-pager-link pd-pager-next" href="linkguardiao.html">
+                    <span class="pd-pager-label">Próximo <i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                    <span class="pd-pager-title">LinkGuardião</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="pd-footer">
+        <div class="pd-container">
+            <p>
+                <a href="mailto:lucas.afvr@gmail.com">lucas.afvr@gmail.com</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/Lucasantunesribeiro" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="pd-footer-copy">&copy; 2026 Lucas Antunes Ferreira</p>
+        </div>
+    </footer>
+</body>
+
+</html>

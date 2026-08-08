@@ -1,4 +1,13 @@
 {
+  "name": "portfolio-lucas-antunes",
+  "private": true,
+  "description": "Portfolio estatico de Lucas Antunes Ferreira",
+  "scripts": {
+    "gen": "npm run gen:pages && npm run gen:sitemap && npm run gen:images",
+    "gen:pages": "node scripts/generate_project_pages.js",
+    "gen:sitemap": "node scripts/generate_sitemap.js",
+    "gen:images": "node scripts/generate_og_image.js"
+  },
   "dependencies": {
     "playwright": "^1.58.1",
     "sharp": "^0.34.5"

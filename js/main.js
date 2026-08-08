@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Apenas CSS controla a exibição do menu-toggle
-	console.log('DOM fully loaded, JS running');
 
 	// Animações de entrada
 	const animateElements = document.querySelectorAll('.hero-content, .sobre-grid, .skill-card, .project-card');
@@ -73,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				e.stopPropagation();
 				navLinks.classList.toggle('active');
 				menuToggle.classList.toggle('active');
-				console.log('Menu toggle clicked');
 			};
 			navLinks.querySelectorAll('a, #toggle-lang').forEach(link => {
 				link.onclick = function () {
@@ -107,560 +105,361 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
-	// Language system - movido para dentro do DOMContentLoaded
-	let currentLang = 'pt';
+	// ==================== SISTEMA DE IDIOMAS (PT / EN) ====================
+	//
+	// Motor baseado em atributos no HTML, para que o conteudo nunca fique
+	// dessincronizado entre os dois idiomas:
+	//
+	//   data-i18n="chave"             -> troca o textContent
+	//   data-i18n-html="chave"        -> troca o innerHTML (textos com <strong>, <br>)
+	//   data-i18n-placeholder="chave" -> troca o placeholder do input
+	//   data-i18n-short="chave"       -> troca o atributo data-short (timeline)
+	//   data-i18n-full="chave"        -> troca o atributo data-full  (timeline)
+	//
+	// O idioma escolhido fica salvo em localStorage.
+
+	const LANG_STORAGE_KEY = 'portfolio-lang';
 	const langBtn = document.getElementById('toggle-lang');
 
-	// Texts for translation
-
-	// Exemplo de troca de idioma (substitua pela sua lógica real)
-	if (langBtn) {
-		langBtn.addEventListener('click', function () {
-			// ...sua lógica de troca de idioma...
-			// Após trocar o idioma, reaplique os listeners do menu hamburguer
-			setTimeout(applyMenuListeners, 100); // aguarda DOM atualizar
-		});
-	}
 	const translations = {
 		pt: {
-			home: 'Home',
-			sobre: 'Sobre',
-			experiencias: 'Experiências',
-			habilidades: 'Habilidades',
-			projetos: 'Projetos',
+			// Navbar
+			navHome: 'Home',
+			navSobre: 'Sobre',
+			navProjetos: 'Projetos',
+			navExperiencias: 'Experiências',
+			navHabilidades: 'Habilidades',
+			navCertificados: 'Certificados',
+
+			// Hero
+			heroBadge: '<span class="hero-badge-dot" aria-hidden="true"></span> Disponível para vagas Júnior / Estágio',
 			heroTitle: 'Olá, eu sou <span class="highlight">Lucas Antunes Ferreira</span>',
-			heroDesc: 'Desenvolvedor Full Stack | .NET Specialist | Arquitetura de Software',
-			heroDescMobile: 'Desenvolvedor Full Stack | .NET Specialist',
+			heroDesc: 'Desenvolvedor .NET &amp; React<br>C# | ASP.NET Core | EF Core | SQL Server<br>Clean Architecture | DDD | Docker | AWS',
+			heroDescMobile: 'Desenvolvedor .NET &amp; React | C# | ASP.NET Core',
 			btnCurriculo: 'Currículo',
 			btnProjetos: 'Ver Projetos',
+
+			// Sobre
 			sobreTitle: 'Sobre Mim',
-			sobreTexto: '<p>Sou um desenvolvedor Fullstack apaixonado por construir sistemas <strong class="highlight">robustos</strong> e <strong class="highlight">escaláveis</strong>.</p><p>Com uma base sólida em Ciência da Computação e experiência prática em ambientes corporativos, foco em entregar valor através de <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">testes automatizados</strong> e <strong class="highlight">boas práticas</strong>.</p><p>Transformo requisitos complexos em soluções eficientes, sempre priorizando performance, segurança e uma excelente experiência para o usuário.</p>',
-			sobreTextoMobile: 'Dev Fullstack focado em sistemas <strong class="highlight">robustos</strong>. Uso <strong class="highlight">Clean Architecture</strong> para criar soluções eficientes e de alta performance.',
-			statExp: 'Anos de Experiência',
-			statProj: 'Projetos Enterprise',
-			statDisp: 'Disponibilidade Sistemas',
-			sobreImgAlt: 'Minha foto de perfil',
-			experienciasTitle: 'Experiências',
-			expRSM: {
-				empresa: 'RSM Brasil',
-				periodo: 'Dezembro 2024 - Atual',
-				cargo: 'Analista de Suporte de TI',
-				tech: 'Azure, Windows, Linux, SQL Server, MySQL',
-				desc: 'Responsável pelo atendimento e registro de chamados técnicos (Nível 1 e 2), garantindo a continuidade das operações de TI. Encarregado do diagnóstico e resolução de problemas de hardware e software, assegurando a eficiência operacional. Realiza a instalação, configuração e manutenção de aplicativos, sistemas operacionais (Windows, Linux) e periféricos. Presta suporte à infraestrutura de redes, computadores e impressoras, além de otimizar processos internos através de suporte técnico proativo.'
-			},
-			expAlura: {
-				empresa: 'Alura',
-				periodo: '2022 - Atual',
-				cargo: 'Formação para Programação',
-				desc: 'Na Alura, estou seguindo as principais formações no assunto Full-stack, tendo a oportunidade de aprender sobre programação, construção e desenvolvimento de software.'
-			},
-			expEstacio: {
-				empresa: 'Estácio',
-				periodo: '2023 - 2027 (previsão)',
-				cargo: 'Ciência da Computação',
-				desc: 'Atualmente, estou cursando Ciência da Computação na Universidade Veiga de Almeida, onde tenho a oportunidade de aprimorar minhas habilidades e conhecimentos em programação desenvolvendo software e projetos para trabalhos escolares.'
-			},
-			expFreela: {
-				empresa: 'Freelancer',
-				periodo: 'Janeiro de 2024 - Atual',
-				cargo: 'Desenvolvedor Fullstack',
-				tech: 'C#, .NET Core, React, Java, Spring, Python, Django, Flask, Node.js, PHP, Laravel, TypeScript e JavaScript',
-				desc: 'Responsável pelo desenvolvimento fullstack de aplicações web e APIs RESTful utilizando C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript e JavaScript. Experiência em modelagem e otimização de bancos de dados relacionais (SQL Server, MySQL) e NoSQL (MongoDB). Implementa princípios SOLID, Clean Architecture e Design Patterns para garantir código limpo e manutenível. Desenvolve testes automatizados (unitários e de integração) com xUnit e PHPUnit. Atua em todo o ciclo de vida do desenvolvimento: análise de requisitos, design, desenvolvimento, testes e deploy, utilizando metodologias ágeis (Scrum/Kanban) e versionamento com Git.'
-			},
-			habilidadesTitle: 'Habilidades',
-			habilidades: [
-				{ title: 'Backend', desc: 'C#/.NET (ASP.NET Core, EF Core), Node.js (Express), APIs REST, JWT, Clean Architecture' },
-				{ title: 'Frontend', desc: 'React, Next.js, TypeScript, Tailwind, shadcn/ui' },
-				{ title: 'Banco de Dados', desc: 'PostgreSQL, SQL, Prisma, Supabase (RLS)' },
-				{ title: 'Cloud/DevOps', desc: 'AWS, Docker, CI/CD (GitHub Actions), Observabilidade' },
-				{ title: 'Qualidade & Segurança', desc: 'Testes unitários/integração, Health Checks, Performance & Security' }
-			],
+			sobreTexto: '<p>Sou desenvolvedor de software com foco em <strong class="highlight">backend .NET</strong> e aplicações fullstack. Construo sistemas com <strong class="highlight">C#</strong> e <strong class="highlight">ASP.NET Core</strong>.</p><p>Curso Ciência da Computação e trabalho com desenvolvimento e sustentação de uma plataforma SaaS corporativa. Nos meus projetos, aplico <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">DDD</strong> e <strong class="highlight">testes automatizados</strong>, com mensageria, cloud e observabilidade na prática.</p><p>Busco vagas <strong class="highlight">Júnior</strong> e de <strong class="highlight">estágio</strong>, onde eu possa aprender rápido e entregar código confiável desde o primeiro dia.</p>',
+			sobreTextoMobile: 'Dev com foco em <strong class="highlight">backend .NET</strong>. Uso <strong class="highlight">Clean Architecture</strong> e <strong class="highlight">DDD</strong> para construir sistemas confiáveis. Buscando vagas Júnior/Estágio.',
+			statProj: 'Projetos publicados',
+			statCert: 'Certificados Alura',
+			statForm: 'Formatura prevista',
+
+			// Projetos
 			projetosTitle: 'Projetos',
-			projetosSubtitle: 'Explore minha jornada de desenvolvimento através destes projetos',
-			contato: 'Entre em contato: ',
-			stacks: ['Todos', '.NET', 'React', 'TypeScript', 'Python', 'Java', 'JavaScript', 'PHP', 'Node.js', 'CSS'],
-			projetos: [
-				{
-					img: 'assets/sistema_distribuido_mockup.webp',
-					alt: 'Sistema Distribuído',
-					title: 'Sistema de Gestão Distribuído',
-					desc: 'Arquitetura complexa de Microsserviços utilizando Event Sourcing e CQRS. Implementado com Java Spring Boot, RabbitMQ e PostgreSQL para alta escalabilidade.',
-					tags: ['Java', 'Spring Boot', 'RabbitMQ', 'Event Sourcing', 'CQRS'],
-					code: 'https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing'
-				},
-				{
-					img: 'assets/emiss_o_automatizada_de_nf_e_mockup.webp',
-					alt: 'Emissão NF-e',
-					title: 'Emissão Automatizada de NF-e',
-					desc: 'Sistema distribuído 100% serverless com arquitetura Event-Driven e FinOps. Microserviços poliglotas (Go + .NET 9), DynamoDB Single-Table e geração dinâmica de PDFs.',
-					tags: ['AWS Serverless', 'Go + .NET 9', 'Angular 18', 'DynamoDB', 'EventBridge'],
-					code: 'https://github.com/Lucasantunesribeiro/emissao_nfe',
-					demo: 'https://d19fn3hv30xsoq.cloudfront.net'
-				},
-				{
-					img: 'assets/emailtriageai_mockup.webp',
-					alt: 'EmailTriageAI',
-					title: 'EmailTriageAI',
-					desc: 'Sistema inteligente de triagem de emails corporativos. Utiliza IA (Gemini) e NLP para classificar, resumir e gerar respostas automáticas para mensagens, otimizando o fluxo de trabalho.',
-					tags: ['Python', 'FastAPI', 'Gemini AI', 'NLP', 'Docker'],
-					code: 'https://github.com/Lucasantunesribeiro/EmailTriageAI',
-					demo: 'http://100.48.50.86/'
-				},
-				{
-					img: 'assets/linkguardi_o_mockup.webp',
-					alt: 'LinkGuardião',
-					title: 'LinkGuardião',
-					desc: 'Encurtador de URLs corporativo com proteção por senha e analytics detalhado. Backend robusto em ASP.NET Core 8 com arquitetura limpa.',
-					tags: ['ASP.NET Core 8', 'React', 'EF Core', 'Docker', 'Analytics'],
-					code: 'https://github.com/Lucasantunesribeiro/LinkGuardiao',
-					demo: 'https://linkguardiao.pages.dev/'
-				},
-				{
-					img: 'assets/article_summarizer_agent_mockup.webp',
-					alt: 'Article Summarizer Agent',
-					title: 'Article Summarizer Agent',
-					desc: 'Agente de IA capaz de contornar WAFs avançados (Cloudflare) para extrair e resumir artigos da web. Utiliza Selenium stealth e fallback strategies para garantia de coleta.',
-					tags: ['Python', 'Selenium Stealth', 'Flask', 'AI Agent', 'WAF Bypass'],
-					code: 'https://github.com/Lucasantunesribeiro/article_summarizer_agent',
-					demo: 'https://article-summarizer-agent.onrender.com/'
-				},
-				{
-					img: 'assets/smartfinance_mockup.webp',
-					alt: 'SmartFinance',
-					title: 'SmartFinance',
-					desc: 'Plataforma full-stack de gestão financeira com foco em performance e otimização de custos. Destaque para migração cloud zero-downtime, redução de 100% em custos AWS e dashboards real-time via SignalR.',
-					tags: ['Next.js', 'Node.js', 'AWS ECS', 'Terraform', 'Multi-tenant'],
-					code: 'https://github.com/Lucasantunesribeiro/smart_finance',
-					demo: 'http://98.84.92.190'
-				},
-				{
-					img: 'assets/kogui_pokedex_mockup.webp',
-					alt: 'Kogui Pokédx',
-					title: 'Kogui Pokédx',
-					desc: 'Desafio técnico Fullstack com Django 5.0 e Angular 17. Integração à PokéAPI, autenticação JWT, sistema de favoritos e painel administrativo.',
-					tags: ['Angular 17', 'Django 5.0', 'PostgreSQL', 'Docker', 'JWT'],
-					code: 'https://github.com/Lucasantunesribeiro/Kogui_pokedex'
-				},
-				{
-					img: 'assets/collabdocs_mockup.webp',
-					alt: 'CollabDocs',
-					title: 'CollabDocs',
-					desc: 'Plataforma de edição colaborativa de documentos em tempo real. Arquitetura serverless moderna com Cloudflare Workers e D1, construída em Monorepo.',
-					tags: ['Cloudflare Workers', 'Next.js', 'D1 SQL', 'Real-time', 'Monorepo'],
-					code: 'https://github.com/Lucasantunesribeiro/Collabdocs',
-					demo: 'https://collabdocs-app.vercel.app/'
-				},
-				{
-					img: 'assets/armaz_m_s_o_joaquim_mockup.webp',
-					alt: 'Armazém São Joaquim',
-					title: 'Armazém São Joaquim',
-					desc: 'Plataforma digital completa com Next.js 15 e Supabase. Inclui cardápio interativo, sistema de reservas, blog e área administrativa, com foco em SEO e performance.',
-					tags: ['Next.js 15', 'TypeScript', 'Supabase', 'Tailwind', 'Shadcn/ui'],
-					code: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
-					demo: 'https://armazemsaojoaquim.com.br/'
-				},
-				{
-					img: 'assets/parallel_store_mockup.webp',
-					alt: 'Parallel Store',
-					title: 'Parallel Store',
-					desc: 'E-commerce urbano moderno construído com Next.js 15 e React 18. Foco total em conversão, performance e experiência do usuário (UX).',
-					tags: ['Next.js 15', 'React 18', 'Tailwind', 'E-commerce'],
-					code: 'https://github.com/Lucasantunesribeiro/parallel_store',
-					demo: 'https://parallelstore.netlify.app/'
-				},
-				{
-					img: 'assets/locadora_de_carros_mockup.webp',
-					alt: 'Locadora de Carros',
-					title: 'Locadora de Carros',
-					desc: 'Sistema de gestão de frota e locação desenvolvido em PHP 8.1+. Possui autenticação segura, controle de permissões (ACL) e CRUDs completos.',
-					tags: ['PHP 8.1', 'SQLite', 'MVC', 'Bootstrap', 'Auth'],
-					code: 'https://github.com/Lucasantunesribeiro/locadora_de_carros',
-					demo: 'https://locadora-de-carros.onrender.com/'
-				},
-				{
-					img: 'assets/logic_games_suite_mockup.webp',
-					alt: 'Logic Games Suite',
-					title: 'Logic Games Suite',
-					desc: 'Coleção de mini-jogos lógicos desenvolvidos com JavaScript puro, focando em lógica de programação e interatividade responsiva.',
-					tags: ['HTML5', 'CSS3', 'JavaScript', 'Logic'],
-					code: 'https://github.com/Lucasantunesribeiro/Numero-Secreto',
-					demo: 'https://sorteador-de-numeros-six-pi.vercel.app/'
-				}
-			]
+			projetosSubtitle: 'Nove projetos com código aberto no GitHub. Cada um tem uma página com a arquitetura, as decisões técnicas e os limites do que foi construído.',
+			searchPlaceholder: 'Buscar projeto...',
+			filterAllProjects: 'Todos',
+			btnDetalhes: 'Detalhes',
+			badgeClienteReal: 'Cliente real · em produção',
+			emptyText: 'Nenhum projeto encontrado',
+			emptyHint: 'Tente buscar por outra tecnologia ou termo',
+
+			projSmartFinanceTitle: 'SmartFinance',
+			projSmartFinanceDesc: 'Ecossistema de finanças pessoais com .NET 9, RabbitMQ e Next.js. Implementa Clean Architecture, Outbox Pattern e processamento assíncrono de transações para máxima consistência e resiliência financeira.',
+			projTenantCoreTitle: 'TenantCore — Multi-Tenant SaaS',
+			projTenantCoreDesc: 'Plataforma SaaS B2B em .NET 9 com isolamento por tenant via query filters do EF Core. JWT com refresh token rotativo, RBAC, cotas por plano, cache Redis, jobs Quartz e observabilidade com OpenTelemetry.',
+			projLinkGuardiaoTitle: 'LinkGuardião',
+			projLinkGuardiaoDesc: 'Encurtador de links com foco em segurança. .NET + React, links protegidos por senha, expiração configurável, rate limiting e analytics assíncrono processado fora do caminho da requisição.',
+			projArmazemTitle: 'Armazém São Joaquim',
+			projArmazemDesc: 'Portal para gestão de armazém, restaurante e pousada, no ar em domínio próprio. Next.js e Supabase com CMS dinâmico, fluxo de reservas, área administrativa e foco em SEO e performance.',
+			projNfeTitle: 'Emissão de NF-e e Controle de Estoque',
+			projNfeDesc: 'Sistema serverless orquestrado por eventos para faturamento e gestão de inventário. .NET, AWS Lambda, EventBridge para desacoplamento e DynamoDB com modelagem single-table.',
+			projCollabDocsTitle: 'CollabDocs',
+			projCollabDocsDesc: 'Editor de documentos em tempo real com .NET e SignalR. Sincronização de estado via WebSockets, controle de permissão por documento e deploy em infraestrutura serverless.',
+			projSummarizerTitle: 'Agente de Sumarização AI',
+			projSummarizerDesc: 'Agente que usa LLMs para extrair e resumir artigos da web de forma assíncrona. Python, FastAPI e fila de tarefas em background, com estratégias de fallback para coleta confiável.',
+			projBillingTitle: 'BillingLedger',
+			projBillingDesc: 'Backend de cobrança, pagamentos e conciliação em ledger. .NET 9 com contextos separados, Outbox Pattern para integração confiável e idempotência no processamento de webhooks de pagamento.',
+			projEventSourcingTitle: 'Gestão de Pedidos Distribuído',
+			projEventSourcingDesc: 'Pedidos, estoque e pagamento coordenados em Java + Spring Boot. Reserva de estoque com locking, compensação em caso de falha e eventos publicados via Outbox + RabbitMQ. 217 testes automatizados.',
+
+			// Experiências
+			experienciasTitle: 'Experiências',
+			experienciasSubtitle: 'Minha trajetória profissional e formação acadêmica',
+			toggleMore: 'Ver mais',
+			toggleLess: 'Ver menos',
+
+			expSinergyPeriod: 'Abr 2026 — Atual',
+			expSinergyRole: 'Desenvolvedor Trainee — .NET | SQL Server | ASP.NET',
+			expSinergyShort: 'Atuação no desenvolvimento e sustentação de plataforma SaaS corporativa, com foco em estabilidade, manutenção e evolução contínua do sistema...',
+			expSinergyFull: 'Atuação no desenvolvimento e sustentação de plataforma SaaS corporativa, com foco em estabilidade, manutenção e evolução contínua do sistema. Implementação e manutenção de funcionalidades em C# / ASP.NET, incluindo ajustes em regras de negócio, APIs e rotinas de suporte à operação. Uso intensivo de SQL Server para consultas, análise de dados, procedures e apoio na geração de relatórios e extrações operacionais. Apoio à qualidade do software por meio de testes, análise de falhas, correção de bugs e colaboração com diferentes áreas do negócio.',
+
+			expRsmPeriod: 'Nov 2024 — Abr 2026',
+			expRsmRole: 'Suporte de TI',
+			expRsmShort: 'Triagem, registro e atendimento de incidentes (Nível 1 e 2), garantindo continuidade operacional e comunicação clara com usuários...',
+			expRsmFull: 'Triagem, registro e atendimento de incidentes (Nível 1 e 2), garantindo continuidade operacional e comunicação clara com usuários. Diagnóstico e resolução de problemas de hardware e software, com foco em causa raiz e prevenção de recorrência. Instalação, configuração e manutenção de aplicativos, sistemas operacionais (Windows, Linux) e periféricos. Suporte à infraestrutura de redes, computadores e impressoras. Padronização e documentação técnica de procedimentos, reduzindo retrabalho e melhorando o tempo de resolução.',
+
+			expFreelaPeriod: 'Jan 2024 — Abr 2026',
+			expFreelaRole: 'Desenvolvedor Full Stack Jr (.NET/C# + React)',
+			expFreelaShort: 'Desenvolvimento full stack com ASP.NET Core Web API e React + TypeScript, cobrindo modelagem, regras de negócio, autenticação e integrações...',
+			expFreelaFull: 'Desenvolvimento full stack com ASP.NET Core Web API e React + TypeScript, cobrindo modelagem, regras de negócio, autenticação e integrações. Implementação de processamento assíncrono (workers e filas) e padrões de resiliência para tarefas de backoffice e integrações. Persistência com SQL Server e PostgreSQL, com camada de dados em Entity Framework Core. Aplicação de SOLID, Clean Architecture e Design Patterns, com testes automatizados em xUnit. Deploy na AWS e ambientes locais com Docker, com automações de entrega via CI/CD.',
+
+			expEstacioPeriod: 'Jan 2024 — Dez 2027 (previsão)',
+			expEstacioRole: 'Ciência da Computação',
+			expEstacioDesc: 'Graduação em Ciência da Computação, com formatura prevista para dezembro de 2027. Base em algoritmos, estruturas de dados, banco de dados e engenharia de software, aplicada diretamente nos projetos deste portfólio.',
+
+			expAluraPeriod: '2022 — Atual',
+			expAluraRole: 'Formação em Programação',
+			expAluraDesc: 'Formações Full-stack e .NET, com 30 certificados emitidos. Cobrem orientação a objetos com C#, ASP.NET Core, consumo de APIs, LINQ e boas práticas de desenvolvimento.',
+
+			// Habilidades
+			habilidadesTitle: 'Habilidades',
+			habilidadesSubtitle: 'Tecnologias e competências que uso no dia a dia',
+			filterAll: 'Todas',
+			filterBackend: 'Backend',
+			filterFrontend: 'Frontend',
+			filterDatabase: 'Database',
+			filterCloud: 'Cloud/DevOps',
+			filterQuality: 'Qualidade',
+			skillBackendTitle: 'Backend',
+			skillBackendDesc: 'Desenvolvimento de APIs e serviços em C# e ASP.NET Core, com Clean Architecture, validação e tratamento de erros padronizado.',
+			skillFrontendTitle: 'Frontend',
+			skillFrontendDesc: 'Interfaces em React e Next.js com TypeScript, consumo de APIs, estados de carregamento e erro, e layout responsivo.',
+			skillDatabaseTitle: 'Banco de Dados',
+			skillDatabaseDesc: 'Modelagem relacional, consultas e procedures em SQL Server e PostgreSQL, migrations com EF Core e índices pensados para performance.',
+			skillCloudTitle: 'Cloud/DevOps',
+			skillCloudDesc: 'Containers com Docker, pipelines de CI/CD no GitHub Actions e deploy em AWS e Azure, com logs estruturados e health checks.',
+			skillQualityTitle: 'Qualidade &amp; Segurança',
+			skillQualityDesc: 'Testes unitários e de integração com xUnit, autenticação JWT com refresh token, RBAC e rate limiting.',
+			tagUnitTests: 'Testes unitários',
+			tagIntegrationTests: 'Testes de integração',
+			tagObservability: 'Observabilidade',
+
+			// Certificados & Idiomas
+			certTitle: 'Certificados &amp; Idiomas',
+			certSubtitle: 'Formação contínua registrada e verificável',
+			certCountTitle: 'certificados emitidos pela Alura',
+			certCountDesc: 'Formações de C#, .NET e desenvolvimento web, com credencial verificável em cada certificado.',
+			certIssuedMar2025: 'Emitido em março de 2025',
+			certCredential: 'Credencial',
+			certSeeAll: 'Ver os 30 certificados no LinkedIn',
+			idiomasTitle: 'Idiomas',
+			idiomaPt: 'Português',
+			idiomaPtNivel: 'Nativo',
+			idiomaEn: 'Inglês',
+			idiomaEnNivel: 'Avançado',
+			idiomasNota: 'Leitura de documentação técnica e comunicação escrita em inglês no dia a dia.',
+
+			// Footer
+			footerLabel: 'Vamos construir algo incrível juntos?',
+			footerRights: '© {year} Lucas Antunes Ferreira. Todos os direitos reservados.',
+			pageTitle: 'Lucas Antunes Ferreira — Desenvolvedor .NET & React'
 		},
+
 		en: {
-			home: 'Home',
-			sobre: 'About',
-			experiencias: 'Experience',
-			habilidades: 'Skills',
-			projetos: 'Projects',
+			// Navbar
+			navHome: 'Home',
+			navSobre: 'About',
+			navProjetos: 'Projects',
+			navExperiencias: 'Experience',
+			navHabilidades: 'Skills',
+			navCertificados: 'Certificates',
+
+			// Hero
+			heroBadge: '<span class="hero-badge-dot" aria-hidden="true"></span> Open to Junior / Internship roles',
 			heroTitle: 'Hi, I am <span class="highlight">Lucas Antunes Ferreira</span>',
-			heroDesc: 'Full Stack Developer | .NET Specialist | Software Architecture',
-			heroDescMobile: 'Full Stack Developer | .NET Specialist',
+			heroDesc: '.NET &amp; React Developer<br>C# | ASP.NET Core | EF Core | SQL Server<br>Clean Architecture | DDD | Docker | AWS',
+			heroDescMobile: '.NET &amp; React Developer | C# | ASP.NET Core',
 			btnCurriculo: 'Resume',
 			btnProjetos: 'See Projects',
+
+			// Sobre
 			sobreTitle: 'About Me',
-			sobreTexto: '<p>I am a Fullstack Developer passionate about building <strong class="highlight">robust</strong> and <strong class="highlight">scalable</strong> systems.</p><p>With a solid foundation in Computer Science and practical experience in corporate environments, I focus on delivering value through <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">automated testing</strong>, and <strong class="highlight">best practices</strong>.</p><p>I transform complex requirements into efficient solutions, always prioritizing performance, security, and an excellent user experience.</p>',
-			sobreTextoMobile: 'Fullstack Dev focused on <strong class="highlight">robust systems</strong>. Using <strong class="highlight">Clean Architecture</strong> to build efficient and high-performance solutions.',
-			statExp: 'Years of Experience',
-			statProj: 'Enterprise Projects',
-			statDisp: 'System Availability',
-			sobreImgAlt: 'My profile photo',
-			experienciasTitle: 'Experience',
-			expRSM: {
-				empresa: 'RSM Brasil',
-				periodo: 'Dec 2024 - Present',
-				cargo: 'IT Support Analyst',
-				tech: 'Azure, Windows, Linux, SQL Server, MySQL',
-				desc: 'Responsible for technical support and ticket registration (Level 1 and 2), ensuring continuity of IT operations. In charge of diagnosing and solving hardware and software issues, ensuring operational efficiency. Installs, configures and maintains applications, operating systems (Windows, Linux) and peripherals. Provides support for network infrastructure, computers and printers, and optimizes internal processes through proactive technical support.'
-			},
-			expAlura: {
-				empresa: 'Alura',
-				periodo: '2022 - Present',
-				cargo: 'Programming Training',
-				desc: 'At Alura, I am following the main full-stack training programs, having the opportunity to learn about programming, software construction and development.'
-			},
-			expEstacio: {
-				empresa: 'Estácio',
-				periodo: '2023 - 2027 (expected)',
-				cargo: 'Computer Science',
-				desc: 'Currently studying Computer Science at Universidade Veiga de Almeida, where I have the opportunity to improve my programming skills and knowledge by developing software and projects for school assignments.'
-			},
-			expFreela: {
-				empresa: 'Freelancer',
-				periodo: 'Jan 2024 - Nov 2024',
-				cargo: 'Fullstack Developer',
-				tech: 'C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript and JavaScript',
-				desc: 'Responsible for fullstack development of web applications and RESTful APIs using C#, .NET Core, React, Node.js, PHP, Laravel, TypeScript and JavaScript. Experience in modeling and optimizing relational (SQL Server, MySQL) and NoSQL (MongoDB). Implements SOLID principles, Clean Architecture and Design Patterns to ensure clean and maintainable code. Develops automated tests (unit and integration) with xUnit and PHPUnit. Works throughout the development lifecycle: requirements analysis, design, development, testing and deployment, using agile methodologies (Scrum/Kanban) and versioning with Git.'
-			},
-			habilidadesTitle: 'My Skills',
-			habilidades: [
-				{ title: 'Backend', desc: 'C#/.NET (ASP.NET Core, EF Core), Node.js (Express), APIs REST, JWT, Clean Architecture' },
-				{ title: 'Frontend', desc: 'React, Next.js, TypeScript, Tailwind, shadcn/ui' },
-				{ title: 'Database', desc: 'PostgreSQL, SQL, Prisma, Supabase (RLS)' },
-				{ title: 'Cloud/DevOps', desc: 'AWS, Docker, CI/CD (GitHub Actions), Observability' },
-				{ title: 'Quality & Security', desc: 'Unit/Integration Testing, Health Checks, Performance & Security' }
-			],
+			sobreTexto: '<p>I am a software developer focused on <strong class="highlight">.NET backend</strong> and fullstack applications. I build systems with <strong class="highlight">C#</strong> and <strong class="highlight">ASP.NET Core</strong>.</p><p>I am studying Computer Science and I work on the development and maintenance of a corporate SaaS platform. In my projects I apply <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">DDD</strong> and <strong class="highlight">automated testing</strong>, with messaging, cloud and observability in practice.</p><p>I am looking for <strong class="highlight">Junior</strong> and <strong class="highlight">internship</strong> roles, where I can learn fast and ship reliable code from day one.</p>',
+			sobreTextoMobile: 'Developer focused on <strong class="highlight">.NET backend</strong>. I use <strong class="highlight">Clean Architecture</strong> and <strong class="highlight">DDD</strong> to build reliable systems. Open to Junior/Internship roles.',
+			statProj: 'Published projects',
+			statCert: 'Alura certificates',
+			statForm: 'Expected graduation',
+
+			// Projetos
 			projetosTitle: 'Projects',
-			projetosSubtitle: 'Explore my development journey through these projects',
-			contato: 'Contact: ',
-			stacks: ['All', '.NET', 'React', 'TypeScript', 'Python', 'Java', 'JavaScript', 'PHP', 'Node.js', 'CSS'],
-			projetos: [
-				{
-					img: 'assets/sistema_distribuido_mockup.webp',
-					alt: 'Distributed System',
-					title: 'Distributed Management System',
-					desc: 'Complex Microservices architecture using Event Sourcing and CQRS. Implemented with Java Spring Boot, RabbitMQ, and PostgreSQL for high scalability.',
-					tags: ['Java', 'Spring Boot', 'RabbitMQ', 'Event Sourcing', 'CQRS'],
-					code: 'https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing'
-				},
-				{
-					img: 'assets/emiss_o_automatizada_de_nf_e_mockup.webp',
-					alt: 'NF-e Automation',
-					title: 'Automated NF-e Issuance',
-					desc: '100% serverless distributed system with Event-Driven architecture and FinOps. Polyglot microservices (Go + .NET 9), Single-Table DynamoDB, and dynamic PDF generation.',
-					tags: ['AWS Serverless', 'Go + .NET 9', 'Angular 18', 'DynamoDB', 'EventBridge'],
-					code: 'https://github.com/Lucasantunesribeiro/emissao_nfe',
-					demo: 'https://d19fn3hv30xsoq.cloudfront.net'
-				},
-				{
-					img: 'assets/emailtriageai_mockup.webp',
-					alt: 'EmailTriageAI',
-					title: 'EmailTriageAI',
-					desc: 'Intelligent corporate email triage system. Uses AI (Gemini) and NLP to classify, summarize, and auto-reply to messages, optimizing workflow.',
-					tags: ['Python', 'FastAPI', 'Gemini AI', 'NLP', 'Docker'],
-					code: 'https://github.com/Lucasantunesribeiro/EmailTriageAI',
-					demo: 'http://100.48.50.86/'
-				},
-				{
-					img: 'assets/linkguardi_o_mockup.webp',
-					alt: 'LinkGuardião',
-					title: 'LinkGuardião',
-					desc: 'Corporate URL shortener with password protection and detailed analytics. Robust backend in ASP.NET Core 8 with clean architecture.',
-					tags: ['ASP.NET Core 8', 'React', 'TypeScript', 'Tailwind'],
-					code: 'https://github.com/Lucasantunesribeiro/LinkGuardiao',
-					demo: 'https://linkguardiao.pages.dev/'
-				},
-				{
-					img: 'assets/article_summarizer_agent_mockup.webp',
-					alt: 'Article Summarizer Agent',
-					title: 'Article Summarizer Agent',
-					desc: 'AI Agent capable of bypassing advanced WAFs (Cloudflare) to extract and summarize web articles. Uses Selenium stealth and fallback strategies for reliable collection.',
-					tags: ['Python', 'Selenium Stealth', 'Flask', 'AI Agent', 'WAF Bypass'],
-					code: 'https://github.com/Lucasantunesribeiro/article_summarizer_agent',
-					demo: 'https://article-summarizer-agent.onrender.com/'
-				},
-				{
-					img: 'assets/smartfinance_mockup.webp',
-					alt: 'SmartFinance',
-					title: 'SmartFinance',
-					desc: 'Full-stack financial management platform focused on performance and cost optimization. Features zero-downtime cloud migration, 100% AWS cost reduction, and real-time dashboards via SignalR.',
-					tags: ['Next.js', 'React', 'Node.js', 'Tailwind', 'JWT'],
-					code: 'https://github.com/Lucasantunesribeiro/smart_finance',
-					demo: 'http://98.84.92.190'
-				},
-				{
-					img: 'assets/kogui_pokedex_mockup.webp',
-					alt: 'Kogui Pokédx',
-					title: 'Kogui Pokédx',
-					desc: 'Fullstack technical challenge with Django 5.0 and Angular 17. PokéAPI integration, JWT authentication, favorites system and admin panel.',
-					tags: ['Angular 17', 'Django 5.0', 'PostgreSQL', 'Docker', 'JWT'],
-					code: 'https://github.com/Lucasantunesribeiro/Kogui_pokedex'
-				},
-				{
-					img: 'assets/collabdocs_mockup.webp',
-					alt: 'CollabDocs',
-					title: 'CollabDocs',
-					desc: 'Real-time collaborative document editing platform. Modern serverless architecture with Cloudflare Workers and D1, built in Monorepo.',
-					tags: ['Next.js', 'TypeScript', 'Cloudflare', 'Tailwind'],
-					code: 'https://github.com/Lucasantunesribeiro/Collabdocs',
-					demo: 'https://collabdocs-app.vercel.app/'
-				},
-				{
-					img: 'assets/armaz_m_s_o_joaquim_mockup.webp',
-					alt: 'Armazém São Joaquim',
-					title: 'Armazém São Joaquim',
-					desc: 'Complete digital platform with Next.js 15 and Supabase. Includes interactive menu, reservation system, blog, and admin area, focused on SEO and performance.',
-					tags: ['Next.js 15', 'TypeScript', 'Supabase', 'Tailwind', 'Shadcn/ui'],
-					code: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
-					demo: 'https://armazemsaojoaquim.com.br/'
-				},
-				{
-					img: 'assets/parallel_store_mockup.webp',
-					alt: 'Parallel Store',
-					title: 'Parallel Store',
-					desc: 'Modern urban e-commerce built with Next.js 15 and React 18. Total focus on conversion, performance, and user experience (UX).',
-					tags: ['Next.js 15', 'React 18', 'Tailwind', 'E-commerce'],
-					code: 'https://github.com/Lucasantunesribeiro/parallel_store',
-					demo: 'https://parallelstore.netlify.app/'
-				},
-				{
-					img: 'assets/locadora_de_carros_mockup.webp',
-					alt: 'Car Rental System',
-					title: 'Car Rental System',
-					desc: 'Fleet management and rental system developed in PHP 8.1+. Features secure authentication, permission control (ACL), and complete CRUDs.',
-					tags: ['PHP', 'SQLite', 'JavaScript'],
-					code: 'https://github.com/Lucasantunesribeiro/locadora_de_carros',
-					demo: 'https://locadora-de-carros.onrender.com/'
-				},
-				{
-					img: 'assets/logic_games_suite_mockup.webp',
-					alt: 'Logic Games Suite',
-					title: 'Logic Games Suite',
-					desc: 'Collection of logic mini-games developed with vanilla JavaScript, focusing on programming logic and responsive interactivity.',
-					tags: ['HTML5', 'CSS3', 'JavaScript'],
-					code: 'https://github.com/Lucasantunesribeiro/Numero-Secreto',
-					demo: 'https://sorteador-de-numeros-six-pi.vercel.app/'
-				}
-			]
+			projetosSubtitle: 'Nine projects with open source code on GitHub. Each one has a page covering the architecture, the technical decisions and the limits of what was built.',
+			searchPlaceholder: 'Search project...',
+			filterAllProjects: 'All',
+			btnDetalhes: 'Details',
+			badgeClienteReal: 'Real client · in production',
+			emptyText: 'No projects found',
+			emptyHint: 'Try searching for another technology or term',
+
+			projSmartFinanceTitle: 'SmartFinance',
+			projSmartFinanceDesc: 'Personal finance ecosystem with .NET 9, RabbitMQ and Next.js. Implements Clean Architecture, the Outbox Pattern and asynchronous transaction processing for consistency and financial resilience.',
+			projTenantCoreTitle: 'TenantCore — Multi-Tenant SaaS',
+			projTenantCoreDesc: 'B2B SaaS platform in .NET 9 with per-tenant isolation through EF Core global query filters. JWT with rotating refresh tokens, RBAC, per-plan quotas, Redis cache, Quartz jobs and OpenTelemetry observability.',
+			projLinkGuardiaoTitle: 'LinkGuardião',
+			projLinkGuardiaoDesc: 'Security-focused URL shortener. .NET + React, password-protected links, configurable expiration, rate limiting and asynchronous analytics processed off the request path.',
+			projArmazemTitle: 'Armazém São Joaquim',
+			projArmazemDesc: 'Portal for managing a warehouse, restaurant and inn, live on its own domain. Next.js and Supabase with a dynamic CMS, booking flow, admin area and a focus on SEO and performance.',
+			projNfeTitle: 'Invoice Issuing and Inventory Control',
+			projNfeDesc: 'Event-driven serverless system for invoicing and inventory management. .NET, AWS Lambda, EventBridge for decoupling and DynamoDB with single-table design.',
+			projCollabDocsTitle: 'CollabDocs',
+			projCollabDocsDesc: 'Real-time document editor with .NET and SignalR. State synchronization over WebSockets, per-document permission control and deployment on serverless infrastructure.',
+			projSummarizerTitle: 'AI Summarization Agent',
+			projSummarizerDesc: 'Agent that uses LLMs to extract and summarize web articles asynchronously. Python, FastAPI and a background task queue, with fallback strategies for reliable collection.',
+			projBillingTitle: 'BillingLedger',
+			projBillingDesc: 'Backend for billing, payments and ledger reconciliation. .NET 9 with separate contexts, the Outbox Pattern for reliable integration and idempotent payment webhook processing.',
+			projEventSourcingTitle: 'Distributed Order Management',
+			projEventSourcingDesc: 'Orders, inventory and payment coordinated in Java + Spring Boot. Inventory reservation with locking, compensation on failure and events published through Outbox + RabbitMQ. 217 automated tests.',
+
+			// Experiências
+			experienciasTitle: 'Experience',
+			experienciasSubtitle: 'My professional journey and academic background',
+			toggleMore: 'Read more',
+			toggleLess: 'Read less',
+
+			expSinergyPeriod: 'Apr 2026 — Present',
+			expSinergyRole: 'Trainee Developer — .NET | SQL Server | ASP.NET',
+			expSinergyShort: 'Development and maintenance of a corporate SaaS platform, focused on stability, upkeep and continuous evolution of the system...',
+			expSinergyFull: 'Development and maintenance of a corporate SaaS platform, focused on stability, upkeep and continuous evolution of the system. Implementation and maintenance of features in C# / ASP.NET, including business rule changes, APIs and routines that support daily operations. Heavy use of SQL Server for queries, data analysis, stored procedures and support for operational reports and data extraction. Support to software quality through testing, failure analysis, bug fixing and collaboration with different business areas.',
+
+			expRsmPeriod: 'Nov 2024 — Apr 2026',
+			expRsmRole: 'IT Support',
+			expRsmShort: 'Triage, logging and handling of incidents (Level 1 and 2), ensuring operational continuity and clear communication with users...',
+			expRsmFull: 'Triage, logging and handling of incidents (Level 1 and 2), ensuring operational continuity and clear communication with users. Diagnosis and resolution of hardware and software problems, focused on root cause and preventing recurrence. Installation, configuration and maintenance of applications, operating systems (Windows, Linux) and peripherals. Support for network infrastructure, computers and printers. Standardization and technical documentation of procedures, reducing rework and improving resolution time.',
+
+			expFreelaPeriod: 'Jan 2024 — Apr 2026',
+			expFreelaRole: 'Full Stack Jr Developer (.NET/C# + React)',
+			expFreelaShort: 'Full stack development with ASP.NET Core Web API and React + TypeScript, covering modeling, business rules, authentication and integrations...',
+			expFreelaFull: 'Full stack development with ASP.NET Core Web API and React + TypeScript, covering modeling, business rules, authentication and integrations. Implementation of asynchronous processing (workers and queues) and resilience patterns for back-office tasks and integrations. Persistence with SQL Server and PostgreSQL, with a data layer in Entity Framework Core. Application of SOLID, Clean Architecture and Design Patterns, with automated tests in xUnit. Deployment on AWS and local environments with Docker, with delivery automation through CI/CD.',
+
+			expEstacioPeriod: 'Jan 2024 — Dec 2027 (expected)',
+			expEstacioRole: 'Computer Science',
+			expEstacioDesc: 'Bachelor of Computer Science, expected to graduate in December 2027. Foundation in algorithms, data structures, databases and software engineering, applied directly to the projects in this portfolio.',
+
+			expAluraPeriod: '2022 — Present',
+			expAluraRole: 'Programming Training',
+			expAluraDesc: 'Full-stack and .NET learning paths, with 30 certificates issued. They cover object-oriented programming with C#, ASP.NET Core, consuming APIs, LINQ and development best practices.',
+
+			// Habilidades
+			habilidadesTitle: 'Skills',
+			habilidadesSubtitle: 'Technologies and skills I use day to day',
+			filterAll: 'All',
+			filterBackend: 'Backend',
+			filterFrontend: 'Frontend',
+			filterDatabase: 'Database',
+			filterCloud: 'Cloud/DevOps',
+			filterQuality: 'Quality',
+			skillBackendTitle: 'Backend',
+			skillBackendDesc: 'Development of APIs and services in C# and ASP.NET Core, with Clean Architecture, validation and standardized error handling.',
+			skillFrontendTitle: 'Frontend',
+			skillFrontendDesc: 'Interfaces in React and Next.js with TypeScript, API consumption, loading and error states, and responsive layout.',
+			skillDatabaseTitle: 'Database',
+			skillDatabaseDesc: 'Relational modeling, queries and stored procedures in SQL Server and PostgreSQL, EF Core migrations and indexes designed for performance.',
+			skillCloudTitle: 'Cloud/DevOps',
+			skillCloudDesc: 'Containers with Docker, CI/CD pipelines on GitHub Actions and deployment to AWS and Azure, with structured logs and health checks.',
+			skillQualityTitle: 'Quality &amp; Security',
+			skillQualityDesc: 'Unit and integration tests with xUnit, JWT authentication with refresh tokens, RBAC and rate limiting.',
+			tagUnitTests: 'Unit tests',
+			tagIntegrationTests: 'Integration tests',
+			tagObservability: 'Observability',
+
+			// Certificados & Idiomas
+			certTitle: 'Certificates &amp; Languages',
+			certSubtitle: 'Continuous learning, recorded and verifiable',
+			certCountTitle: 'certificates issued by Alura',
+			certCountDesc: 'Learning paths in C#, .NET and web development, each one with a verifiable credential.',
+			certIssuedMar2025: 'Issued in March 2025',
+			certCredential: 'Credential',
+			certSeeAll: 'See all 30 certificates on LinkedIn',
+			idiomasTitle: 'Languages',
+			idiomaPt: 'Portuguese',
+			idiomaPtNivel: 'Native',
+			idiomaEn: 'English',
+			idiomaEnNivel: 'Advanced',
+			idiomasNota: 'I read technical documentation and communicate in writing in English every day.',
+
+			// Footer
+			footerLabel: "Let's build something great together?",
+			footerRights: '© {year} Lucas Antunes Ferreira. All rights reserved.',
+			pageTitle: 'Lucas Antunes Ferreira — .NET & React Developer'
 		}
 	};
 
-	function setLanguage(lang) {
-		// Navbar links
-		const navLinks = document.querySelectorAll('.nav-links a');
-		if (navLinks.length >= 5) {
-			navLinks[0].textContent = translations[lang].home;
-			navLinks[1].textContent = translations[lang].sobre;
-			navLinks[2].textContent = translations[lang].projetos;
-			navLinks[3].textContent = translations[lang].experiencias;
-			navLinks[4].textContent = translations[lang].habilidades;
-		}
+	/**
+	 * Resolve uma chave do dicionario, substituindo placeholders dinamicos.
+	 * Se a chave nao existir, devolve null para que o texto do HTML seja mantido
+	 * (falhar em silencio e melhor do que apagar o conteudo da pagina).
+	 */
+	function t(lang, key) {
+		const dict = translations[lang] || translations.pt;
+		const value = dict[key];
+		if (typeof value !== 'string') return null;
+		return value.replace('{year}', String(new Date().getFullYear()));
+	}
 
-		// Hero section
+	/**
+	 * Sincroniza o texto visivel dos paragrafos da timeline com o estado
+	 * atual do botao "Ver mais" apos uma troca de idioma.
+	 */
+	function refreshTimelineTexts(lang) {
+		document.querySelectorAll('.timeline-toggle').forEach((button) => {
+			const textEl = button.parentElement.querySelector('.timeline-text');
+			if (!textEl) return;
 
-		// Hero section
-		const heroTitle = document.querySelector('.hero-content h1');
-		if (heroTitle) heroTitle.innerHTML = translations[lang].heroTitle;
+			const expanded = button.getAttribute('aria-expanded') === 'true';
+			const next = expanded ? textEl.getAttribute('data-full') : textEl.getAttribute('data-short');
+			if (next) textEl.textContent = next;
 
-		const heroDesc = document.querySelector('.hero-description.desktop-text');
-		if (heroDesc) heroDesc.innerHTML = translations[lang].heroDesc;
-
-		const heroDescMobile = document.querySelector('.hero-description.mobile-text');
-		if (heroDescMobile) heroDescMobile.innerHTML = translations[lang].heroDescMobile;
-
-		// Hero buttons
-		const btns = document.querySelectorAll('.hero-buttons .btn');
-		if (btns[0]) btns[0].textContent = translations[lang].btnCurriculo;
-		if (btns[1]) btns[1].textContent = translations[lang].btnProjetos;
-
-		// Sobre section
-		const sobreTitle = document.querySelector('#sobre h2');
-		if (sobreTitle) sobreTitle.textContent = translations[lang].sobreTitle;
-
-		const sobreTexto = document.querySelector('.sobre-conteudo .desktop-text');
-		if (sobreTexto) sobreTexto.innerHTML = translations[lang].sobreTexto;
-
-		const sobreTextoMobile = document.querySelector('#about-text-mobile');
-		if (sobreTextoMobile) sobreTextoMobile.innerHTML = translations[lang].sobreTextoMobile;
-
-		// Estatísticas
-		const statItems = document.querySelectorAll('.stat-item p');
-		if (statItems.length >= 3) {
-			statItems[0].textContent = translations[lang].statExp;
-			statItems[1].textContent = translations[lang].statProj;
-			statItems[2].textContent = translations[lang].statDisp;
-		}
-
-		// Imagem alt
-		const sobreImg = document.querySelector('.profile-img');
-		if (sobreImg) sobreImg.alt = translations[lang].sobreImgAlt;
-
-		// Experiências
-		const expTitle = document.querySelector('#experiencias .section-title');
-		if (expTitle) expTitle.textContent = translations[lang].experienciasTitle;
-		const expBlocks = document.querySelectorAll('#experiencias .timeline-item');
-		if (expBlocks.length >= 4) {
-			// RSM
-			const rsm = expBlocks[0];
-			if (rsm) {
-				const h3 = rsm.querySelector('h3');
-				if (h3) h3.textContent = translations[lang].expRSM.empresa;
-				const period = rsm.querySelector('.timeline-period');
-				if (period) period.textContent = translations[lang].expRSM.periodo;
-				const role = rsm.querySelector('.timeline-role');
-				if (role) role.textContent = translations[lang].expRSM.cargo;
-				const tech = rsm.querySelector('.timeline-tech');
-				if (tech) tech.textContent = translations[lang].expRSM.tech;
-				const ps = rsm.querySelectorAll('p');
-				if (ps.length > 2 && ps[2]) ps[2].textContent = translations[lang].expRSM.desc;
-			}
-			// Alura
-			const alura = expBlocks[1];
-			if (alura) {
-				const h3 = alura.querySelector('h3');
-				if (h3) h3.textContent = translations[lang].expAlura.empresa;
-				const period = alura.querySelector('.timeline-period');
-				if (period) period.textContent = translations[lang].expAlura.periodo;
-				const role = alura.querySelector('.timeline-role');
-				if (role) role.textContent = translations[lang].expAlura.cargo;
-				const ps = alura.querySelectorAll('p');
-				if (ps.length > 1 && ps[1]) ps[1].textContent = translations[lang].expAlura.desc;
-			}
-			// Estácio
-			const estacio = expBlocks[2];
-			if (estacio) {
-				const h3 = estacio.querySelector('h3');
-				if (h3) h3.textContent = translations[lang].expEstacio.empresa;
-				const period = estacio.querySelector('.timeline-period');
-				if (period) period.textContent = translations[lang].expEstacio.periodo;
-				const role = estacio.querySelector('.timeline-role');
-				if (role) role.textContent = translations[lang].expEstacio.cargo;
-				const ps = estacio.querySelectorAll('p');
-				if (ps.length > 1 && ps[1]) ps[1].textContent = translations[lang].expEstacio.desc;
-			}
-			// Freelancer
-			const freela = expBlocks[3];
-			if (freela) {
-				const h3 = freela.querySelector('h3');
-				if (h3) h3.textContent = translations[lang].expFreela.empresa;
-				const period = freela.querySelector('.timeline-period');
-				if (period) period.textContent = translations[lang].expFreela.periodo;
-				const role = freela.querySelector('.timeline-role');
-				if (role) role.textContent = translations[lang].expFreela.cargo;
-				const tech = freela.querySelector('.timeline-tech');
-				if (tech) tech.textContent = translations[lang].expFreela.tech;
-				const ps = freela.querySelectorAll('p');
-				if (ps.length > 2 && ps[2]) ps[2].textContent = translations[lang].expFreela.desc;
-			}
-		}
-
-		// Habilidades
-		const habilidadesTitle = document.querySelector('#habilidades h2');
-		if (habilidadesTitle) habilidadesTitle.textContent = translations[lang].habilidadesTitle;
-		const skillCards = document.querySelectorAll('.skill-card');
-		// Atualiza apenas os cards que têm tradução
-		translations[lang].habilidades.forEach((skill, i) => {
-			if (skillCards[i]) {
-				const h3 = skillCards[i].querySelector('h3');
-				const p = skillCards[i].querySelector('p');
-				if (h3) h3.textContent = skill.title;
-				if (p) p.textContent = skill.desc;
-			}
+			const label = button.querySelector('.toggle-text');
+			if (label) label.textContent = t(lang, expanded ? 'toggleLess' : 'toggleMore') || label.textContent;
 		});
-		// Limpa cards extras
-		for (let i = translations[lang].habilidades.length; i < skillCards.length; i++) {
-			const h3 = skillCards[i].querySelector('h3');
-			const p = skillCards[i].querySelector('p');
-			if (h3) h3.textContent = '';
-			if (p) p.textContent = '';
+	}
+
+	function setLanguage(lang) {
+		document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+
+		const title = t(lang, 'pageTitle');
+		if (title) document.title = title;
+
+		document.querySelectorAll('[data-i18n]').forEach((el) => {
+			const value = t(lang, el.getAttribute('data-i18n'));
+			// Chaves de texto puro podem conter entidades (&amp;), entao usamos
+			// innerHTML — os valores vem do dicionario, nunca de input do usuario.
+			if (value !== null) el.innerHTML = value;
+		});
+
+		document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+			const value = t(lang, el.getAttribute('data-i18n-html'));
+			if (value !== null) el.innerHTML = value;
+		});
+
+		document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+			const value = t(lang, el.getAttribute('data-i18n-placeholder'));
+			if (value !== null) el.placeholder = value;
+		});
+
+		document.querySelectorAll('[data-i18n-short]').forEach((el) => {
+			const value = t(lang, el.getAttribute('data-i18n-short'));
+			if (value !== null) el.setAttribute('data-short', value);
+		});
+
+		document.querySelectorAll('[data-i18n-full]').forEach((el) => {
+			const value = t(lang, el.getAttribute('data-i18n-full'));
+			if (value !== null) el.setAttribute('data-full', value);
+		});
+
+		refreshTimelineTexts(lang);
+
+		if (langBtn) {
+			langBtn.textContent = lang === 'pt' ? 'PT / EN' : 'EN / PT';
+			langBtn.setAttribute('aria-label', lang === 'pt' ? 'Mudar para inglês' : 'Switch to Portuguese');
 		}
 
-		// Projetos section
-		const projetosTitle = document.querySelector('#projetos h2');
-		if (projetosTitle) projetosTitle.innerHTML = translations[lang].projetosTitle;
-		const projetosSubtitle = document.querySelector('.projetos-subtitle');
-		if (projetosSubtitle) projetosSubtitle.textContent = translations[lang].projetosSubtitle;
-		// Traduz botões de stacks
-		// Traduz botões de stacks
-		const stackBtns = document.querySelectorAll('.stack-btn');
-		if (stackBtns.length === translations[lang].stacks.length) {
-			translations[lang].stacks.forEach((stackText, i) => {
-				const btn = stackBtns[i];
-				const span = btn.querySelector('span');
-				if (span) {
-					span.textContent = stackText;
-				} else {
-					// Fallback caso não tenha span (estrutura antiga)
-					const icon = btn.querySelector('i');
-					btn.innerHTML = icon ? icon.outerHTML + ' ' + stackText : stackText;
-				}
-			});
-		}
-
-		// Corrige links de navegação para mostrar apenas 'Habilidades' e 'Projetos'
-		const habilidadesLink = document.querySelector('a[href="#habilidades"]');
-		if (habilidadesLink) {
-			habilidadesLink.textContent = translations[lang].habilidadesTitle;
-		}
-		const projetosLink = document.querySelector('a[href="#projetos"]');
-		if (projetosLink) {
-			projetosLink.textContent = translations[lang].projetosTitle;
-		}
-
-		// Footer contact
-		const contato = document.querySelector('.contact-info p');
-		if (contato) contato.textContent = translations[lang].contato;
-
-		// Projetos section - A regeneração dinâmica foi desativada para manter a compatibilidade com o sistema de filtros (js/projetos.js)
-		// e a estrutura HTML Premium.
-		/*
-		const projetosGrid = document.querySelector('.projetos-grid');
-		if (projetosGrid && translations[lang].projetos && translations[lang].projetos.length > 0) {
-			projetosGrid.innerHTML = '';
-			translations[lang].projetos.forEach(proj => {
-				const card = document.createElement('div');
-				card.className = 'project-card';
-				card.innerHTML = `
-					<div class="project-image">
-						<img src="${proj.img}" alt="${proj.alt}">
-					</div>
-					<div class="project-content">
-						<h3>${proj.title}</h3>
-						<p>${proj.desc}</p>
-						<div class="project-tags">
-							${proj.tags.map(tag => `<span>${tag}</span>`).join('')}
-						</div>
-						<div class="project-links">
-							${proj.code ? `<a href="${proj.code}" class="btn-project"><i class="fas fa-code"></i> ${lang === 'pt' ? 'Ver Código' : 'See Code'}</a>` : ''}
-							${proj.demo ? `<a href="${proj.demo}" class="btn-project"><i class="fas fa-external-link-alt"></i> Demo</a>` : ''}
-						</div>
-					</div>
-				`;
-				projetosGrid.appendChild(card);
-			});
-		}
-		*/
-
-		if (typeof window.updateProjectsLabels === 'function') {
-			window.updateProjectsLabels(lang);
-		}
-
-		// Atualizar labels das seções Experiências e Habilidades
-		if (typeof window.updateExperienciasHabilidadesLabels === 'function') {
-			window.updateExperienciasHabilidadesLabels(lang);
+		try {
+			localStorage.setItem(LANG_STORAGE_KEY, lang);
+		} catch (e) {
+			// localStorage indisponivel (modo privado): a troca continua valendo
+			// para a sessao atual, apenas nao persiste.
 		}
 	}
+
+	// Expoe para os outros scripts (o toggle da timeline precisa saber o idioma)
+	window.getCurrentLang = function () {
+		return document.documentElement.lang === 'en' ? 'en' : 'pt';
+	};
+	window.i18nText = t;
 
 	// ==================== TIMELINE PREMIUM 2026 ====================
 	function initTimeline() {
@@ -723,16 +522,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	initTimeline();
 
-	// Event listener para botão de idioma
+	// ==================== INICIALIZACAO DO IDIOMA ====================
+	// Ordem de prioridade: escolha salva > idioma do navegador > portugues.
+	let savedLang = null;
+	try {
+		savedLang = localStorage.getItem(LANG_STORAGE_KEY);
+	} catch (e) {
+		savedLang = null;
+	}
+
+	let currentLang = savedLang === 'pt' || savedLang === 'en' ? savedLang : null;
+	if (!currentLang) {
+		const navLang = (navigator.language || 'pt').toLowerCase();
+		currentLang = navLang.startsWith('pt') ? 'pt' : 'en';
+	}
+
+	setLanguage(currentLang);
+
 	if (langBtn) {
 		langBtn.addEventListener('click', function () {
 			currentLang = currentLang === 'pt' ? 'en' : 'pt';
 			setLanguage(currentLang);
-			langBtn.textContent = currentLang === 'pt' ? 'PT / EN' : 'EN / PT';
+			// O menu mobile precisa reanexar os listeners apos a troca
+			setTimeout(applyMenuListeners, 100);
 		});
-
-		// Set initial language
-		setLanguage(currentLang);
 	}
 });
 

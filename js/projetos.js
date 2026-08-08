@@ -268,54 +268,13 @@
         }
         applyFilter();
 
-        console.log(
-            `✅ Projetos OK. Cards: ${elements.projectCards.length}, filtros: ${elements.stackButtons.length}`
-        );
     }
 
     if (document.readyState !== "loading") init();
     else document.addEventListener("DOMContentLoaded", init);
 })();
 
-/**
- * ========================================
- * TRANSLATION SUPPORT (INTEGRATION)
- * ========================================
+/*
+ * Os rotulos desta secao (botao "Todos", placeholder da busca e estado vazio)
+ * agora vem do motor data-i18n em js/main.js.
  */
-(function () {
-    "use strict";
-
-    function updateProjectsLabels(lang) {
-        const translations = {
-            pt: {
-                all: "Todos",
-                search: "Buscar projeto...",
-                emptyText: "Nenhum projeto encontrado",
-                emptyHint: "Tente buscar por outra tecnologia ou termo",
-            },
-            en: {
-                all: "All",
-                search: "Search project...",
-                emptyText: "No projects found",
-                emptyHint: "Try searching for another technology or term",
-            },
-        };
-
-        const t = translations[lang] || translations.pt;
-
-        const allButton = document.querySelector('.stack-btn[data-stack="all"] span');
-        if (allButton) allButton.textContent = t.all;
-
-        const searchInput = document.getElementById("project-search");
-        if (searchInput) searchInput.placeholder = t.search;
-
-        const emptyText = document.querySelector(".projetos-empty-text");
-        if (emptyText) emptyText.textContent = t.emptyText;
-
-        const emptyHint = document.querySelector(".projetos-empty-hint");
-        if (emptyHint) emptyHint.textContent = t.emptyHint;
-    }
-
-    window.updateProjectsLabels = updateProjectsLabels;
-})();
-

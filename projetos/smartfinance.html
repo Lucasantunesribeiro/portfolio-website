@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartFinance — Lucas Antunes Ferreira</title>
+    <meta name="description" content="Plataforma fullstack de gestão financeira pessoal, com autenticação segura, controle de contas, transações, categorias, orçamentos e analytics. O domínio central é o de gestão fina">
+    <meta name="author" content="Lucas Antunes Ferreira">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="canonical" href="https://www.lucasafvr.com.br/projetos/smartfinance.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.lucasafvr.com.br/projetos/smartfinance.html">
+    <meta property="og:site_name" content="Lucas Antunes Ferreira">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="SmartFinance — Plataforma de gestão financeira pessoal">
+    <meta property="og:description" content="Plataforma fullstack de gestão financeira pessoal, com autenticação segura, controle de contas, transações, categorias, orçamentos e analytics. O domínio central é o de gestão fina">
+    <meta property="og:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SmartFinance — Plataforma de gestão financeira pessoal">
+    <meta name="twitter:description" content="Plataforma fullstack de gestão financeira pessoal, com autenticação segura, controle de contas, transações, categorias, orçamentos e analytics. O domínio central é o de gestão fina">
+    <meta name="twitter:image" content="https://www.lucasafvr.com.br/assets/og-image.png">
+
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "SmartFinance",
+      "description": "Plataforma fullstack de gestão financeira pessoal, com autenticação segura, controle de contas, transações, categorias, orçamentos e analytics. O domínio central é o de gestão fina",
+      "codeRepository": "https://github.com/Lucasantunesribeiro/smart_finance",
+      "programmingLanguage": [".NET 8","C#","Next.js","TypeScript","PostgreSQL","RabbitMQ","SignalR","Terraform","AWS"],
+      "author": {
+        "@type": "Person",
+        "name": "Lucas Antunes Ferreira",
+        "url": "https://www.lucasafvr.com.br/"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projeto-detalhe.css">
+
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="pd-body">
+    <a class="pd-skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <nav class="pd-nav">
+        <div class="pd-container">
+            <a href="../index.html" class="pd-back">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Voltar ao portfólio</span>
+            </a>
+            <a href="../index.html#projetos" class="pd-nav-link">Todos os projetos</a>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <!-- ==================== HERO ==================== -->
+        <header class="pd-hero">
+            <div class="pd-container">
+                <h1 class="pd-title">SmartFinance</h1>
+                <p class="pd-subtitle">Plataforma de gestão financeira pessoal</p>
+
+                <div class="pd-tags" aria-label="Tecnologias utilizadas">
+                    <span class="pd-tag">.NET 8</span>
+                    <span class="pd-tag">C#</span>
+                    <span class="pd-tag">Next.js</span>
+                    <span class="pd-tag">TypeScript</span>
+                    <span class="pd-tag">PostgreSQL</span>
+                    <span class="pd-tag">RabbitMQ</span>
+                    <span class="pd-tag">SignalR</span>
+                    <span class="pd-tag">Terraform</span>
+                    <span class="pd-tag">AWS</span>
+                </div>
+
+                <div class="pd-actions">
+                    <a class="pd-btn pd-btn-primary" href="https://github.com/Lucasantunesribeiro/smart_finance" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>Ver código no GitHub</span>
+                    </a>
+                    <a class="pd-btn pd-btn-secondary" href="http://3.223.37.57/login" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        <span>Ver demo</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="pd-container pd-content">
+            <img class="pd-image" src="../assets/smartfinance_mockup.jpg" alt="Interface do projeto SmartFinance"
+                loading="lazy" decoding="async" width="1200" height="750">
+
+            <!-- ==================== FICHA TÉCNICA ==================== -->
+            <dl class="pd-facts">
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Arquitetura</dt>
+                    <dd class="pd-fact-value">Modular monolith em camadas</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Mensageria</dt>
+                    <dd class="pd-fact-value">RabbitMQ + Outbox Pattern</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Testes</dt>
+                    <dd class="pd-fact-value">81 testes .NET + 95 do microserviço</dd>
+                </div>
+                <div class="pd-fact">
+                    <dt class="pd-fact-label">Infra</dt>
+                    <dd class="pd-fact-value">Terraform · ECS Fargate · RDS</dd>
+                </div>
+            </dl>
+
+            <!-- ==================== VISÃO GERAL ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Visão geral</h2>
+                <p>Plataforma fullstack de gestão financeira pessoal, com autenticação segura, controle de contas, transações, categorias, orçamentos e analytics. O domínio central é o de gestão financeira, com frontend Next.js e backend .NET 8.</p>
+                <p>O sistema centraliza a vida financeira do usuário em uma aplicação única, com segregação de dados por usuário, visão consolidada de saldo, controle de receitas e despesas, acompanhamento de orçamento e relatórios analíticos. Além do backend principal em .NET, o repositório mantém um microserviço complementar em Node.js/TypeScript voltado a pagamentos.</p>
+            </section>
+
+            <!-- ==================== ARQUITETURA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Arquitetura</h2>
+                <p>Backend principal em .NET 8 organizado como monólito modular em camadas, frontend desacoplado em Next.js 14 e um microserviço complementar em Node.js para pagamentos. A comunicação assíncrona interna acontece via Outbox + RabbitMQ.</p>
+                <ul class="pd-layers">
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">SmartFinance.Domain</code>
+                        <span class="pd-layer-desc">Entidades, enums e contratos de repositório e unidade de trabalho.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">SmartFinance.Application</code>
+                        <span class="pd-layer-desc">Commands, queries, DTOs e interfaces de aplicação.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">SmartFinance.Infrastructure</code>
+                        <span class="pd-layer-desc">EF Core, DbContext, migrations, repositórios genéricos e serviços.</span>
+                    </li>
+                    <li class="pd-layer">
+                        <code class="pd-layer-name">SmartFinance.WebApi</code>
+                        <span class="pd-layer-desc">Controllers, middlewares, autenticação, mensageria, SignalR e bootstrap.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ==================== FLUXO ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Fluxo de criação de uma transação</h2>
+                <ol class="pd-steps">
+                    <li>O usuário autentica em <code>/api/v1/auth/login</code>; o backend valida a senha com PBKDF2, gera access token JWT e refresh token e devolve a sessão em cookies HttpOnly.</li>
+                    <li>O frontend passa a enviar o token CSRF nas operações mutáveis e consulta contas, categorias, transações, orçamentos e analytics.</li>
+                    <li>Ao criar uma transação, o handler valida a conta do usuário, grava a transação, atualiza o saldo e persiste uma mensagem na <strong>outbox</strong> — tudo na mesma transação de banco.</li>
+                    <li>O <code>OutboxPublisherService</code> lê a outbox e publica o evento no RabbitMQ.</li>
+                    <li>O <code>TransactionCreatedConsumerService</code> consome o evento, verifica idempotência em <code>ProcessedIntegrationEvents</code> e dispara notificação em tempo real via SignalR.</li>
+                    <li>O dashboard do usuário reflete a atualização sem precisar recarregar a página.</li>
+                </ol>
+            </section>
+
+            <!-- ==================== PONTOS FORTES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Pontos fortes</h2>
+                <ul class="pd-list pd-list-positive">
+                    <li>Uso real de RabbitMQ com Outbox Pattern, retry, dead-letter queue e idempotência no consumo.</li>
+                    <li>Autenticação bem acima da média: JWT, rotação de refresh token, cookies HttpOnly, CSRF e rate limiting.</li>
+                    <li>Observabilidade com Serilog, Prometheus, OpenTelemetry, Grafana e CloudWatch.</li>
+                    <li>Atualização em tempo real via SignalR.</li>
+                    <li>Infraestrutura em Terraform: ECS Fargate, RDS, ALB, WAF, Secrets Manager, CloudTrail e IAM via OIDC do GitHub.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== LIMITES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
+                <p class="pd-limits-intro">
+                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
+                    que exagerar o escopo.
+                </p>
+                <ul class="pd-list pd-list-caveat">
+                    <li>O domínio ainda é predominantemente anêmico: a maior parte das regras vive em handlers e services, não em agregados ricos com value objects e domain events.</li>
+                    <li>A arquitetura é consistente em alto nível, mas não uniforme: Auth e Transactions usam MediatR com commands/queries, enquanto Accounts, Categories, Budgets e Analytics seguem por interfaces de serviço.</li>
+                    <li>O fluxo orientado a eventos está concentrado no evento de criação de transação — ainda não é uma malha ampla de eventos entre múltiplos contextos.</li>
+                    <li>O microserviço de pagamentos funciona como contexto complementar, e não como parte plenamente integrada ao produto principal.</li>
+                </ul>
+            </section>
+
+            <!-- ==================== NAVEGAÇÃO ==================== -->
+            <nav class="pd-pager" aria-label="Navegação entre projetos">
+                <a class="pd-pager-link pd-pager-prev" href="armazem-sao-joaquim.html">
+                    <span class="pd-pager-label"><i class="fas fa-chevron-left" aria-hidden="true"></i> Anterior</span>
+                    <span class="pd-pager-title">Armazém São Joaquim</span>
+                </a>
+                <a class="pd-pager-link pd-pager-next" href="tenantcore.html">
+                    <span class="pd-pager-label">Próximo <i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                    <span class="pd-pager-title">TenantCore</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="pd-footer">
+        <div class="pd-container">
+            <p>
+                <a href="mailto:lucas.afvr@gmail.com">lucas.afvr@gmail.com</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://www.linkedin.com/in/lucasantunesferreira/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://github.com/Lucasantunesribeiro" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="pd-footer-copy">&copy; 2026 Lucas Antunes Ferreira</p>
+        </div>
+    </footer>
+</body>
+
+</html>

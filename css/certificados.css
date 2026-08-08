@@ -1,0 +1,252 @@
+/*
+  ========================================
+  CERTIFICADOS & IDIOMAS
+  ========================================
+
+  Reaproveita os tokens definidos em experiencias-habilidades.css
+  (--exp-*) para manter a seção visualmente idêntica ao resto do site.
+*/
+
+.certificados {
+    padding: var(--exp-spacing-3xl) 0;
+    background: var(--exp-bg);
+    position: relative;
+}
+
+/* ==================== HEADER ==================== */
+.certificados-header {
+    text-align: center;
+    margin-bottom: var(--exp-spacing-2xl);
+}
+
+.certificados-title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--exp-spacing-sm);
+}
+
+.certificados-title-accent {
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--exp-primary);
+}
+
+.certificados-subtitle {
+    color: var(--exp-text-secondary);
+    font-size: 1.0625rem;
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+/* ==================== LAYOUT ==================== */
+.cert-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: var(--exp-spacing-xl);
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .cert-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== DESTAQUE (30 certificados) ==================== */
+.cert-highlight {
+    display: flex;
+    align-items: center;
+    gap: var(--exp-spacing-lg);
+    padding: var(--exp-spacing-lg);
+    background: var(--exp-surface);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius-lg);
+    margin-bottom: var(--exp-spacing-lg);
+}
+
+.cert-highlight-number {
+    flex-shrink: 0;
+    font-size: clamp(2.5rem, 7vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--exp-primary);
+}
+
+.cert-highlight-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--exp-text);
+    margin-bottom: 0.25rem;
+}
+
+.cert-highlight-desc {
+    font-size: 0.9375rem;
+    color: var(--exp-text-secondary);
+    line-height: 1.6;
+}
+
+/* ==================== LISTA DE CERTIFICADOS ==================== */
+.cert-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--exp-spacing-sm);
+    margin: 0 0 var(--exp-spacing-lg);
+    padding: 0;
+}
+
+.cert-item {
+    display: flex;
+    gap: var(--exp-spacing-md);
+    padding: var(--exp-spacing-md);
+    background: var(--exp-surface);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius-md);
+    transition: border-color var(--exp-transition), background var(--exp-transition);
+}
+
+.cert-item:hover {
+    background: var(--exp-surface-hover);
+    border-color: var(--exp-border-hover);
+}
+
+.cert-item-icon {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    font-size: 1.125rem;
+    color: var(--exp-secondary);
+}
+
+.cert-item-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--exp-text);
+    margin-bottom: 0.25rem;
+}
+
+.cert-item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    color: var(--exp-text-secondary);
+    margin-bottom: 0.35rem;
+}
+
+.cert-item-code {
+    font-size: 0.8125rem;
+    color: var(--exp-text-muted);
+    word-break: break-all;
+}
+
+.cert-item-code code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8125rem;
+    color: var(--exp-text-secondary);
+}
+
+/* ==================== LINK PARA O LINKEDIN ==================== */
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius);
+    color: var(--exp-text);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: all var(--exp-transition);
+}
+
+.cert-link:hover {
+    background: var(--exp-surface-hover);
+    border-color: var(--exp-primary);
+    color: var(--exp-primary-hover);
+    transform: translateY(-2px);
+}
+
+.cert-link:focus-visible {
+    outline: 2px solid var(--exp-primary);
+    outline-offset: 2px;
+}
+
+/* ==================== IDIOMAS ==================== */
+.cert-side {
+    padding: var(--exp-spacing-lg);
+    background: var(--exp-surface);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius-lg);
+}
+
+.idiomas-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--exp-text);
+    margin-bottom: var(--exp-spacing-lg);
+}
+
+.idioma-item {
+    margin-bottom: var(--exp-spacing-lg);
+}
+
+.idioma-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--exp-spacing-sm);
+    margin-bottom: 0.5rem;
+}
+
+.idioma-nome {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--exp-text);
+}
+
+.idioma-nivel {
+    font-size: 0.8125rem;
+    color: var(--exp-text-secondary);
+}
+
+.idioma-barra {
+    height: 6px;
+    border-radius: var(--exp-radius-full);
+    background: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+}
+
+.idioma-preenchimento {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--exp-primary), var(--exp-secondary));
+}
+
+.idiomas-nota {
+    font-size: 0.875rem;
+    color: var(--exp-text-muted);
+    line-height: 1.6;
+    margin-top: var(--exp-spacing-md);
+}
+
+/* ==================== MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+
+    .cert-item,
+    .cert-link {
+        transition: none;
+    }
+
+    .cert-link:hover {
+        transform: none;
+    }
+}
