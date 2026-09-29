@@ -13,19 +13,21 @@ No ar em <https://www.lucasafvr.com.br>.
 
 ```
 Portfolio/
-  index.html              # Página principal (hero, 3 projetos principais, outros projetos, sobre, timeline, certificados, contato)
+  index.html              # Página principal (hero, projetos com busca e filtro, sobre, timeline, certificados, contato)
   projetos/*.html         # Páginas de detalhe — GERADAS, não edite à mão
   robots.txt
   sitemap.xml             # GERADO
   css/
     style.css                    # Base, reset, navbar, hero (com vídeo de fundo)
-    portfolio.css                # Projetos principais, outros projetos e contato
+    projetos.css                 # Cards, busca e filtro por stack da seção Projetos
+    portfolio.css                # Cards em destaque, grupos de projetos, contato e ajustes das seções antigas
     sobre.css
     experiencias-habilidades.css # Só a timeline de experiências
     certificados.css             # Certificados e idiomas
     projeto-detalhe.css          # Só as páginas em projetos/
   js/
     main.js                      # Motor de i18n, menu, barra de progresso, header fixo
+    projetos.js                  # Busca por nome/stack e filtro por tecnologia (esconde grupos vazios)
     experiencias.js              # Botão "Ver mais" da timeline
   scripts/                # Geradores (rodam em Node, fora do runtime do site)
   assets/                 # Imagens, vídeos, currículo
@@ -66,14 +68,16 @@ npm run gen                   # roda os três
 | `scripts/generate_og_image.js` | Gera a imagem de preview de link (`og-image.png`) e o poster do vídeo do hero. |
 | `scripts/generate_mockups.js`, `scripts/create_custom_mockup.js` | Geram os mockups dos cards de projeto (usam Playwright). |
 
-## Projetos principais e mídia
+## Projetos em destaque e mídia
 
-Os três projetos em destaque (Torre Logística, Central Antifraude, Prisma RH) são escritos direto no `index.html`, dentro de `#projetos`. Cada número exibido (testes, pentests, rotas) vem do README ou do relatório de segurança do respectivo repositório — ao atualizar um projeto, confira esses números.
+A seção `#projetos` tem dois grupos, com o mesmo design de card: **Em destaque** (Torre Logística, Central Antifraude e Prisma RH, com vídeo) e **Outros projetos**. A busca (`#project-search`) casa com título, descrição e tecnologias; os botões filtram por stack. Ambos valem para os dois grupos, e um grupo sem resultado some junto com o título. Para a busca achar uma tecnologia, ela precisa estar no `data-tags` do card.
 
-- `assets/projetos/*-demo.mp4`: vídeos curtos (24–33 s, sem áudio, H.264 com `faststart`), copiados das versões finais curtas. Não use as versões longas (~45 MB).
+Os três destaques também têm página de detalhe, geradas de `scripts/projects-data.js` (com vídeo, galeria e links de release e pentest). Cada número exibido (testes, pentests, rotas) vem do README ou do relatório de segurança do respectivo repositório; ao atualizar um projeto, confira esses números.
+
+- `assets/projetos/*-demo.mp4`: vídeos curtos (24–33 s, sem áudio, H.264 com `faststart`), 1920x950. São cópias **recortadas** das versões finais curtas: a faixa preta inferior e a barra do navegador da gravação foram cortadas com `ffmpeg -vf crop`. As gravações originais não foram alteradas, e as versões longas (~45 MB) não são usadas.
 - `assets/projetos/*-poster.jpg`: quadro de cada vídeo, usado como `poster`.
 - Os vídeos usam `controls`, `preload="metadata"` e `playsinline`; nada toca sozinho com áudio.
-- Os cards de "Outros projetos" usam os textos do dicionário de `main.js`; demos fora do ar não têm botão (SmartFinance e Emissão de NF-e, conferidos em 2026-09-29).
+- Demos fora do ar não têm botão (SmartFinance e Emissão de NF-e, conferidos em 2026-09-29).
 
 > Ao adicionar ou remover um projeto: edite `scripts/projects-data.js`, ajuste o
 > card correspondente em `index.html` e rode `npm run gen`.

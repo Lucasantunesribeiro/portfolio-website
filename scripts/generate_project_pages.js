@@ -70,6 +70,45 @@ function renderPage(project, index, all) {
                     </a>`
         : '';
 
+    const extraLinks = (project.links || [])
+        .map(
+            (link) => `                    <a class="pd-btn pd-btn-secondary" href="${attr(link.url)}" target="_blank" rel="noopener noreferrer">
+                        <i class="${attr(link.icon)}" aria-hidden="true"></i>
+                        <span>${attr(link.label)}</span>
+                    </a>`
+        )
+        .join('\n');
+
+    const [imgW, imgH] = project.imageSize || [1200, 750];
+    const media = project.video
+        ? `            <figure class="pd-video">
+                <video controls preload="metadata" playsinline width="1920" height="950" poster="${attr(project.video.poster)}">
+                    <source src="${attr(project.video.src)}" type="video/mp4">
+                </video>
+                <figcaption>${attr(project.video.caption)}</figcaption>
+            </figure>`
+        : `            <img class="pd-image" src="${attr(project.image)}" alt="Interface do projeto ${attr(project.title)}"
+                loading="lazy" decoding="async" width="${imgW}" height="${imgH}">`;
+
+    const galleryItems = (project.gallery || [])
+        .map(
+            (shot) => `                    <figure>
+                        <img src="${attr(shot.src)}" alt="${attr(shot.alt)}" loading="lazy" decoding="async" width="${shot.w}" height="${shot.h}">
+                        <figcaption>${attr(shot.caption)}</figcaption>
+                    </figure>`
+        )
+        .join('\n');
+    const gallery = project.gallery
+        ? `            <!-- ==================== CAPTURAS DE TELA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Capturas de tela</h2>
+                <div class="pd-gallery">
+${galleryItems}
+                </div>
+            </section>
+`
+        : '';
+
     const badge = project.badge
         ? `                <p class="pd-badge">${attr(project.badge)}</p>\n`
         : '';
@@ -161,13 +200,13 @@ ${tags}
                         <span>Ver código no GitHub</span>
                     </a>
 ${demoButton}
+${extraLinks}
                 </div>
             </div>
         </header>
 
         <div class="pd-container pd-content">
-            <img class="pd-image" src="${attr(project.image)}" alt="Interface do projeto ${attr(project.title)}"
-                loading="lazy" decoding="async" width="1200" height="750">
+${media}
 
             <!-- ==================== FICHA TÉCNICA ==================== -->
             <dl class="pd-facts">
@@ -197,6 +236,7 @@ ${steps}
                 </ol>
             </section>
 
+${gallery}
             <!-- ==================== PONTOS FORTES ==================== -->
             <section class="pd-section">
                 <h2 class="pd-section-title">Pontos fortes</h2>

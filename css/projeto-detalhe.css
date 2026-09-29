@@ -491,3 +491,44 @@
         transform: none;
     }
 }
+
+/* ==================== VÍDEO E GALERIA (projetos principais) ==================== */
+.pd-video {
+    margin: 0 0 2rem;
+}
+
+.pd-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1920 / 950;
+    border: 1px solid var(--pd-border, rgba(255, 255, 255, 0.08));
+    border-radius: 0.75rem;
+    background: #000;
+}
+
+.pd-video figcaption,
+.pd-gallery figcaption {
+    margin-top: 0.6rem;
+    font-size: 0.875rem;
+    color: #9ca3af;
+}
+
+.pd-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.pd-gallery figure {
+    margin: 0;
+}
+
+.pd-gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--pd-border, rgba(255, 255, 255, 0.08));
+    border-radius: 0.5rem;
+}
