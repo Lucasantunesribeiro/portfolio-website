@@ -13,13 +13,13 @@ No ar em <https://www.lucasafvr.com.br>.
 
 ```
 Portfolio/
-  index.html              # Página principal (hero, números, 3 projetos principais, outros projetos, método, stack, sobre, timeline, certificados, contato)
+  index.html              # Página principal (hero, 3 projetos principais, outros projetos, sobre, timeline, certificados, contato)
   projetos/*.html         # Páginas de detalhe — GERADAS, não edite à mão
   robots.txt
   sitemap.xml             # GERADO
   css/
     style.css                    # Base, reset, navbar, hero (com vídeo de fundo)
-    portfolio.css                # Números, projetos principais, outros projetos, método, stack, contato
+    portfolio.css                # Projetos principais, outros projetos e contato
     sobre.css
     experiencias-habilidades.css # Só a timeline de experiências
     certificados.css             # Certificados e idiomas
@@ -73,7 +73,7 @@ Os três projetos em destaque (Torre Logística, Central Antifraude, Prisma RH) 
 - `assets/projetos/*-demo.mp4`: vídeos curtos (24–33 s, sem áudio, H.264 com `faststart`), copiados das versões finais curtas. Não use as versões longas (~45 MB).
 - `assets/projetos/*-poster.jpg`: quadro de cada vídeo, usado como `poster`.
 - Os vídeos usam `controls`, `preload="metadata"` e `playsinline`; nada toca sozinho com áudio.
-- Os cards de "Outros projetos" são gerados a partir dos dicionários de `main.js`; demos fora do ar não têm botão (SmartFinance e Emissão de NF-e, conferidos em 2026-09-29).
+- Os cards de "Outros projetos" usam os textos do dicionário de `main.js`; demos fora do ar não têm botão (SmartFinance e Emissão de NF-e, conferidos em 2026-09-29).
 
 > Ao adicionar ou remover um projeto: edite `scripts/projects-data.js`, ajuste o
 > card correspondente em `index.html` e rode `npm run gen`.

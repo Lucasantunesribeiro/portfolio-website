@@ -118,8 +118,6 @@
             </button>
             <div class="nav-links" id="nav-links">
                 <a href="#projetos" data-i18n="navProjetos">Projetos</a>
-                <a href="#como" data-i18n="navComo">Como trabalho</a>
-                <a href="#stack" data-i18n="navStack">Stack</a>
                 <a href="#sobre" data-i18n="navSobre">Sobre</a>
                 <a href="#experiencias" data-i18n="navExperiencias">Experiências</a>
                 <a href="#certificados" data-i18n="navCertificados">Certificados</a>
@@ -186,481 +184,254 @@
         </div>
     </section>
 
-    <!-- ========================= NÚMEROS ========================= -->
-    <section id="numeros" class="nx" aria-labelledby="nx-title">
-        <div class="container">
-            <h2 id="nx-title" class="sr-only" data-i18n="numTitle">Destaques em números</h2>
-            <ul class="nx-grid">
-                <li>
-                    <span class="nx-value">3</span>
-                    <span class="nx-label" data-i18n="num1Label">produtos B2B no ar</span>
-                    <span class="nx-sub" data-i18n="num1Sub">Cada um com demo pública, release publicada e código
-                        aberto.</span>
-                </li>
-                <li>
-                    <span class="nx-value">4.060</span>
-                    <span class="nx-label" data-i18n="num2Label">testes automatizados</span>
-                    <span class="nx-sub" data-i18n="num2Sub">Soma dos três projetos: unidade, integração, arquitetura
-                        e frontend.</span>
-                </li>
-                <li>
-                    <span class="nx-value">3</span>
-                    <span class="nx-label" data-i18n="num3Label">pentests gray-box em produção</span>
-                    <span class="nx-sub" data-i18n="num3Sub">Nenhuma vulnerabilidade de severidade alta nos três
-                        relatórios.</span>
-                </li>
-                <li>
-                    <span class="nx-value">3/3</span>
-                    <span class="nx-label" data-i18n="num4Label">multi-tenant com RBAC</span>
-                    <span class="nx-sub" data-i18n="num4Sub">Isolamento entre organizações provado por teste e por
-                        pentest.</span>
-                </li>
-            </ul>
-            <p class="nx-note" data-i18n="numNote">Números tirados dos READMEs e relatórios de cada repositório. Testes
-                por projeto: Torre 1.392 · Central 1.211 · Prisma 1.457.</p>
-        </div>
-    </section>
-
     <!-- ================== PROJETOS PRINCIPAIS ================== -->
     <section id="projetos" class="px" aria-labelledby="px-title">
         <div class="container">
             <header class="section-head">
-                <p class="section-eyebrow" data-i18n="projEyebrow">Projetos principais</p>
                 <h2 id="px-title" class="section-title" data-i18n="projTitle">Três produtos, do domínio à produção</h2>
-                <p class="section-lead" data-i18n="projLead">Cada um mostra uma competência diferente: tempo real e
-                    geolocalização, sistemas distribuídos e concorrência, domínio complexo e cálculo rastreável.</p>
+                <p class="section-lead" data-i18n="projLead">Cada um mostra uma competência diferente: tempo real e geolocalização, sistemas distribuídos e concorrência, domínio complexo e cálculo rastreável.</p>
             </header>
-
-            <!-- ---------- 01 TORRE LOGÍSTICA ---------- -->
-            <article id="torre-logistica" class="fp" style="--accent: var(--torre)" aria-labelledby="torre-title">
-                <header class="fp-head">
-                    <span class="fp-n" aria-hidden="true">01</span>
-                    <div class="fp-heading">
-                        <h3 id="torre-title" class="fp-title">Torre Logística</h3>
-                        <p class="fp-tag" data-i18n="torreTag">Operação logística em tempo real</p>
-                    </div>
-                    <p class="fp-status"><span class="fp-status-dot" aria-hidden="true"></span><span
-                            data-i18n="torreStatus">v1.0.1 · no ar · set 2026</span></p>
-                </header>
-
-                <div class="fp-body">
-                    <div class="fp-media">
-                        <figure class="fp-video">
-                            <video controls preload="metadata" playsinline width="1920" height="1080"
-                                poster="assets/projetos/torre-logistica-poster.jpg"
-                                aria-describedby="torre-video-cap">
-                                <source src="assets/projetos/torre-logistica-demo.mp4" type="video/mp4">
-                            </video>
-                            <figcaption id="torre-video-cap" data-i18n="torreVideoCap">Passeio de 33 s pela demo
-                                pública: console, PWA do motorista e rastreamento.</figcaption>
-                        </figure>
-                        <div class="fp-shots fp-shots--phones">
-                            <figure>
-                                <img src="assets/projetos/torre-logistica-pwa-motorista.webp" loading="lazy"
-                                    decoding="async" width="516" height="734"
-                                    alt="PWA do motorista: rota do dia com a próxima entrega em destaque e o botão Abrir entrega."
-                                    data-i18n-alt="torreAlt1">
-                                <figcaption data-i18n="torreCap1">PWA do motorista, offline-first</figcaption>
-                            </figure>
-                            <figure>
-                                <img src="assets/projetos/torre-logistica-rastreamento-publico.webp" loading="lazy"
-                                    decoding="async" width="649" height="783"
-                                    alt="Rastreamento público: status A caminho, entrega prevista, chegada estimada e linha do tempo."
-                                    data-i18n-alt="torreAlt2">
-                                <figcaption data-i18n="torreCap2">Rastreamento público do destinatário</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="fp-info">
-                        <section class="fp-block">
-                            <h4 data-i18n="lblProblema">O problema</h4>
-                            <p data-i18n="torreProblema">A transportadora perde a entrega de vista quando o veículo sai
-                                para a rua: posição, atraso e prova de entrega ficam em telefonemas e planilhas. A
-                                Torre cobre o trecho entre a saída para rota e a conclusão.</p>
-                        </section>
-
-                        <section class="fp-block">
-                            <h4 data-i18n="lblDesafios">Desafios técnicos</h4>
-                            <ul class="fp-chips">
-                                <li data-i18n="torreCh1">Tempo real</li>
-                                <li data-i18n="torreCh2">Geolocalização</li>
-                                <li data-i18n="torreCh3">Offline-first</li>
-                                <li data-i18n="torreCh4">Retry sem duplicar</li>
-                            </ul>
-                        </section>
-
-                        <section class="fp-block">
-                            <h4 data-i18n="lblDestaques">Destaques técnicos</h4>
-                            <ul class="fp-list">
-                                <li data-i18n-html="torreH1"><strong>Geofence e ETA no PostGIS</strong> — chegada
-                                    detectada na ingestão da posição, com histerese contra oscilação de GPS.</li>
-                                <li data-i18n-html="torreH2"><strong>Tempo real com SignalR</strong> — o console recebe
-                                    o aviso só depois do commit; alertas são regras tipadas com evidência.</li>
-                                <li data-i18n-html="torreH3"><strong>PWA offline-first</strong> — cada ação nasce no
-                                    aparelho e é aplicada exatamente uma vez ao reconectar.</li>
-                                <li data-i18n-html="torreH4"><strong>Prova de entrega segura</strong> — foto por URL
-                                    assinada de curta duração; rastreio público com token forte e posição aproximada.
-                                </li>
-                                <li data-i18n-html="torreH5"><strong>Multi-tenancy e RBAC</strong> — filtro por
-                                    organização que falha fechado; Transactional Outbox nos webhooks.</li>
-                                <li data-i18n-html="torreH6"><strong>Contrato testado contra a API real</strong> — o CI
-                                    barra descompasso entre frontend e backend.</li>
-                            </ul>
-                        </section>
-
-                        <ul class="fp-metrics" aria-label="Métricas comprovadas" data-i18n-aria="lblMetricas">
-                            <li>
-                                <strong>1.392</strong>
-                                <span data-i18n="torreM1">testes: 695 unidade · 544 integração com PostGIS real · 131
-                                    frontend · 22 arquitetura</span>
-                            </li>
-                            <li>
-                                <strong>16</strong>
-                                <span data-i18n="torreM2">categorias de pentest gray-box em produção, sem
-                                    vulnerabilidade alta</span>
-                            </li>
-                            <li>
-                                <strong>3</strong>
-                                <span data-i18n="torreM3">aplicações web sobre o mesmo núcleo: console, PWA e
-                                    rastreamento</span>
-                            </li>
-                        </ul>
-
-                        <ul class="fp-stack" aria-label="Stack">
-                            <li>.NET 10</li>
-                            <li>ASP.NET Core</li>
-                            <li>PostgreSQL 17 + PostGIS</li>
-                            <li>EF Core</li>
-                            <li>SignalR</li>
-                            <li>React 19</li>
-                            <li>TypeScript</li>
-                            <li>Docker</li>
-                            <li>GitHub Actions</li>
-                        </ul>
-
-                        <p class="fp-scope" data-i18n="torreScope"><strong>Escopo declarado:</strong> a demo roda em
-                            uma VM Always Free de 1 GB, nó único e sem SLA; ETA é determinístico, não preditivo.</p>
-
-                        <div class="fp-links">
-                            <a href="https://operacao.torre.lucasafvr.com.br" class="fp-link fp-link-primary"
-                                target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-play" aria-hidden="true"></i><span data-i18n="lnkDemo">Demo ao
-                                    vivo</span><span class="sr-only"> — Torre Logística</span>
-                            </a>
-                            <a href="https://github.com/Lucasantunesribeiro/torre-logistica" class="fp-link"
-                                target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github" aria-hidden="true"></i><span data-i18n="lnkRepo">Repositório</span><span
-                                    class="sr-only"> — Torre Logística</span>
-                            </a>
-                            <a href="https://github.com/Lucasantunesribeiro/torre-logistica/releases/tag/v1.0.1"
-                                class="fp-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-tag" aria-hidden="true"></i><span>Release v1.0.1</span><span
-                                    class="sr-only"> — Torre Logística</span>
-                            </a>
-                            <a href="https://github.com/Lucasantunesribeiro/torre-logistica/blob/main/docs/pentest-v1.md"
-                                class="fp-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-shield-halved" aria-hidden="true"></i><span
-                                    data-i18n="lnkPentest">Pentest</span><span class="sr-only"> — Torre Logística</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- ---------- 02 CENTRAL ANTIFRAUDE ---------- -->
-            <article id="central-antifraude" class="fp fp--reverse" style="--accent: var(--central)"
-                aria-labelledby="central-title">
-                <header class="fp-head">
-                    <span class="fp-n" aria-hidden="true">02</span>
-                    <div class="fp-heading">
-                        <h3 id="central-title" class="fp-title">Central Antifraude</h3>
-                        <p class="fp-tag" data-i18n="centralTag">Sistemas distribuídos e decisão de risco</p>
-                    </div>
-                    <p class="fp-status"><span class="fp-status-dot" aria-hidden="true"></span><span
-                            data-i18n="centralStatus">v1.0.0 · no ar · set 2026</span></p>
-                </header>
-
-                <div class="fp-body">
-                    <div class="fp-media">
-                        <figure class="fp-video">
-                            <video controls preload="metadata" playsinline width="1920" height="1080"
-                                poster="assets/projetos/central-antifraude-poster.jpg"
-                                aria-describedby="central-video-cap">
-                                <source src="assets/projetos/central-antifraude-demo.mp4" type="video/mp4">
-                            </video>
-                            <figcaption id="central-video-cap" data-i18n="centralVideoCap">Demo de 24 s: painel, fila
-                                de alertas, transação explicável e caso de falso positivo.</figcaption>
-                        </figure>
-                        <div class="fp-shots">
-                            <figure>
-                                <img src="assets/projetos/central-antifraude-transacao-explicavel.jpg" loading="lazy"
-                                    decoding="async" width="1568" height="751"
-                                    alt="Transação com score 75 e decisão Bloquear, com os sinais que justificam o score."
-                                    data-i18n-alt="centralAlt1">
-                                <figcaption data-i18n="centralCap1">Score 75 e os sinais que o explicam</figcaption>
-                            </figure>
-                            <figure>
-                                <img src="assets/projetos/central-antifraude-falso-positivo.jpg" loading="lazy"
-                                    decoding="async" width="1568" height="751"
-                                    alt="Caso investigado: transação marcada como Revisar e concluída como Legítima, com notas e histórico."
-                                    data-i18n-alt="centralAlt2">
-                                <figcaption data-i18n="centralCap2">Falso positivo: Revisar, concluído Legítima
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="fp-info">
-                        <section class="fp-block">
-                            <h4 data-i18n="lblProblema">O problema</h4>
-                            <p data-i18n="centralProblema">Pagamentos digitais precisam de uma decisão de risco
-                                imediata e explicável, e de um registro que aconteça exatamente uma vez, mesmo com
-                                requisições simultâneas e mensagens repetidas. A plataforma não processa dinheiro:
-                                recomenda Permitir, Revisar ou Bloquear.</p>
-                        </section>
-
-                        <section class="fp-block">
-                            <h4 data-i18n="lblDesafios">Desafios técnicos</h4>
-                            <ul class="fp-chips">
-                                <li data-i18n="centralCh1">Concorrência</li>
-                                <li data-i18n="centralCh2">Idempotência</li>
-                                <li data-i18n="centralCh3">Mensageria</li>
-                                <li data-i18n="centralCh4">Explicabilidade</li>
-                            </ul>
-                        </section>
-
-                        <section class="fp-block">
-                            <h4 data-i18n="lblDestaques">Destaques técnicos</h4>
-                            <ul class="fp-list">
-                                <li data-i18n-html="centralH1"><strong>Score explicável e versionado</strong> — quatro
-                                    regras tipadas; cada decisão guarda a versão do perfil e os sinais que a
-                                    justificam.</li>
-                                <li data-i18n-html="centralH2"><strong>Idempotência sob concorrência</strong> —
-                                    transação serializável com retry; repetir a requisição devolve a avaliação
-                                    original.</li>
-                                <li data-i18n-html="centralH3"><strong>Outbox, SQS e Inbox</strong> — efeito único
-                                    mesmo com entrega repetida; DLQ depois de 5 tentativas.</li>
-                                <li data-i18n-html="centralH4"><strong>Serverless na AWS</strong> — Lambda .NET 10
-                                    (arm64), SQS, EventBridge Scheduler e segredos no SSM Parameter Store.</li>
-                                <li data-i18n-html="centralH5"><strong>Investigação auditável</strong> — casos com
-                                    timeline somente-inserção e backtest de regras antes de publicar.</li>
-                                <li data-i18n-html="centralH6"><strong>Segurança</strong> — API key própria para
-                                    integrações, refresh token rotativo, proteção CSRF e rate limit.</li>
-                            </ul>
-                        </section>
-
-                        <ul class="fp-metrics" aria-label="Métricas comprovadas" data-i18n-aria="lblMetricas">
-                            <li>
-                                <strong>1.211</strong>
-                                <span data-i18n="centralM1">testes: 546 unidade · 480 integração com PostgreSQL real ·
-                                    134 frontend · 51 arquitetura</span>
-                            </li>
-                            <li>
-                                <strong>19</strong>
-                                <span data-i18n="centralM2">vetores de pentest gray-box em produção, sem achado
-                                    alto</span>
-                            </li>
-                            <li>
-                                <strong>16</strong>
-                                <span data-i18n="centralM3">fases entregues, com Security Gate documentado
-                                    por fase</span>
-                            </li>
-                        </ul>
-
-                        <ul class="fp-stack" aria-label="Stack">
-                            <li>.NET 10</li>
-                            <li>ASP.NET Core</li>
-                            <li>PostgreSQL 17 (Neon)</li>
-                            <li>EF Core</li>
-                            <li>AWS Lambda</li>
-                            <li>SQS + DLQ</li>
-                            <li>EventBridge</li>
-                            <li>React 19</li>
-                            <li>TypeScript</li>
-                            <li>Vercel</li>
-                        </ul>
-
-                        <p class="fp-scope" data-i18n="centralScope"><strong>Escopo declarado:</strong> não é banco nem
-                            gateway; pesos e limiares das regras são configuração de demonstração, não padrão de
-                            mercado.</p>
-
-                        <div class="fp-links">
-                            <a href="https://central-antifraude.vercel.app" class="fp-link fp-link-primary"
-                                target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-play" aria-hidden="true"></i><span data-i18n="lnkDemo">Demo ao
-                                    vivo</span><span class="sr-only"> — Central Antifraude</span>
-                            </a>
-                            <a href="https://github.com/Lucasantunesribeiro/central-antifraude" class="fp-link"
-                                target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github" aria-hidden="true"></i><span data-i18n="lnkRepo">Repositório</span><span
-                                    class="sr-only"> — Central Antifraude</span>
-                            </a>
-                            <a href="https://github.com/Lucasantunesribeiro/central-antifraude/releases/tag/v1.0.0"
-                                class="fp-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-tag" aria-hidden="true"></i><span>Release v1.0.0</span><span
-                                    class="sr-only"> — Central Antifraude</span>
-                            </a>
-                            <a href="https://github.com/Lucasantunesribeiro/central-antifraude/blob/main/docs/pentest-v1.md"
-                                class="fp-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-shield-halved" aria-hidden="true"></i><span
-                                    data-i18n="lnkPentest">Pentest</span><span class="sr-only"> — Central
-                                    Antifraude</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- ---------- 03 PRISMA RH ---------- -->
-            <article id="prisma-rh" class="fp" style="--accent: var(--prisma)" aria-labelledby="prisma-title">
-                <header class="fp-head">
-                    <span class="fp-n" aria-hidden="true">03</span>
-                    <div class="fp-heading">
-                        <h3 id="prisma-title" class="fp-title">Prisma RH</h3>
-                        <p class="fp-tag" data-i18n="prismaTag">Domínio complexo de folha de pagamento</p>
-                    </div>
-                    <p class="fp-status"><span class="fp-status-dot" aria-hidden="true"></span><span
-                            data-i18n="prismaStatus">v1.0.0 · no ar · set 2026</span></p>
-                </header>
-
-                <div class="fp-body">
-                    <div class="fp-media">
-                        <figure class="fp-video">
-                            <video controls preload="metadata" playsinline width="1920" height="1080"
-                                poster="assets/projetos/prisma-rh-poster.jpg" aria-describedby="prisma-video-cap">
-                                <source src="assets/projetos/prisma-rh-demo.mp4" type="video/mp4">
-                            </video>
-                            <figcaption id="prisma-video-cap" data-i18n="prismaVideoCap">Demo de 29 s: importações,
-                                folha mensal, inconsistências e pergunta em português.</figcaption>
-                        </figure>
-                        <div class="fp-shots">
-                            <figure>
-                                <img src="assets/projetos/prisma-rh-memoria-de-calculo.jpg" loading="lazy"
-                                    decoding="async" width="1568" height="751"
-                                    alt="Memória de cálculo do INSS, faixa a faixa, com o teto aplicado e o arredondamento declarado."
-                                    data-i18n-alt="prismaAlt1">
-                                <figcaption data-i18n="prismaCap1">Memória de cálculo do INSS, faixa a faixa
-                                </figcaption>
-                            </figure>
-                            <figure>
-                                <img src="assets/projetos/prisma-rh-inconsistencias.jpg" loading="lazy"
-                                    decoding="async" width="1568" height="705"
-                                    alt="Tratamento de inconsistências da folha, com situação, severidade, regra e responsável."
-                                    data-i18n-alt="prismaAlt2">
-                                <figcaption data-i18n="prismaCap2">Conferência automática e tratamento de
-                                    inconsistências</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="fp-info">
-                        <section class="fp-block">
-                            <h4 data-i18n="lblProblema">O problema</h4>
-                            <p data-i18n="prismaProblema">Departamentos pessoais e BPOs calculam folha para várias
-                                empresas, sob regras que mudam com o tempo, e precisam explicar cada valor, às vezes
-                                anos depois. O Prisma RH entrega o número e a conta que levou até ele.</p>
-                        </section>
-
-                        <section class="fp-block">
-                            <h4 data-i18n="lblDesafios">Desafios técnicos</h4>
-                            <ul class="fp-chips">
-                                <li data-i18n="prismaCh1">Cálculo determinístico</li>
-                                <li data-i18n="prismaCh2">Regras por vigência</li>
-                                <li data-i18n="prismaCh3">Rastreabilidade</li>
-                                <li data-i18n="prismaCh4">Multiempresa</li>
-                            </ul>
-                        </section>
-
-                        <section class="fp-block">
-                            <h4 data-i18n="lblDestaques">Destaques técnicos</h4>
-                            <ul class="fp-list">
-                                <li data-i18n-html="prismaH1"><strong>Folha brasileira completa</strong> — mensal,
-                                    férias, rescisão, adiantamento e 13º, com INSS, FGTS e IRRF.</li>
-                                <li data-i18n-html="prismaH2"><strong>Memória de cálculo</strong> — cada holerite guarda
-                                    os passos; alterar uma rubrica hoje não reescreve a folha passada.</li>
-                                <li data-i18n-html="prismaH3"><strong>Vigência sem sobreposição</strong> — exclusion
-                                    constraint no PostgreSQL protege o histórico, mesmo com requisições simultâneas.
-                                </li>
-                                <li data-i18n-html="prismaH4"><strong>Multiempresa e auditoria</strong> — filtro global
-                                    no EF Core; outra organização recebe 404; trilha somente-inserção.</li>
-                                <li data-i18n-html="prismaH5"><strong>Importação CSV/XLSX</strong> — preview, relatório
-                                    de erros e processamento por fila (SQS + Lambda).</li>
-                                <li data-i18n-html="prismaH6"><strong>IA que explica, não calcula</strong> — o modelo só
-                                    propõe filtro em vocabulário fechado; nenhum valor financeiro vem dele.</li>
-                            </ul>
-                        </section>
-
-                        <ul class="fp-metrics" aria-label="Métricas comprovadas" data-i18n-aria="lblMetricas">
-                            <li>
-                                <strong>1.457</strong>
-                                <span data-i18n="prismaM1">testes: 1.286 backend (com PostgreSQL real) + 171
-                                    frontend</span>
-                            </li>
-                            <li>
-                                <strong>50</strong>
-                                <span data-i18n="prismaM2">testes de segurança em suíte própria, mais pentest em 10
-                                    categorias sem vulnerabilidade</span>
-                            </li>
-                            <li>
-                                <strong>85</strong>
-                                <span data-i18n="prismaM3">rotas, 4 anônimas, cada uma com motivo escrito e travada
-                                    por teste</span>
-                            </li>
-                        </ul>
-
-                        <ul class="fp-stack" aria-label="Stack">
-                            <li>.NET 10</li>
-                            <li>ASP.NET Core</li>
-                            <li>PostgreSQL 17 (Neon)</li>
-                            <li>EF Core</li>
-                            <li>AWS Lambda</li>
-                            <li>SQS</li>
-                            <li>React 19</li>
-                            <li>TypeScript</li>
-                            <li>Tailwind CSS</li>
-                            <li>Vercel</li>
-                        </ul>
-
-                        <p class="fp-scope" data-i18n="prismaScope"><strong>Escopo declarado:</strong> não é
-                            homologado; afastamentos e três dos oito motivos de rescisão ficam fora, e o sistema
-                            diz isso em vez de estimar.</p>
-
-                        <div class="fp-links">
-                            <a href="https://portfolio-prisma-rh.vercel.app" class="fp-link fp-link-primary"
-                                target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-play" aria-hidden="true"></i><span data-i18n="lnkDemo">Demo ao
-                                    vivo</span><span class="sr-only"> — Prisma RH</span>
-                            </a>
-                            <a href="https://github.com/Lucasantunesribeiro/prisma_rh" class="fp-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fab fa-github" aria-hidden="true"></i><span data-i18n="lnkRepo">Repositório</span><span
-                                    class="sr-only"> — Prisma RH</span>
-                            </a>
-                            <a href="https://github.com/Lucasantunesribeiro/prisma_rh/releases/tag/v1.0.0"
-                                class="fp-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-tag" aria-hidden="true"></i><span>Release v1.0.0</span><span
-                                    class="sr-only"> — Prisma RH</span>
-                            </a>
-                            <a href="https://github.com/Lucasantunesribeiro/prisma_rh/blob/main/docs/seguranca/pentest-2026-09.md"
-                                class="fp-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-shield-halved" aria-hidden="true"></i><span
-                                    data-i18n="lnkPentest">Pentest</span><span class="sr-only"> — Prisma RH</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </article>
         </div>
+
+            <article id="torre-logistica" class="pj" aria-labelledby="torre-title">
+                <div class="container">
+                    <header class="pj-head">
+                        <div class="pj-heading">
+                            <p class="pj-n" aria-hidden="true">01</p>
+                            <h3 id="torre-title" class="pj-title">Torre Logística</h3>
+                            <p class="pj-tag" data-i18n="torreTag">Operação logística em tempo real</p>
+                        </div>
+                        <div class="pj-links">
+                            <a href="https://operacao.torre.lucasafvr.com.br" class="pj-btn" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — Torre Logística</span></a>
+                            <a href="https://github.com/Lucasantunesribeiro/torre-logistica" class="pj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Torre Logística</span></a>
+                            <a href="https://github.com/Lucasantunesribeiro/torre-logistica/releases/tag/v1.0.1" class="pj-link" target="_blank" rel="noopener noreferrer"><span>Release v1.0.1</span><span class="sr-only"> — Torre Logística</span></a>
+                            <a href="https://github.com/Lucasantunesribeiro/torre-logistica/blob/main/docs/pentest-v1.md" class="pj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkPentest">Pentest</span><span class="sr-only"> — Torre Logística</span></a>
+                        </div>
+                    </header>
+
+                    <figure class="pj-video">
+                        <video controls preload="metadata" playsinline width="1920" height="1080"
+                            poster="assets/projetos/torre-logistica-poster.jpg" aria-describedby="torre-video-cap">
+                            <source src="assets/projetos/torre-logistica-demo.mp4" type="video/mp4">
+                        </video>
+                        <figcaption id="torre-video-cap" data-i18n="torreVideoCap">Passeio de 33 s pela demo pública: console, PWA do motorista e rastreamento.</figcaption>
+                    </figure>
+
+                    <div class="pj-body">
+                        <div class="pj-side">
+                            <h4 data-i18n="lblProblema">O problema</h4>
+                            <p class="pj-problem" data-i18n="torreProblema">A transportadora perde a entrega de vista quando o veículo sai para a rua: posição, atraso e prova de entrega ficam em telefonemas e planilhas. A Torre cobre o trecho entre a saída para rota e a conclusão.</p>
+                            <p class="pj-status" data-i18n="torreStatus">v1.0.1 · no ar · set 2026</p>
+
+                            <dl class="pj-facts">
+                                <div>
+                                    <dt data-i18n="lblDesafios">Desafios técnicos</dt>
+                                    <dd><ul class="pj-inline"><li data-i18n="torreCh1">Tempo real</li><li data-i18n="torreCh2">Geolocalização</li><li data-i18n="torreCh3">Offline-first</li><li data-i18n="torreCh4">Retry sem duplicar</li></ul></dd>
+                                </div>
+                                <div>
+                                    <dt data-i18n="lblStack">Stack</dt>
+                                    <dd><ul class="pj-inline"><li>.NET 10</li><li>ASP.NET Core</li><li>PostgreSQL 17 + PostGIS</li><li>EF Core</li><li>SignalR</li><li>React 19</li><li>TypeScript</li><li>Docker</li><li>GitHub Actions</li></ul></dd>
+                                </div>
+                                <div>
+                                    <dt data-i18n="lblNumeros">Em números</dt>
+                                    <dd class="pj-numbers"><span><strong>1.392</strong> <span data-i18n="torreM1">testes: 695 unidade · 544 integração com PostGIS real · 131 frontend · 22 arquitetura</span></span><span><strong>16</strong> <span data-i18n="torreM2">categorias de pentest gray-box em produção, sem vulnerabilidade alta</span></span><span><strong>3</strong> <span data-i18n="torreM3">aplicações web sobre o mesmo núcleo: console, PWA e rastreamento</span></span></dd>
+                                </div>
+                                <div>
+                                    <dt data-i18n="lblLimites">Limites</dt>
+                                    <dd data-i18n="torreScope">A demo roda em uma VM Always Free de 1 GB, nó único e sem SLA; ETA é determinístico, não preditivo.</dd>
+                                </div>
+                            </dl>
+                        </div>
+
+                        <div class="pj-main">
+                            <h4 data-i18n="lblDestaques">Destaques técnicos</h4>
+                            <ul class="pj-list">
+                                <li data-i18n-html="torreH1"><strong>Geofence e ETA no PostGIS</strong> — chegada detectada na ingestão da posição, com histerese contra oscilação de GPS.</li>
+                                <li data-i18n-html="torreH2"><strong>Tempo real com SignalR</strong> — o console recebe o aviso só depois do commit; alertas são regras tipadas com evidência.</li>
+                                <li data-i18n-html="torreH3"><strong>PWA offline-first</strong> — cada ação nasce no aparelho e é aplicada exatamente uma vez ao reconectar.</li>
+                                <li data-i18n-html="torreH4"><strong>Prova de entrega segura</strong> — foto por URL assinada de curta duração; rastreio público com token forte e posição aproximada.</li>
+                                <li data-i18n-html="torreH5"><strong>Multi-tenancy e RBAC</strong> — filtro por organização que falha fechado; Transactional Outbox nos webhooks.</li>
+                                <li data-i18n-html="torreH6"><strong>Contrato testado contra a API real</strong> — o CI barra descompasso entre frontend e backend.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pj-shots pj-shots--mixed">
+                        <figure class="pj-shot--wide">
+                            <img src="assets/projetos/torre-logistica-console-painel.webp" loading="lazy" decoding="async" width="1568" height="560" alt="Painel operacional do console: contadores por estado e alertas abertos com a evidência de cada um." data-i18n-alt="torreAlt3">
+                            <figcaption data-i18n="torreCap3">Console operacional: alertas com evidência</figcaption>
+                        </figure>
+                        <figure class="pj-shot--phone">
+                            <img src="assets/projetos/torre-logistica-pwa-motorista.webp" loading="lazy" decoding="async" width="516" height="734" alt="PWA do motorista: rota do dia com a próxima entrega em destaque e o botão Abrir entrega." data-i18n-alt="torreAlt1">
+                            <figcaption data-i18n="torreCap1">PWA do motorista, offline-first</figcaption>
+                        </figure>
+                        <figure class="pj-shot--phone">
+                            <img src="assets/projetos/torre-logistica-rastreamento-publico.webp" loading="lazy" decoding="async" width="649" height="783" alt="Rastreamento público: status A caminho, entrega prevista, chegada estimada e linha do tempo." data-i18n-alt="torreAlt2">
+                            <figcaption data-i18n="torreCap2">Rastreamento público do destinatário</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </article>
+
+            <article id="central-antifraude" class="pj" aria-labelledby="central-title">
+                <div class="container">
+                    <header class="pj-head">
+                        <div class="pj-heading">
+                            <p class="pj-n" aria-hidden="true">02</p>
+                            <h3 id="central-title" class="pj-title">Central Antifraude</h3>
+                            <p class="pj-tag" data-i18n="centralTag">Sistemas distribuídos e decisão de risco</p>
+                        </div>
+                        <div class="pj-links">
+                            <a href="https://central-antifraude.vercel.app" class="pj-btn" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — Central Antifraude</span></a>
+                            <a href="https://github.com/Lucasantunesribeiro/central-antifraude" class="pj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Central Antifraude</span></a>
+                            <a href="https://github.com/Lucasantunesribeiro/central-antifraude/releases/tag/v1.0.0" class="pj-link" target="_blank" rel="noopener noreferrer"><span>Release v1.0.0</span><span class="sr-only"> — Central Antifraude</span></a>
+                            <a href="https://github.com/Lucasantunesribeiro/central-antifraude/blob/main/docs/pentest-v1.md" class="pj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkPentest">Pentest</span><span class="sr-only"> — Central Antifraude</span></a>
+                        </div>
+                    </header>
+
+                    <figure class="pj-video">
+                        <video controls preload="metadata" playsinline width="1920" height="1080"
+                            poster="assets/projetos/central-antifraude-poster.jpg" aria-describedby="central-video-cap">
+                            <source src="assets/projetos/central-antifraude-demo.mp4" type="video/mp4">
+                        </video>
+                        <figcaption id="central-video-cap" data-i18n="centralVideoCap">Demo de 24 s: painel, fila de alertas, transação explicável e caso de falso positivo.</figcaption>
+                    </figure>
+
+                    <div class="pj-body">
+                        <div class="pj-side">
+                            <h4 data-i18n="lblProblema">O problema</h4>
+                            <p class="pj-problem" data-i18n="centralProblema">Pagamentos digitais precisam de uma decisão de risco imediata e explicável, e de um registro que aconteça exatamente uma vez, mesmo com requisições simultâneas e mensagens repetidas. A plataforma não processa dinheiro: recomenda Permitir, Revisar ou Bloquear.</p>
+                            <p class="pj-status" data-i18n="centralStatus">v1.0.0 · no ar · set 2026</p>
+
+                            <dl class="pj-facts">
+                                <div>
+                                    <dt data-i18n="lblDesafios">Desafios técnicos</dt>
+                                    <dd><ul class="pj-inline"><li data-i18n="centralCh1">Concorrência</li><li data-i18n="centralCh2">Idempotência</li><li data-i18n="centralCh3">Mensageria</li><li data-i18n="centralCh4">Explicabilidade</li></ul></dd>
+                                </div>
+                                <div>
+                                    <dt data-i18n="lblStack">Stack</dt>
+                                    <dd><ul class="pj-inline"><li>.NET 10</li><li>ASP.NET Core</li><li>PostgreSQL 17 (Neon)</li><li>EF Core</li><li>AWS Lambda</li><li>SQS + DLQ</li><li>EventBridge</li><li>React 19</li><li>TypeScript</li><li>Vercel</li></ul></dd>
+                                </div>
+                                <div>
+                                    <dt data-i18n="lblNumeros">Em números</dt>
+                                    <dd class="pj-numbers"><span><strong>1.211</strong> <span data-i18n="centralM1">testes: 546 unidade · 480 integração com PostgreSQL real · 134 frontend · 51 arquitetura</span></span><span><strong>19</strong> <span data-i18n="centralM2">vetores de pentest gray-box em produção, sem achado alto</span></span><span><strong>16</strong> <span data-i18n="centralM3">fases entregues, com Security Gate documentado por fase</span></span></dd>
+                                </div>
+                                <div>
+                                    <dt data-i18n="lblLimites">Limites</dt>
+                                    <dd data-i18n="centralScope">Não é banco nem gateway; pesos e limiares das regras são configuração de demonstração, não padrão de mercado.</dd>
+                                </div>
+                            </dl>
+                        </div>
+
+                        <div class="pj-main">
+                            <h4 data-i18n="lblDestaques">Destaques técnicos</h4>
+                            <ul class="pj-list">
+                                <li data-i18n-html="centralH1"><strong>Score explicável e versionado</strong> — quatro regras tipadas; cada decisão guarda a versão do perfil e os sinais que a justificam.</li>
+                                <li data-i18n-html="centralH2"><strong>Idempotência sob concorrência</strong> — transação serializável com retry; repetir a requisição devolve a avaliação original.</li>
+                                <li data-i18n-html="centralH3"><strong>Outbox, SQS e Inbox</strong> — efeito único mesmo com entrega repetida; DLQ depois de 5 tentativas.</li>
+                                <li data-i18n-html="centralH4"><strong>Serverless na AWS</strong> — Lambda .NET 10 (arm64), SQS, EventBridge Scheduler e segredos no SSM Parameter Store.</li>
+                                <li data-i18n-html="centralH5"><strong>Investigação auditável</strong> — casos com timeline somente-inserção e backtest de regras antes de publicar.</li>
+                                <li data-i18n-html="centralH6"><strong>Segurança</strong> — API key própria para integrações, refresh token rotativo, proteção CSRF e rate limit.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pj-shots pj-shots--pair">
+                        <figure>
+                            <img src="assets/projetos/central-antifraude-transacao-explicavel.jpg" loading="lazy" decoding="async" width="1568" height="751" alt="Transação com score 75 e decisão Bloquear, com os sinais que justificam o score." data-i18n-alt="centralAlt1">
+                            <figcaption data-i18n="centralCap1">Score 75 e os sinais que o explicam</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="assets/projetos/central-antifraude-falso-positivo.jpg" loading="lazy" decoding="async" width="1568" height="751" alt="Caso investigado: transação marcada como Revisar e concluída como Legítima, com notas e histórico." data-i18n-alt="centralAlt2">
+                            <figcaption data-i18n="centralCap2">Falso positivo: Revisar, concluído Legítima</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </article>
+
+            <article id="prisma-rh" class="pj" aria-labelledby="prisma-title">
+                <div class="container">
+                    <header class="pj-head">
+                        <div class="pj-heading">
+                            <p class="pj-n" aria-hidden="true">03</p>
+                            <h3 id="prisma-title" class="pj-title">Prisma RH</h3>
+                            <p class="pj-tag" data-i18n="prismaTag">Domínio complexo de folha de pagamento</p>
+                        </div>
+                        <div class="pj-links">
+                            <a href="https://portfolio-prisma-rh.vercel.app" class="pj-btn" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — Prisma RH</span></a>
+                            <a href="https://github.com/Lucasantunesribeiro/prisma_rh" class="pj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Prisma RH</span></a>
+                            <a href="https://github.com/Lucasantunesribeiro/prisma_rh/releases/tag/v1.0.0" class="pj-link" target="_blank" rel="noopener noreferrer"><span>Release v1.0.0</span><span class="sr-only"> — Prisma RH</span></a>
+                            <a href="https://github.com/Lucasantunesribeiro/prisma_rh/blob/main/docs/seguranca/pentest-2026-09.md" class="pj-link" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkPentest">Pentest</span><span class="sr-only"> — Prisma RH</span></a>
+                        </div>
+                    </header>
+
+                    <figure class="pj-video">
+                        <video controls preload="metadata" playsinline width="1920" height="1080"
+                            poster="assets/projetos/prisma-rh-poster.jpg" aria-describedby="prisma-video-cap">
+                            <source src="assets/projetos/prisma-rh-demo.mp4" type="video/mp4">
+                        </video>
+                        <figcaption id="prisma-video-cap" data-i18n="prismaVideoCap">Demo de 29 s: importações, folha mensal, inconsistências e pergunta em português.</figcaption>
+                    </figure>
+
+                    <div class="pj-body">
+                        <div class="pj-side">
+                            <h4 data-i18n="lblProblema">O problema</h4>
+                            <p class="pj-problem" data-i18n="prismaProblema">Departamentos pessoais e BPOs calculam folha para várias empresas, sob regras que mudam com o tempo, e precisam explicar cada valor, às vezes anos depois. O Prisma RH entrega o número e a conta que levou até ele.</p>
+                            <p class="pj-status" data-i18n="prismaStatus">v1.0.0 · no ar · set 2026</p>
+
+                            <dl class="pj-facts">
+                                <div>
+                                    <dt data-i18n="lblDesafios">Desafios técnicos</dt>
+                                    <dd><ul class="pj-inline"><li data-i18n="prismaCh1">Cálculo determinístico</li><li data-i18n="prismaCh2">Regras por vigência</li><li data-i18n="prismaCh3">Rastreabilidade</li><li data-i18n="prismaCh4">Multiempresa</li></ul></dd>
+                                </div>
+                                <div>
+                                    <dt data-i18n="lblStack">Stack</dt>
+                                    <dd><ul class="pj-inline"><li>.NET 10</li><li>ASP.NET Core</li><li>PostgreSQL 17 (Neon)</li><li>EF Core</li><li>AWS Lambda</li><li>SQS</li><li>React 19</li><li>TypeScript</li><li>Tailwind CSS</li><li>Vercel</li></ul></dd>
+                                </div>
+                                <div>
+                                    <dt data-i18n="lblNumeros">Em números</dt>
+                                    <dd class="pj-numbers"><span><strong>1.457</strong> <span data-i18n="prismaM1">testes: 1.286 backend (com PostgreSQL real) + 171 frontend</span></span><span><strong>50</strong> <span data-i18n="prismaM2">testes de segurança em suíte própria, mais pentest em 10 categorias sem vulnerabilidade</span></span><span><strong>85</strong> <span data-i18n="prismaM3">rotas, 4 anônimas, cada uma com motivo escrito e travada por teste</span></span></dd>
+                                </div>
+                                <div>
+                                    <dt data-i18n="lblLimites">Limites</dt>
+                                    <dd data-i18n="prismaScope">Não é homologado; afastamentos e três dos oito motivos de rescisão ficam fora, e o sistema diz isso em vez de estimar.</dd>
+                                </div>
+                            </dl>
+                        </div>
+
+                        <div class="pj-main">
+                            <h4 data-i18n="lblDestaques">Destaques técnicos</h4>
+                            <ul class="pj-list">
+                                <li data-i18n-html="prismaH1"><strong>Folha brasileira completa</strong> — mensal, férias, rescisão, adiantamento e 13º, com INSS, FGTS e IRRF.</li>
+                                <li data-i18n-html="prismaH2"><strong>Memória de cálculo</strong> — cada holerite guarda os passos; alterar uma rubrica hoje não reescreve a folha passada.</li>
+                                <li data-i18n-html="prismaH3"><strong>Vigência sem sobreposição</strong> — exclusion constraint no PostgreSQL protege o histórico, mesmo com requisições simultâneas.</li>
+                                <li data-i18n-html="prismaH4"><strong>Multiempresa e auditoria</strong> — filtro global no EF Core; outra organização recebe 404; trilha somente-inserção.</li>
+                                <li data-i18n-html="prismaH5"><strong>Importação CSV/XLSX</strong> — preview, relatório de erros e processamento por fila (SQS + Lambda).</li>
+                                <li data-i18n-html="prismaH6"><strong>IA que explica, não calcula</strong> — o modelo só propõe filtro em vocabulário fechado; nenhum valor financeiro vem dele.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pj-shots pj-shots--pair">
+                        <figure>
+                            <img src="assets/projetos/prisma-rh-memoria-de-calculo.jpg" loading="lazy" decoding="async" width="1568" height="751" alt="Memória de cálculo do INSS, faixa a faixa, com o teto aplicado e o arredondamento declarado." data-i18n-alt="prismaAlt1">
+                            <figcaption data-i18n="prismaCap1">Memória de cálculo do INSS, faixa a faixa</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="assets/projetos/prisma-rh-inconsistencias.jpg" loading="lazy" decoding="async" width="1568" height="705" alt="Tratamento de inconsistências da folha, com situação, severidade, regra e responsável." data-i18n-alt="prismaAlt2">
+                            <figcaption data-i18n="prismaCap2">Conferência automática e tratamento de inconsistências</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </article>
     </section>
 
     <!-- ===================== OUTROS PROJETOS ===================== -->
     <section id="outros" class="ox" aria-labelledby="ox-title">
         <div class="container">
-            <header class="section-head section-head--compact">
-                <h2 id="ox-title" class="section-title section-title--sm" data-i18n="outrosTitle">Outros projetos</h2>
-                <p class="section-lead" data-i18n="outrosLead">Projetos anteriores, todos com código aberto. Cada um
-                    tem uma página com a arquitetura, as decisões e os limites do que foi construído.</p>
+            <header class="section-head">
+                <h2 id="ox-title" class="section-title" data-i18n="outrosTitle">Outros projetos</h2>
+                <p class="section-lead" data-i18n="outrosLead">Projetos anteriores, todos com código aberto. Cada um tem uma página com a arquitetura, as decisões e os limites do que foi construído.</p>
             </header>
 
             <div class="ox-grid">
@@ -668,334 +439,125 @@
                     <a class="oc-media" href="projetos/smartfinance.html" tabindex="-1" aria-hidden="true">
                         <img src="assets/smartfinance_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
                     </a>
-                    <div class="oc-body">
-                        <h3 class="oc-title"><a href="projetos/smartfinance.html" data-i18n="projSmartFinanceTitle">SmartFinance</a></h3>
-                        <p class="oc-desc" data-i18n="projSmartFinanceDesc">Ecossistema de finanças pessoais com .NET 9, RabbitMQ e Next.js. Implementa Clean Architecture, Outbox Pattern e processamento assíncrono de transações para máxima consistência e resiliência financeira.</p>
-                        <ul class="oc-tags">
-                            <li>.NET 9</li>
-                            <li>C#</li>
-                            <li>Next.js</li>
-                            <li>TypeScript</li>
-                            <li>PostgreSQL</li>
-                        </ul>
-                        <div class="oc-links">
-                            <a href="projetos/smartfinance.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — SmartFinance</span></a>
-                            <a href="https://github.com/Lucasantunesribeiro/smart_finance" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — SmartFinance</span></a>
-                        </div>
-                    </div>
+                    <h3 class="oc-title"><a href="projetos/smartfinance.html" data-i18n="projSmartFinanceTitle">SmartFinance</a></h3>
+                    <p class="oc-desc" data-i18n="projSmartFinanceDesc">Ecossistema de finanças pessoais com .NET 9, RabbitMQ e Next.js. Implementa Clean Architecture, Outbox Pattern e processamento assíncrono de transações para máxima consistência e resiliência financeira.</p>
+                    <p class="oc-tech">.NET 9 · C# · Next.js · TypeScript · PostgreSQL</p>
+                    <p class="oc-links">
+                        <a href="projetos/smartfinance.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — SmartFinance</span></a>
+                        <a href="https://github.com/Lucasantunesribeiro/smart_finance" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — SmartFinance</span></a>
+                    </p>
                 </article>
 
                 <article class="oc">
                     <a class="oc-media" href="projetos/tenantcore.html" tabindex="-1" aria-hidden="true">
                         <img src="assets/tenant_core_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
                     </a>
-                    <div class="oc-body">
-                        <h3 class="oc-title"><a href="projetos/tenantcore.html" data-i18n="projTenantCoreTitle">TenantCore — Multi-Tenant SaaS</a></h3>
-                        <p class="oc-desc" data-i18n="projTenantCoreDesc">Plataforma SaaS B2B em .NET 9 com isolamento por tenant via query filters do EF Core. JWT com refresh token rotativo, RBAC, cotas por plano, cache Redis, jobs Quartz e observabilidade com OpenTelemetry.</p>
-                        <ul class="oc-tags">
-                            <li>.NET 9</li>
-                            <li>C#</li>
-                            <li>React</li>
-                            <li>SQL Server</li>
-                            <li>Redis</li>
-                        </ul>
-                        <div class="oc-links">
-                            <a href="projetos/tenantcore.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — TenantCore — Multi-Tenant SaaS</span></a>
-                            <a href="https://github.com/Lucasantunesribeiro/tenant_core" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — TenantCore — Multi-Tenant SaaS</span></a>
-                            <a href="https://purple-dune-018763b0f.4.azurestaticapps.net" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — TenantCore — Multi-Tenant SaaS</span></a>
-                        </div>
-                    </div>
+                    <h3 class="oc-title"><a href="projetos/tenantcore.html" data-i18n="projTenantCoreTitle">TenantCore — Multi-Tenant SaaS</a></h3>
+                    <p class="oc-desc" data-i18n="projTenantCoreDesc">Plataforma SaaS B2B em .NET 9 com isolamento por tenant via query filters do EF Core. JWT com refresh token rotativo, RBAC, cotas por plano, cache Redis, jobs Quartz e observabilidade com OpenTelemetry.</p>
+                    <p class="oc-tech">.NET 9 · C# · React · SQL Server · Redis</p>
+                    <p class="oc-links">
+                        <a href="projetos/tenantcore.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — TenantCore — Multi-Tenant SaaS</span></a>
+                        <a href="https://github.com/Lucasantunesribeiro/tenant_core" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — TenantCore — Multi-Tenant SaaS</span></a>
+                        <a href="https://purple-dune-018763b0f.4.azurestaticapps.net" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — TenantCore — Multi-Tenant SaaS</span></a>
+                    </p>
                 </article>
 
                 <article class="oc">
                     <a class="oc-media" href="projetos/billing-ledger.html" tabindex="-1" aria-hidden="true">
                         <img src="assets/billing_ledger_mockup.webp" alt="" loading="lazy" decoding="async" width="400" height="250">
                     </a>
-                    <div class="oc-body">
-                        <h3 class="oc-title"><a href="projetos/billing-ledger.html" data-i18n="projBillingTitle">BillingLedger</a></h3>
-                        <p class="oc-desc" data-i18n="projBillingDesc">Backend de cobrança, pagamentos e conciliação em ledger. .NET 9 com contextos separados, Outbox Pattern para integração confiável e idempotência no processamento de webhooks de pagamento.</p>
-                        <ul class="oc-tags">
-                            <li>.NET 9</li>
-                            <li>MassTransit</li>
-                            <li>RabbitMQ</li>
-                            <li>PostgreSQL</li>
-                            <li>Redis</li>
-                        </ul>
-                        <div class="oc-links">
-                            <a href="projetos/billing-ledger.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — BillingLedger</span></a>
-                            <a href="https://github.com/Lucasantunesribeiro/billing_ledger" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — BillingLedger</span></a>
-                        </div>
-                    </div>
+                    <h3 class="oc-title"><a href="projetos/billing-ledger.html" data-i18n="projBillingTitle">BillingLedger</a></h3>
+                    <p class="oc-desc" data-i18n="projBillingDesc">Backend de cobrança, pagamentos e conciliação em ledger. .NET 9 com contextos separados, Outbox Pattern para integração confiável e idempotência no processamento de webhooks de pagamento.</p>
+                    <p class="oc-tech">.NET 9 · MassTransit · RabbitMQ · PostgreSQL · Redis</p>
+                    <p class="oc-links">
+                        <a href="projetos/billing-ledger.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — BillingLedger</span></a>
+                        <a href="https://github.com/Lucasantunesribeiro/billing_ledger" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — BillingLedger</span></a>
+                    </p>
                 </article>
 
                 <article class="oc">
                     <a class="oc-media" href="projetos/linkguardiao.html" tabindex="-1" aria-hidden="true">
                         <img src="assets/linkguardiao_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
                     </a>
-                    <div class="oc-body">
-                        <h3 class="oc-title"><a href="projetos/linkguardiao.html" data-i18n="projLinkGuardiaoTitle">LinkGuardião</a></h3>
-                        <p class="oc-desc" data-i18n="projLinkGuardiaoDesc">Encurtador de links com foco em segurança. .NET + React, links protegidos por senha, expiração configurável, rate limiting e analytics assíncrono processado fora do caminho da requisição.</p>
-                        <ul class="oc-tags">
-                            <li>.NET 9</li>
-                            <li>React</li>
-                            <li>TypeScript</li>
-                            <li>PostgreSQL</li>
-                            <li>Redis</li>
-                        </ul>
-                        <div class="oc-links">
-                            <a href="projetos/linkguardiao.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — LinkGuardião</span></a>
-                            <a href="https://github.com/Lucasantunesribeiro/LinkGuardiao" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — LinkGuardião</span></a>
-                            <a href="https://linkguardiao.pages.dev/" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — LinkGuardião</span></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="oc">
-                    <a class="oc-media" href="projetos/emissao-nfe.html" tabindex="-1" aria-hidden="true">
-                        <img src="assets/nfe_estoque_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
-                    </a>
-                    <div class="oc-body">
-                        <h3 class="oc-title"><a href="projetos/emissao-nfe.html" data-i18n="projNfeTitle">Emissão de NF-e e Controle de Estoque</a></h3>
-                        <p class="oc-desc" data-i18n="projNfeDesc">Sistema serverless orquestrado por eventos para faturamento e gestão de inventário. .NET, AWS Lambda, EventBridge para desacoplamento e DynamoDB com modelagem single-table.</p>
-                        <ul class="oc-tags">
-                            <li>.NET 9</li>
-                            <li>Angular 19</li>
-                            <li>EventBridge</li>
-                            <li>SQS</li>
-                            <li>DynamoDB</li>
-                        </ul>
-                        <div class="oc-links">
-                            <a href="projetos/emissao-nfe.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Emissão de NF-e e Controle de Estoque</span></a>
-                            <a href="https://github.com/Lucasantunesribeiro/emissao_nfe" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Emissão de NF-e e Controle de Estoque</span></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="oc">
-                    <a class="oc-media" href="projetos/agente-sumarizacao.html" tabindex="-1" aria-hidden="true">
-                        <img src="assets/article_summarizer_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
-                    </a>
-                    <div class="oc-body">
-                        <h3 class="oc-title"><a href="projetos/agente-sumarizacao.html" data-i18n="projSummarizerTitle">Agente de Sumarização AI</a></h3>
-                        <p class="oc-desc" data-i18n="projSummarizerDesc">Agente que usa LLMs para extrair e resumir artigos da web de forma assíncrona. Python, FastAPI e fila de tarefas em background, com estratégias de fallback para coleta confiável.</p>
-                        <ul class="oc-tags">
-                            <li>Python</li>
-                            <li>FastAPI</li>
-                            <li>LangChain</li>
-                            <li>OpenAI</li>
-                            <li>RabbitMQ</li>
-                        </ul>
-                        <div class="oc-links">
-                            <a href="projetos/agente-sumarizacao.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Agente de Sumarização AI</span></a>
-                            <a href="https://github.com/Lucasantunesribeiro/article_summarizer_agent" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Agente de Sumarização AI</span></a>
-                            <a href="https://article-summarizer-agent.onrender.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — Agente de Sumarização AI</span></a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <details class="ox-more">
-                <summary><span data-i18n="outrosMais">Ver mais 3 projetos</span></summary>
-                <div class="ox-grid">
-                <article class="oc">
-                    <a class="oc-media" href="projetos/armazem-sao-joaquim.html" tabindex="-1" aria-hidden="true">
-                        <img src="assets/armazem_sao_joaquim_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
-                    </a>
-                    <div class="oc-body">
-                        <h3 class="oc-title"><a href="projetos/armazem-sao-joaquim.html" data-i18n="projArmazemTitle">Armazém São Joaquim</a></h3>
-                        <p class="oc-badge" data-i18n="badgeClienteReal">Cliente real · em produção</p>
-                        <p class="oc-desc" data-i18n="projArmazemDesc">Portal para gestão de armazém, restaurante e pousada, no ar em domínio próprio. Next.js e Supabase com CMS dinâmico, fluxo de reservas, área administrativa e foco em SEO e performance.</p>
-                        <ul class="oc-tags">
-                            <li>Next.js</li>
-                            <li>TypeScript</li>
-                            <li>Supabase</li>
-                            <li>PostgreSQL</li>
-                            <li>React</li>
-                        </ul>
-                        <div class="oc-links">
-                            <a href="projetos/armazem-sao-joaquim.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Armazém São Joaquim</span></a>
-                            <a href="https://github.com/Lucasantunesribeiro/armazemsaojoaquim" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Armazém São Joaquim</span></a>
-                            <a href="https://armazemsaojoaquim.com.br/" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — Armazém São Joaquim</span></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="oc">
-                    <a class="oc-media" href="projetos/collabdocs.html" tabindex="-1" aria-hidden="true">
-                        <img src="assets/collabdocs_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
-                    </a>
-                    <div class="oc-body">
-                        <h3 class="oc-title"><a href="projetos/collabdocs.html" data-i18n="projCollabDocsTitle">CollabDocs</a></h3>
-                        <p class="oc-desc" data-i18n="projCollabDocsDesc">Editor de documentos em tempo real com .NET e SignalR. Sincronização de estado via WebSockets, controle de permissão por documento e deploy em infraestrutura serverless.</p>
-                        <ul class="oc-tags">
-                            <li>.NET 9</li>
-                            <li>Next.js</li>
-                            <li>SignalR</li>
-                            <li>Redis</li>
-                            <li>Docker</li>
-                        </ul>
-                        <div class="oc-links">
-                            <a href="projetos/collabdocs.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — CollabDocs</span></a>
-                            <a href="https://github.com/Lucasantunesribeiro/Collabdocs" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — CollabDocs</span></a>
-                            <a href="https://collabdocs-app.vercel.app/" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — CollabDocs</span></a>
-                        </div>
-                    </div>
+                    <h3 class="oc-title"><a href="projetos/linkguardiao.html" data-i18n="projLinkGuardiaoTitle">LinkGuardião</a></h3>
+                    <p class="oc-desc" data-i18n="projLinkGuardiaoDesc">Encurtador de links com foco em segurança. .NET + React, links protegidos por senha, expiração configurável, rate limiting e analytics assíncrono processado fora do caminho da requisição.</p>
+                    <p class="oc-tech">.NET 9 · React · TypeScript · PostgreSQL · Redis</p>
+                    <p class="oc-links">
+                        <a href="projetos/linkguardiao.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — LinkGuardião</span></a>
+                        <a href="https://github.com/Lucasantunesribeiro/LinkGuardiao" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — LinkGuardião</span></a>
+                        <a href="https://linkguardiao.pages.dev/" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — LinkGuardião</span></a>
+                    </p>
                 </article>
 
                 <article class="oc">
                     <a class="oc-media" href="projetos/pedidos-event-sourcing.html" tabindex="-1" aria-hidden="true">
                         <img src="assets/sistema_pedidos_distribuido_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
                     </a>
-                    <div class="oc-body">
-                        <h3 class="oc-title"><a href="projetos/pedidos-event-sourcing.html" data-i18n="projEventSourcingTitle">Gestão de Pedidos Distribuído</a></h3>
-                        <p class="oc-desc" data-i18n="projEventSourcingDesc">Pedidos, estoque e pagamento coordenados em Java + Spring Boot. Reserva de estoque com locking, compensação em caso de falha e eventos publicados via Outbox + RabbitMQ. 217 testes automatizados.</p>
-                        <ul class="oc-tags">
-                            <li>Java</li>
-                            <li>Spring Boot</li>
-                            <li>PostgreSQL</li>
-                            <li>RabbitMQ</li>
-                            <li>Outbox</li>
-                        </ul>
-                        <div class="oc-links">
-                            <a href="projetos/pedidos-event-sourcing.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Gestão de Pedidos Distribuído</span></a>
-                            <a href="https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Gestão de Pedidos Distribuído</span></a>
-                        </div>
-                    </div>
+                    <h3 class="oc-title"><a href="projetos/pedidos-event-sourcing.html" data-i18n="projEventSourcingTitle">Gestão de Pedidos Distribuído</a></h3>
+                    <p class="oc-desc" data-i18n="projEventSourcingDesc">Pedidos, estoque e pagamento coordenados em Java + Spring Boot. Reserva de estoque com locking, compensação em caso de falha e eventos publicados via Outbox + RabbitMQ. 217 testes automatizados.</p>
+                    <p class="oc-tech">Java · Spring Boot · PostgreSQL · RabbitMQ · Outbox</p>
+                    <p class="oc-links">
+                        <a href="projetos/pedidos-event-sourcing.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Gestão de Pedidos Distribuído</span></a>
+                        <a href="https://github.com/Lucasantunesribeiro/Sistema_de_Gestao_de_Pedidos_Distribu-do_com_Event_Sourcing" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Gestão de Pedidos Distribuído</span></a>
+                    </p>
                 </article>
-                </div>
-            </details>
-        </div>
-    </section>
 
-    <!-- ==================== COMO EU TRABALHO ==================== -->
-    <section id="como" class="wx" aria-labelledby="wx-title">
-        <div class="container">
-            <header class="section-head">
-                <p class="section-eyebrow" data-i18n="comoEyebrow">Método</p>
-                <h2 id="wx-title" class="section-title" data-i18n="comoTitle">Como eu trabalho</h2>
-                <p class="section-lead" data-i18n="comoLead">Práticas que aparecem nos três projetos, com o documento
-                    ou o teste que as prova.</p>
-            </header>
-
-            <ul class="wx-grid">
-                <li>
-                    <h3 data-i18n="como1T">Domínio primeiro</h3>
-                    <p data-i18n="como1P">As regras vivem no Domain, sem infraestrutura, e testes de arquitetura
-                        seguram a fronteira entre as camadas.</p>
-                    <p class="wx-proof" data-i18n="como1E">Prova: 22 testes de arquitetura na Torre e 51 na Central.
+                <article class="oc">
+                    <a class="oc-media" href="projetos/collabdocs.html" tabindex="-1" aria-hidden="true">
+                        <img src="assets/collabdocs_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
+                    </a>
+                    <h3 class="oc-title"><a href="projetos/collabdocs.html" data-i18n="projCollabDocsTitle">CollabDocs</a></h3>
+                    <p class="oc-desc" data-i18n="projCollabDocsDesc">Editor de documentos em tempo real com .NET e SignalR. Sincronização de estado via WebSockets, controle de permissão por documento e deploy em infraestrutura serverless.</p>
+                    <p class="oc-tech">.NET 9 · Next.js · SignalR · Redis · Docker</p>
+                    <p class="oc-links">
+                        <a href="projetos/collabdocs.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — CollabDocs</span></a>
+                        <a href="https://github.com/Lucasantunesribeiro/Collabdocs" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — CollabDocs</span></a>
+                        <a href="https://collabdocs-app.vercel.app/" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — CollabDocs</span></a>
                     </p>
-                </li>
-                <li>
-                    <h3 data-i18n="como2T">Consistência antes de conveniência</h3>
-                    <p data-i18n="como2P">Transação serializável, Outbox e idempotência no lugar de esperança: o
-                        efeito acontece uma vez, mesmo com retry.</p>
-                    <p class="wx-proof" data-i18n="como2E">Prova: na Central, um teste com seis requisições simultâneas
-                        exige contagens 1 a 6, sem repetir nem pular.</p>
-                </li>
-                <li>
-                    <h3 data-i18n="como3T">Testes que provam de verdade</h3>
-                    <p data-i18n="como3P">Integração contra PostgreSQL e PostGIS reais via Testcontainers, não banco
-                        em memória; contrato testado contra a API real no CI.</p>
-                    <p class="wx-proof" data-i18n="como3E">Prova: 544 testes de integração na Torre, 480 na Central.
+                </article>
+
+                <article class="oc">
+                    <a class="oc-media" href="projetos/emissao-nfe.html" tabindex="-1" aria-hidden="true">
+                        <img src="assets/nfe_estoque_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
+                    </a>
+                    <h3 class="oc-title"><a href="projetos/emissao-nfe.html" data-i18n="projNfeTitle">Emissão de NF-e e Controle de Estoque</a></h3>
+                    <p class="oc-desc" data-i18n="projNfeDesc">Sistema serverless orquestrado por eventos para faturamento e gestão de inventário. .NET, AWS Lambda, EventBridge para desacoplamento e DynamoDB com modelagem single-table.</p>
+                    <p class="oc-tech">.NET 9 · Angular 19 · EventBridge · SQS · DynamoDB</p>
+                    <p class="oc-links">
+                        <a href="projetos/emissao-nfe.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Emissão de NF-e e Controle de Estoque</span></a>
+                        <a href="https://github.com/Lucasantunesribeiro/emissao_nfe" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Emissão de NF-e e Controle de Estoque</span></a>
                     </p>
-                </li>
-                <li>
-                    <h3 data-i18n="como4T">Segurança testada, não afirmada</h3>
-                    <p data-i18n="como4P">Pentest gray-box contra a produção, com requisição e resposta reais. Quando
-                        um teste passou pelo motivo errado, o relatório diz.</p>
-                    <p class="wx-proof" data-i18n="como4E">Prova: três relatórios versionados nos repositórios.</p>
-                </li>
-                <li>
-                    <h3 data-i18n="como5T">Produção de verdade</h3>
-                    <p data-i18n="como5P">Deploy real, health checks, CI no GitHub Actions e custo calculado antes de
-                        subir a infraestrutura.</p>
-                    <p class="wx-proof" data-i18n="como5E">Prova: os três projetos têm URL pública e release publicada.</p>
-                </li>
-                <li>
-                    <h3 data-i18n="como6T">Evidência antes de conclusão</h3>
-                    <p data-i18n="como6P">Diagnóstico pela causa raiz, decisões registradas em ADR com a alternativa
-                        recusada e limitações escritas com todas as letras.</p>
-                    <p class="wx-proof" data-i18n="como6E">Prova: o README de cada projeto declara o que ele não faz.</p>
-                </li>
-            </ul>
-        </div>
-    </section>
+                </article>
 
-    <!-- ============================ STACK ============================ -->
-    <section id="stack" class="sx" aria-labelledby="sx-title">
-        <div class="container">
-            <header class="section-head">
-                <p class="section-eyebrow" data-i18n="stackEyebrow">Ferramentas</p>
-                <h2 id="sx-title" class="section-title" data-i18n="stackTitle">Stack</h2>
-                <p class="section-lead" data-i18n="stackLead">O que uso nos projetos principais.</p>
-            </header>
+                <article class="oc">
+                    <a class="oc-media" href="projetos/agente-sumarizacao.html" tabindex="-1" aria-hidden="true">
+                        <img src="assets/article_summarizer_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
+                    </a>
+                    <h3 class="oc-title"><a href="projetos/agente-sumarizacao.html" data-i18n="projSummarizerTitle">Agente de Sumarização AI</a></h3>
+                    <p class="oc-desc" data-i18n="projSummarizerDesc">Agente que usa LLMs para extrair e resumir artigos da web de forma assíncrona. Python, FastAPI e fila de tarefas em background, com estratégias de fallback para coleta confiável.</p>
+                    <p class="oc-tech">Python · FastAPI · LangChain · OpenAI · RabbitMQ</p>
+                    <p class="oc-links">
+                        <a href="projetos/agente-sumarizacao.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Agente de Sumarização AI</span></a>
+                        <a href="https://github.com/Lucasantunesribeiro/article_summarizer_agent" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Agente de Sumarização AI</span></a>
+                        <a href="https://article-summarizer-agent.onrender.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — Agente de Sumarização AI</span></a>
+                    </p>
+                </article>
 
-            <div class="sx-grid">
-                <section class="sx-card">
-                    <h3><i class="fas fa-server" aria-hidden="true"></i> <span data-i18n="stackBackend">Backend</span>
-                    </h3>
-                    <ul>
-                        <li>C#</li>
-                        <li>.NET</li>
-                        <li>ASP.NET Core</li>
-                    </ul>
-                </section>
-                <section class="sx-card">
-                    <h3><i class="fas fa-laptop-code" aria-hidden="true"></i> <span
-                            data-i18n="stackFrontend">Frontend</span></h3>
-                    <ul>
-                        <li>React</li>
-                        <li>TypeScript</li>
-                    </ul>
-                </section>
-                <section class="sx-card">
-                    <h3><i class="fas fa-database" aria-hidden="true"></i> <span data-i18n="stackDados">Dados</span>
-                    </h3>
-                    <ul>
-                        <li>PostgreSQL</li>
-                        <li>PostGIS</li>
-                    </ul>
-                </section>
-                <section class="sx-card">
-                    <h3><i class="fas fa-cloud" aria-hidden="true"></i> <span data-i18n="stackCloud">Cloud &amp;
-                            DevOps</span></h3>
-                    <ul>
-                        <li>AWS</li>
-                        <li>Docker</li>
-                        <li>GitHub Actions</li>
-                    </ul>
-                </section>
+                <article class="oc">
+                    <a class="oc-media" href="projetos/armazem-sao-joaquim.html" tabindex="-1" aria-hidden="true">
+                        <img src="assets/armazem_sao_joaquim_mockup.jpg" alt="" loading="lazy" decoding="async" width="400" height="250">
+                    </a>
+                    <h3 class="oc-title"><a href="projetos/armazem-sao-joaquim.html" data-i18n="projArmazemTitle">Armazém São Joaquim</a></h3>
+                    <p class="oc-badge" data-i18n="badgeClienteReal">Cliente real · em produção</p>
+                    <p class="oc-desc" data-i18n="projArmazemDesc">Portal para gestão de armazém, restaurante e pousada, no ar em domínio próprio. Next.js e Supabase com CMS dinâmico, fluxo de reservas, área administrativa e foco em SEO e performance.</p>
+                    <p class="oc-tech">Next.js · TypeScript · Supabase · PostgreSQL · React</p>
+                    <p class="oc-links">
+                        <a href="projetos/armazem-sao-joaquim.html"><span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Armazém São Joaquim</span></a>
+                        <a href="https://github.com/Lucasantunesribeiro/armazemsaojoaquim" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkRepo">Repositório</span><span class="sr-only"> — Armazém São Joaquim</span></a>
+                        <a href="https://armazemsaojoaquim.com.br/" target="_blank" rel="noopener noreferrer"><span data-i18n="lnkDemo">Demo ao vivo</span><span class="sr-only"> — Armazém São Joaquim</span></a>
+                    </p>
+                </article>
             </div>
-
-            <details class="sx-more">
-                <summary><span data-i18n="stackMais">Outras tecnologias</span></summary>
-                <dl>
-                    <div>
-                        <dt data-i18n="stackBackend">Backend</dt>
-                        <dd>EF Core · SignalR · Minimal APIs · Node.js · Express · REST · JWT</dd>
-                    </div>
-                    <div>
-                        <dt data-i18n="stackFrontend">Frontend</dt>
-                        <dd>Vite · TanStack Query · Tailwind CSS · Next.js · shadcn/ui</dd>
-                    </div>
-                    <div>
-                        <dt data-i18n="stackDados">Dados</dt>
-                        <dd>SQL Server · Redis · RabbitMQ · Supabase · Prisma · RLS</dd>
-                    </div>
-                    <div>
-                        <dt data-i18n="stackCloud">Cloud &amp; DevOps</dt>
-                        <dd>AWS Lambda · SQS · EventBridge · Azure · Terraform · Vercel · OpenTelemetry · Serilog</dd>
-                    </div>
-                    <div>
-                        <dt data-i18n="stackQualidade">Qualidade</dt>
-                        <dd>xUnit · Testcontainers · Vitest · Testing Library · gitleaks</dd>
-                    </div>
-                    <div>
-                        <dt data-i18n="stackOutras">Outras linguagens</dt>
-                        <dd>Python · Java</dd>
-                    </div>
-                </dl>
-            </details>
         </div>
     </section>
 

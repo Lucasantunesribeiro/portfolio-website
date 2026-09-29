@@ -92,8 +92,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		pt: {
 			// Navbar
 			navProjetos: 'Projetos',
-			navComo: 'Como trabalho',
-			navStack: 'Stack',
 			navSobre: 'Sobre',
 			navExperiencias: 'Experiências',
 			navCertificados: 'Certificados',
@@ -110,29 +108,19 @@ document.addEventListener('DOMContentLoaded', function () {
 			btnProjetos: 'Ver Projetos',
 			ctaContato: 'Contato',
 
-			// Números
-			numTitle: 'Destaques em números',
-			num1Label: 'produtos B2B no ar',
-			num1Sub: 'Cada um com demo pública, release publicada e código aberto.',
-			num2Label: 'testes automatizados',
-			num2Sub: 'Soma dos três projetos: unidade, integração, arquitetura e frontend.',
-			num3Label: 'pentests gray-box em produção',
-			num3Sub: 'Nenhuma vulnerabilidade de severidade alta nos três relatórios.',
-			num4Label: 'multi-tenant com RBAC',
-			num4Sub: 'Isolamento entre organizações provado por teste e por pentest.',
-			numNote: 'Números tirados dos READMEs e relatórios de cada repositório. Testes por projeto: Torre 1.392 · Central 1.211 · Prisma 1.457.',
 
 			// Projetos principais — rótulos comuns
-			projEyebrow: 'Projetos principais',
 			projTitle: 'Três produtos, do domínio à produção',
 			projLead: 'Cada um mostra uma competência diferente: tempo real e geolocalização, sistemas distribuídos e concorrência, domínio complexo e cálculo rastreável.',
 			lblProblema: 'O problema',
 			lblDesafios: 'Desafios técnicos',
 			lblDestaques: 'Destaques técnicos',
-			lblMetricas: 'Métricas comprovadas',
 			lnkDemo: 'Demo ao vivo',
 			lnkRepo: 'Repositório',
 			lnkPentest: 'Pentest',
+			lblStack: 'Stack',
+			lblNumeros: 'Em números',
+			lblLimites: 'Limites',
 
 			// 01 Torre Logística
 			torreTag: 'Operação logística em tempo real',
@@ -142,6 +130,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			torreCap1: 'PWA do motorista, offline-first',
 			torreAlt2: 'Rastreamento público: status A caminho, entrega prevista, chegada estimada e linha do tempo.',
 			torreCap2: 'Rastreamento público do destinatário',
+			torreAlt3: 'Painel operacional do console: contadores por estado e alertas abertos com a evidência de cada um.',
+			torreCap3: 'Console operacional: alertas com evidência',
 			torreProblema: 'A transportadora perde a entrega de vista quando o veículo sai para a rua: posição, atraso e prova de entrega ficam em telefonemas e planilhas. A Torre cobre o trecho entre a saída para rota e a conclusão.',
 			torreCh1: 'Tempo real',
 			torreCh2: 'Geolocalização',
@@ -156,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			torreM1: 'testes: 695 unidade · 544 integração com PostGIS real · 131 frontend · 22 arquitetura',
 			torreM2: 'categorias de pentest gray-box em produção, sem vulnerabilidade alta',
 			torreM3: 'aplicações web sobre o mesmo núcleo: console, PWA e rastreamento',
-			torreScope: '<strong>Escopo declarado:</strong> a demo roda em uma VM Always Free de 1 GB, nó único e sem SLA; ETA é determinístico, não preditivo.',
+			torreScope: 'A demo roda em uma VM Always Free de 1 GB, nó único e sem SLA; ETA é determinístico, não preditivo.',
 
 			// 02 Central Antifraude
 			centralTag: 'Sistemas distribuídos e decisão de risco',
@@ -180,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			centralM1: 'testes: 546 unidade · 480 integração com PostgreSQL real · 134 frontend · 51 arquitetura',
 			centralM2: 'vetores de pentest gray-box em produção, sem achado alto',
 			centralM3: 'fases entregues, com Security Gate documentado por fase',
-			centralScope: '<strong>Escopo declarado:</strong> não é banco nem gateway; pesos e limiares das regras são configuração de demonstração, não padrão de mercado.',
+			centralScope: 'Não é banco nem gateway; pesos e limiares das regras são configuração de demonstração, não padrão de mercado.',
 
 			// 03 Prisma RH
 			prismaTag: 'Domínio complexo de folha de pagamento',
@@ -204,47 +194,13 @@ document.addEventListener('DOMContentLoaded', function () {
 			prismaM1: 'testes: 1.286 backend (com PostgreSQL real) + 171 frontend',
 			prismaM2: 'testes de segurança em suíte própria, mais pentest em 10 categorias sem vulnerabilidade',
 			prismaM3: 'rotas, 4 anônimas, cada uma com motivo escrito e travada por teste',
-			prismaScope: '<strong>Escopo declarado:</strong> não é homologado; afastamentos e três dos oito motivos de rescisão ficam fora, e o sistema diz isso em vez de estimar.',
+			prismaScope: 'Não é homologado; afastamentos e três dos oito motivos de rescisão ficam fora, e o sistema diz isso em vez de estimar.',
 
 			// Outros projetos
 			outrosTitle: 'Outros projetos',
 			outrosLead: 'Projetos anteriores, todos com código aberto. Cada um tem uma página com a arquitetura, as decisões e os limites do que foi construído.',
-			outrosMais: 'Ver mais 3 projetos',
 
-			// Como eu trabalho
-			comoEyebrow: 'Método',
-			comoTitle: 'Como eu trabalho',
-			comoLead: 'Práticas que aparecem nos três projetos, com o documento ou o teste que as prova.',
-			como1T: 'Domínio primeiro',
-			como1P: 'As regras vivem no Domain, sem infraestrutura, e testes de arquitetura seguram a fronteira entre as camadas.',
-			como1E: 'Prova: 22 testes de arquitetura na Torre e 51 na Central.',
-			como2T: 'Consistência antes de conveniência',
-			como2P: 'Transação serializável, Outbox e idempotência no lugar de esperança: o efeito acontece uma vez, mesmo com retry.',
-			como2E: 'Prova: na Central, um teste com seis requisições simultâneas exige contagens 1 a 6, sem repetir nem pular.',
-			como3T: 'Testes que provam de verdade',
-			como3P: 'Integração contra PostgreSQL e PostGIS reais via Testcontainers, não banco em memória; contrato testado contra a API real no CI.',
-			como3E: 'Prova: 544 testes de integração na Torre, 480 na Central.',
-			como4T: 'Segurança testada, não afirmada',
-			como4P: 'Pentest gray-box contra a produção, com requisição e resposta reais. Quando um teste passou pelo motivo errado, o relatório diz.',
-			como4E: 'Prova: três relatórios versionados nos repositórios.',
-			como5T: 'Produção de verdade',
-			como5P: 'Deploy real, health checks, CI no GitHub Actions e custo calculado antes de subir a infraestrutura.',
-			como5E: 'Prova: os três projetos têm URL pública e release publicada.',
-			como6T: 'Evidência antes de conclusão',
-			como6P: 'Diagnóstico pela causa raiz, decisões registradas em ADR com a alternativa recusada e limitações escritas com todas as letras.',
-			como6E: 'Prova: o README de cada projeto declara o que ele não faz.',
 
-			// Stack
-			stackEyebrow: 'Ferramentas',
-			stackTitle: 'Stack',
-			stackLead: 'O que uso nos projetos principais.',
-			stackBackend: 'Backend',
-			stackFrontend: 'Frontend',
-			stackDados: 'Dados',
-			stackCloud: 'Cloud &amp; DevOps',
-			stackMais: 'Outras tecnologias',
-			stackQualidade: 'Qualidade',
-			stackOutras: 'Outras linguagens',
 
 			// Sobre
 			sobreTitle: 'Sobre Mim',
@@ -334,8 +290,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		en: {
 			// Navbar
 			navProjetos: 'Projects',
-			navComo: 'How I work',
-			navStack: 'Stack',
 			navSobre: 'About',
 			navExperiencias: 'Experience',
 			navCertificados: 'Certificates',
@@ -352,29 +306,19 @@ document.addEventListener('DOMContentLoaded', function () {
 			btnProjetos: 'See Projects',
 			ctaContato: 'Contact',
 
-			// Numbers
-			numTitle: 'Highlights in numbers',
-			num1Label: 'B2B products live',
-			num1Sub: 'Each with a public demo, a published release and open source code.',
-			num2Label: 'automated tests',
-			num2Sub: 'Sum of the three projects: unit, integration, architecture and frontend.',
-			num3Label: 'gray-box pentests in production',
-			num3Sub: 'No high-severity vulnerability in any of the three reports.',
-			num4Label: 'multi-tenant with RBAC',
-			num4Sub: 'Isolation between organizations proven by tests and by pentest.',
-			numNote: 'Numbers taken from each repository README and reports. Tests per project: Torre 1,392 · Central 1,211 · Prisma 1,457.',
 
 			// Featured projects — shared labels
-			projEyebrow: 'Featured projects',
 			projTitle: 'Three products, from domain to production',
 			projLead: 'Each one shows a different skill: real time and geolocation, distributed systems and concurrency, complex domain and traceable calculation.',
 			lblProblema: 'The problem',
 			lblDesafios: 'Technical challenges',
 			lblDestaques: 'Technical highlights',
-			lblMetricas: 'Verified metrics',
 			lnkDemo: 'Live demo',
 			lnkRepo: 'Repository',
 			lnkPentest: 'Pentest',
+			lblStack: 'Stack',
+			lblNumeros: 'In numbers',
+			lblLimites: 'Limits',
 
 			// 01 Torre Logística
 			torreTag: 'Real-time logistics operation',
@@ -384,6 +328,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			torreCap1: 'Driver PWA, offline-first',
 			torreAlt2: 'Public tracking: On the way status, expected delivery, estimated arrival and timeline.',
 			torreCap2: 'Recipient public tracking',
+			torreAlt3: 'Console dashboard: counters by state and open alerts with the evidence for each one.',
+			torreCap3: 'Operations console: alerts with evidence',
 			torreProblema: 'A carrier loses sight of the delivery once the vehicle leaves: position, delay and proof of delivery end up in phone calls and spreadsheets. Torre covers the stretch between leaving for the route and completion.',
 			torreCh1: 'Real time',
 			torreCh2: 'Geolocation',
@@ -398,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			torreM1: 'tests: 695 unit · 544 integration with real PostGIS · 131 frontend · 22 architecture',
 			torreM2: 'gray-box pentest categories in production, no high-severity vulnerability',
 			torreM3: 'web apps on the same core: console, PWA and tracking',
-			torreScope: '<strong>Declared scope:</strong> the demo runs on a 1 GB Always Free VM, single node and no SLA; ETA is deterministic, not predictive.',
+			torreScope: 'The demo runs on a 1 GB Always Free VM, single node and no SLA; ETA is deterministic, not predictive.',
 
 			// 02 Central Antifraude
 			centralTag: 'Distributed systems and risk decisions',
@@ -422,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			centralM1: 'tests: 546 unit · 480 integration with real PostgreSQL · 134 frontend · 51 architecture',
 			centralM2: 'gray-box pentest vectors in production, no high-severity finding',
 			centralM3: 'phases delivered, with a documented Security Gate per phase',
-			centralScope: '<strong>Declared scope:</strong> not a bank or a gateway; rule weights and thresholds are demo configuration, not a market standard.',
+			centralScope: 'Not a bank or a gateway; rule weights and thresholds are demo configuration, not a market standard.',
 
 			// 03 Prisma RH
 			prismaTag: 'Complex payroll domain',
@@ -446,47 +392,13 @@ document.addEventListener('DOMContentLoaded', function () {
 			prismaM1: 'tests: 1,286 backend (with real PostgreSQL) + 171 frontend',
 			prismaM2: 'security tests in a dedicated suite, plus a pentest in 10 categories with no vulnerability',
 			prismaM3: 'routes, 4 anonymous, each with a written reason and locked by a test',
-			prismaScope: '<strong>Declared scope:</strong> not government-certified; leaves and three of the eight termination reasons are out, and the system says so instead of guessing.',
+			prismaScope: 'Not government-certified; leaves and three of the eight termination reasons are out, and the system says so instead of guessing.',
 
 			// Other projects
 			outrosTitle: 'Other projects',
 			outrosLead: 'Earlier projects, all open source. Each has a page with the architecture, the decisions and the limits of what was built.',
-			outrosMais: 'Show 3 more projects',
 
-			// How I work
-			comoEyebrow: 'Method',
-			comoTitle: 'How I work',
-			comoLead: 'Practices that show up in all three projects, with the document or test that proves them.',
-			como1T: 'Domain first',
-			como1P: 'Rules live in the Domain, free of infrastructure, and architecture tests hold the boundary between layers.',
-			como1E: 'Proof: 22 architecture tests in Torre and 51 in Central.',
-			como2T: 'Consistency over convenience',
-			como2P: 'Serializable transactions, Outbox and idempotency instead of hope: the effect happens once, even with retries.',
-			como2E: 'Proof: in Central, a test with six simultaneous requests requires counts 1 to 6, no repeats and no gaps.',
-			como3T: 'Tests that really prove',
-			como3P: 'Integration against real PostgreSQL and PostGIS through Testcontainers, not an in-memory database; contract tested against the real API in CI.',
-			como3E: 'Proof: 544 integration tests in Torre, 480 in Central.',
-			como4T: 'Security tested, not claimed',
-			como4P: 'Gray-box pentest against production, with real requests and responses. When a test passed for the wrong reason, the report says so.',
-			como4E: 'Proof: three reports versioned in the repositories.',
-			como5T: 'Real production',
-			como5P: 'Real deploys, health checks, CI on GitHub Actions and cost calculated before provisioning infrastructure.',
-			como5E: 'Proof: all three projects have a public URL and a published release.',
-			como6T: 'Evidence before conclusion',
-			como6P: 'Root-cause diagnosis, decisions recorded as ADRs with the rejected alternative, and limitations written out plainly.',
-			como6E: 'Proof: each project README states what it does not do.',
 
-			// Stack
-			stackEyebrow: 'Tools',
-			stackTitle: 'Stack',
-			stackLead: 'What I use in the featured projects.',
-			stackBackend: 'Backend',
-			stackFrontend: 'Frontend',
-			stackDados: 'Data',
-			stackCloud: 'Cloud &amp; DevOps',
-			stackMais: 'Other technologies',
-			stackQualidade: 'Quality',
-			stackOutras: 'Other languages',
 
 			// About
 			sobreTitle: 'About Me',
