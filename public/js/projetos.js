@@ -211,8 +211,12 @@
 
     // ==================== EVENTS ====================
     function setActiveButton(btn) {
-        elements.stackButtons.forEach((b) => b.classList.remove("active"));
+        elements.stackButtons.forEach((b) => {
+            b.classList.remove("active");
+            b.setAttribute("aria-pressed", "false");
+        });
         btn.classList.add("active");
+        btn.setAttribute("aria-pressed", "true");
     }
 
     function handleStackFilter(btn) {

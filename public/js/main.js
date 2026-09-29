@@ -460,8 +460,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		refreshTimelineTexts(lang);
 
 		if (langBtn) {
-			langBtn.textContent = lang === 'pt' ? 'PT / EN' : 'EN / PT';
-			langBtn.setAttribute('aria-label', lang === 'pt' ? 'Mudar para inglês' : 'Switch to Portuguese');
+			const visible = lang === 'pt' ? 'PT / EN' : 'EN / PT';
+			langBtn.textContent = visible;
+			// O nome acessível precisa conter o texto visível (WCAG 2.5.3, Label in Name)
+			langBtn.setAttribute('aria-label',
+				lang === 'pt' ? `Mudar para inglês — ${visible}` : `Switch to Portuguese — ${visible}`);
 		}
 
 		try {

@@ -460,3 +460,22 @@ video:focus-visible {
         scroll-behavior: auto !important;
     }
 }
+
+/* Substitutos dos estilos inline (a CSP não aceita atributo style) */
+.scroll-sentinel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.idioma-nivel-total {
+    width: 100%;
+}
+
+.idioma-nivel-avancado {
+    width: 80%;
+}

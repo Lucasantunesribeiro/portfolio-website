@@ -10,7 +10,7 @@ const path = require('path');
 
 const W = 1200;
 const H = 630;
-const OUT = path.join(__dirname, '..', 'assets', 'og-image.png');
+const OUT = path.join(__dirname, '..', 'public', 'assets', 'og-image.png');
 
 const svg = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -60,7 +60,7 @@ const svg = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
  * carrega (e como imagem final em conexoes lentas / prefers-reduced-motion),
  * evitando o flash de tela preta sem custar quase nada de banda.
  */
-const POSTER_OUT = path.join(__dirname, '..', 'assets', 'hero-poster.jpg');
+const POSTER_OUT = path.join(__dirname, '..', 'public', 'assets', 'hero-poster.jpg');
 const posterSvg = `<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="p" x1="0" y1="0" x2="1" y2="1">

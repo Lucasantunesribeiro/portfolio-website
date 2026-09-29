@@ -10,13 +10,13 @@ const path = require('path');
 const projects = require('./projects-data');
 
 const SITE = 'https://www.lucasafvr.com.br';
-const OUT = path.join(__dirname, '..', 'sitemap.xml');
+const OUT = path.join(__dirname, '..', 'public', 'sitemap.xml');
 const today = new Date().toISOString().slice(0, 10);
 
 const urls = [
     { loc: `${SITE}/`, priority: '1.0', changefreq: 'monthly' },
     ...projects.map((p) => ({
-        loc: `${SITE}/projetos/${p.slug}.html`,
+        loc: `${SITE}/projetos/${p.slug}`,
         priority: '0.8',
         changefreq: 'yearly',
     })),

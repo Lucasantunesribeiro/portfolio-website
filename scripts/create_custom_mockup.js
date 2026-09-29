@@ -1,7 +1,7 @@
 const sharp = require('sharp');
 const path = require('path');
 
-const OUTPUT_DIR = path.join(__dirname, '../assets');
+const OUTPUT_DIR = path.join(__dirname, '../public/assets');
 
 const PROJECTS = [
   {

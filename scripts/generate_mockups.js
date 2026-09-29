@@ -4,9 +4,9 @@ const { chromium, devices } = require('playwright');
 const sharp = require('sharp');
 
 // Configuration
-const SCREENSHOT_DIR = path.join(__dirname, '../assets/screens');
-const OUTPUT_DIR = path.join(__dirname, '../assets');
-const JS_FILE = path.join(__dirname, '../js/main.js');
+const SCREENSHOT_DIR = path.join(__dirname, '../public/assets/screens');
+const OUTPUT_DIR = path.join(__dirname, '../public/assets');
+const JS_FILE = path.join(__dirname, '../public/js/main.js');
 
 // Ensure directories exist
 if (!fs.existsSync(SCREENSHOT_DIR)) fs.mkdirSync(SCREENSHOT_DIR, { recursive: true });

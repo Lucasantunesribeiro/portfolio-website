@@ -32,3 +32,6 @@ readme/
 node_modules
 # node_modules
 node_modules/
+
+# agent skills config (local, seeded from ~/.agents/mattpocock-config)
+docs/agents/

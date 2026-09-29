@@ -142,7 +142,8 @@
 
 .cert-item-code {
     font-size: 0.8125rem;
-    color: var(--exp-text-muted);
+    /* --exp-text-muted (#6b7280) não passa em contraste neste fundo; secondary passa */
+    color: var(--exp-text-secondary);
     word-break: break-all;
 }
 
@@ -233,7 +234,7 @@
 
 .idiomas-nota {
     font-size: 0.875rem;
-    color: var(--exp-text-muted);
+    color: var(--exp-text-secondary);
     line-height: 1.6;
     margin-top: var(--exp-spacing-md);
 }

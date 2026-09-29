@@ -3,6 +3,7 @@
   "private": true,
   "description": "Portfolio estatico de Lucas Antunes Ferreira",
   "scripts": {
+    "dev": "node scripts/serve.js",
     "gen": "npm run gen:pages && npm run gen:sitemap && npm run gen:images",
     "gen:pages": "node scripts/generate_project_pages.js",
     "gen:sitemap": "node scripts/generate_sitemap.js",

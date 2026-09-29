@@ -12,7 +12,7 @@ const fs = require('fs');
 const path = require('path');
 const projects = require('./projects-data');
 
-const OUT_DIR = path.join(__dirname, '..', 'projetos');
+const OUT_DIR = path.join(__dirname, '..', 'public', 'projetos');
 const SITE = 'https://www.lucasafvr.com.br';
 
 /** Escapa texto que vai para atributos HTML. */
@@ -125,10 +125,10 @@ ${galleryItems}
     <meta name="author" content="Lucas Antunes Ferreira">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0B1120">
-    <link rel="canonical" href="${SITE}/projetos/${project.slug}.html">
+    <link rel="canonical" href="${SITE}/projetos/${project.slug}">
 
     <meta property="og:type" content="article">
-    <meta property="og:url" content="${SITE}/projetos/${project.slug}.html">
+    <meta property="og:url" content="${SITE}/projetos/${project.slug}">
     <meta property="og:site_name" content="Lucas Antunes Ferreira">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:title" content="${attr(project.title)} — ${attr(project.subtitle)}">
@@ -163,7 +163,8 @@ ${galleryItems}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/projeto-detalhe.css">
 
@@ -175,11 +176,11 @@ ${galleryItems}
 
     <nav class="pd-nav">
         <div class="pd-container">
-            <a href="../index.html" class="pd-back">
+            <a href="/" class="pd-back">
                 <i class="fas fa-arrow-left" aria-hidden="true"></i>
                 <span>Voltar ao portfólio</span>
             </a>
-            <a href="../index.html#projetos" class="pd-nav-link">Todos os projetos</a>
+            <a href="/#projetos" class="pd-nav-link">Todos os projetos</a>
         </div>
     </nav>
 
@@ -259,11 +260,11 @@ ${limits}
 
             <!-- ==================== NAVEGAÇÃO ==================== -->
             <nav class="pd-pager" aria-label="Navegação entre projetos">
-                <a class="pd-pager-link pd-pager-prev" href="${prev.slug}.html">
+                <a class="pd-pager-link pd-pager-prev" href="/projetos/${prev.slug}">
                     <span class="pd-pager-label"><i class="fas fa-chevron-left" aria-hidden="true"></i> Anterior</span>
                     <span class="pd-pager-title">${attr(prev.title)}</span>
                 </a>
-                <a class="pd-pager-link pd-pager-next" href="${next.slug}.html">
+                <a class="pd-pager-link pd-pager-next" href="/projetos/${next.slug}">
                     <span class="pd-pager-label">Próximo <i class="fas fa-chevron-right" aria-hidden="true"></i></span>
                     <span class="pd-pager-title">${attr(next.title)}</span>
                 </a>

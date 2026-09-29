@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-# Arquivos de trabalho e scripts de build não precisam ser indexados
-Disallow: /scripts/
-Disallow: /node_modules/
-
-Sitemap: https://www.lucasafvr.com.br/sitemap.xml

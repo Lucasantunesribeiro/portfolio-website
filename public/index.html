@@ -82,7 +82,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -102,8 +103,7 @@
     <a class="skip-link" href="#main" data-i18n="skipLink">Pular para o conteúdo</a>
 
     <!-- Sentinel for Sticky Header -->
-    <div id="scroll-sentinel" aria-hidden="true"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 1px; pointer-events: none; z-index: -1;"></div>
+    <div id="scroll-sentinel" class="scroll-sentinel" aria-hidden="true"></div>
 
     <!-- Barra de progresso -->
     <div class="progress-bar" aria-hidden="true"></div>
@@ -213,48 +213,48 @@
             </div>
 
             <!-- Filtro de Stacks (Premium Segmented Control) -->
-            <div class="stacks-filter" role="tablist" aria-label="Filtrar projetos por tecnologia">
-                <button class="stack-btn active" data-stack="all" role="tab" aria-selected="true"
+            <div class="stacks-filter" role="group" aria-label="Filtrar projetos por tecnologia">
+                <button type="button" class="stack-btn active" data-stack="all" aria-pressed="true"
                     aria-controls="projetos-grid">
                     <i class="fas fa-layer-group" aria-hidden="true"></i>
                     <span data-i18n="filterAllProjects">Todos</span>
                 </button>
-                <button class="stack-btn" data-stack=".NET" role="tab" aria-selected="false"
+                <button type="button" class="stack-btn" data-stack=".NET" aria-pressed="false"
                     aria-controls="projetos-grid">
                     <i class="fas fa-code" aria-hidden="true"></i>
                     <span>.NET</span>
                 </button>
-                <button class="stack-btn" data-stack="React" role="tab" aria-selected="false"
+                <button type="button" class="stack-btn" data-stack="React" aria-pressed="false"
                     aria-controls="projetos-grid">
                     <i class="fab fa-react" aria-hidden="true"></i>
                     <span>React</span>
                 </button>
-                <button class="stack-btn" data-stack="TypeScript" role="tab" aria-selected="false"
+                <button type="button" class="stack-btn" data-stack="TypeScript" aria-pressed="false"
                     aria-controls="projetos-grid">
                     <i class="fab fa-js-square" aria-hidden="true"></i>
                     <span>TypeScript</span>
                 </button>
-                <button class="stack-btn" data-stack="AWS" role="tab" aria-selected="false"
+                <button type="button" class="stack-btn" data-stack="AWS" aria-pressed="false"
                     aria-controls="projetos-grid">
                     <i class="fab fa-aws" aria-hidden="true"></i>
                     <span>AWS</span>
                 </button>
-                <button class="stack-btn" data-stack="PostgreSQL" role="tab" aria-selected="false"
+                <button type="button" class="stack-btn" data-stack="PostgreSQL" aria-pressed="false"
                     aria-controls="projetos-grid">
                     <i class="fas fa-database" aria-hidden="true"></i>
                     <span>PostgreSQL</span>
                 </button>
-                <button class="stack-btn" data-stack="Docker" role="tab" aria-selected="false"
+                <button type="button" class="stack-btn" data-stack="Docker" aria-pressed="false"
                     aria-controls="projetos-grid">
                     <i class="fab fa-docker" aria-hidden="true"></i>
                     <span>Docker</span>
                 </button>
-                <button class="stack-btn" data-stack="Python" role="tab" aria-selected="false"
+                <button type="button" class="stack-btn" data-stack="Python" aria-pressed="false"
                     aria-controls="projetos-grid">
                     <i class="fab fa-python" aria-hidden="true"></i>
                     <span>Python</span>
                 </button>
-                <button class="stack-btn" data-stack="Java" role="tab" aria-selected="false"
+                <button type="button" class="stack-btn" data-stack="Java" aria-pressed="false"
                     aria-controls="projetos-grid">
                     <i class="fab fa-java" aria-hidden="true"></i>
                     <span>Java</span>
@@ -293,7 +293,7 @@
                                 <span class="project-tag">Docker</span>
                             </div>
                             <div class="project-actions">
-                                <a href="projetos/torre-logistica.html" class="btn-project btn-project-primary">
+                                <a href="projetos/torre-logistica" class="btn-project btn-project-primary">
                                     <i class="fas fa-circle-info" aria-hidden="true"></i>
                                     <span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Torre Logística</span>
                                 </a>
@@ -346,7 +346,7 @@
                                 <span class="project-tag">TypeScript</span>
                             </div>
                             <div class="project-actions">
-                                <a href="projetos/central-antifraude.html" class="btn-project btn-project-primary">
+                                <a href="projetos/central-antifraude" class="btn-project btn-project-primary">
                                     <i class="fas fa-circle-info" aria-hidden="true"></i>
                                     <span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Central Antifraude</span>
                                 </a>
@@ -399,7 +399,7 @@
                                 <span class="project-tag">TypeScript</span>
                             </div>
                             <div class="project-actions">
-                                <a href="projetos/prisma-rh.html" class="btn-project btn-project-primary">
+                                <a href="projetos/prisma-rh" class="btn-project btn-project-primary">
                                     <i class="fas fa-circle-info" aria-hidden="true"></i>
                                     <span data-i18n="btnDetalhes">Detalhes</span><span class="sr-only"> — Prisma RH</span>
                                 </a>
@@ -453,7 +453,7 @@
                             <span class="project-tag">AWS</span>
                         </div>
                         <div class="project-actions">
-                            <a href="projetos/smartfinance.html" class="btn-project btn-project-primary">
+                            <a href="projetos/smartfinance" class="btn-project btn-project-primary">
                                 <i class="fas fa-circle-info" aria-hidden="true"></i>
                                 <span data-i18n="btnDetalhes">Detalhes</span>
                             </a>
@@ -484,7 +484,7 @@
                             <span class="project-tag">Azure</span>
                         </div>
                         <div class="project-actions">
-                            <a href="projetos/tenantcore.html" class="btn-project btn-project-primary">
+                            <a href="projetos/tenantcore" class="btn-project btn-project-primary">
                                 <i class="fas fa-circle-info" aria-hidden="true"></i>
                                 <span data-i18n="btnDetalhes">Detalhes</span>
                             </a>
@@ -520,7 +520,7 @@
                             <span class="project-tag">Docker</span>
                         </div>
                         <div class="project-actions">
-                            <a href="projetos/linkguardiao.html" class="btn-project btn-project-primary">
+                            <a href="projetos/linkguardiao" class="btn-project btn-project-primary">
                                 <i class="fas fa-circle-info" aria-hidden="true"></i>
                                 <span data-i18n="btnDetalhes">Detalhes</span>
                             </a>
@@ -556,7 +556,7 @@
                             <span class="project-tag">React</span>
                         </div>
                         <div class="project-actions">
-                            <a href="projetos/armazem-sao-joaquim.html" class="btn-project btn-project-primary">
+                            <a href="projetos/armazem-sao-joaquim" class="btn-project btn-project-primary">
                                 <i class="fas fa-circle-info" aria-hidden="true"></i>
                                 <span data-i18n="btnDetalhes">Detalhes</span>
                             </a>
@@ -592,7 +592,7 @@
                             <span class="project-tag">AWS</span>
                         </div>
                         <div class="project-actions">
-                            <a href="projetos/emissao-nfe.html" class="btn-project btn-project-primary">
+                            <a href="projetos/emissao-nfe" class="btn-project btn-project-primary">
                                 <i class="fas fa-circle-info" aria-hidden="true"></i>
                                 <span data-i18n="btnDetalhes">Detalhes</span>
                             </a>
@@ -622,7 +622,7 @@
                             <span class="project-tag">Docker</span>
                         </div>
                         <div class="project-actions">
-                            <a href="projetos/collabdocs.html" class="btn-project btn-project-primary">
+                            <a href="projetos/collabdocs" class="btn-project btn-project-primary">
                                 <i class="fas fa-circle-info" aria-hidden="true"></i>
                                 <span data-i18n="btnDetalhes">Detalhes</span>
                             </a>
@@ -658,7 +658,7 @@
                             <span class="project-tag">Docker</span>
                         </div>
                         <div class="project-actions">
-                            <a href="projetos/agente-sumarizacao.html" class="btn-project btn-project-primary">
+                            <a href="projetos/agente-sumarizacao" class="btn-project btn-project-primary">
                                 <i class="fas fa-circle-info" aria-hidden="true"></i>
                                 <span data-i18n="btnDetalhes">Detalhes</span>
                             </a>
@@ -693,7 +693,7 @@
                             <span class="project-tag">Redis</span>
                         </div>
                         <div class="project-actions">
-                            <a href="projetos/billing-ledger.html" class="btn-project btn-project-primary">
+                            <a href="projetos/billing-ledger" class="btn-project btn-project-primary">
                                 <i class="fas fa-circle-info" aria-hidden="true"></i>
                                 <span data-i18n="btnDetalhes">Detalhes</span>
                             </a>
@@ -724,7 +724,7 @@
                             <span class="project-tag">Docker</span>
                         </div>
                         <div class="project-actions">
-                            <a href="projetos/pedidos-event-sourcing.html" class="btn-project btn-project-primary">
+                            <a href="projetos/pedidos-event-sourcing" class="btn-project btn-project-primary">
                                 <i class="fas fa-circle-info" aria-hidden="true"></i>
                                 <span data-i18n="btnDetalhes">Detalhes</span>
                             </a>
@@ -820,13 +820,13 @@
                     formação acadêmica</p>
             </div>
 
-            <div class="timeline" role="list" aria-label="Linha do tempo de experiências">
+            <div class="timeline" role="group" aria-label="Linha do tempo de experiências">
                 <div class="timeline-rail" aria-hidden="true">
                     <div class="timeline-progress" aria-hidden="true"></div>
                 </div>
 
                 <!-- SinergyRH — emprego atual -->
-                <article class="timeline-item" role="listitem">
+                <article class="timeline-item">
                     <div class="timeline-dot" aria-hidden="true"></div>
 
                     <div class="timeline-card">
@@ -864,7 +864,7 @@
                 </article>
 
                 <!-- RSM Brasil -->
-                <article class="timeline-item" role="listitem">
+                <article class="timeline-item">
                     <div class="timeline-dot" aria-hidden="true"></div>
 
                     <div class="timeline-card">
@@ -902,7 +902,7 @@
                 </article>
 
                 <!-- Freelancer -->
-                <article class="timeline-item" role="listitem">
+                <article class="timeline-item">
                     <div class="timeline-dot" aria-hidden="true"></div>
 
                     <div class="timeline-card">
@@ -945,7 +945,7 @@
                 </article>
 
                 <!-- Estácio -->
-                <article class="timeline-item" role="listitem">
+                <article class="timeline-item">
                     <div class="timeline-dot" aria-hidden="true"></div>
 
                     <div class="timeline-card">
@@ -968,7 +968,7 @@
                 </article>
 
                 <!-- Alura -->
-                <article class="timeline-item" role="listitem">
+                <article class="timeline-item">
                     <div class="timeline-dot" aria-hidden="true"></div>
 
                     <div class="timeline-card">
@@ -1069,7 +1069,7 @@
                             <span class="idioma-nivel" data-i18n="idiomaPtNivel">Nativo</span>
                         </div>
                         <div class="idioma-barra" role="img" aria-label="Português: nativo">
-                            <span class="idioma-preenchimento" style="width: 100%"></span>
+                            <span class="idioma-preenchimento idioma-nivel-total"></span>
                         </div>
                     </div>
 
@@ -1079,7 +1079,7 @@
                             <span class="idioma-nivel" data-i18n="idiomaEnNivel">Avançado</span>
                         </div>
                         <div class="idioma-barra" role="img" aria-label="Inglês: avançado">
-                            <span class="idioma-preenchimento" style="width: 80%"></span>
+                            <span class="idioma-preenchimento idioma-nivel-avancado"></span>
                         </div>
                     </div>
 

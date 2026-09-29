@@ -532,3 +532,34 @@
     border: 1px solid var(--pd-border, rgba(255, 255, 255, 0.08));
     border-radius: 0.5rem;
 }
+
+/* ==================== PÁGINA 404 ==================== */
+.nf-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.nf-code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    color: #9ca3af;
+}
+
+.nf-title {
+    margin-bottom: 0;
+}
+
+.nf-text {
+    max-width: 34rem;
+}
+
+.nf-actions {
+    margin-top: 0.75rem;
+}

@@ -7,55 +7,73 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.lucasafvr.com.br/projetos/smartfinance.html</loc>
+        <loc>https://www.lucasafvr.com.br/projetos/torre-logistica</loc>
         <lastmod>2026-09-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.lucasafvr.com.br/projetos/tenantcore.html</loc>
+        <loc>https://www.lucasafvr.com.br/projetos/central-antifraude</loc>
         <lastmod>2026-09-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.lucasafvr.com.br/projetos/linkguardiao.html</loc>
+        <loc>https://www.lucasafvr.com.br/projetos/prisma-rh</loc>
         <lastmod>2026-09-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.lucasafvr.com.br/projetos/billing-ledger.html</loc>
+        <loc>https://www.lucasafvr.com.br/projetos/smartfinance</loc>
         <lastmod>2026-09-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.lucasafvr.com.br/projetos/emissao-nfe.html</loc>
+        <loc>https://www.lucasafvr.com.br/projetos/tenantcore</loc>
         <lastmod>2026-09-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.lucasafvr.com.br/projetos/collabdocs.html</loc>
+        <loc>https://www.lucasafvr.com.br/projetos/linkguardiao</loc>
         <lastmod>2026-09-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.lucasafvr.com.br/projetos/pedidos-event-sourcing.html</loc>
+        <loc>https://www.lucasafvr.com.br/projetos/billing-ledger</loc>
         <lastmod>2026-09-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.lucasafvr.com.br/projetos/agente-sumarizacao.html</loc>
+        <loc>https://www.lucasafvr.com.br/projetos/emissao-nfe</loc>
         <lastmod>2026-09-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.lucasafvr.com.br/projetos/armazem-sao-joaquim.html</loc>
+        <loc>https://www.lucasafvr.com.br/projetos/collabdocs</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.lucasafvr.com.br/projetos/pedidos-event-sourcing</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.lucasafvr.com.br/projetos/agente-sumarizacao</loc>
+        <lastmod>2026-09-29</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.lucasafvr.com.br/projetos/armazem-sao-joaquim</loc>
         <lastmod>2026-09-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
