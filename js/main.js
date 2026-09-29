@@ -1,109 +1,74 @@
 document.addEventListener('DOMContentLoaded', function () {
-	// Inicializa AOS
-	AOS.init({
-		duration: 800,
-		easing: 'slide'
-	});
+	// Vídeo de fundo do hero: economiza bateria e respeita prefers-reduced-motion
+	const heroVideo = document.querySelector('.hero-video');
+	if (heroVideo && (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 768)) {
+		heroVideo.pause();
+	}
 
+	// Avatar da seção Sobre: só toca quando aparece na tela e o usuário não pediu
+	// menos movimento. Sem isso o vídeo baixaria e rodaria fora da vista.
+	const avatar = document.querySelector('.profile-img');
+	if (avatar && 'IntersectionObserver' in window &&
+		!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		const avatarObserver = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					avatar.play().catch(() => { /* autoplay bloqueado: fica o poster */ });
+				} else {
+					avatar.pause();
+				}
+			});
+		}, { threshold: 0.25 });
+		avatarObserver.observe(avatar);
+	}
 
-	// Variáveis globais de navegação controladas por applyMenuListeners
-	// A lógica de filtragem de projetos foi movida para js/projetos.js
+	// ==================== MENU MOBILE ====================
+	const menuToggle = document.querySelector('.menu-toggle');
+	const navLinks = document.querySelector('.nav-links');
 
+	function setMenu(open) {
+		if (!menuToggle || !navLinks) return;
+		navLinks.classList.toggle('active', open);
+		menuToggle.classList.toggle('active', open);
+		menuToggle.setAttribute('aria-expanded', String(open));
+	}
 
-	// Apenas CSS controla a exibição do menu-toggle
-
-	// Animações de entrada
-	const animateElements = document.querySelectorAll('.hero-content, .sobre-grid, .skill-card, .project-card');
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				entry.target.classList.add('animate-in');
-				observer.unobserve(entry.target);
+	if (menuToggle && navLinks) {
+		menuToggle.addEventListener('click', (e) => {
+			e.stopPropagation();
+			setMenu(!navLinks.classList.contains('active'));
+		});
+		navLinks.querySelectorAll('a, #toggle-lang').forEach((link) => {
+			link.addEventListener('click', () => setMenu(false));
+		});
+		document.addEventListener('click', (e) => {
+			if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) setMenu(false);
+		});
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+				setMenu(false);
+				menuToggle.focus();
 			}
 		});
-	}, {
-		threshold: 0.1,
-		rootMargin: '0px 0px -50px 0px'
-	});
-	animateElements.forEach(element => {
-		element.classList.add('animate-hidden');
-		observer.observe(element);
-	});
-
-	// Acessibilidade: Prefers Reduced Motion e Economia de Bateria
-	const video = document.querySelector('.hero-video');
-	if (video) {
-		const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-		if (mediaQuery.matches || window.innerWidth < 768) {
-			video.pause();
-			// Opcional: esconder vídeo se tiver um poster definido no HTML
-			// video.style.display = 'none'; 
-		}
-	}
-
-	// Mouse tracking para efeito magic card
-	const cards = document.querySelectorAll('.magic-card');
-	cards.forEach(card => {
-		card.addEventListener('mousemove', e => {
-			const rect = card.getBoundingClientRect();
-			const x = e.clientX - rect.left;
-			const y = e.clientY - rect.top;
-			card.style.setProperty('--mouse-x', `${x}px`);
-			card.style.setProperty('--mouse-y', `${y}px`);
+		window.addEventListener('resize', () => {
+			if (window.innerWidth > 992) setMenu(false);
 		});
-	});
-
-	// Efeito Parallax no Hero
-	const heroBackground = document.querySelector('.hero-background');
-	window.addEventListener('mousemove', (e) => {
-		const mouseX = e.clientX / window.innerWidth;
-		const mouseY = e.clientY / window.innerHeight;
-		const moveX = (mouseX - 0.5) * 20;
-		const moveY = (mouseY - 0.5) * 20;
-		if (heroBackground) heroBackground.style.transform = `translate(${moveX}px, ${moveY}px)`;
-	});
-
-	// Função para aplicar os listeners do menu hamburguer
-	function applyMenuListeners() {
-		menuToggle = document.querySelector('.menu-toggle');
-		navLinks = document.querySelector('.nav-links');
-		if (menuToggle && navLinks) {
-			menuToggle.onclick = function (e) {
-				e.stopPropagation();
-				navLinks.classList.toggle('active');
-				menuToggle.classList.toggle('active');
-			};
-			navLinks.querySelectorAll('a, #toggle-lang').forEach(link => {
-				link.onclick = function () {
-					navLinks.classList.remove('active');
-					menuToggle.classList.remove('active');
-				};
-			});
-			document.addEventListener('click', function (e) {
-				if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-					navLinks.classList.remove('active');
-					menuToggle.classList.remove('active');
-				}
-			});
-			window.addEventListener('resize', function () {
-				if (window.innerWidth > 992) {
-					navLinks.classList.remove('active');
-					menuToggle.classList.remove('active');
-				}
-			});
-		}
 	}
-	applyMenuListeners();
 
-	// Barra de Progresso
-	window.addEventListener('scroll', () => {
-		const progressBar = document.querySelector('.progress-bar');
-		if (progressBar) {
-			const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-			const scrolled = (window.scrollY / windowHeight) * 100;
-			progressBar.style.width = `${scrolled}%`;
-		}
-	});
+	// ==================== BARRA DE PROGRESSO ====================
+	const progressBar = document.querySelector('.progress-bar');
+	if (progressBar) {
+		let ticking = false;
+		window.addEventListener('scroll', () => {
+			if (ticking) return;
+			ticking = true;
+			requestAnimationFrame(() => {
+				const scrollable = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+				progressBar.style.width = scrollable > 0 ? `${(window.scrollY / scrollable) * 100}%` : '0';
+				ticking = false;
+			});
+		}, { passive: true });
+	}
 
 	// ==================== SISTEMA DE IDIOMAS (PT / EN) ====================
 	//
@@ -115,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	//   data-i18n-placeholder="chave" -> troca o placeholder do input
 	//   data-i18n-short="chave"       -> troca o atributo data-short (timeline)
 	//   data-i18n-full="chave"        -> troca o atributo data-full  (timeline)
+	//   data-i18n-alt="chave"         -> troca o alt de imagens
+	//   data-i18n-aria="chave"        -> troca o aria-label
 	//
 	// O idioma escolhido fica salvo em localStorage.
 
@@ -124,38 +91,173 @@ document.addEventListener('DOMContentLoaded', function () {
 	const translations = {
 		pt: {
 			// Navbar
-			navHome: 'Home',
-			navSobre: 'Sobre',
 			navProjetos: 'Projetos',
+			navComo: 'Como trabalho',
+			navStack: 'Stack',
+			navSobre: 'Sobre',
 			navExperiencias: 'Experiências',
-			navHabilidades: 'Habilidades',
 			navCertificados: 'Certificados',
+			navContato: 'Contato',
+			skipLink: 'Pular para o conteúdo',
 
 			// Hero
 			heroBadge: '<span class="hero-badge-dot" aria-hidden="true"></span> Disponível para vagas Júnior / Estágio',
 			heroTitle: 'Olá, eu sou <span class="highlight">Lucas Antunes Ferreira</span>',
-			heroDesc: 'Desenvolvedor .NET &amp; React<br>C# | ASP.NET Core | EF Core | SQL Server<br>Clean Architecture | DDD | Docker | AWS',
-			heroDescMobile: 'Desenvolvedor .NET &amp; React | C# | ASP.NET Core',
+			heroDesc: 'Desenvolvedor Fullstack com foco em backend .NET<br>C# | .NET | ASP.NET Core | React | TypeScript<br>PostgreSQL | Docker | AWS',
+			heroDescMobile: 'Fullstack com foco em backend .NET | C# | React | AWS',
+			heroLead: 'Construo produtos B2B do domínio à produção, com foco em consistência, segurança, testes e operação real em cloud.',
 			btnCurriculo: 'Currículo',
 			btnProjetos: 'Ver Projetos',
+			ctaContato: 'Contato',
+
+			// Números
+			numTitle: 'Destaques em números',
+			num1Label: 'produtos B2B no ar',
+			num1Sub: 'Cada um com demo pública, release publicada e código aberto.',
+			num2Label: 'testes automatizados',
+			num2Sub: 'Soma dos três projetos: unidade, integração, arquitetura e frontend.',
+			num3Label: 'pentests gray-box em produção',
+			num3Sub: 'Nenhuma vulnerabilidade de severidade alta nos três relatórios.',
+			num4Label: 'multi-tenant com RBAC',
+			num4Sub: 'Isolamento entre organizações provado por teste e por pentest.',
+			numNote: 'Números tirados dos READMEs e relatórios de cada repositório. Testes por projeto: Torre 1.392 · Central 1.211 · Prisma 1.457.',
+
+			// Projetos principais — rótulos comuns
+			projEyebrow: 'Projetos principais',
+			projTitle: 'Três produtos, do domínio à produção',
+			projLead: 'Cada um mostra uma competência diferente: tempo real e geolocalização, sistemas distribuídos e concorrência, domínio complexo e cálculo rastreável.',
+			lblProblema: 'O problema',
+			lblDesafios: 'Desafios técnicos',
+			lblDestaques: 'Destaques técnicos',
+			lblMetricas: 'Métricas comprovadas',
+			lnkDemo: 'Demo ao vivo',
+			lnkRepo: 'Repositório',
+			lnkPentest: 'Pentest',
+
+			// 01 Torre Logística
+			torreTag: 'Operação logística em tempo real',
+			torreStatus: 'v1.0.1 · no ar · set 2026',
+			torreVideoCap: 'Passeio de 33 s pela demo pública: console, PWA do motorista e rastreamento.',
+			torreAlt1: 'PWA do motorista: rota do dia com a próxima entrega em destaque e o botão Abrir entrega.',
+			torreCap1: 'PWA do motorista, offline-first',
+			torreAlt2: 'Rastreamento público: status A caminho, entrega prevista, chegada estimada e linha do tempo.',
+			torreCap2: 'Rastreamento público do destinatário',
+			torreProblema: 'A transportadora perde a entrega de vista quando o veículo sai para a rua: posição, atraso e prova de entrega ficam em telefonemas e planilhas. A Torre cobre o trecho entre a saída para rota e a conclusão.',
+			torreCh1: 'Tempo real',
+			torreCh2: 'Geolocalização',
+			torreCh3: 'Offline-first',
+			torreCh4: 'Retry sem duplicar',
+			torreH1: '<strong>Geofence e ETA no PostGIS</strong> — chegada detectada na ingestão da posição, com histerese contra oscilação de GPS.',
+			torreH2: '<strong>Tempo real com SignalR</strong> — o console recebe o aviso só depois do commit; alertas são regras tipadas com evidência.',
+			torreH3: '<strong>PWA offline-first</strong> — cada ação nasce no aparelho e é aplicada exatamente uma vez ao reconectar.',
+			torreH4: '<strong>Prova de entrega segura</strong> — foto por URL assinada de curta duração; rastreio público com token forte e posição aproximada.',
+			torreH5: '<strong>Multi-tenancy e RBAC</strong> — filtro por organização que falha fechado; Transactional Outbox nos webhooks.',
+			torreH6: '<strong>Contrato testado contra a API real</strong> — o CI barra descompasso entre frontend e backend.',
+			torreM1: 'testes: 695 unidade · 544 integração com PostGIS real · 131 frontend · 22 arquitetura',
+			torreM2: 'categorias de pentest gray-box em produção, sem vulnerabilidade alta',
+			torreM3: 'aplicações web sobre o mesmo núcleo: console, PWA e rastreamento',
+			torreScope: '<strong>Escopo declarado:</strong> a demo roda em uma VM Always Free de 1 GB, nó único e sem SLA; ETA é determinístico, não preditivo.',
+
+			// 02 Central Antifraude
+			centralTag: 'Sistemas distribuídos e decisão de risco',
+			centralStatus: 'v1.0.0 · no ar · set 2026',
+			centralVideoCap: 'Demo de 24 s: painel, fila de alertas, transação explicável e caso de falso positivo.',
+			centralAlt1: 'Transação com score 75 e decisão Bloquear, com os sinais que justificam o score.',
+			centralCap1: 'Score 75 e os sinais que o explicam',
+			centralAlt2: 'Caso investigado: transação marcada como Revisar e concluída como Legítima, com notas e histórico.',
+			centralCap2: 'Falso positivo: Revisar, concluído Legítima',
+			centralProblema: 'Pagamentos digitais precisam de uma decisão de risco imediata e explicável, e de um registro que aconteça exatamente uma vez, mesmo com requisições simultâneas e mensagens repetidas. A plataforma não processa dinheiro: recomenda Permitir, Revisar ou Bloquear.',
+			centralCh1: 'Concorrência',
+			centralCh2: 'Idempotência',
+			centralCh3: 'Mensageria',
+			centralCh4: 'Explicabilidade',
+			centralH1: '<strong>Score explicável e versionado</strong> — quatro regras tipadas; cada decisão guarda a versão do perfil e os sinais que a justificam.',
+			centralH2: '<strong>Idempotência sob concorrência</strong> — transação serializável com retry; repetir a requisição devolve a avaliação original.',
+			centralH3: '<strong>Outbox, SQS e Inbox</strong> — efeito único mesmo com entrega repetida; DLQ depois de 5 tentativas.',
+			centralH4: '<strong>Serverless na AWS</strong> — Lambda .NET 10 (arm64), SQS, EventBridge Scheduler e segredos no SSM Parameter Store.',
+			centralH5: '<strong>Investigação auditável</strong> — casos com timeline somente-inserção e backtest de regras antes de publicar.',
+			centralH6: '<strong>Segurança</strong> — API key própria para integrações, refresh token rotativo, proteção CSRF e rate limit.',
+			centralM1: 'testes: 546 unidade · 480 integração com PostgreSQL real · 134 frontend · 51 arquitetura',
+			centralM2: 'vetores de pentest gray-box em produção, sem achado alto',
+			centralM3: 'fases entregues, com Security Gate documentado por fase',
+			centralScope: '<strong>Escopo declarado:</strong> não é banco nem gateway; pesos e limiares das regras são configuração de demonstração, não padrão de mercado.',
+
+			// 03 Prisma RH
+			prismaTag: 'Domínio complexo de folha de pagamento',
+			prismaStatus: 'v1.0.0 · no ar · set 2026',
+			prismaVideoCap: 'Demo de 29 s: importações, folha mensal, inconsistências e pergunta em português.',
+			prismaAlt1: 'Memória de cálculo do INSS, faixa a faixa, com o teto aplicado e o arredondamento declarado.',
+			prismaCap1: 'Memória de cálculo do INSS, faixa a faixa',
+			prismaAlt2: 'Tratamento de inconsistências da folha, com situação, severidade, regra e responsável.',
+			prismaCap2: 'Conferência automática e tratamento de inconsistências',
+			prismaProblema: 'Departamentos pessoais e BPOs calculam folha para várias empresas, sob regras que mudam com o tempo, e precisam explicar cada valor, às vezes anos depois. O Prisma RH entrega o número e a conta que levou até ele.',
+			prismaCh1: 'Cálculo determinístico',
+			prismaCh2: 'Regras por vigência',
+			prismaCh3: 'Rastreabilidade',
+			prismaCh4: 'Multiempresa',
+			prismaH1: '<strong>Folha brasileira completa</strong> — mensal, férias, rescisão, adiantamento e 13º, com INSS, FGTS e IRRF.',
+			prismaH2: '<strong>Memória de cálculo</strong> — cada holerite guarda os passos; alterar uma rubrica hoje não reescreve a folha passada.',
+			prismaH3: '<strong>Vigência sem sobreposição</strong> — exclusion constraint no PostgreSQL protege o histórico, mesmo com requisições simultâneas.',
+			prismaH4: '<strong>Multiempresa e auditoria</strong> — filtro global no EF Core; outra organização recebe 404; trilha somente-inserção.',
+			prismaH5: '<strong>Importação CSV/XLSX</strong> — preview, relatório de erros e processamento por fila (SQS + Lambda).',
+			prismaH6: '<strong>IA que explica, não calcula</strong> — o modelo só propõe filtro em vocabulário fechado; nenhum valor financeiro vem dele.',
+			prismaM1: 'testes: 1.286 backend (com PostgreSQL real) + 171 frontend',
+			prismaM2: 'testes de segurança em suíte própria, mais pentest em 10 categorias sem vulnerabilidade',
+			prismaM3: 'rotas, 4 anônimas, cada uma com motivo escrito e travada por teste',
+			prismaScope: '<strong>Escopo declarado:</strong> não é homologado; afastamentos e três dos oito motivos de rescisão ficam fora, e o sistema diz isso em vez de estimar.',
+
+			// Outros projetos
+			outrosTitle: 'Outros projetos',
+			outrosLead: 'Projetos anteriores, todos com código aberto. Cada um tem uma página com a arquitetura, as decisões e os limites do que foi construído.',
+			outrosMais: 'Ver mais 3 projetos',
+
+			// Como eu trabalho
+			comoEyebrow: 'Método',
+			comoTitle: 'Como eu trabalho',
+			comoLead: 'Práticas que aparecem nos três projetos, com o documento ou o teste que as prova.',
+			como1T: 'Domínio primeiro',
+			como1P: 'As regras vivem no Domain, sem infraestrutura, e testes de arquitetura seguram a fronteira entre as camadas.',
+			como1E: 'Prova: 22 testes de arquitetura na Torre e 51 na Central.',
+			como2T: 'Consistência antes de conveniência',
+			como2P: 'Transação serializável, Outbox e idempotência no lugar de esperança: o efeito acontece uma vez, mesmo com retry.',
+			como2E: 'Prova: na Central, um teste com seis requisições simultâneas exige contagens 1 a 6, sem repetir nem pular.',
+			como3T: 'Testes que provam de verdade',
+			como3P: 'Integração contra PostgreSQL e PostGIS reais via Testcontainers, não banco em memória; contrato testado contra a API real no CI.',
+			como3E: 'Prova: 544 testes de integração na Torre, 480 na Central.',
+			como4T: 'Segurança testada, não afirmada',
+			como4P: 'Pentest gray-box contra a produção, com requisição e resposta reais. Quando um teste passou pelo motivo errado, o relatório diz.',
+			como4E: 'Prova: três relatórios versionados nos repositórios.',
+			como5T: 'Produção de verdade',
+			como5P: 'Deploy real, health checks, CI no GitHub Actions e custo calculado antes de subir a infraestrutura.',
+			como5E: 'Prova: os três projetos têm URL pública e release publicada.',
+			como6T: 'Evidência antes de conclusão',
+			como6P: 'Diagnóstico pela causa raiz, decisões registradas em ADR com a alternativa recusada e limitações escritas com todas as letras.',
+			como6E: 'Prova: o README de cada projeto declara o que ele não faz.',
+
+			// Stack
+			stackEyebrow: 'Ferramentas',
+			stackTitle: 'Stack',
+			stackLead: 'O que uso nos projetos principais.',
+			stackBackend: 'Backend',
+			stackFrontend: 'Frontend',
+			stackDados: 'Dados',
+			stackCloud: 'Cloud &amp; DevOps',
+			stackMais: 'Outras tecnologias',
+			stackQualidade: 'Qualidade',
+			stackOutras: 'Outras linguagens',
 
 			// Sobre
 			sobreTitle: 'Sobre Mim',
-			sobreTexto: '<p>Sou desenvolvedor de software com foco em <strong class="highlight">backend .NET</strong> e aplicações fullstack. Construo sistemas com <strong class="highlight">C#</strong> e <strong class="highlight">ASP.NET Core</strong>.</p><p>Curso Ciência da Computação e trabalho com desenvolvimento e sustentação de uma plataforma SaaS corporativa. Nos meus projetos, aplico <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">DDD</strong> e <strong class="highlight">testes automatizados</strong>, com mensageria, cloud e observabilidade na prática.</p><p>Busco vagas <strong class="highlight">Júnior</strong> e de <strong class="highlight">estágio</strong>, onde eu possa aprender rápido e entregar código confiável desde o primeiro dia.</p>',
-			sobreTextoMobile: 'Dev com foco em <strong class="highlight">backend .NET</strong>. Uso <strong class="highlight">Clean Architecture</strong> e <strong class="highlight">DDD</strong> para construir sistemas confiáveis. Buscando vagas Júnior/Estágio.',
+			sobreTexto: '<p>Sou desenvolvedor fullstack com foco em <strong class="highlight">backend C#/.NET</strong>. Construo produtos B2B do domínio à produção, com <strong class="highlight">ASP.NET Core</strong>, <strong class="highlight">React</strong> e <strong class="highlight">PostgreSQL</strong>.</p><p>Curso Ciência da Computação e trabalho com desenvolvimento e sustentação de uma plataforma SaaS corporativa. Nos meus projetos, aplico <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">DDD</strong> e <strong class="highlight">testes automatizados</strong>, com mensageria, segurança e observabilidade na prática.</p><p>Procuro um time onde eu possa entregar código confiável desde o primeiro dia e seguir aprendendo com produto real.</p>',
+			sobreTextoMobile: 'Dev fullstack com foco em <strong class="highlight">backend .NET</strong>. Construo produtos B2B do domínio à produção, com testes, segurança e operação real.',
+			sobreAvatar: 'Avatar animado',
 			statProj: 'Projetos publicados',
 			statCert: 'Certificados Alura',
 			statForm: 'Formatura prevista',
 
-			// Projetos
-			projetosTitle: 'Projetos',
-			projetosSubtitle: 'Nove projetos com código aberto no GitHub. Cada um tem uma página com a arquitetura, as decisões técnicas e os limites do que foi construído.',
-			searchPlaceholder: 'Buscar projeto...',
-			filterAllProjects: 'Todos',
+			// Cards dos outros projetos
 			btnDetalhes: 'Detalhes',
 			badgeClienteReal: 'Cliente real · em produção',
-			emptyText: 'Nenhum projeto encontrado',
-			emptyHint: 'Tente buscar por outra tecnologia ou termo',
 
 			projSmartFinanceTitle: 'SmartFinance',
 			projSmartFinanceDesc: 'Ecossistema de finanças pessoais com .NET 9, RabbitMQ e Next.js. Implementa Clean Architecture, Outbox Pattern e processamento assíncrono de transações para máxima consistência e resiliência financeira.',
@@ -205,29 +307,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			expAluraRole: 'Formação em Programação',
 			expAluraDesc: 'Formações Full-stack e .NET, com 30 certificados emitidos. Cobrem orientação a objetos com C#, ASP.NET Core, consumo de APIs, LINQ e boas práticas de desenvolvimento.',
 
-			// Habilidades
-			habilidadesTitle: 'Habilidades',
-			habilidadesSubtitle: 'Tecnologias e competências que uso no dia a dia',
-			filterAll: 'Todas',
-			filterBackend: 'Backend',
-			filterFrontend: 'Frontend',
-			filterDatabase: 'Database',
-			filterCloud: 'Cloud/DevOps',
-			filterQuality: 'Qualidade',
-			skillBackendTitle: 'Backend',
-			skillBackendDesc: 'Desenvolvimento de APIs e serviços em C# e ASP.NET Core, com Clean Architecture, validação e tratamento de erros padronizado.',
-			skillFrontendTitle: 'Frontend',
-			skillFrontendDesc: 'Interfaces em React e Next.js com TypeScript, consumo de APIs, estados de carregamento e erro, e layout responsivo.',
-			skillDatabaseTitle: 'Banco de Dados',
-			skillDatabaseDesc: 'Modelagem relacional, consultas e procedures em SQL Server e PostgreSQL, migrations com EF Core e índices pensados para performance.',
-			skillCloudTitle: 'Cloud/DevOps',
-			skillCloudDesc: 'Containers com Docker, pipelines de CI/CD no GitHub Actions e deploy em AWS e Azure, com logs estruturados e health checks.',
-			skillQualityTitle: 'Qualidade &amp; Segurança',
-			skillQualityDesc: 'Testes unitários e de integração com xUnit, autenticação JWT com refresh token, RBAC e rate limiting.',
-			tagUnitTests: 'Testes unitários',
-			tagIntegrationTests: 'Testes de integração',
-			tagObservability: 'Observabilidade',
-
 			// Certificados & Idiomas
 			certTitle: 'Certificados &amp; Idiomas',
 			certSubtitle: 'Formação contínua registrada e verificável',
@@ -243,46 +322,184 @@ document.addEventListener('DOMContentLoaded', function () {
 			idiomaEnNivel: 'Avançado',
 			idiomasNota: 'Leitura de documentação técnica e comunicação escrita em inglês no dia a dia.',
 
-			// Footer
-			footerLabel: 'Vamos construir algo incrível juntos?',
+			// Contato
+			contatoTitle: 'Contato',
+			contatoLead: 'Aberto a conversar sobre backend .NET, produtos B2B e oportunidades de trabalho.',
+			contatoEmailAria: 'Enviar e-mail para lucas.afvr@gmail.com',
+			contatoCv: 'Currículo (PDF)',
 			footerRights: '© {year} Lucas Antunes Ferreira. Todos os direitos reservados.',
-			pageTitle: 'Lucas Antunes Ferreira — Desenvolvedor .NET & React'
+			pageTitle: 'Lucas Antunes Ferreira | Fullstack .NET Developer'
 		},
 
 		en: {
 			// Navbar
-			navHome: 'Home',
-			navSobre: 'About',
 			navProjetos: 'Projects',
+			navComo: 'How I work',
+			navStack: 'Stack',
+			navSobre: 'About',
 			navExperiencias: 'Experience',
-			navHabilidades: 'Skills',
 			navCertificados: 'Certificates',
+			navContato: 'Contact',
+			skipLink: 'Skip to content',
 
 			// Hero
 			heroBadge: '<span class="hero-badge-dot" aria-hidden="true"></span> Open to Junior / Internship roles',
 			heroTitle: 'Hi, I am <span class="highlight">Lucas Antunes Ferreira</span>',
-			heroDesc: '.NET &amp; React Developer<br>C# | ASP.NET Core | EF Core | SQL Server<br>Clean Architecture | DDD | Docker | AWS',
-			heroDescMobile: '.NET &amp; React Developer | C# | ASP.NET Core',
+			heroDesc: 'Fullstack Developer focused on .NET backend<br>C# | .NET | ASP.NET Core | React | TypeScript<br>PostgreSQL | Docker | AWS',
+			heroDescMobile: 'Fullstack focused on .NET backend | C# | React | AWS',
+			heroLead: 'I build B2B products from domain to production, focused on consistency, security, testing and real-world cloud operation.',
 			btnCurriculo: 'Resume',
 			btnProjetos: 'See Projects',
+			ctaContato: 'Contact',
 
-			// Sobre
+			// Numbers
+			numTitle: 'Highlights in numbers',
+			num1Label: 'B2B products live',
+			num1Sub: 'Each with a public demo, a published release and open source code.',
+			num2Label: 'automated tests',
+			num2Sub: 'Sum of the three projects: unit, integration, architecture and frontend.',
+			num3Label: 'gray-box pentests in production',
+			num3Sub: 'No high-severity vulnerability in any of the three reports.',
+			num4Label: 'multi-tenant with RBAC',
+			num4Sub: 'Isolation between organizations proven by tests and by pentest.',
+			numNote: 'Numbers taken from each repository README and reports. Tests per project: Torre 1,392 · Central 1,211 · Prisma 1,457.',
+
+			// Featured projects — shared labels
+			projEyebrow: 'Featured projects',
+			projTitle: 'Three products, from domain to production',
+			projLead: 'Each one shows a different skill: real time and geolocation, distributed systems and concurrency, complex domain and traceable calculation.',
+			lblProblema: 'The problem',
+			lblDesafios: 'Technical challenges',
+			lblDestaques: 'Technical highlights',
+			lblMetricas: 'Verified metrics',
+			lnkDemo: 'Live demo',
+			lnkRepo: 'Repository',
+			lnkPentest: 'Pentest',
+
+			// 01 Torre Logística
+			torreTag: 'Real-time logistics operation',
+			torreStatus: 'v1.0.1 · live · Sep 2026',
+			torreVideoCap: '33 s walkthrough of the public demo: console, driver PWA and tracking.',
+			torreAlt1: 'Driver PWA: route of the day with the next delivery highlighted and the Open delivery button.',
+			torreCap1: 'Driver PWA, offline-first',
+			torreAlt2: 'Public tracking: On the way status, expected delivery, estimated arrival and timeline.',
+			torreCap2: 'Recipient public tracking',
+			torreProblema: 'A carrier loses sight of the delivery once the vehicle leaves: position, delay and proof of delivery end up in phone calls and spreadsheets. Torre covers the stretch between leaving for the route and completion.',
+			torreCh1: 'Real time',
+			torreCh2: 'Geolocation',
+			torreCh3: 'Offline-first',
+			torreCh4: 'Retry without duplicates',
+			torreH1: '<strong>Geofence and ETA in PostGIS</strong> — arrival detected when the position is ingested, with hysteresis against GPS jitter.',
+			torreH2: '<strong>Real time with SignalR</strong> — the console is notified only after the commit; alerts are typed rules with evidence.',
+			torreH3: '<strong>Offline-first PWA</strong> — each action is born on the device and applied exactly once on reconnect.',
+			torreH4: '<strong>Safe proof of delivery</strong> — photo through a short-lived signed URL; public tracking with a strong token and approximate position.',
+			torreH5: '<strong>Multi-tenancy and RBAC</strong> — per-organization filter that fails closed; Transactional Outbox for webhooks.',
+			torreH6: '<strong>Contract tested against the real API</strong> — CI blocks drift between frontend and backend.',
+			torreM1: 'tests: 695 unit · 544 integration with real PostGIS · 131 frontend · 22 architecture',
+			torreM2: 'gray-box pentest categories in production, no high-severity vulnerability',
+			torreM3: 'web apps on the same core: console, PWA and tracking',
+			torreScope: '<strong>Declared scope:</strong> the demo runs on a 1 GB Always Free VM, single node and no SLA; ETA is deterministic, not predictive.',
+
+			// 02 Central Antifraude
+			centralTag: 'Distributed systems and risk decisions',
+			centralStatus: 'v1.0.0 · live · Sep 2026',
+			centralVideoCap: '24 s demo: dashboard, alert queue, explainable transaction and false-positive case.',
+			centralAlt1: 'Transaction with score 75 and a Block decision, showing the signals behind the score.',
+			centralCap1: 'Score 75 and the signals that explain it',
+			centralAlt2: 'Investigated case: transaction flagged as Review and closed as Legitimate, with notes and history.',
+			centralCap2: 'False positive: Review, closed as Legitimate',
+			centralProblema: 'Digital payments need an immediate, explainable risk decision, and a record that happens exactly once even with simultaneous requests and repeated messages. The platform does not move money: it recommends Allow, Review or Block.',
+			centralCh1: 'Concurrency',
+			centralCh2: 'Idempotency',
+			centralCh3: 'Messaging',
+			centralCh4: 'Explainability',
+			centralH1: '<strong>Explainable, versioned score</strong> — four typed rules; each decision stores the profile version and the signals behind it.',
+			centralH2: '<strong>Idempotency under concurrency</strong> — serializable transaction with retry; repeating the request returns the original evaluation.',
+			centralH3: '<strong>Outbox, SQS and Inbox</strong> — single effect even with repeated delivery; DLQ after 5 attempts.',
+			centralH4: '<strong>Serverless on AWS</strong> — .NET 10 Lambda (arm64), SQS, EventBridge Scheduler and secrets in SSM Parameter Store.',
+			centralH5: '<strong>Auditable investigation</strong> — cases with an append-only timeline and backtesting of rules before publishing.',
+			centralH6: '<strong>Security</strong> — dedicated API key for integrations, rotating refresh token, CSRF protection and rate limiting.',
+			centralM1: 'tests: 546 unit · 480 integration with real PostgreSQL · 134 frontend · 51 architecture',
+			centralM2: 'gray-box pentest vectors in production, no high-severity finding',
+			centralM3: 'phases delivered, with a documented Security Gate per phase',
+			centralScope: '<strong>Declared scope:</strong> not a bank or a gateway; rule weights and thresholds are demo configuration, not a market standard.',
+
+			// 03 Prisma RH
+			prismaTag: 'Complex payroll domain',
+			prismaStatus: 'v1.0.0 · live · Sep 2026',
+			prismaVideoCap: '29 s demo: imports, monthly payroll, inconsistencies and a question in Portuguese.',
+			prismaAlt1: 'INSS calculation memory, bracket by bracket, with the ceiling applied and the declared rounding.',
+			prismaCap1: 'INSS calculation memory, bracket by bracket',
+			prismaAlt2: 'Payroll inconsistency handling, with status, severity, rule and owner.',
+			prismaCap2: 'Automatic checks and inconsistency handling',
+			prismaProblema: 'HR departments and BPOs run payroll for many companies, under rules that change over time, and must explain every value, sometimes years later. Prisma RH delivers the number and the calculation behind it.',
+			prismaCh1: 'Deterministic calculation',
+			prismaCh2: 'Time-effective rules',
+			prismaCh3: 'Traceability',
+			prismaCh4: 'Multi-company',
+			prismaH1: '<strong>Complete Brazilian payroll</strong> — monthly, vacation, termination, advance and 13th salary, with INSS, FGTS and IRRF.',
+			prismaH2: '<strong>Calculation memory</strong> — each payslip keeps its steps; changing a rubric today does not rewrite past payroll.',
+			prismaH3: '<strong>Non-overlapping validity</strong> — a PostgreSQL exclusion constraint protects history, even with simultaneous requests.',
+			prismaH4: '<strong>Multi-company and audit</strong> — global EF Core filter; another organization gets a 404; append-only trail.',
+			prismaH5: '<strong>CSV/XLSX import</strong> — preview, error report and queue processing (SQS + Lambda).',
+			prismaH6: '<strong>AI that explains, never calculates</strong> — the model only proposes a filter in a closed vocabulary; no financial value comes from it.',
+			prismaM1: 'tests: 1,286 backend (with real PostgreSQL) + 171 frontend',
+			prismaM2: 'security tests in a dedicated suite, plus a pentest in 10 categories with no vulnerability',
+			prismaM3: 'routes, 4 anonymous, each with a written reason and locked by a test',
+			prismaScope: '<strong>Declared scope:</strong> not government-certified; leaves and three of the eight termination reasons are out, and the system says so instead of guessing.',
+
+			// Other projects
+			outrosTitle: 'Other projects',
+			outrosLead: 'Earlier projects, all open source. Each has a page with the architecture, the decisions and the limits of what was built.',
+			outrosMais: 'Show 3 more projects',
+
+			// How I work
+			comoEyebrow: 'Method',
+			comoTitle: 'How I work',
+			comoLead: 'Practices that show up in all three projects, with the document or test that proves them.',
+			como1T: 'Domain first',
+			como1P: 'Rules live in the Domain, free of infrastructure, and architecture tests hold the boundary between layers.',
+			como1E: 'Proof: 22 architecture tests in Torre and 51 in Central.',
+			como2T: 'Consistency over convenience',
+			como2P: 'Serializable transactions, Outbox and idempotency instead of hope: the effect happens once, even with retries.',
+			como2E: 'Proof: in Central, a test with six simultaneous requests requires counts 1 to 6, no repeats and no gaps.',
+			como3T: 'Tests that really prove',
+			como3P: 'Integration against real PostgreSQL and PostGIS through Testcontainers, not an in-memory database; contract tested against the real API in CI.',
+			como3E: 'Proof: 544 integration tests in Torre, 480 in Central.',
+			como4T: 'Security tested, not claimed',
+			como4P: 'Gray-box pentest against production, with real requests and responses. When a test passed for the wrong reason, the report says so.',
+			como4E: 'Proof: three reports versioned in the repositories.',
+			como5T: 'Real production',
+			como5P: 'Real deploys, health checks, CI on GitHub Actions and cost calculated before provisioning infrastructure.',
+			como5E: 'Proof: all three projects have a public URL and a published release.',
+			como6T: 'Evidence before conclusion',
+			como6P: 'Root-cause diagnosis, decisions recorded as ADRs with the rejected alternative, and limitations written out plainly.',
+			como6E: 'Proof: each project README states what it does not do.',
+
+			// Stack
+			stackEyebrow: 'Tools',
+			stackTitle: 'Stack',
+			stackLead: 'What I use in the featured projects.',
+			stackBackend: 'Backend',
+			stackFrontend: 'Frontend',
+			stackDados: 'Data',
+			stackCloud: 'Cloud &amp; DevOps',
+			stackMais: 'Other technologies',
+			stackQualidade: 'Quality',
+			stackOutras: 'Other languages',
+
+			// About
 			sobreTitle: 'About Me',
-			sobreTexto: '<p>I am a software developer focused on <strong class="highlight">.NET backend</strong> and fullstack applications. I build systems with <strong class="highlight">C#</strong> and <strong class="highlight">ASP.NET Core</strong>.</p><p>I am studying Computer Science and I work on the development and maintenance of a corporate SaaS platform. In my projects I apply <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">DDD</strong> and <strong class="highlight">automated testing</strong>, with messaging, cloud and observability in practice.</p><p>I am looking for <strong class="highlight">Junior</strong> and <strong class="highlight">internship</strong> roles, where I can learn fast and ship reliable code from day one.</p>',
-			sobreTextoMobile: 'Developer focused on <strong class="highlight">.NET backend</strong>. I use <strong class="highlight">Clean Architecture</strong> and <strong class="highlight">DDD</strong> to build reliable systems. Open to Junior/Internship roles.',
+			sobreTexto: '<p>I am a fullstack developer focused on <strong class="highlight">C#/.NET backend</strong>. I build B2B products from domain to production, with <strong class="highlight">ASP.NET Core</strong>, <strong class="highlight">React</strong> and <strong class="highlight">PostgreSQL</strong>.</p><p>I study Computer Science and work on developing and maintaining a corporate SaaS platform. In my projects I apply <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">DDD</strong> and <strong class="highlight">automated testing</strong>, with messaging, security and observability in practice.</p><p>I am looking for a team where I can deliver reliable code from day one and keep learning on a real product.</p>',
+			sobreTextoMobile: 'Fullstack dev focused on <strong class="highlight">.NET backend</strong>. I build B2B products from domain to production, with tests, security and real-world operation.',
+			sobreAvatar: 'Animated avatar',
 			statProj: 'Published projects',
 			statCert: 'Alura certificates',
 			statForm: 'Expected graduation',
 
-			// Projetos
-			projetosTitle: 'Projects',
-			projetosSubtitle: 'Nine projects with open source code on GitHub. Each one has a page covering the architecture, the technical decisions and the limits of what was built.',
-			searchPlaceholder: 'Search project...',
-			filterAllProjects: 'All',
+			// Other project cards
 			btnDetalhes: 'Details',
 			badgeClienteReal: 'Real client · in production',
-			emptyText: 'No projects found',
-			emptyHint: 'Try searching for another technology or term',
 
 			projSmartFinanceTitle: 'SmartFinance',
 			projSmartFinanceDesc: 'Personal finance ecosystem with .NET 9, RabbitMQ and Next.js. Implements Clean Architecture, the Outbox Pattern and asynchronous transaction processing for consistency and financial resilience.',
@@ -332,29 +549,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			expAluraRole: 'Programming Training',
 			expAluraDesc: 'Full-stack and .NET learning paths, with 30 certificates issued. They cover object-oriented programming with C#, ASP.NET Core, consuming APIs, LINQ and development best practices.',
 
-			// Habilidades
-			habilidadesTitle: 'Skills',
-			habilidadesSubtitle: 'Technologies and skills I use day to day',
-			filterAll: 'All',
-			filterBackend: 'Backend',
-			filterFrontend: 'Frontend',
-			filterDatabase: 'Database',
-			filterCloud: 'Cloud/DevOps',
-			filterQuality: 'Quality',
-			skillBackendTitle: 'Backend',
-			skillBackendDesc: 'Development of APIs and services in C# and ASP.NET Core, with Clean Architecture, validation and standardized error handling.',
-			skillFrontendTitle: 'Frontend',
-			skillFrontendDesc: 'Interfaces in React and Next.js with TypeScript, API consumption, loading and error states, and responsive layout.',
-			skillDatabaseTitle: 'Database',
-			skillDatabaseDesc: 'Relational modeling, queries and stored procedures in SQL Server and PostgreSQL, EF Core migrations and indexes designed for performance.',
-			skillCloudTitle: 'Cloud/DevOps',
-			skillCloudDesc: 'Containers with Docker, CI/CD pipelines on GitHub Actions and deployment to AWS and Azure, with structured logs and health checks.',
-			skillQualityTitle: 'Quality &amp; Security',
-			skillQualityDesc: 'Unit and integration tests with xUnit, JWT authentication with refresh tokens, RBAC and rate limiting.',
-			tagUnitTests: 'Unit tests',
-			tagIntegrationTests: 'Integration tests',
-			tagObservability: 'Observability',
-
 			// Certificados & Idiomas
 			certTitle: 'Certificates &amp; Languages',
 			certSubtitle: 'Continuous learning, recorded and verifiable',
@@ -370,10 +564,13 @@ document.addEventListener('DOMContentLoaded', function () {
 			idiomaEnNivel: 'Advanced',
 			idiomasNota: 'I read technical documentation and communicate in writing in English every day.',
 
-			// Footer
-			footerLabel: "Let's build something great together?",
+			// Contact
+			contatoTitle: 'Contact',
+			contatoLead: 'Open to talk about .NET backend, B2B products and job opportunities.',
+			contatoEmailAria: 'Send an email to lucas.afvr@gmail.com',
+			contatoCv: 'Resume (PDF)',
 			footerRights: '© {year} Lucas Antunes Ferreira. All rights reserved.',
-			pageTitle: 'Lucas Antunes Ferreira — .NET & React Developer'
+			pageTitle: 'Lucas Antunes Ferreira | Fullstack .NET Developer'
 		}
 	};
 
@@ -438,6 +635,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.querySelectorAll('[data-i18n-full]').forEach((el) => {
 			const value = t(lang, el.getAttribute('data-i18n-full'));
 			if (value !== null) el.setAttribute('data-full', value);
+		});
+
+		document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+			const value = t(lang, el.getAttribute('data-i18n-alt'));
+			if (value !== null) el.setAttribute('alt', value);
+		});
+
+		document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
+			const value = t(lang, el.getAttribute('data-i18n-aria'));
+			if (value !== null) el.setAttribute('aria-label', value);
 		});
 
 		refreshTimelineTexts(lang);
@@ -543,62 +750,19 @@ document.addEventListener('DOMContentLoaded', function () {
 		langBtn.addEventListener('click', function () {
 			currentLang = currentLang === 'pt' ? 'en' : 'pt';
 			setLanguage(currentLang);
-			// O menu mobile precisa reanexar os listeners apos a troca
-			setTimeout(applyMenuListeners, 100);
 		});
 	}
 });
 
-// jQuery functions simplificadas
-(function ($) {
-	"use strict";
-
-	if (typeof $ === 'undefined') return;
-
-	// Full height function
-	$('.js-fullheight').css('height', $(window).height());
-	$(window).resize(function () {
-		$('.js-fullheight').css('height', $(window).height());
-	});
-
-	// Loader
-	setTimeout(function () {
-		if ($('#ftco-loader').length > 0) {
-			$('#ftco-loader').removeClass('show');
-		}
-	}, 1);
-
-	// One page click navigation
-	$(document).on('click', 'a[href^="#"]', function (event) {
-		event.preventDefault();
-		var href = $(this).attr('href');
-		if (href && href !== '#') {
-			$('html, body').animate({
-				scrollTop: $(href).offset().top - 70
-			}, 500);
-		}
-	});
-
-	// Sticky Header com IntersectionObserver
+// Header fixo: o sentinel no topo sai da tela e a navbar ganha fundo.
+(function () {
 	const headerSentinel = document.getElementById('scroll-sentinel');
 	const navbar = document.querySelector('.navbar');
+	if (!headerSentinel || !navbar || !('IntersectionObserver' in window)) return;
 
-	if (headerSentinel && navbar) {
-		const headerObserver = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (!entry.isIntersecting) {
-					navbar.classList.add('scrolled');
-				} else {
-					navbar.classList.remove('scrolled');
-				}
-			});
-		}, {
-			root: null,
-			threshold: 0,
-			rootMargin: '0px'
+	new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			navbar.classList.toggle('scrolled', !entry.isIntersecting);
 		});
-
-		headerObserver.observe(headerSentinel);
-	}
-
-})(window.jQuery);
+	}).observe(headerSentinel);
+})();

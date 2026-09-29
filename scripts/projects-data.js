@@ -16,7 +16,7 @@ module.exports = [
         subtitle: 'Plataforma de gestão financeira pessoal',
         image: '../assets/smartfinance_mockup.jpg',
         repo: 'https://github.com/Lucasantunesribeiro/smart_finance',
-        demo: 'http://3.223.37.57/login',
+        demo: null, // fora do ar (testado em 2026-09-29)
         tags: ['.NET 8', 'C#', 'Next.js', 'TypeScript', 'PostgreSQL', 'RabbitMQ', 'SignalR', 'Terraform', 'AWS'],
         facts: [
             { label: 'Arquitetura', value: 'Modular monolith em camadas' },
@@ -237,7 +237,7 @@ module.exports = [
         subtitle: 'Sistema distribuído serverless orientado a eventos',
         image: '../assets/nfe_estoque_mockup.jpg',
         repo: 'https://github.com/Lucasantunesribeiro/emissao_nfe',
-        demo: 'https://d1gdw7rlsi8u42.cloudfront.net/',
+        demo: null, // fora do ar (testado em 2026-09-29)
         tags: ['.NET 8', 'C#', 'Go', 'Angular', 'DynamoDB', 'EventBridge', 'SQS', 'Lambda', 'AWS CDK', 'Cognito'],
         facts: [
             { label: 'Arquitetura', value: 'Serverless distribuída, event-driven' },

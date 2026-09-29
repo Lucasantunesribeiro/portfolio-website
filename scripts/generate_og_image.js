@@ -33,20 +33,20 @@ const svg = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
   <rect x="80" y="150" width="86" height="6" rx="3" fill="url(#accent)"/>
 
   <text x="80" y="248" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="66" font-weight="700" fill="#F8FAFC">Lucas Antunes Ferreira</text>
-  <text x="80" y="318" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="36" font-weight="600" fill="#38BDF8">Desenvolvedor .NET &amp; React</text>
+  <text x="80" y="318" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="32" font-weight="600" fill="#38BDF8">Desenvolvedor Fullstack com foco em backend .NET</text>
 
-  <text x="80" y="382" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="26" fill="#94A3B8">C# · ASP.NET Core · EF Core · SQL Server · React · TypeScript</text>
-  <text x="80" y="422" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="26" fill="#94A3B8">Clean Architecture · DDD · Docker · AWS · Azure</text>
+  <text x="80" y="382" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="26" fill="#94A3B8">C# · .NET · ASP.NET Core · React · TypeScript · PostgreSQL</text>
+  <text x="80" y="422" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="26" fill="#94A3B8">Torre Logística · Central Antifraude · Prisma RH</text>
 
   <g font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="22" font-weight="600">
     <rect x="80" y="472" width="150" height="46" rx="23" fill="#1E293B" stroke="#334155"/>
-    <text x="105" y="502" fill="#E2E8F0">.NET 9</text>
+    <text x="105" y="502" fill="#E2E8F0">.NET 10</text>
 
     <rect x="246" y="472" width="132" height="46" rx="23" fill="#1E293B" stroke="#334155"/>
     <text x="271" y="502" fill="#E2E8F0">React</text>
 
     <rect x="394" y="472" width="176" height="46" rx="23" fill="#1E293B" stroke="#334155"/>
-    <text x="419" y="502" fill="#E2E8F0">SQL Server</text>
+    <text x="419" y="502" fill="#E2E8F0">PostgreSQL</text>
 
     <rect x="586" y="472" width="136" height="46" rx="23" fill="#1E293B" stroke="#334155"/>
     <text x="611" y="502" fill="#E2E8F0">Docker</text>

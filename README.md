@@ -13,21 +13,20 @@ No ar em <https://www.lucasafvr.com.br>.
 
 ```
 Portfolio/
-  index.html              # Página principal (hero, sobre, projetos, timeline, skills, certificados)
+  index.html              # Página principal (hero, números, 3 projetos principais, outros projetos, método, stack, sobre, timeline, certificados, contato)
   projetos/*.html         # Páginas de detalhe — GERADAS, não edite à mão
   robots.txt
   sitemap.xml             # GERADO
   css/
-    style.css                    # Base, reset, navbar, hero
+    style.css                    # Base, reset, navbar, hero (com vídeo de fundo)
+    portfolio.css                # Números, projetos principais, outros projetos, método, stack, contato
     sobre.css
-    projetos.css
-    experiencias-habilidades.css
+    experiencias-habilidades.css # Só a timeline de experiências
     certificados.css             # Certificados e idiomas
     projeto-detalhe.css          # Só as páginas em projetos/
   js/
-    main.js                      # Motor de i18n, timeline, menu, scroll
-    projetos.js                  # Filtro por stack e busca
-    experiencias-habilidades.js  # Toggle "Ver mais" e filtro de skills
+    main.js                      # Motor de i18n, menu, barra de progresso, header fixo
+    experiencias.js              # Botão "Ver mais" da timeline
   scripts/                # Geradores (rodam em Node, fora do runtime do site)
   assets/                 # Imagens, vídeos, currículo
 ```
@@ -67,6 +66,15 @@ npm run gen                   # roda os três
 | `scripts/generate_og_image.js` | Gera a imagem de preview de link (`og-image.png`) e o poster do vídeo do hero. |
 | `scripts/generate_mockups.js`, `scripts/create_custom_mockup.js` | Geram os mockups dos cards de projeto (usam Playwright). |
 
+## Projetos principais e mídia
+
+Os três projetos em destaque (Torre Logística, Central Antifraude, Prisma RH) são escritos direto no `index.html`, dentro de `#projetos`. Cada número exibido (testes, pentests, rotas) vem do README ou do relatório de segurança do respectivo repositório — ao atualizar um projeto, confira esses números.
+
+- `assets/projetos/*-demo.mp4`: vídeos curtos (24–33 s, sem áudio, H.264 com `faststart`), copiados das versões finais curtas. Não use as versões longas (~45 MB).
+- `assets/projetos/*-poster.jpg`: quadro de cada vídeo, usado como `poster`.
+- Os vídeos usam `controls`, `preload="metadata"` e `playsinline`; nada toca sozinho com áudio.
+- Os cards de "Outros projetos" são gerados a partir dos dicionários de `main.js`; demos fora do ar não têm botão (SmartFinance e Emissão de NF-e, conferidos em 2026-09-29).
+
 > Ao adicionar ou remover um projeto: edite `scripts/projects-data.js`, ajuste o
 > card correspondente em `index.html` e rode `npm run gen`.
 
@@ -82,6 +90,8 @@ recebe um atributo e uma chave no dicionário de `main.js`.
 | `data-i18n-html="chave"` | Idem, para textos com `<strong>`, `<br>` etc. |
 | `data-i18n-placeholder="chave"` | Troca o `placeholder` do input |
 | `data-i18n-short` / `data-i18n-full` | Trocam os atributos `data-short`/`data-full` da timeline |
+| `data-i18n-alt="chave"` | Troca o `alt` de imagens |
+| `data-i18n-aria="chave"` | Troca o `aria-label` |
 
 O idioma escolhido é salvo em `localStorage` (`portfolio-lang`). Na primeira
 visita, o idioma do navegador decide entre PT e EN.
@@ -102,9 +112,7 @@ Analytics** (`/_vercel/insights/script.js`). Ele só responde depois de habilita
 
 ## Dependências externas em runtime
 
-Carregadas por CDN, sem bundler:
+Carregadas por CDN, sem bundler (sem jQuery nem biblioteca de animação; o scroll suave é CSS):
 
 - [Google Fonts — Inter](https://fonts.google.com/specimen/Inter)
 - [Font Awesome 6](https://fontawesome.com/)
-- [AOS](https://michalsnik.github.io/aos/) — animações de scroll
-- [jQuery 3.7](https://jquery.com/) — usado apenas pelo scroll suave legado
