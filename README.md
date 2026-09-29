@@ -124,17 +124,33 @@ visita, o idioma do navegador decide entre PT e EN.
 - **CSP** (restritiva, montada sobre o que o site realmente carrega):
   `default-src 'self'`, `script-src 'self'`, `style-src 'self'` + Google Fonts +
   cdnjs, `font-src 'self'` + `fonts.gstatic.com` + cdnjs, `img-src 'self'`,
-  `media-src 'self'`, `connect-src 'self'` + as origens de fonte/CDN (para o
-  `preconnect`), `object-src 'none'`, `frame-src 'none'`, `base-uri 'none'`,
-  `form-action 'none'`, `frame-ancestors 'none'` e `upgrade-insecure-requests`.
+  `media-src 'self'`, `connect-src 'self'` + as origens das fontes (só para os
+  dois `preconnect` que existem), `object-src 'none'`, `frame-src 'none'`,
+  `base-uri 'none'`, `form-action 'none'`, `frame-ancestors 'none'` e
+  `upgrade-insecure-requests`.
   Sem `unsafe-inline` nem `unsafe-eval`; `script-src-attr 'none'` e
   `style-src-attr 'none'` fecham eventos e `style=` inline — por isso não há
   atributo `style` no HTML (os que existiam viraram classes em `portfolio.css`).
-- **Demais headers**: `Strict-Transport-Security` (2 anos, `includeSubDomains`),
-  `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`,
+- **Demais headers**: `Strict-Transport-Security` (2 anos, **sem
+  `includeSubDomains`** — ver a nota abaixo), `X-Content-Type-Options: nosniff`,
+  `X-Frame-Options: DENY`,
   `Referrer-Policy: strict-origin-when-cross-origin`,
   `Cross-Origin-Opener-Policy: same-origin` e `Permissions-Policy` fechando câmera,
   microfone, geolocalização, pagamento, USB, serial e bluetooth.
+- **Build**: `installCommand: npm install --omit=dev`. Nada fora de `public/` é
+  usado no deploy, então `playwright` e `sharp` (só de geração local, em
+  `devDependencies`) não são instalados — evita o download de navegadores do
+  Playwright no build. O `package.json` tem `dependencies` vazio de propósito.
+
+> **HSTS sem `includeSubDomains` (decisão consciente).** O domínio tem DNS
+> wildcard (`*.lucasafvr.com.br` → Vercel) e certificado wildcard, então
+> subdomínios na Vercel teriam HTTPS de qualquer forma. O motivo de não estender
+> é `operacao.torre.lucasafvr.com.br`: a demo da Torre roda numa VM Oracle com
+> **certificado próprio**, fora da Vercel. `includeSubDomains` vale por 2 anos no
+> navegador e **não tem desfazer pelo servidor** — se aquele certificado não
+> renovar, o host ficaria inacessível para quem visitou o site. Como o portfólio
+> é estático e não usa cookies, o ganho não paga o risco. Reavaliar apenas se
+> todos os subdomínios passarem a ser servidos pela Vercel.
 - **Cache de `/assets`**: 7 dias com `stale-while-revalidate`. Deliberadamente **sem `immutable`** — os arquivos não têm hash no nome, então trocar um mockup mantendo o mesmo nome precisa surtir efeito em dias, não em um ano.
 - **Cache de `/css` e `/js`**: 1 hora com revalidação, porque mudam junto com o HTML.
 - `404.html` é servido automaticamente pela Vercel em rotas inexistentes.
