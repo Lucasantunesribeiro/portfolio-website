@@ -686,7 +686,8 @@ module.exports = [
         subtitle: 'Plataforma digital para restaurante, pousada e café',
         image: '../assets/armazem_sao_joaquim_mockup.jpg',
         repo: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
-        demo: 'https://armazemsaojoaquim.com.br/',
+        // Site temporariamente fora do ar: sem link de demo até voltar.
+        demo: null,
         badge: 'Cliente real · em produção',
         tags: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'RLS', 'Tailwind', 'i18n'],
         facts: [
