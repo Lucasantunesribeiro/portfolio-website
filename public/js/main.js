@@ -99,14 +99,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			skipLink: 'Pular para o conteúdo',
 
 			// Hero
-			heroBadge: '<span class="hero-badge-dot" aria-hidden="true"></span> Disponível para vagas Júnior / Estágio',
+			heroBadge: '<span class="hero-badge-dot" aria-hidden="true"></span> Sites e sistemas para pequenas empresas',
 			heroTitle: 'Olá, eu sou <span class="highlight">Lucas Antunes Ferreira</span>',
-			heroDesc: 'Desenvolvedor Fullstack com foco em backend .NET<br>C# | .NET | ASP.NET Core | React | TypeScript<br>PostgreSQL | Docker | AWS',
-			heroDescMobile: 'Fullstack com foco em backend .NET | C# | React | AWS',
-			heroLead: 'Construo produtos B2B do domínio à produção, com foco em consistência, segurança, testes e operação real em cloud.',
-			btnCurriculo: 'Currículo',
+			heroDesc: 'Crio sites e sistemas sob medida para pequenas empresas:<br>site institucional, loja virtual, reservas e painel administrativo.',
+			heroDescMobile: 'Sites e sistemas sob medida para pequenas empresas.',
+			heroLead: 'Conte o que o seu negócio precisa e veja uma prévia antes de decidir.',
 			btnProjetos: 'Ver Projetos',
-			ctaContato: 'Contato',
 
 
 			// Projetos principais — rótulos comuns
@@ -131,57 +129,71 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Sobre
 			sobreTitle: 'Sobre Mim',
-			sobreTexto: '<p>Sou desenvolvedor fullstack com foco em <strong class="highlight">backend C#/.NET</strong>. Construo produtos B2B do domínio à produção, com <strong class="highlight">ASP.NET Core</strong>, <strong class="highlight">React</strong> e <strong class="highlight">PostgreSQL</strong>.</p><p>Curso Ciência da Computação e trabalho com desenvolvimento e sustentação de uma plataforma SaaS corporativa. Nos meus projetos, aplico <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">DDD</strong> e <strong class="highlight">testes automatizados</strong>, com mensageria, segurança e observabilidade na prática.</p><p>Procuro um time onde eu possa entregar código confiável desde o primeiro dia e seguir aprendendo com produto real.</p>',
-			sobreTextoMobile: 'Dev fullstack com foco em <strong class="highlight">backend .NET</strong>. Construo produtos B2B do domínio à produção, com testes, segurança e operação real.',
+			sobreTexto: '<p>Sou desenvolvedor fullstack no Rio de Janeiro e crio <strong class="highlight">sites e sistemas para pequenas empresas</strong>: site institucional, loja virtual, reservas e painel administrativo.</p><p>Curso Ciência da Computação. Trabalho com <strong class="highlight">Next.js</strong>, <strong class="highlight">React</strong>, <strong class="highlight">.NET</strong> e <strong class="highlight">PostgreSQL</strong>, com testes automatizados e cuidado com segurança.</p><p>Antes de você decidir, eu mostro uma prévia do que vou entregar. É só chamar no WhatsApp e contar o que o seu negócio precisa.</p>',
+			sobreTextoMobile: 'Crio <strong class="highlight">sites e sistemas para pequenas empresas</strong>, com uma prévia antes de você decidir.',
 			sobreAvatar: 'Avatar animado',
-			statProj: 'Projetos publicados',
 			statCert: 'Certificados Alura',
 			statForm: 'Formatura prevista',
 
 			// Projetos (busca, filtro e cards em destaque)
 			projetosTitle: 'Projetos',
-			projetosSubtitle: 'Doze projetos com código aberto no GitHub. Três estão no ar como produtos completos, e cada um tem uma página com arquitetura, decisões técnicas e limites.',
+			projetosSubtitle: 'Cada projeto mostra o problema, o que foi entregue, a stack usada e o link.',
 			searchPlaceholder: 'Buscar por nome ou tecnologia...',
 			filterAllProjects: 'Todos',
 			emptyText: 'Nenhum projeto encontrado',
 			emptyHint: 'Tente buscar por outra tecnologia ou termo',
-			destaqueTitle: 'Em destaque',
-			destaqueSub: 'Três produtos B2B no ar, com vídeo, testes e pentest documentado',
+			destaqueTitle: 'Sistemas em destaque',
+			destaqueSub: 'Três sistemas completos no ar, com vídeo de demonstração',
 			outrosLead: 'Projetos anteriores, todos com código aberto',
-			torreResumo: 'A transportadora perde a entrega de vista quando o veículo sai para a rua. A Torre cobre o trecho entre a saída para rota e a conclusão, com localização, ETA, SLA, alertas e prova de entrega.',
-			centralResumo: 'Decisão de risco imediata e explicável para pagamentos digitais, com efeito único mesmo sob requisições simultâneas e mensagens repetidas. Não processa dinheiro: recomenda Permitir, Revisar ou Bloquear.',
-			prismaResumo: 'Folha de pagamento brasileira multiempresa que entrega o número e a conta que levou até ele: rubricas, bases, parâmetro vigente e versão do cálculo.',
-			statTestes: 'testes',
-			torreS2: 'categorias de pentest',
-			torreS3: 'apps web',
-			centralS2: 'vetores de pentest',
-			centralS3: 'fases entregues',
-			prismaS2: 'testes de segurança',
-			prismaS3: 'rotas, 4 anônimas',
 			featuredBadge: 'Destaque',
 
 			// Cards dos outros projetos
 			btnDetalhes: 'Detalhes',
-			badgeClienteReal: 'Cliente real · em produção',
+			badgeClienteReal: 'Cliente real',
 
 			projSmartFinanceTitle: 'SmartFinance',
-			projSmartFinanceDesc: 'Ecossistema de finanças pessoais com .NET 9, RabbitMQ e Next.js. Implementa Clean Architecture, Outbox Pattern e processamento assíncrono de transações para máxima consistência e resiliência financeira.',
 			projTenantCoreTitle: 'TenantCore — Multi-Tenant SaaS',
-			projTenantCoreDesc: 'Plataforma SaaS B2B em .NET 9 com isolamento por tenant via query filters do EF Core. JWT com refresh token rotativo, RBAC, cotas por plano, cache Redis, jobs Quartz e observabilidade com OpenTelemetry.',
 			projLinkGuardiaoTitle: 'LinkGuardião',
-			projLinkGuardiaoDesc: 'Encurtador de links com foco em segurança. .NET + React, links protegidos por senha, expiração configurável, rate limiting e analytics assíncrono processado fora do caminho da requisição.',
 			projArmazemTitle: 'Armazém São Joaquim',
-			projArmazemDesc: 'Portal para gestão de armazém, restaurante e pousada, no ar em domínio próprio. Next.js e Supabase com CMS dinâmico, fluxo de reservas, área administrativa e foco em SEO e performance.',
 			projNfeTitle: 'Emissão de NF-e e Controle de Estoque',
-			projNfeDesc: 'Sistema serverless orquestrado por eventos para faturamento e gestão de inventário. .NET, AWS Lambda, EventBridge para desacoplamento e DynamoDB com modelagem single-table.',
 			projCollabDocsTitle: 'CollabDocs',
-			projCollabDocsDesc: 'Editor de documentos em tempo real com .NET e SignalR. Sincronização de estado via WebSockets, controle de permissão por documento e deploy em infraestrutura serverless.',
 			projSummarizerTitle: 'Agente de Sumarização AI',
-			projSummarizerDesc: 'Agente que usa LLMs para extrair e resumir artigos da web de forma assíncrona. Python, FastAPI e fila de tarefas em background, com estratégias de fallback para coleta confiável.',
 			projBillingTitle: 'BillingLedger',
-			projBillingDesc: 'Backend de cobrança, pagamentos e conciliação em ledger. .NET 9 com contextos separados, Outbox Pattern para integração confiável e idempotência no processamento de webhooks de pagamento.',
 			projEventSourcingTitle: 'Gestão de Pedidos Distribuído',
-			projEventSourcingDesc: 'Pedidos, estoque e pagamento coordenados em Java + Spring Boot. Reserva de estoque com locking, compensação em caso de falha e eventos publicados via Outbox + RabbitMQ. 217 testes automatizados.',
+
+			// Cases (Problema → Entrega) e chaves novas
+			negociosTitle: 'Projetos para negócios',
+			negociosSub: 'Site e loja virtual feitos para o dia a dia de um negócio',
+			case_armazem_problema: 'Restaurante, pousada e café no mesmo negócio, sem um lugar único para mostrar cardápio, quartos e conteúdo e receber reservas.',
+			case_armazem_entrega: 'Site institucional com cardápio online, blog, área da pousada, catálogo do café e galeria; reservas com confirmação; painel administrativo para o próprio negócio atualizar o conteúdo; versões em português e inglês.',
+			statusForaDoAr: 'Site temporariamente fora do ar',
+			case_parallel_problema: 'Vender moda urbana pela internet exige uma vitrine que funcione bem no celular e um pagamento online confiável.',
+			case_parallel_entrega: 'Loja virtual mobile-first com catálogo, checkout integrado ao Stripe e gerenciamento de pedidos.',
+			case_torre_problema: 'A transportadora perde a entrega de vista quando o veículo sai para a rua.',
+			case_torre_entrega: 'Console de operação, app do motorista que funciona offline e página de rastreamento para o destinatário, com localização, previsão de chegada, SLA, alertas e prova de entrega.',
+			case_central_problema: 'Quem recebe pagamentos digitais precisa decidir na hora se aceita uma transação, sem aplicar o efeito duas vezes quando a mesma requisição chega repetida.',
+			case_central_entrega: 'Avaliação de risco que recomenda Permitir, Revisar ou Bloquear e mostra os motivos de cada decisão, com fila de alertas e investigação de casos. Não processa dinheiro.',
+			case_prisma_problema: 'Departamentos pessoais e BPOs processam folha para muitas empresas e precisam explicar cada valor, às vezes anos depois.',
+			case_prisma_entrega: 'Folha de pagamento multiempresa (mensal, férias, rescisão e 13º) que guarda a memória de cálculo de cada holerite, com conferência de inconsistências e trilha de auditoria.',
+			case_smartfinance_problema: 'Contas, receitas, despesas e orçamento espalhados em lugares diferentes dificultam ver a situação financeira.',
+			case_smartfinance_entrega: 'Aplicação única com contas, transações, categorias, orçamentos e relatórios, com o painel atualizado em tempo real.',
+			case_tenantcore_problema: 'Várias empresas usando a mesma plataforma não podem enxergar os dados umas das outras.',
+			case_tenantcore_entrega: 'Plataforma SaaS com isolamento por empresa, usuários e perfis de acesso, cadastro de clientes, projetos e tarefas, planos com limite de uso e auditoria.',
+			case_linkguardiao_problema: 'Controlar quem acessa um link, por quanto tempo ele vale e como é usado, sem deixar o redirecionamento lento.',
+			case_linkguardiao_entrega: 'Encurtador de links com senha opcional, expiração configurável, limite diário de criação e estatísticas de acesso processadas em segundo plano.',
+			case_nfe_problema: 'Fechar uma nota precisa reservar o estoque correspondente, e uma falha no meio do caminho não pode deixar os dois desencontrados.',
+			case_nfe_entrega: 'Faturamento interno inspirado na NF-e (não é emissor fiscal oficial): cadastro de produtos, fechamento de notas, reserva de estoque por eventos e geração de PDF.',
+			case_collabdocs_problema: 'Várias pessoas precisam criar, compartilhar e editar os mesmos documentos, com regras de acesso e sincronização entre elas.',
+			case_collabdocs_entrega: 'Editor de documentos com login via GitHub ou Google, controle de quem vê e quem edita, gestão de colaboradores e edição em tempo real.',
+			case_summarizer_problema: 'Transformar um artigo longo da web em resumo sem copiar e colar o texto à mão.',
+			case_summarizer_entrega: 'Recebe a URL, coleta o texto com proteção contra SSRF e devolve o resumo em segundo plano, com histórico e download em txt, md ou json.',
+			case_billing_problema: 'Separar faturamento, pagamento e contabilização sem amarrar tudo numa única transação síncrona.',
+			case_billing_entrega: 'Backend que emite faturas, recebe pagamentos por webhook com assinatura verificada e registra cada efeito financeiro num livro-caixa imutável.',
+			case_pedidos_problema: 'Evitar venda sem estoque e manter pagamento e pedido coordenados, mesmo quando uma das etapas falha.',
+			case_pedidos_entrega: 'Sistema de pedidos com reserva de estoque, cobrança, compensação em caso de falha, painel operacional e eventos publicados via Outbox.',
+			caseProblema: 'Problema',
+			caseEntrega: 'Entrega',
+			ctaWhatsapp: 'Pedir uma prévia grátis',
 
 			// Experiências
 			experienciasTitle: 'Experiências',
@@ -189,15 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			toggleMore: 'Ver mais',
 			toggleLess: 'Ver menos',
 
-			expSinergyPeriod: 'Abr 2026 — Atual',
-			expSinergyRole: 'Desenvolvedor Trainee — .NET | SQL Server | ASP.NET',
-			expSinergyShort: 'Atuação no desenvolvimento e sustentação de plataforma SaaS corporativa, com foco em estabilidade, manutenção e evolução contínua do sistema...',
-			expSinergyFull: 'Atuação no desenvolvimento e sustentação de plataforma SaaS corporativa, com foco em estabilidade, manutenção e evolução contínua do sistema. Implementação e manutenção de funcionalidades em C# / ASP.NET, incluindo ajustes em regras de negócio, APIs e rotinas de suporte à operação. Uso intensivo de SQL Server para consultas, análise de dados, procedures e apoio na geração de relatórios e extrações operacionais. Apoio à qualidade do software por meio de testes, análise de falhas, correção de bugs e colaboração com diferentes áreas do negócio.',
 
-			expRsmPeriod: 'Nov 2024 — Abr 2026',
-			expRsmRole: 'Suporte de TI',
-			expRsmShort: 'Triagem, registro e atendimento de incidentes (Nível 1 e 2), garantindo continuidade operacional e comunicação clara com usuários...',
-			expRsmFull: 'Triagem, registro e atendimento de incidentes (Nível 1 e 2), garantindo continuidade operacional e comunicação clara com usuários. Diagnóstico e resolução de problemas de hardware e software, com foco em causa raiz e prevenção de recorrência. Instalação, configuração e manutenção de aplicativos, sistemas operacionais (Windows, Linux) e periféricos. Suporte à infraestrutura de redes, computadores e impressoras. Padronização e documentação técnica de procedimentos, reduzindo retrabalho e melhorando o tempo de resolução.',
 
 			expFreelaPeriod: 'Jan 2024 — Abr 2026',
 			expFreelaRole: 'Desenvolvedor Full Stack Jr (.NET/C# + React)',
@@ -229,11 +233,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Contato
 			contatoTitle: 'Contato',
-			contatoLead: 'Aberto a conversar sobre backend .NET, produtos B2B e oportunidades de trabalho.',
+			contatoLead: 'Conte o que o seu negócio precisa e peça uma prévia grátis pelo WhatsApp.',
 			contatoEmailAria: 'Enviar e-mail para lucas.afvr@gmail.com',
-			contatoCv: 'Currículo (PDF)',
 			footerRights: '© {year} Lucas Antunes Ferreira. Todos os direitos reservados.',
-			pageTitle: 'Lucas Antunes Ferreira | Fullstack .NET Developer'
+			pageTitle: 'Lucas Antunes Ferreira | Sites e sistemas para pequenas empresas'
 		},
 
 		en: {
@@ -246,14 +249,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			skipLink: 'Skip to content',
 
 			// Hero
-			heroBadge: '<span class="hero-badge-dot" aria-hidden="true"></span> Open to Junior / Internship roles',
+			heroBadge: '<span class="hero-badge-dot" aria-hidden="true"></span> Websites and systems for small businesses',
 			heroTitle: 'Hi, I am <span class="highlight">Lucas Antunes Ferreira</span>',
-			heroDesc: 'Fullstack Developer focused on .NET backend<br>C# | .NET | ASP.NET Core | React | TypeScript<br>PostgreSQL | Docker | AWS',
-			heroDescMobile: 'Fullstack focused on .NET backend | C# | React | AWS',
-			heroLead: 'I build B2B products from domain to production, focused on consistency, security, testing and real-world cloud operation.',
-			btnCurriculo: 'Resume',
+			heroDesc: 'I build custom websites and systems for small businesses:<br>institutional websites, online stores, bookings and admin panels.',
+			heroDescMobile: 'Custom websites and systems for small businesses.',
+			heroLead: 'Tell me what your business needs and see a preview before you decide.',
 			btnProjetos: 'See Projects',
-			ctaContato: 'Contact',
 
 
 			// Featured projects — shared labels
@@ -278,57 +279,71 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// About
 			sobreTitle: 'About Me',
-			sobreTexto: '<p>I am a fullstack developer focused on <strong class="highlight">C#/.NET backend</strong>. I build B2B products from domain to production, with <strong class="highlight">ASP.NET Core</strong>, <strong class="highlight">React</strong> and <strong class="highlight">PostgreSQL</strong>.</p><p>I study Computer Science and work on developing and maintaining a corporate SaaS platform. In my projects I apply <strong class="highlight">Clean Architecture</strong>, <strong class="highlight">DDD</strong> and <strong class="highlight">automated testing</strong>, with messaging, security and observability in practice.</p><p>I am looking for a team where I can deliver reliable code from day one and keep learning on a real product.</p>',
-			sobreTextoMobile: 'Fullstack dev focused on <strong class="highlight">.NET backend</strong>. I build B2B products from domain to production, with tests, security and real-world operation.',
+			sobreTexto: '<p>I am a fullstack developer based in Rio de Janeiro and I build <strong class="highlight">websites and systems for small businesses</strong>: institutional websites, online stores, bookings and admin panels.</p><p>I study Computer Science. I work with <strong class="highlight">Next.js</strong>, <strong class="highlight">React</strong>, <strong class="highlight">.NET</strong> and <strong class="highlight">PostgreSQL</strong>, with automated tests and attention to security.</p><p>Before you decide, I show you a preview of what I will deliver. Just message me on WhatsApp and tell me what your business needs.</p>',
+			sobreTextoMobile: 'I build <strong class="highlight">websites and systems for small businesses</strong>, with a preview before you decide.',
 			sobreAvatar: 'Animated avatar',
-			statProj: 'Published projects',
 			statCert: 'Alura certificates',
 			statForm: 'Expected graduation',
 
 			// Other project cards
 			// Projetos (busca, filtro e cards em destaque)
 			projetosTitle: 'Projects',
-			projetosSubtitle: 'Twelve open source projects on GitHub. Three are live as complete products, and each one has a page with architecture, technical decisions and limits.',
+			projetosSubtitle: 'Each project shows the problem, what was delivered, the stack used and the link.',
 			searchPlaceholder: 'Search by name or technology...',
 			filterAllProjects: 'All',
 			emptyText: 'No projects found',
 			emptyHint: 'Try searching for another technology or term',
-			destaqueTitle: 'Featured',
-			destaqueSub: 'Three live B2B products, with video, tests and a documented pentest',
+			destaqueTitle: 'Featured systems',
+			destaqueSub: 'Three complete systems live, with a demo video',
 			outrosLead: 'Earlier projects, all open source',
-			torreResumo: 'A carrier loses sight of the delivery once the vehicle leaves. Torre covers the stretch between leaving for the route and completion, with location, ETA, SLA, alerts and proof of delivery.',
-			centralResumo: 'Immediate, explainable risk decisions for digital payments, with a single effect even under simultaneous requests and repeated messages. It does not move money: it recommends Allow, Review or Block.',
-			prismaResumo: 'Multi-company Brazilian payroll that delivers the number and the calculation behind it: rubrics, bases, effective parameter and calculation version.',
-			statTestes: 'tests',
-			torreS2: 'pentest categories',
-			torreS3: 'web apps',
-			centralS2: 'pentest vectors',
-			centralS3: 'phases delivered',
-			prismaS2: 'security tests',
-			prismaS3: 'routes, 4 anonymous',
 			featuredBadge: 'Featured',
 
 			btnDetalhes: 'Details',
-			badgeClienteReal: 'Real client · in production',
+			badgeClienteReal: 'Real client',
 
 			projSmartFinanceTitle: 'SmartFinance',
-			projSmartFinanceDesc: 'Personal finance ecosystem with .NET 9, RabbitMQ and Next.js. Implements Clean Architecture, the Outbox Pattern and asynchronous transaction processing for consistency and financial resilience.',
 			projTenantCoreTitle: 'TenantCore — Multi-Tenant SaaS',
-			projTenantCoreDesc: 'B2B SaaS platform in .NET 9 with per-tenant isolation through EF Core global query filters. JWT with rotating refresh tokens, RBAC, per-plan quotas, Redis cache, Quartz jobs and OpenTelemetry observability.',
 			projLinkGuardiaoTitle: 'LinkGuardião',
-			projLinkGuardiaoDesc: 'Security-focused URL shortener. .NET + React, password-protected links, configurable expiration, rate limiting and asynchronous analytics processed off the request path.',
 			projArmazemTitle: 'Armazém São Joaquim',
-			projArmazemDesc: 'Portal for managing a warehouse, restaurant and inn, live on its own domain. Next.js and Supabase with a dynamic CMS, booking flow, admin area and a focus on SEO and performance.',
 			projNfeTitle: 'Invoice Issuing and Inventory Control',
-			projNfeDesc: 'Event-driven serverless system for invoicing and inventory management. .NET, AWS Lambda, EventBridge for decoupling and DynamoDB with single-table design.',
 			projCollabDocsTitle: 'CollabDocs',
-			projCollabDocsDesc: 'Real-time document editor with .NET and SignalR. State synchronization over WebSockets, per-document permission control and deployment on serverless infrastructure.',
 			projSummarizerTitle: 'AI Summarization Agent',
-			projSummarizerDesc: 'Agent that uses LLMs to extract and summarize web articles asynchronously. Python, FastAPI and a background task queue, with fallback strategies for reliable collection.',
 			projBillingTitle: 'BillingLedger',
-			projBillingDesc: 'Backend for billing, payments and ledger reconciliation. .NET 9 with separate contexts, the Outbox Pattern for reliable integration and idempotent payment webhook processing.',
 			projEventSourcingTitle: 'Distributed Order Management',
-			projEventSourcingDesc: 'Orders, inventory and payment coordinated in Java + Spring Boot. Inventory reservation with locking, compensation on failure and events published through Outbox + RabbitMQ. 217 automated tests.',
+
+			// Cases (Problema → Entrega) e chaves novas
+			negociosTitle: 'Business projects',
+			negociosSub: 'A website and an online store built for the day-to-day of a business',
+			case_armazem_problema: 'A restaurant, inn and café in a single business, with no single place to show the menu, rooms and content and take bookings.',
+			case_armazem_entrega: 'Institutional website with online menu, blog, inn section, café catalog and gallery; bookings with confirmation; an admin panel so the business updates its own content; Portuguese and English versions.',
+			statusForaDoAr: 'Website temporarily offline',
+			case_parallel_problema: 'Selling streetwear online needs a storefront that works well on mobile and reliable online payment.',
+			case_parallel_entrega: 'Mobile-first online store with catalog, Stripe-integrated checkout and order management.',
+			case_torre_problema: 'A carrier loses sight of the delivery once the vehicle leaves.',
+			case_torre_entrega: 'Operations console, a driver app that works offline and a tracking page for the recipient, with location, ETA, SLA, alerts and proof of delivery.',
+			case_central_problema: 'Anyone taking digital payments must decide on the spot whether to accept a transaction, without applying the effect twice when the same request arrives again.',
+			case_central_entrega: 'Risk assessment that recommends Allow, Review or Block and shows the reasons for each decision, with an alert queue and case investigation. It does not move money.',
+			case_prisma_problema: 'HR departments and payroll outsourcers process payroll for many companies and must explain every amount, sometimes years later.',
+			case_prisma_entrega: 'Multi-company payroll (monthly, vacation, termination and 13th salary) that stores the calculation trail of every payslip, with inconsistency checks and an audit trail.',
+			case_smartfinance_problema: 'Accounts, income, expenses and budgets spread across different places make it hard to see where the money stands.',
+			case_smartfinance_entrega: 'A single app with accounts, transactions, categories, budgets and reports, with the dashboard updated in real time.',
+			case_tenantcore_problema: 'Several companies sharing the same platform must not see each other\'s data.',
+			case_tenantcore_entrega: 'SaaS platform with per-company isolation, users and access roles, clients, projects and tasks, plans with usage limits and auditing.',
+			case_linkguardiao_problema: 'Controlling who opens a link, how long it stays valid and how it is used, without slowing down the redirect.',
+			case_linkguardiao_entrega: 'Link shortener with optional password, configurable expiration, a daily creation limit and access statistics processed in the background.',
+			case_nfe_problema: 'Closing an invoice must reserve the matching stock, and a failure halfway must not leave the two out of sync.',
+			case_nfe_entrega: 'Internal invoicing inspired by Brazil\'s NF-e (not an official tax issuer): product catalog, invoice closing, event-driven stock reservation and PDF generation.',
+			case_collabdocs_problema: 'Several people need to create, share and edit the same documents, with access rules and sync between them.',
+			case_collabdocs_entrega: 'Document editor with GitHub or Google sign-in, control over who can view and edit, collaborator management and real-time editing.',
+			case_summarizer_problema: 'Turning a long web article into a summary without copying and pasting the text by hand.',
+			case_summarizer_entrega: 'Takes a URL, collects the text with SSRF protection and returns the summary in the background, with history and download as txt, md or json.',
+			case_billing_problema: 'Separating invoicing, payment and bookkeeping without tying everything into a single synchronous transaction.',
+			case_billing_entrega: 'Backend that issues invoices, receives payments through signature-checked webhooks and records every financial effect in an immutable ledger.',
+			case_pedidos_problema: 'Avoiding sales without stock and keeping payment and order in step, even when one of the steps fails.',
+			case_pedidos_entrega: 'Order system with stock reservation, charging, compensation on failure, an operations dashboard and events published through an outbox.',
+			caseProblema: 'Problem',
+			caseEntrega: 'Delivery',
+			ctaWhatsapp: 'Ask for a free preview',
 
 			// Experiências
 			experienciasTitle: 'Experience',
@@ -336,15 +351,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			toggleMore: 'Read more',
 			toggleLess: 'Read less',
 
-			expSinergyPeriod: 'Apr 2026 — Present',
-			expSinergyRole: 'Trainee Developer — .NET | SQL Server | ASP.NET',
-			expSinergyShort: 'Development and maintenance of a corporate SaaS platform, focused on stability, upkeep and continuous evolution of the system...',
-			expSinergyFull: 'Development and maintenance of a corporate SaaS platform, focused on stability, upkeep and continuous evolution of the system. Implementation and maintenance of features in C# / ASP.NET, including business rule changes, APIs and routines that support daily operations. Heavy use of SQL Server for queries, data analysis, stored procedures and support for operational reports and data extraction. Support to software quality through testing, failure analysis, bug fixing and collaboration with different business areas.',
 
-			expRsmPeriod: 'Nov 2024 — Apr 2026',
-			expRsmRole: 'IT Support',
-			expRsmShort: 'Triage, logging and handling of incidents (Level 1 and 2), ensuring operational continuity and clear communication with users...',
-			expRsmFull: 'Triage, logging and handling of incidents (Level 1 and 2), ensuring operational continuity and clear communication with users. Diagnosis and resolution of hardware and software problems, focused on root cause and preventing recurrence. Installation, configuration and maintenance of applications, operating systems (Windows, Linux) and peripherals. Support for network infrastructure, computers and printers. Standardization and technical documentation of procedures, reducing rework and improving resolution time.',
 
 			expFreelaPeriod: 'Jan 2024 — Apr 2026',
 			expFreelaRole: 'Full Stack Jr Developer (.NET/C# + React)',
@@ -376,11 +383,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Contact
 			contatoTitle: 'Contact',
-			contatoLead: 'Open to talk about .NET backend, B2B products and job opportunities.',
+			contatoLead: 'Tell me what your business needs and ask for a free preview on WhatsApp.',
 			contatoEmailAria: 'Send an email to lucas.afvr@gmail.com',
-			contatoCv: 'Resume (PDF)',
 			footerRights: '© {year} Lucas Antunes Ferreira. All rights reserved.',
-			pageTitle: 'Lucas Antunes Ferreira | Fullstack .NET Developer'
+			pageTitle: 'Lucas Antunes Ferreira | Websites and systems for small businesses'
 		}
 	};
 

@@ -255,7 +255,7 @@ body {
 
 
 
-/* Selo "Disponível para vagas" — espelha o status do LinkedIn.
+/* Selo do posicionamento: "Sites e sistemas para pequenas empresas".
    Seletor com a mesma força de `.hero p` para vencer o margin-bottom herdado. */
 .hero .hero-badge {
     display: inline-flex;
@@ -365,6 +365,30 @@ body {
 .btn-primary:hover {
     background: var(--secondary);
     transform: translateY(-2px);
+}
+
+
+
+/* CTA principal (WhatsApp). Texto escuro sobre o verde para manter contraste AA. */
+.btn-whatsapp {
+    gap: 0.6rem;
+    background: #25d366;
+    color: #0b1120;
+    font-weight: 600;
+}
+
+.btn-whatsapp i {
+    font-size: 1.25rem;
+}
+
+.btn-whatsapp:hover {
+    background: #4ade80;
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp:focus-visible {
+    outline: 2px solid #86efac;
+    outline-offset: 3px;
 }
 
 

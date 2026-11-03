@@ -109,6 +109,22 @@ ${galleryItems}
 `
         : '';
 
+    const repoButton = project.repo
+        ? `                    <a class="pd-btn pd-btn-primary" href="${attr(project.repo)}" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span>Ver código no GitHub</span>
+                    </a>`
+        : '';
+
+    // Projeto sem link público (ex.: site fora do ar): mostra o aviso no lugar dos botões.
+    const statusNote = project.status
+        ? `                    <p class="pd-status">${attr(project.status)}</p>`
+        : '';
+
+    const codeRepository = project.repo
+        ? `\n      "codeRepository": ${JSON.stringify(project.repo)},`
+        : '';
+
     const badge = project.badge
         ? `                <p class="pd-badge">${attr(project.badge)}</p>\n`
         : '';
@@ -149,8 +165,7 @@ ${galleryItems}
       "@context": "https://schema.org",
       "@type": "SoftwareSourceCode",
       "name": ${JSON.stringify(project.title)},
-      "description": ${JSON.stringify(description)},
-      "codeRepository": ${JSON.stringify(project.repo)},
+      "description": ${JSON.stringify(description)},${codeRepository}
       "programmingLanguage": ${JSON.stringify(project.tags)},
       "author": {
         "@type": "Person",
@@ -196,12 +211,7 @@ ${tags}
                 </div>
 
                 <div class="pd-actions">
-                    <a class="pd-btn pd-btn-primary" href="${attr(project.repo)}" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github" aria-hidden="true"></i>
-                        <span>Ver código no GitHub</span>
-                    </a>
-${demoButton}
-${extraLinks}
+${[repoButton, demoButton, extraLinks, statusNote].filter(Boolean).join('\n')}
                 </div>
             </div>
         </header>

@@ -91,8 +91,6 @@
                         <i class="fab fa-github" aria-hidden="true"></i>
                         <span>Ver código no GitHub</span>
                     </a>
-
-
                 </div>
             </div>
         </header>
@@ -113,7 +111,7 @@
                 </div>
                 <div class="pd-fact">
                     <dt class="pd-fact-label">Testes</dt>
-                    <dd class="pd-fact-value">217 testes · 63,3% de cobertura de linhas</dd>
+                    <dd class="pd-fact-value">Unidade e integração, com cobertura medida por JaCoCo</dd>
                 </div>
                 <div class="pd-fact">
                     <dt class="pd-fact-label">Extras</dt>
@@ -180,9 +178,9 @@
                     <li>Domínio forte para mercado enterprise: pedidos, estoque e pagamento coordenados.</li>
                     <li>Preocupação concreta com consistência e concorrência, incluindo locking otimista e pessimista no estoque.</li>
                     <li>Uso real de mensageria com RabbitMQ e padrão Outbox.</li>
-                    <li>Segurança acima da média: JWT, RBAC, CORS, CSP, HSTS e rate limiting.</li>
-                    <li>Suíte de testes robusta: 217 testes sem falhas, 63,29% de cobertura de linhas via JaCoCo.</li>
-                    <li>Existência de testes E2E e teste de carga, incomum em portfólios.</li>
+                    <li>Segurança: JWT, RBAC, CORS, CSP, HSTS e rate limiting.</li>
+                    <li>Suíte de testes automatizados com cobertura medida por JaCoCo.</li>
+                    <li>Testes E2E e teste de carga.</li>
                 </ul>
             </section>
 
@@ -197,7 +195,7 @@
                     <li>Não é um conjunto de microservices independentes ativos, apesar do nome do repositório.</li>
                     <li>O Event Sourcing não é aplicado de forma completa no runtime atual — o que existe é outbox de eventos de domínio.</li>
                     <li>A pasta <code>legacy/</code> mantém artefatos de uma fase anterior mais fragmentada, o que reduz a clareza do repositório.</li>
-                    <li>A cobertura de branches (40,84%) é bem menor que a de linhas.</li>
+                    <li>A cobertura de branches é bem menor que a de linhas.</li>
                 </ul>
             </section>
 
