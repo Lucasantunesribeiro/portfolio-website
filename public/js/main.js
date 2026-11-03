@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Sobre
 			sobreTitle: 'Sobre Mim',
-			sobreTexto: '<p>Sou desenvolvedor fullstack no Rio de Janeiro e crio <strong class="highlight">sites e sistemas para pequenas empresas</strong>: site institucional, loja virtual, reservas e painel administrativo.</p><p>Curso Ciência da Computação. Trabalho com <strong class="highlight">Next.js</strong>, <strong class="highlight">React</strong>, <strong class="highlight">.NET</strong> e <strong class="highlight">PostgreSQL</strong>, com testes automatizados e cuidado com segurança.</p><p>Antes de você decidir, eu mostro uma prévia do que vou entregar. É só chamar no WhatsApp e contar o que o seu negócio precisa.</p>',
+			sobreTexto: '<p>Sou desenvolvedor fullstack no Rio de Janeiro e crio <strong class="highlight">sites e sistemas para pequenas empresas</strong>: site institucional, loja virtual, reservas e painel administrativo.</p><p>Curso Ciência da Computação e trabalho com desenvolvimento e sustentação de uma plataforma SaaS corporativa. Nos meus projetos, uso <strong class="highlight">Next.js</strong>, <strong class="highlight">React</strong>, <strong class="highlight">.NET</strong> e <strong class="highlight">PostgreSQL</strong>, com testes automatizados e cuidado com segurança.</p><p>Antes de você decidir, eu mostro uma prévia do que vou entregar. É só chamar no WhatsApp e contar o que o seu negócio precisa.</p>',
 			sobreTextoMobile: 'Crio <strong class="highlight">sites e sistemas para pequenas empresas</strong>, com uma prévia antes de você decidir.',
 			sobreAvatar: 'Avatar animado',
 			statCert: 'Certificados Alura',
@@ -204,7 +204,15 @@ document.addEventListener('DOMContentLoaded', function () {
 			toggleMore: 'Ver mais',
 			toggleLess: 'Ver menos',
 
+			expSinergyPeriod: 'Abr 2026 — Atual',
+			expSinergyRole: 'Desenvolvedor Trainee — .NET | SQL Server | ASP.NET',
+			expSinergyShort: 'Atuação no desenvolvimento e sustentação de plataforma SaaS corporativa, com foco em estabilidade, manutenção e evolução contínua do sistema...',
+			expSinergyFull: 'Atuação no desenvolvimento e sustentação de plataforma SaaS corporativa, com foco em estabilidade, manutenção e evolução contínua do sistema. Implementação e manutenção de funcionalidades em C# / ASP.NET, incluindo ajustes em regras de negócio, APIs e rotinas de suporte à operação. Uso intensivo de SQL Server para consultas, análise de dados, procedures e apoio na geração de relatórios e extrações operacionais. Apoio à qualidade do software por meio de testes, análise de falhas, correção de bugs e colaboração com diferentes áreas do negócio.',
 
+			expRsmPeriod: 'Nov 2024 — Abr 2026',
+			expRsmRole: 'Suporte de TI',
+			expRsmShort: 'Triagem, registro e atendimento de incidentes (Nível 1 e 2), garantindo continuidade operacional e comunicação clara com usuários...',
+			expRsmFull: 'Triagem, registro e atendimento de incidentes (Nível 1 e 2), garantindo continuidade operacional e comunicação clara com usuários. Diagnóstico e resolução de problemas de hardware e software, com foco em causa raiz e prevenção de recorrência. Instalação, configuração e manutenção de aplicativos, sistemas operacionais (Windows, Linux) e periféricos. Suporte à infraestrutura de redes, computadores e impressoras. Padronização e documentação técnica de procedimentos, reduzindo retrabalho e melhorando o tempo de resolução.',
 
 			expFreelaPeriod: 'Jan 2024 — Abr 2026',
 			expFreelaRole: 'Desenvolvedor Full Stack Jr (.NET/C# + React)',
@@ -284,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// About
 			sobreTitle: 'About Me',
-			sobreTexto: '<p>I am a fullstack developer based in Rio de Janeiro and I build <strong class="highlight">websites and systems for small businesses</strong>: institutional websites, online stores, bookings and admin panels.</p><p>I study Computer Science. I work with <strong class="highlight">Next.js</strong>, <strong class="highlight">React</strong>, <strong class="highlight">.NET</strong> and <strong class="highlight">PostgreSQL</strong>, with automated tests and attention to security.</p><p>Before you decide, I show you a preview of what I will deliver. Just message me on WhatsApp and tell me what your business needs.</p>',
+			sobreTexto: '<p>I am a fullstack developer based in Rio de Janeiro and I build <strong class="highlight">websites and systems for small businesses</strong>: institutional websites, online stores, bookings and admin panels.</p><p>I study Computer Science and work on developing and maintaining a corporate SaaS platform. In my projects I use <strong class="highlight">Next.js</strong>, <strong class="highlight">React</strong>, <strong class="highlight">.NET</strong> and <strong class="highlight">PostgreSQL</strong>, with automated tests and attention to security.</p><p>Before you decide, I show you a preview of what I will deliver. Just message me on WhatsApp and tell me what your business needs.</p>',
 			sobreTextoMobile: 'I build <strong class="highlight">websites and systems for small businesses</strong>, with a preview before you decide.',
 			sobreAvatar: 'Animated avatar',
 			statCert: 'Alura certificates',
@@ -358,7 +366,15 @@ document.addEventListener('DOMContentLoaded', function () {
 			toggleMore: 'Read more',
 			toggleLess: 'Read less',
 
+			expSinergyPeriod: 'Apr 2026 — Present',
+			expSinergyRole: 'Trainee Developer — .NET | SQL Server | ASP.NET',
+			expSinergyShort: 'Development and maintenance of a corporate SaaS platform, focused on stability, upkeep and continuous evolution of the system...',
+			expSinergyFull: 'Development and maintenance of a corporate SaaS platform, focused on stability, upkeep and continuous evolution of the system. Implementation and maintenance of features in C# / ASP.NET, including business rule changes, APIs and routines that support daily operations. Heavy use of SQL Server for queries, data analysis, stored procedures and support for operational reports and data extraction. Support to software quality through testing, failure analysis, bug fixing and collaboration with different business areas.',
 
+			expRsmPeriod: 'Nov 2024 — Apr 2026',
+			expRsmRole: 'IT Support',
+			expRsmShort: 'Triage, logging and handling of incidents (Level 1 and 2), ensuring operational continuity and clear communication with users...',
+			expRsmFull: 'Triage, logging and handling of incidents (Level 1 and 2), ensuring operational continuity and clear communication with users. Diagnosis and resolution of hardware and software problems, focused on root cause and preventing recurrence. Installation, configuration and maintenance of applications, operating systems (Windows, Linux) and peripherals. Support for network infrastructure, computers and printers. Standardization and technical documentation of procedures, reducing rework and improving resolution time.',
 
 			expFreelaPeriod: 'Jan 2024 — Apr 2026',
 			expFreelaRole: 'Full Stack Jr Developer (.NET/C# + React)',
