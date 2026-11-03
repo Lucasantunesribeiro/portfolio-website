@@ -84,9 +84,9 @@ npm run gen                   # roda os três
 
 A seção `#projetos` tem três grupos: **Projetos para negócios** (Armazém São Joaquim e Parallel Store), **Sistemas em destaque** (Torre Logística, Central Antifraude e Prisma RH, com vídeo) e **Outros projetos**. Todo card segue o formato **Problema → Entrega → Stack → Link**. A busca (`#project-search`) casa com título, problema e tecnologias; os botões filtram por stack. Ambos valem para todos os grupos, e um grupo sem resultado some junto com o título. Para a busca achar uma tecnologia, ela precisa estar no `data-tags` do card.
 
-Regras de conteúdo dos cards: a stack só lista tecnologias que já constam deste repositório para aquele projeto (`scripts/projects-data.js` ou o próprio card), e não há números, métricas, resultados nem depoimentos que não possam ser conferidos. O Armazém São Joaquim fica sem link enquanto o site estiver fora do ar.
+Regras de conteúdo dos cards: a stack só lista tecnologias que já constam deste repositório para aquele projeto (`scripts/projects-data.js` ou o próprio card), e não há números, métricas, resultados nem depoimentos que não possam ser conferidos.
 
-Os projetos com botão "Detalhes" têm página gerada de `scripts/projects-data.js` (com vídeo, galeria e links de release e pentest). Um projeto pode ter `repo: null` e um `status` (texto exibido no lugar dos botões).
+Os projetos com botão "Detalhes" têm página gerada de `scripts/projects-data.js` (com vídeo, galeria e links de release e pentest). Um projeto pode ter `repo: null` (sem botão de código) e `demoLabel` (rótulo do botão da demo, padrão "Ver demo").
 
 - `public/assets/projetos/*-demo.mp4`: vídeos curtos (24–33 s, sem áudio, H.264 com `faststart`), 1920x950. São cópias **recortadas** das versões finais curtas: a faixa preta inferior e a barra do navegador da gravação foram cortadas com `ffmpeg -vf crop`. As gravações originais não foram alteradas, e as versões longas (~45 MB) não são usadas.
 - `public/assets/projetos/*-poster.jpg`: quadro de cada vídeo, usado como `poster`.

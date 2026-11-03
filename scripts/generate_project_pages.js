@@ -66,7 +66,7 @@ function renderPage(project, index, all) {
     const demoButton = project.demo
         ? `                    <a class="pd-btn pd-btn-secondary" href="${attr(project.demo)}" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                        <span>Ver demo</span>
+                        <span>${attr(project.demoLabel || 'Ver demo')}</span>
                     </a>`
         : '';
 
@@ -114,11 +114,6 @@ ${galleryItems}
                         <i class="fab fa-github" aria-hidden="true"></i>
                         <span>Ver código no GitHub</span>
                     </a>`
-        : '';
-
-    // Projeto sem link público (ex.: site fora do ar): mostra o aviso no lugar dos botões.
-    const statusNote = project.status
-        ? `                    <p class="pd-status">${attr(project.status)}</p>`
         : '';
 
     const codeRepository = project.repo
@@ -211,7 +206,7 @@ ${tags}
                 </div>
 
                 <div class="pd-actions">
-${[repoButton, demoButton, extraLinks, statusNote].filter(Boolean).join('\n')}
+${[repoButton, demoButton, extraLinks].filter(Boolean).join('\n')}
                 </div>
             </div>
         </header>

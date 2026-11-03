@@ -684,14 +684,13 @@ module.exports = [
         title: 'Armazém São Joaquim',
         subtitle: 'Plataforma digital para restaurante, pousada e café',
         image: '../assets/armazem_sao_joaquim_mockup.jpg',
-        // Sem link: site temporariamente fora do ar (nem demo nem repositório).
-        repo: null,
-        demo: null,
-        status: 'Site temporariamente fora do ar',
+        repo: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
+        demo: 'https://armazemsaojoaquim.netlify.app/pt',
+        demoLabel: 'Ver site',
         badge: 'Cliente real',
         tags: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'RLS', 'Tailwind', 'i18n'],
         facts: [
-            { label: 'Status', value: 'Site temporariamente fora do ar' },
+            { label: 'Site', value: '<a href="https://armazemsaojoaquim.netlify.app/pt" target="_blank" rel="noopener noreferrer">armazemsaojoaquim.netlify.app</a>' },
             { label: 'Arquitetura', value: 'Monólito modular serverless' },
             { label: 'Banco', value: 'PostgreSQL com RLS e migrations' },
             { label: 'Idiomas', value: 'Rotas separadas para PT e EN' },
