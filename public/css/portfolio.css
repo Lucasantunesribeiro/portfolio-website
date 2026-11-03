@@ -198,6 +198,11 @@ video:focus-visible {
     background: #000;
 }
 
+/* Vídeo de demonstração no rodapé dos cards dos clientes reais */
+.card-media {
+    margin-top: auto;
+}
+
 .featured-body {
     display: grid;
     grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);

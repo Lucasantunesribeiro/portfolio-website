@@ -684,6 +684,15 @@ module.exports = [
         title: 'Armazém São Joaquim',
         subtitle: 'Plataforma digital para restaurante, pousada e café',
         image: '../assets/armazem_sao_joaquim_mockup.jpg',
+        imageSize: [1024, 636],
+        video: {
+            src: '../assets/projetos/armazem-sao-joaquim-demo.mp4',
+            poster: '../assets/projetos/armazem-sao-joaquim-poster.jpg',
+            caption: '__ARMAZEM_CAPTION__',
+        },
+        gallery: [
+            { src: '../assets/armazem_sao_joaquim_mockup.jpg', w: 1024, h: 636, alt: 'Site do Armazém São Joaquim aberto no computador e no celular.', caption: 'O site no computador e no celular' },
+        ],
         repo: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
         demo: 'https://armazemsaojoaquim.netlify.app/pt',
         demoLabel: 'Ver site',
@@ -739,25 +748,71 @@ module.exports = [
     },
 
     {
-        // Só o que está confirmado: nome, site, repositório e o tipo de entrega.
-        // Stack, arquitetura e fluxo ficam de fora até virem do dono do projeto.
+        // Só o que está confirmado: nome, site, repositório, o tipo de entrega e o
+        // que aparece no próprio site. Stack, arquitetura e fluxo ficam de fora
+        // até virem do dono do projeto.
         slug: 'novo-lar-geriatria',
         title: 'Novo Lar Geriatria',
-        subtitle: 'Site institucional de clínica geriátrica',
-        // Placeholder neutro; o print real sai de `node scripts/capture-mockups.mjs`.
+        subtitle: 'Site institucional de residencial geriátrico',
         image: '../assets/novo_lar_geriatria_mockup.webp',
-        imageSize: [1200, 800],
-        imageAlt: 'Imagem ilustrativa do projeto Novo Lar Geriatria',
+        imageSize: [1024, 636],
+        imageAlt: 'Site do Novo Lar Geriatria aberto no computador e no celular',
+        video: {
+            src: '../assets/projetos/novo-lar-geriatria-demo.mp4',
+            poster: '../assets/projetos/novo-lar-geriatria-poster.jpg',
+            caption: '__NOVOLAR_CAPTION__',
+        },
+        gallery: [
+            { src: '../assets/novo_lar_geriatria_mockup.webp', w: 1024, h: 636, alt: 'Site do Novo Lar Geriatria aberto no computador e no celular.', caption: 'O site no computador e no celular' },
+            { src: '../assets/projetos/novo-lar-geriatria-servicos.webp', w: 1568, h: 755, alt: 'Página de serviços: hospedagem assistida 24h, com fotos da casa e a lista de principais benefícios.', caption: 'Serviços: hospedagem assistida 24h' },
+            { src: '../assets/projetos/novo-lar-geriatria-unidade.webp', w: 1568, h: 754, alt: 'Página da unidade Moinhos de Vento, com endereço, foto da fachada e botões para agendar visita e falar no WhatsApp.', caption: 'Página da unidade Moinhos de Vento' },
+            { src: '../assets/projetos/novo-lar-geriatria-noticias.webp', w: 1568, h: 755, alt: 'Seção de notícias com os artigos mais vistos.', caption: 'Notícias: artigos mais vistos' },
+        ],
         repo: 'https://github.com/Lucasantunesribeiro/novo-lar-geriatria',
         demo: 'https://geriatrianovolar.com.br/',
         demoLabel: 'Ver site',
         siteFirst: true,
+        badge: 'Cliente real',
         tags: [],
         facts: [
             { label: 'Site', value: '<a href="https://geriatrianovolar.com.br/" target="_blank" rel="noopener noreferrer">geriatrianovolar.com.br</a>' },
+            { label: 'Unidades', value: 'Moinhos de Vento e Passo d’Areia, em Porto Alegre' },
         ],
         overview: [
-            'Uma clínica geriátrica precisava de presença online. A entrega foi um site institucional publicado em domínio próprio.',
+            'Um residencial geriátrico de Porto Alegre precisava de presença online. A entrega foi um site institucional publicado em domínio próprio, feito para um <strong>cliente real</strong>.',
+            'O site apresenta a casa, os serviços, a estrutura e as duas unidades, publica notícias e artigos e leva o visitante ao contato por telefone ou WhatsApp, com uma página para cada unidade.',
+        ],
+    },
+
+    {
+        // Só o que está confirmado no card da home: entrega, stack e links.
+        slug: 'parallel-store',
+        title: 'Parallel Store',
+        subtitle: 'Loja virtual de moda urbana',
+        image: '../assets/parallel_store_mockup.webp',
+        imageSize: [1024, 636],
+        imageAlt: 'Loja Parallel Store aberta no computador e no celular',
+        video: {
+            src: '../assets/projetos/parallel-store-demo.mp4',
+            poster: '../assets/projetos/parallel-store-poster.jpg',
+            caption: '__PARALLEL_CAPTION__',
+        },
+        gallery: [
+            { src: '../assets/parallel_store_mockup.webp', w: 1024, h: 636, alt: 'Loja Parallel Store aberta no computador e no celular.', caption: 'A loja no computador e no celular' },
+        ],
+        repo: 'https://github.com/Lucasantunesribeiro/Parallel_Store',
+        demo: 'https://parallelstore.netlify.app/',
+        demoLabel: 'Ver site',
+        siteFirst: true,
+        badge: 'Cliente real',
+        tags: ['Next.js 15', 'TypeScript', 'Supabase', 'Stripe', 'Tailwind'],
+        facts: [
+            { label: 'Site', value: '<a href="https://parallelstore.netlify.app/" target="_blank" rel="noopener noreferrer">parallelstore.netlify.app</a>' },
+            { label: 'Pagamento', value: 'Checkout integrado ao Stripe' },
+        ],
+        overview: [
+            'Vender moda urbana pela internet exige uma vitrine que funcione bem no celular e um pagamento online confiável. A entrega foi uma loja virtual feita para um <strong>cliente real</strong>.',
+            'A loja é mobile-first, com catálogo, checkout integrado ao Stripe e gerenciamento de pedidos.',
         ],
     },
 ];
