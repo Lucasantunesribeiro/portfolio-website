@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			heroDescMobile: 'Sites e sistemas sob medida para pequenas empresas.',
 			heroLead: 'Conte o que o seu negócio precisa e veja uma prévia antes de decidir.',
 			btnProjetos: 'Ver Projetos',
+			btnCurriculo: 'Currículo',
 
 
 			// Projetos principais — rótulos comuns
@@ -163,10 +164,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Cases (Problema → Entrega) e chaves novas
 			negociosTitle: 'Projetos para negócios',
-			negociosSub: 'Site e loja virtual feitos para o dia a dia de um negócio',
+			negociosSub: 'Sites e loja virtual feitos para o dia a dia de um negócio',
 			case_armazem_problema: 'Restaurante, pousada e café no mesmo negócio, sem um lugar único para mostrar cardápio, quartos e conteúdo e receber reservas.',
 			case_armazem_entrega: 'Site institucional com cardápio online, blog, área da pousada, catálogo do café e galeria; reservas com confirmação; painel administrativo para o próprio negócio atualizar o conteúdo; versões em português e inglês.',
 			lnkSite: 'Ver site',
+			case_novolar_problema: 'Clínica geriátrica precisava de presença online.',
+			case_novolar_entrega: 'Site institucional publicado em domínio próprio.',
 			case_parallel_problema: 'Vender moda urbana pela internet exige uma vitrine que funcione bem no celular e um pagamento online confiável.',
 			case_parallel_entrega: 'Loja virtual mobile-first com catálogo, checkout integrado ao Stripe e gerenciamento de pedidos.',
 			case_torre_problema: 'A transportadora perde a entrega de vista quando o veículo sai para a rua.',
@@ -235,6 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			contatoTitle: 'Contato',
 			contatoLead: 'Conte o que o seu negócio precisa e peça uma prévia grátis pelo WhatsApp.',
 			contatoEmailAria: 'Enviar e-mail para lucas.afvr@gmail.com',
+			contatoCv: 'Currículo (PDF)',
 			footerRights: '© {year} Lucas Antunes Ferreira. Todos os direitos reservados.',
 			pageTitle: 'Lucas Antunes Ferreira | Sites e sistemas para pequenas empresas'
 		},
@@ -255,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			heroDescMobile: 'Custom websites and systems for small businesses.',
 			heroLead: 'Tell me what your business needs and see a preview before you decide.',
 			btnProjetos: 'See Projects',
+			btnCurriculo: 'Resume',
 
 
 			// Featured projects — shared labels
@@ -313,10 +318,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Cases (Problema → Entrega) e chaves novas
 			negociosTitle: 'Business projects',
-			negociosSub: 'A website and an online store built for the day-to-day of a business',
+			negociosSub: 'Websites and an online store built for the day-to-day of a business',
 			case_armazem_problema: 'A restaurant, inn and café in a single business, with no single place to show the menu, rooms and content and take bookings.',
 			case_armazem_entrega: 'Institutional website with online menu, blog, inn section, café catalog and gallery; bookings with confirmation; an admin panel so the business updates its own content; Portuguese and English versions.',
 			lnkSite: 'View website',
+			case_novolar_problema: 'A geriatric clinic needed an online presence.',
+			case_novolar_entrega: 'Institutional website published on its own domain.',
 			case_parallel_problema: 'Selling streetwear online needs a storefront that works well on mobile and reliable online payment.',
 			case_parallel_entrega: 'Mobile-first online store with catalog, Stripe-integrated checkout and order management.',
 			case_torre_problema: 'A carrier loses sight of the delivery once the vehicle leaves.',
@@ -385,6 +392,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			contatoTitle: 'Contact',
 			contatoLead: 'Tell me what your business needs and ask for a free preview on WhatsApp.',
 			contatoEmailAria: 'Send an email to lucas.afvr@gmail.com',
+			contatoCv: 'Resume (PDF)',
 			footerRights: '© {year} Lucas Antunes Ferreira. All rights reserved.',
 			pageTitle: 'Lucas Antunes Ferreira | Websites and systems for small businesses'
 		}

@@ -39,7 +39,7 @@ function renderPage(project, index, all) {
         .map((tag) => `                    <span class="pd-tag">${attr(tag)}</span>`)
         .join('\n');
 
-    const facts = project.facts
+    const facts = (project.facts || [])
         .map(
             (fact) => `                <div class="pd-fact">
                     <dt class="pd-fact-label">${attr(fact.label)}</dt>
@@ -50,7 +50,7 @@ function renderPage(project, index, all) {
 
     const overview = project.overview.map((p) => `                <p>${p}</p>`).join('\n');
 
-    const layers = project.architecture.layers
+    const layers = (project.architecture ? project.architecture.layers : [])
         .map(
             (layer) => `                    <li class="pd-layer">
                         <code class="pd-layer-name">${attr(layer.name)}</code>
@@ -59,12 +59,78 @@ function renderPage(project, index, all) {
         )
         .join('\n');
 
-    const steps = project.flow.steps.map((s) => `                    <li>${s}</li>`).join('\n');
-    const highlights = project.highlights.map((h) => `                    <li>${h}</li>`).join('\n');
-    const limits = project.limits.map((l) => `                    <li>${l}</li>`).join('\n');
+    const steps = (project.flow ? project.flow.steps : []).map((s) => `                    <li>${s}</li>`).join('\n');
+    const highlights = (project.highlights || []).map((h) => `                    <li>${h}</li>`).join('\n');
+    const limits = (project.limits || []).map((l) => `                    <li>${l}</li>`).join('\n');
 
+    // Seções opcionais: um projeto com pouca informação conferida (ex.: Novo Lar)
+    // não ganha seção vazia nem conteúdo inventado.
+    const tagsBlock = tags
+        ? `                <div class="pd-tags" aria-label="Tecnologias utilizadas">
+${tags}
+                </div>
+`
+        : '';
+    const factsBlock = facts
+        ? `            <!-- ==================== FICHA TÉCNICA ==================== -->
+            <dl class="pd-facts">
+${facts}
+            </dl>
+`
+        : '';
+    const architectureBlock = project.architecture
+        ? `            <!-- ==================== ARQUITETURA ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Arquitetura</h2>
+                <p>${project.architecture.summary}</p>
+                <ul class="pd-layers">
+${layers}
+                </ul>
+            </section>
+`
+        : '';
+    const flowBlock = project.flow
+        ? `            <!-- ==================== FLUXO ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">${attr(project.flow.title)}</h2>
+                <ol class="pd-steps">
+${steps}
+                </ol>
+            </section>
+`
+        : '';
+    const highlightsBlock = highlights
+        ? `            <!-- ==================== PONTOS FORTES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Pontos fortes</h2>
+                <ul class="pd-list pd-list-positive">
+${highlights}
+                </ul>
+            </section>
+`
+        : '';
+    const limitsBlock = limits
+        ? `            <!-- ==================== LIMITES ==================== -->
+            <section class="pd-section">
+                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
+                <p class="pd-limits-intro">
+                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
+                    que exagerar o escopo.
+                </p>
+                <ul class="pd-list pd-list-caveat">
+${limits}
+                </ul>
+            </section>
+`
+        : '';
+    const programmingLanguage = project.tags.length
+        ? `\n      "programmingLanguage": ${JSON.stringify(project.tags)},`
+        : '';
+
+    // `siteFirst`: para sites de negócio, o botão do site vem primeiro e em destaque.
+    const siteFirst = Boolean(project.siteFirst && project.demo);
     const demoButton = project.demo
-        ? `                    <a class="pd-btn pd-btn-secondary" href="${attr(project.demo)}" target="_blank" rel="noopener noreferrer">
+        ? `                    <a class="pd-btn pd-btn-${siteFirst ? 'primary' : 'secondary'}" href="${attr(project.demo)}" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                         <span>${attr(project.demoLabel || 'Ver demo')}</span>
                     </a>`
@@ -87,7 +153,7 @@ function renderPage(project, index, all) {
                 </video>
                 <figcaption>${attr(project.video.caption)}</figcaption>
             </figure>`
-        : `            <img class="pd-image" src="${attr(project.image)}" alt="Interface do projeto ${attr(project.title)}"
+        : `            <img class="pd-image" src="${attr(project.image)}" alt="${attr(project.imageAlt || `Interface do projeto ${project.title}`)}"
                 loading="lazy" decoding="async" width="${imgW}" height="${imgH}">`;
 
     const galleryItems = (project.gallery || [])
@@ -110,7 +176,7 @@ ${galleryItems}
         : '';
 
     const repoButton = project.repo
-        ? `                    <a class="pd-btn pd-btn-primary" href="${attr(project.repo)}" target="_blank" rel="noopener noreferrer">
+        ? `                    <a class="pd-btn pd-btn-${siteFirst ? 'secondary' : 'primary'}" href="${attr(project.repo)}" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github" aria-hidden="true"></i>
                         <span>Ver código no GitHub</span>
                     </a>`
@@ -160,8 +226,7 @@ ${galleryItems}
       "@context": "https://schema.org",
       "@type": "SoftwareSourceCode",
       "name": ${JSON.stringify(project.title)},
-      "description": ${JSON.stringify(description)},${codeRepository}
-      "programmingLanguage": ${JSON.stringify(project.tags)},
+      "description": ${JSON.stringify(description)},${codeRepository}${programmingLanguage}
       "author": {
         "@type": "Person",
         "name": "Lucas Antunes Ferreira",
@@ -201,12 +266,9 @@ ${galleryItems}
 ${badge}                <h1 class="pd-title">${attr(project.title)}</h1>
                 <p class="pd-subtitle">${attr(project.subtitle)}</p>
 
-                <div class="pd-tags" aria-label="Tecnologias utilizadas">
-${tags}
-                </div>
-
+${tagsBlock}
                 <div class="pd-actions">
-${[repoButton, demoButton, extraLinks].filter(Boolean).join('\n')}
+${(siteFirst ? [demoButton, repoButton, extraLinks] : [repoButton, demoButton, extraLinks]).filter(Boolean).join('\n')}
                 </div>
             </div>
         </header>
@@ -214,55 +276,18 @@ ${[repoButton, demoButton, extraLinks].filter(Boolean).join('\n')}
         <div class="pd-container pd-content">
 ${media}
 
-            <!-- ==================== FICHA TÉCNICA ==================== -->
-            <dl class="pd-facts">
-${facts}
-            </dl>
-
+${factsBlock}
             <!-- ==================== VISÃO GERAL ==================== -->
             <section class="pd-section">
                 <h2 class="pd-section-title">Visão geral</h2>
 ${overview}
             </section>
 
-            <!-- ==================== ARQUITETURA ==================== -->
-            <section class="pd-section">
-                <h2 class="pd-section-title">Arquitetura</h2>
-                <p>${project.architecture.summary}</p>
-                <ul class="pd-layers">
-${layers}
-                </ul>
-            </section>
-
-            <!-- ==================== FLUXO ==================== -->
-            <section class="pd-section">
-                <h2 class="pd-section-title">${attr(project.flow.title)}</h2>
-                <ol class="pd-steps">
-${steps}
-                </ol>
-            </section>
-
+${architectureBlock}
+${flowBlock}
 ${gallery}
-            <!-- ==================== PONTOS FORTES ==================== -->
-            <section class="pd-section">
-                <h2 class="pd-section-title">Pontos fortes</h2>
-                <ul class="pd-list pd-list-positive">
-${highlights}
-                </ul>
-            </section>
-
-            <!-- ==================== LIMITES ==================== -->
-            <section class="pd-section">
-                <h2 class="pd-section-title">Limites e decisões conscientes</h2>
-                <p class="pd-limits-intro">
-                    O que este projeto <strong>não</strong> faz, e por quê. Descrever isso com precisão vale mais do
-                    que exagerar o escopo.
-                </p>
-                <ul class="pd-list pd-list-caveat">
-${limits}
-                </ul>
-            </section>
-
+${highlightsBlock}
+${limitsBlock}
             <!-- ==================== NAVEGAÇÃO ==================== -->
             <nav class="pd-pager" aria-label="Navegação entre projetos">
                 <a class="pd-pager-link pd-pager-prev" href="/projetos/${prev.slug}">

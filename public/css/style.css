@@ -369,6 +369,18 @@ body {
 
 
 
+/* Botão secundário (ex.: Currículo): contorno, para não competir com o CTA do WhatsApp. */
+.btn-outline {
+    background: transparent;
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-outline:hover {
+    border-color: var(--light);
+    transform: translateY(-2px);
+}
+
 /* CTA principal (WhatsApp). Texto escuro sobre o verde para manter contraste AA. */
 .btn-whatsapp {
     gap: 0.6rem;

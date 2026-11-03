@@ -687,6 +687,7 @@ module.exports = [
         repo: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
         demo: 'https://armazemsaojoaquim.netlify.app/pt',
         demoLabel: 'Ver site',
+        siteFirst: true,
         badge: 'Cliente real',
         tags: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'RLS', 'Tailwind', 'i18n'],
         facts: [
@@ -734,6 +735,29 @@ module.exports = [
             'Existe <em>drift</em> arquitetural: convivem implementações antiga e nova para o mesmo domínio (por exemplo, contratos de blog em versão simples e multilíngue).',
             'A autorização depende mais de verificação procedural e do service role key do que de uma camada de autorização coesa.',
             'O escopo cresceu mais rápido que a disciplina arquitetural — é um projeto de produto, não uma vitrine de arquitetura.',
+        ],
+    },
+
+    {
+        // Só o que está confirmado: nome, site, repositório e o tipo de entrega.
+        // Stack, arquitetura e fluxo ficam de fora até virem do dono do projeto.
+        slug: 'novo-lar-geriatria',
+        title: 'Novo Lar Geriatria',
+        subtitle: 'Site institucional de clínica geriátrica',
+        // Placeholder neutro; o print real sai de `node scripts/capture-mockups.mjs`.
+        image: '../assets/novo_lar_geriatria_mockup.webp',
+        imageSize: [1200, 800],
+        imageAlt: 'Imagem ilustrativa do projeto Novo Lar Geriatria',
+        repo: 'https://github.com/Lucasantunesribeiro/novo-lar-geriatria',
+        demo: 'https://geriatrianovolar.com.br/',
+        demoLabel: 'Ver site',
+        siteFirst: true,
+        tags: [],
+        facts: [
+            { label: 'Site', value: '<a href="https://geriatrianovolar.com.br/" target="_blank" rel="noopener noreferrer">geriatrianovolar.com.br</a>' },
+        ],
+        overview: [
+            'Uma clínica geriátrica precisava de presença online. A entrega foi um site institucional publicado em domínio próprio.',
         ],
     },
 ];
