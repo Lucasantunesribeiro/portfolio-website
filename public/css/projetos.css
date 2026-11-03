@@ -427,14 +427,6 @@
     margin-top: 0;
 }
 
-.case-status {
-    margin: 0;
-    padding: 0.75rem 1rem;
-    border: 1px dashed var(--proj-border);
-    border-radius: var(--proj-radius);
-    color: var(--proj-text-secondary);
-    font-size: 0.9375rem;
-}
 
 /* ==================== PROJECT ACTIONS ==================== */
 .project-actions {
