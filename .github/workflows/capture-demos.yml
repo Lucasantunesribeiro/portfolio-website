@@ -1,0 +1,67 @@
+name: Capturar demos
+
+# Gera prints e vídeos de demonstração dos sites dos clientes reais.
+# Os arquivos saem como artifact (não são commitados automaticamente):
+# viram mockups e vídeos do portfólio depois de conferidos.
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/capture-demos.yml'
+      - 'scripts/capture-demos.mjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: capture-demos-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  capturar:
+    name: Prints e vídeos dos clientes
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Instalar Chromium do Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Garantir ffmpeg
+        run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+
+      - name: Capturar
+        run: node scripts/capture-demos.mjs
+        env:
+          DEMOS_OUT: demos
+
+      - name: Resumo
+        if: always()
+        run: |
+          ls -la demos || true
+          for f in demos/*.mp4; do
+            [ -f "$f" ] && ffprobe -v error -show_entries format=duration,size:stream=codec_name,width,height -of compact "$f"
+          done
+          cat demos/manifest.json || true
+
+      - name: Enviar artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: demos-clientes
+          path: |
+            demos/*.png
+            demos/*.jpg
+            demos/*.mp4
+            demos/manifest.json
+          if-no-files-found: warn
+          retention-days: 14

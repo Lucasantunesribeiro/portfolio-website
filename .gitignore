@@ -35,3 +35,6 @@ node_modules/
 
 # agent skills config (local, seeded from ~/.agents/mattpocock-config)
 docs/agents/
+
+# Saída local de scripts/capture-demos.mjs
+demos/
