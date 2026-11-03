@@ -82,27 +82,34 @@ async function dismissBanners(page) {
     }
 }
 
+/**
+ * Procura, por até ~4 s, botões de consentimento visíveis ("Aceitar", "Accept all"...)
+ * e clica neles. Alguns banners só aparecem alguns segundos depois do load.
+ */
 async function tryDismissBanners(page) {
-    const patterns = [
-        /^(aceitar|aceito|aceitar todos|aceitar tudo|accept|accept all|concordo|entendi|ok|permitir|permitir todos|got it|allow all)$/i,
-    ];
-    for (const re of patterns) {
-        const buttons = page.getByRole('button', { name: re });
-        const count = await buttons.count().catch(() => 0);
-        for (let i = 0; i < count; i++) {
-            const b = buttons.nth(i);
-            if (await b.isVisible().catch(() => false)) {
-                await b.click({ timeout: 2000 }).catch(() => {});
-                await sleep(400);
-            }
+    const deadline = Date.now() + 4000;
+    while (Date.now() < deadline) {
+        const clicked = await page
+            .evaluate(() => {
+                const re = /^(aceitar|aceito|aceitar todos|aceitar tudo|aceitar cookies|accept|accept all|accept cookies|concordo|entendi|ok|permitir|permitir todos|got it|allow all)$/i;
+                let n = 0;
+                for (const el of document.querySelectorAll('button, a, [role="button"]')) {
+                    const text = (el.innerText || el.textContent || '').trim().replace(/\s+/g, ' ');
+                    const r = el.getBoundingClientRect();
+                    if (re.test(text) && r.width > 0 && r.height > 0) {
+                        el.click();
+                        n++;
+                    }
+                }
+                return n;
+            })
+            .catch(() => 0);
+        if (clicked) {
+            log(`  banner de cookies fechado (${clicked})`);
+            await sleep(600);
+            return;
         }
-    }
-    // Alguns banners usam <a> ou <div role="button"> com o texto.
-    const links = page.locator('a, [role="button"]').filter({ hasText: /^(aceitar|aceito|accept|concordo|entendi)( todos| all| cookies)?$/i });
-    const n = await links.count().catch(() => 0);
-    for (let i = 0; i < n; i++) {
-        const l = links.nth(i);
-        if (await l.isVisible().catch(() => false)) await l.click({ timeout: 2000 }).catch(() => {});
+        await sleep(400);
     }
 }
 
@@ -153,6 +160,7 @@ async function pickMenuLinks(page, site, max) {
         let u;
         try { u = new URL(c.href); } catch { return false; }
         if (u.origin !== origin) return false;
+        if (/\.pdf$/i.test(u.pathname)) return false; // ex.: cardápio em PDF vira download
         const key = u.pathname.replace(/\/$/, '') + u.hash;
         const curKey = current.pathname.replace(/\/$/, '');
         if (key === curKey || key === '' || key === '/pt' || seen.has(key)) return false;
