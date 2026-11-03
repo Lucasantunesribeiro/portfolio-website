@@ -249,20 +249,6 @@ video:focus-visible {
     flex: 0 0 auto;
 }
 
-.featured-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem 1.25rem;
-    list-style: none;
-    font-size: 0.9rem;
-    color: var(--proj-text-secondary);
-}
-
-.featured-stats strong {
-    color: var(--proj-text);
-    font-weight: 700;
-}
-
 .project-card--featured .project-tags {
     margin-top: 0;
 }
@@ -302,6 +288,10 @@ video:focus-visible {
     margin-top: 0.8rem;
     color: var(--muted);
     max-width: 44ch;
+}
+
+.cx-cta {
+    margin-top: 1.25rem;
 }
 
 .cx-loc {
