@@ -751,12 +751,11 @@ module.exports = [
     },
 
     {
-        // Só o que está confirmado: nome, site, repositório, o tipo de entrega e o
-        // que aparece no próprio site. Stack, arquitetura e fluxo ficam de fora
-        // até virem do dono do projeto.
+        // Fonte: o próprio site no ar e o README do repositório enviado pelo dono.
+        // Sem números de páginas, acessos ou resultados.
         slug: 'novo-lar-geriatria',
         title: 'Novo Lar Geriatria',
-        subtitle: 'Site institucional de residencial geriátrico',
+        subtitle: 'Site institucional e plataforma de conteúdo de residencial geriátrico',
         image: '../assets/novo_lar_geriatria_mockup.webp',
         imageSize: [1024, 636],
         imageAlt: 'Site do Novo Lar Geriatria aberto no computador e no celular',
@@ -776,14 +775,23 @@ module.exports = [
         demoLabel: 'Ver site',
         siteFirst: true,
         badge: 'Cliente real',
-        tags: [],
+        tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Sanity', 'Resend', 'Zod', 'Framer Motion'],
         facts: [
             { label: 'Site', value: '<a href="https://geriatrianovolar.com.br/" target="_blank" rel="noopener noreferrer">geriatrianovolar.com.br</a>' },
             { label: 'Unidades', value: 'Moinhos de Vento e Passo d’Areia, em Porto Alegre' },
+            { label: 'Conteúdo', value: 'Sanity Studio embarcado em <code>/studio</code>' },
+            { label: 'Leads', value: 'Formulário com Zod e honeypot, gravado no Sanity; e-mail opcional via Resend' },
         ],
         overview: [
-            'Um residencial geriátrico de Porto Alegre precisava de presença online. A entrega foi um site institucional publicado em domínio próprio, feito para um <strong>cliente real</strong>.',
-            'O site apresenta a casa, os serviços, a estrutura e as duas unidades, publica notícias e artigos e leva o visitante ao contato por telefone ou WhatsApp, com uma página para cada unidade.',
+            'Um residencial geriátrico de Porto Alegre, com duas unidades, precisava de presença online. A entrega foi o site institucional e a plataforma de conteúdo, publicados em domínio próprio e feitos para um <strong>cliente real</strong>, com foco em SEO local.',
+            'O site tem páginas institucionais, de serviços, de cada unidade e locais por região, blog com uma página por artigo, FAQ e comparativos. O conteúdo é editado pela própria equipe no Sanity Studio, e o visitante chega ao contato pelo formulário, por telefone ou pelo WhatsApp.',
+        ],
+        highlights: [
+            'Next.js com App Router, React, TypeScript e Tailwind CSS; componentes com Radix UI, animações com Framer Motion e ícones Lucide.',
+            'CMS Sanity com o Studio embarcado no próprio site, para a equipe editar páginas e artigos sem depender de deploy.',
+            'Formulário de contato com React Hook Form, validação com Zod e honeypot contra spam; o lead é gravado no Sanity, com e-mail opcional via Resend.',
+            'SEO local: metadados, canonical e JSON-LD por página, e sitemap, robots e manifest gerados dinamicamente.',
+            'Avaliações do Google exibidas via Google Places API; medição com GA4 e Google Tag Manager.',
         ],
     },
 
