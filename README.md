@@ -78,34 +78,48 @@ npm run gen                   # roda os três
 | `scripts/generate_sitemap.js` | Renderiza `public/sitemap.xml` com a home + uma URL por projeto (sem `.html`). |
 | `scripts/generate_og_image.js` | Gera a imagem de preview de link (`og-image.png`) e o poster do vídeo do hero. |
 | `scripts/generate_mockups.js`, `scripts/create_custom_mockup.js` | Geram os mockups dos cards de projeto (usam Playwright). |
-| `scripts/capture-mockups.mjs` | Tira prints reais (desktop e celular) dos sites de negócio e monta o mockup 1200x800 com os nomes que o site já usa. |
+| `scripts/capture-demos.mjs` | Tira prints (desktop, celular e páginas internas) e grava o vídeo de demonstração dos sites dos clientes reais. Roda também no workflow "Capturar demos". |
+| `scripts/compose_mockup.py` | Monta o mockup 1024x636 na cena de mesa (iMac + iPhone + caneca) a partir dos prints. |
 | `scripts/serve.js` | Servidor local (`npm run dev`). Não faz parte do site publicado. |
 
-### Prints dos sites de negócio
+### Prints, vídeos e mockups dos clientes reais
 
-Os mockups de Parallel Store, Armazém São Joaquim e Novo Lar Geriatria saem de
-`scripts/capture-mockups.mjs`. Rode na sua máquina, com acesso à internet:
+Os prints e vídeos de Novo Lar Geriatria, Parallel Store e Armazém São Joaquim
+saem de `scripts/capture-demos.mjs` (precisa de acesso à internet e de ffmpeg);
+os arquivos vão para `demos/`, não direto para `public/`:
 
 ```bash
-npm install
+npm ci
 npx playwright install chromium
-npm run gen:mockups                              # os três sites
-node scripts/capture-mockups.mjs novo-lar        # só um: parallel | armazem | novo-lar
-node scripts/capture-mockups.mjs --placeholder novo-lar   # placeholder neutro, sem rede
+node scripts/capture-demos.mjs              # os três sites
+node scripts/capture-demos.mjs novo-lar     # só um: novo-lar | parallel | armazem
 ```
 
-O mockup atual do Novo Lar é esse placeholder (nome e domínio, sem print do site).
-Depois de rodar a captura, confira as imagens em `public/assets/` e faça o commit.
+Sem rede na máquina, rode o workflow "Capturar demos" (Actions → Run workflow):
+os arquivos saem como artifact e, em cópia, em base64 no log do passo
+"Exportar no log".
+
+O mockup usa a mesma cena dos outros cards. A máscara das telas sai da diferença
+entre os mockups jpg já publicados (o que muda entre eles é o que aparece nas telas):
+
+```bash
+pip install numpy opencv-python-headless
+python3 scripts/compose_mockup.py demos/novo-lar-geriatria-desktop.png \
+    demos/novo-lar-geriatria-mobile.png public/assets/novo_lar_geriatria_mockup.webp
+```
+
+Confira as imagens e os vídeos antes do commit. Vídeos no mesmo formato dos já
+publicados: H.264 High, 1920x950, 30 fps, sem áudio, ~2 MB; posters 1600x792.
 
 ## Projetos em destaque e mídia
 
-A seção `#projetos` tem três grupos: **Projetos para negócios** (Armazém São Joaquim, Parallel Store e Novo Lar Geriatria), **Sistemas em destaque** (Torre Logística, Central Antifraude e Prisma RH, com vídeo) e **Outros projetos**. Todo card segue o formato **Problema → Entrega → Stack → Link**. A busca (`#project-search`) casa com título, problema e tecnologias; os botões filtram por stack. Ambos valem para todos os grupos, e um grupo sem resultado some junto com o título. Para a busca achar uma tecnologia, ela precisa estar no `data-tags` do card.
+A seção `#projetos` tem três grupos: **Projetos para negócios** (Armazém São Joaquim, Parallel Store e Novo Lar Geriatria), **Sistemas em destaque** (Torre Logística, Central Antifraude e Prisma RH, com vídeo; os três clientes reais também têm vídeo no card) e **Outros projetos**. Todo card segue o formato **Problema → Entrega → Stack → Link**. A busca (`#project-search`) casa com título, problema e tecnologias; os botões filtram por stack. Ambos valem para todos os grupos, e um grupo sem resultado some junto com o título. Para a busca achar uma tecnologia, ela precisa estar no `data-tags` do card.
 
 Regras de conteúdo dos cards: a stack só lista tecnologias que já constam deste repositório para aquele projeto (`scripts/projects-data.js` ou o próprio card), e não há números, métricas, resultados nem depoimentos que não possam ser conferidos.
 
 Os projetos com botão "Detalhes" têm página gerada de `scripts/projects-data.js` (com vídeo, galeria e links de release e pentest). Um projeto pode ter `repo: null` (sem botão de código), `demoLabel` (rótulo do botão da demo, padrão "Ver demo") e `siteFirst: true` (botão do site primeiro, em destaque). Seções sem dado (`tags` vazio, sem `architecture`, `flow`, `highlights` ou `limits`) não são renderizadas.
 
-- `public/assets/projetos/*-demo.mp4`: vídeos curtos (24–33 s, sem áudio, H.264 com `faststart`), 1920x950. São cópias **recortadas** das versões finais curtas: a faixa preta inferior e a barra do navegador da gravação foram cortadas com `ffmpeg -vf crop`. As gravações originais não foram alteradas, e as versões longas (~45 MB) não são usadas.
+- `public/assets/projetos/*-demo.mp4`: vídeos curtos (24–33 s; os dos clientes reais são passeios de ~28 s gravados por `scripts/capture-demos.mjs`, sem áudio, H.264 com `faststart`), 1920x950. São cópias **recortadas** das versões finais curtas: a faixa preta inferior e a barra do navegador da gravação foram cortadas com `ffmpeg -vf crop`. As gravações originais não foram alteradas, e as versões longas (~45 MB) não são usadas.
 - `public/assets/projetos/*-poster.jpg`: quadro de cada vídeo, usado como `poster`.
 - Os vídeos usam `controls`, `preload="metadata"` e `playsinline`; nada toca sozinho com áudio.
 - Demos fora do ar não têm botão (SmartFinance e Emissão de NF-e, conferidos em 2026-09-29).

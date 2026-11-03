@@ -148,7 +148,7 @@ ${limits}
     const [imgW, imgH] = project.imageSize || [1200, 750];
     const media = project.video
         ? `            <figure class="pd-video">
-                <video controls preload="metadata" playsinline width="1920" height="950" poster="${attr(project.video.poster)}">
+                <video controls preload="metadata" playsinline width="1920" height="950" poster="${attr(project.video.poster)}" aria-label="Demonstração em vídeo de ${attr(project.title)}">
                     <source src="${attr(project.video.src)}" type="video/mp4">
                 </video>
                 <figcaption>${attr(project.video.caption)}</figcaption>

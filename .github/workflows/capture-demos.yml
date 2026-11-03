@@ -54,6 +54,25 @@ jobs:
           done
           cat demos/manifest.json || true
 
+      # Cópia dos arquivos no próprio log, em base64, para quem não consegue
+      # baixar o artifact (ex.: ambiente com o armazenamento de artifacts bloqueado).
+      # Prints de desktop saem em JPEG 1440 px de largura para o log não crescer demais.
+      - name: Exportar no log (base64)
+        if: always()
+        run: |
+          mkdir -p export
+          cp demos/*.mp4 demos/*.jpg demos/manifest.json export/ 2>/dev/null || true
+          for f in demos/*.png; do
+            [ -f "$f" ] || continue
+            ffmpeg -loglevel error -y -i "$f" -vf "scale='if(gt(iw,2000),iw/2,iw)':-2" -q:v 2 "export/$(basename "${f%.png}").jpg"
+          done
+          tar -C export -cf demos.tar .
+          ls -la export
+          echo "BEGIN-DEMOS-TAR $(sha256sum demos.tar | cut -d' ' -f1) $(stat -c %s demos.tar)"
+          base64 -w 0 demos.tar | fold -w 4000
+          echo
+          echo "END-DEMOS-TAR"
+
       - name: Enviar artifact
         if: always()
         uses: actions/upload-artifact@v4
