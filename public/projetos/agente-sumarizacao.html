@@ -97,7 +97,6 @@
                         <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                         <span>Ver demo</span>
                     </a>
-
                 </div>
             </div>
         </header>
@@ -118,7 +117,7 @@
                 </div>
                 <div class="pd-fact">
                     <dt class="pd-fact-label">Testes</dt>
-                    <dd class="pd-fact-value">75,78% de cobertura</dd>
+                    <dd class="pd-fact-value">Suíte automatizada com cobertura medida</dd>
                 </div>
                 <div class="pd-fact">
                     <dt class="pd-fact-label">Observabilidade</dt>
@@ -182,11 +181,10 @@
                 <h2 class="pd-section-title">Pontos fortes</h2>
                 <ul class="pd-list pd-list-positive">
                     <li>Mensageria real com RabbitMQ e Celery, com fallback para thread local quando o broker está fora.</li>
-                    <li>Outbox, idempotência e audit log — combinação rara em projetos pessoais.</li>
-                    <li>Segurança acima da média: proteção SSRF, JWT, CSRF, RBAC, rate limiting, security headers e rotação de segredo.</li>
+                    <li>Outbox, idempotência e audit log.</li>
+                    <li>Segurança: proteção SSRF, JWT, CSRF, RBAC, rate limiting, security headers e rotação de segredo.</li>
                     <li>Observabilidade completa: Prometheus, Grafana, OpenTelemetry, Jaeger e logs estruturados.</li>
                     <li>Persistência versionada com SQLAlchemy e Alembic.</li>
-                    <li>Cobertura de testes de 75,78% na validação executada.</li>
                 </ul>
             </section>
 
@@ -202,7 +200,7 @@
                     <li>Não há bounded contexts claros, aggregates complexos ou linguagem ubíqua forte.</li>
                     <li>O CQRS é organizacional: não existe segregação física de banco, read models especializados ou event sourcing.</li>
                     <li>O event bus é interno e em memória — não é uma plataforma distribuída orientada a eventos de ponta a ponta.</li>
-                    <li>A demo está hospedada no plano gratuito do Render, então a primeira requisição pode levar cerca de 30 segundos (cold start).</li>
+                    <li>A demo está hospedada no plano gratuito do Render, então a primeira requisição depois de um tempo parado é mais lenta (cold start).</li>
                 </ul>
             </section>
 

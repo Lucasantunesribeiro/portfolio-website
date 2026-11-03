@@ -6,7 +6,7 @@
  *
  * O texto foi destilado dos dossiês técnicos em `readme/` (não versionados),
  * mantendo deliberadamente a seção "limites" — descrever com precisão o que o
- * projeto NÃO faz vale mais em entrevista do que exagerar o que ele faz.
+ * projeto NÃO faz vale mais do que exagerar o que ele faz.
  */
 
 module.exports = [
@@ -37,16 +37,16 @@ module.exports = [
         tags: ['.NET 10', 'ASP.NET Core', 'PostgreSQL 17', 'PostGIS', 'EF Core 10', 'SignalR', 'React 19', 'TypeScript', 'Docker', 'GitHub Actions'],
         facts: [
             { label: 'Arquitetura', value: 'Monólito modular com Workers separados' },
-            { label: 'Testes', value: '1.392 · 695 unidade, 544 integração com PostGIS real, 131 frontend, 22 arquitetura' },
-            { label: 'Segurança', value: 'Pentest gray-box em produção: 16 categorias, sem vulnerabilidade alta' },
-            { label: 'Infra da demo', value: 'VM Always Free (Oracle Cloud) · US$ 0,00/mês' },
+            { label: 'Testes', value: 'Unidade, integração com PostGIS real, frontend e arquitetura' },
+            { label: 'Segurança', value: 'Pentest gray-box em produção, com relatório no repositório' },
+            { label: 'Infra da demo', value: 'VM Always Free (Oracle Cloud)' },
         ],
         overview: [
             'Plataforma B2B de operação logística em tempo real: acompanha cada entrega entre a saída para rota e a conclusão, com localização, ETA, SLA, geofencing, alertas, ocorrências, prova de entrega e rastreamento público controlado.',
             'São três experiências sobre o mesmo núcleo: o <strong>console</strong> para administrador, supervisor e operador; a <strong>PWA do motorista</strong>, que funciona offline; e a página de <strong>rastreamento</strong> do destinatário, com token forte e sem dados sensíveis. Não é um SaaS comercial ativo: é um projeto de portfólio arquitetado para virar um sem reescrita.',
         ],
         architecture: {
-            summary: 'Monólito modular em .NET 10 com um processo de Workers separado, três aplicações React e PostgreSQL com PostGIS. O simulador é um cliente externo, sem acesso ao núcleo. Decisões registradas em 35 ADRs, cada uma com a forma de verificá-la.',
+            summary: 'Monólito modular em .NET 10 com um processo de Workers separado, três aplicações React e PostgreSQL com PostGIS. O simulador é um cliente externo, sem acesso ao núcleo. Decisões registradas em ADRs, cada uma com a forma de verificá-la.',
             layers: [
                 { name: 'TorreLogistica.Domain', desc: 'Regras e invariantes, sem infraestrutura.' },
                 { name: 'TorreLogistica.Application', desc: 'Casos de uso; usa o EF Core direto, sem repositório (ADR 0008).' },
@@ -75,7 +75,7 @@ module.exports = [
             '<strong>Prova de entrega e rastreamento seguros:</strong> foto por URL assinada de curta duração; link público com token forte (o banco guarda só o hash) e posição aproximada.',
             '<strong>Multi-tenancy e RBAC:</strong> filtro por organização que falha fechado; Transactional Outbox nos webhooks.',
             '<strong>Contrato testado contra a API real:</strong> o CI barra descompasso entre frontend e backend.',
-            '<strong>Números medidos, não estimados:</strong> a ingestão sustentou 32,7 posições por segundo (meta de 33) em ambiente local, e o particionamento da tabela de posições foi recusado porque a medição não o justificou.',
+            '<strong>Decisão por medição:</strong> o particionamento da tabela de posições foi recusado porque a medição em ambiente local não o justificou.',
         ],
         limits: [
             'A demo pública roda numa VM Always Free de 1 GB, nó único e sem SLA. A arquitetura de produção no Azure foi aplicada e depois destruída por decisão de custo.',
@@ -110,9 +110,9 @@ module.exports = [
         tags: ['.NET 10', 'ASP.NET Core', 'PostgreSQL 17', 'EF Core', 'AWS Lambda', 'SQS', 'EventBridge', 'React 19', 'TypeScript', 'Neon', 'Vercel'],
         facts: [
             { label: 'Decisão', value: 'Permitir · Revisar · Bloquear, com score determinístico e versionado' },
-            { label: 'Testes', value: '1.211 · 546 unidade, 480 integração com PostgreSQL real, 134 frontend, 51 arquitetura' },
-            { label: 'Segurança', value: 'Pentest gray-box em produção: 19 vetores, sem achado alto' },
-            { label: 'Infra', value: 'Lambda (arm64) + SQS/DLQ + EventBridge · Neon · Vercel · custo esperado US$ 0,00' },
+            { label: 'Testes', value: 'Unidade, integração com PostgreSQL real, frontend e arquitetura' },
+            { label: 'Segurança', value: 'Pentest gray-box em produção, com relatório no repositório' },
+            { label: 'Infra', value: 'Lambda (arm64) + SQS/DLQ + EventBridge · Neon · Vercel' },
         ],
         overview: [
             'Plataforma B2B para avaliação de risco, monitoramento e investigação de transações suspeitas em pagamentos digitais. Recebe transações de sistemas externos autenticados por credencial própria, avalia o risco de forma determinística e explicável e devolve <strong>Permitir</strong>, <strong>Revisar</strong> ou <strong>Bloquear</strong> com os sinais que justificam a decisão.',
@@ -154,7 +154,7 @@ module.exports = [
             'Pesos e limiares das regras são configuração de demonstração. As práticas têm fonte (U.S. Payments Forum, ADR 0008); os números não são padrão de mercado.',
             'IA não participa do score, dos sinais nem das explicações: tudo é código determinístico.',
             'Não é banco, gateway, adquirente nem solução certificada de compliance.',
-            'A infraestrutura suspende quando ociosa (é o que sustenta o custo zero): a primeira visita depois de um tempo parado leva cerca de 4 s.',
+            'A infraestrutura suspende quando ociosa: a primeira visita depois de um tempo parado é mais lenta.',
         ],
     },
     {
@@ -182,9 +182,9 @@ module.exports = [
         tags: ['.NET 10', 'ASP.NET Core', 'PostgreSQL 17', 'EF Core', 'AWS Lambda', 'SQS', 'React 19', 'TypeScript', 'Tailwind CSS', 'Neon', 'Vercel'],
         facts: [
             { label: 'Arquitetura', value: 'Monólito modular em quatro camadas; o domínio não referencia EF Core, ASP.NET nem AWS' },
-            { label: 'Testes', value: '1.457 · 1.286 backend (com PostgreSQL real, executados também em modo globalization-invariant) e 171 frontend' },
-            { label: 'Segurança', value: '50 testes em suíte própria e pentest em produção: 10 categorias, nenhuma vulnerabilidade' },
-            { label: 'Rotas', value: '85, das quais 4 anônimas, cada uma com motivo escrito e travada por teste' },
+            { label: 'Testes', value: 'Backend com PostgreSQL real (executados também em modo globalization-invariant) e frontend' },
+            { label: 'Segurança', value: 'Suíte própria de testes de segurança e pentest em produção, com relatório no repositório' },
+            { label: 'Rotas', value: 'Política padrão nega; cada rota anônima tem motivo escrito e é travada por teste' },
         ],
         overview: [
             'Plataforma B2B de gestão, cálculo, conferência e auditoria de folha de pagamento brasileira, multiempresa. Departamentos pessoais e BPOs processam folha para muitas empresas, sob regras que mudam com o tempo, e precisam explicar cada valor, às vezes anos depois.',
@@ -242,7 +242,7 @@ module.exports = [
         facts: [
             { label: 'Arquitetura', value: 'Modular monolith em camadas' },
             { label: 'Mensageria', value: 'RabbitMQ + Outbox Pattern' },
-            { label: 'Testes', value: '81 testes .NET + 95 do microserviço' },
+            { label: 'Testes', value: 'Testes .NET e do microserviço de pagamentos' },
             { label: 'Infra', value: 'Terraform · ECS Fargate · RDS' },
         ],
         overview: [
@@ -271,7 +271,7 @@ module.exports = [
         },
         highlights: [
             'Uso real de RabbitMQ com Outbox Pattern, retry, dead-letter queue e idempotência no consumo.',
-            'Autenticação bem acima da média: JWT, rotação de refresh token, cookies HttpOnly, CSRF e rate limiting.',
+            'Autenticação com JWT, rotação de refresh token, cookies HttpOnly, CSRF e rate limiting.',
             'Observabilidade com Serilog, Prometheus, OpenTelemetry, Grafana e CloudWatch.',
             'Atualização em tempo real via SignalR.',
             'Infraestrutura em Terraform: ECS Fargate, RDS, ALB, WAF, Secrets Manager, CloudTrail e IAM via OIDC do GitHub.',
@@ -295,7 +295,7 @@ module.exports = [
         facts: [
             { label: 'Arquitetura', value: 'Monólito modular + Clean Architecture' },
             { label: 'Isolamento', value: 'Query filters globais por tenant' },
-            { label: 'Testes', value: '33 testes (25 unitários, 8 de integração)' },
+            { label: 'Testes', value: 'Unitários e de integração' },
             { label: 'Infra', value: 'Azure App Service · Static Web Apps' },
         ],
         overview: [
@@ -326,7 +326,7 @@ module.exports = [
         },
         highlights: [
             'Multi-tenancy com defesa em profundidade: middleware, claims do token e query filters do EF Core.',
-            'JWT com refresh token rotativo e revogação, acima da média de projetos júnior.',
+            'JWT com refresh token rotativo e revogação.',
             'RBAC real por papel (Admin/Manager/User) com enforcement no backend.',
             'CQRS pragmático: MediatR para comandos e queries, e um read model com Dapper para o dashboard agregado.',
             'Observabilidade com Serilog, OpenTelemetry, health checks e Jaeger local.',
@@ -384,7 +384,7 @@ module.exports = [
             'Suporte a dois modelos de persistência (DynamoDB e PostgreSQL), mostrando abstração real de storage.',
             'Mensageria real com SQS e Lambda consumer, incluindo retry e DLQ.',
             'Infraestrutura como código em CDK, incluindo WAF, alarmes e dashboard.',
-            'Segurança acima da média: rate limiting, JWT com issuer/audience, PBKDF2, CORS restrito, security headers e access grant temporário.',
+            'Segurança: rate limiting, JWT com issuer/audience, PBKDF2, CORS restrito, security headers e access grant temporário.',
             'Testes automatizados distribuídos entre Application, API e persistência PostgreSQL.',
         ],
         limits: [
@@ -407,7 +407,7 @@ module.exports = [
         facts: [
             { label: 'Arquitetura', value: 'Distribuída orientada a eventos' },
             { label: 'Contextos', value: 'billing · payments · ledger (schemas separados)' },
-            { label: 'Testes', value: '39/39 testes de domínio no Billing' },
+            { label: 'Testes', value: 'Testes de domínio no Billing' },
             { label: 'Infra', value: 'AWS CDK · ECS Fargate · SNS/SQS + DLQ' },
         ],
         overview: [
@@ -494,8 +494,8 @@ module.exports = [
         },
         highlights: [
             'Event-driven implementado de verdade: EventBridge, SQS e DLQ provisionados no CDK e usados em código executável.',
-            'Outbox publisher em .NET usando DynamoDB Streams — um diferencial técnico incomum.',
-            'DynamoDB com single-table design e GSIs, raro em portfólios júnior.',
+            'Outbox publisher em .NET usando DynamoDB Streams.',
+            'DynamoDB com single-table design e GSIs.',
             'Propagação de correlation-id entre frontend, APIs e eventos.',
             'Observabilidade provisionada: logs estruturados, alarmes, dashboard e X-Ray.',
             'Sistema poliglota, com o serviço .NET demonstrando Clean Architecture aplicada.',
@@ -550,11 +550,11 @@ module.exports = [
         },
         highlights: [
             'CQRS com MediatR aplicado de forma real e visível: commands e queries com handlers dedicados por caso de uso.',
-            'Uso real de RabbitMQ e Transactional Outbox, raro em portfólios júnior.',
+            'Uso real de RabbitMQ e Transactional Outbox.',
             'Regras de autorização encapsuladas na entidade de domínio, não espalhadas em controllers.',
             'Colaboração em tempo real com Cloudflare Workers e Durable Objects.',
             'Deploy multi-cloud: Vercel, Cloudflare e AWS, com CI/CD no GitHub Actions e OIDC.',
-            'Testes .NET fortes para nível de portfólio, incluindo integração com Testcontainers.',
+            'Testes .NET, incluindo integração com Testcontainers.',
         ],
         limits: [
             'O principal débito estrutural é a <strong>divisão de fonte de verdade</strong>: o frontend usa .NET + PostgreSQL para documentos, enquanto o Worker mantém lógica equivalente no D1 e autoriza o WebSocket consultando o D1, não o PostgreSQL.',
@@ -575,7 +575,7 @@ module.exports = [
         facts: [
             { label: 'Arquitetura', value: 'Monólito modular por domínio' },
             { label: 'Mensageria', value: 'Outbox + RabbitMQ' },
-            { label: 'Testes', value: '217 testes · 63,3% de cobertura de linhas' },
+            { label: 'Testes', value: 'Unidade e integração, com cobertura medida por JaCoCo' },
             { label: 'Extras', value: 'Testes E2E e teste de carga' },
         ],
         overview: [
@@ -610,15 +610,15 @@ module.exports = [
             'Domínio forte para mercado enterprise: pedidos, estoque e pagamento coordenados.',
             'Preocupação concreta com consistência e concorrência, incluindo locking otimista e pessimista no estoque.',
             'Uso real de mensageria com RabbitMQ e padrão Outbox.',
-            'Segurança acima da média: JWT, RBAC, CORS, CSP, HSTS e rate limiting.',
-            'Suíte de testes robusta: 217 testes sem falhas, 63,29% de cobertura de linhas via JaCoCo.',
-            'Existência de testes E2E e teste de carga, incomum em portfólios.',
+            'Segurança: JWT, RBAC, CORS, CSP, HSTS e rate limiting.',
+            'Suíte de testes automatizados com cobertura medida por JaCoCo.',
+            'Testes E2E e teste de carga.',
         ],
         limits: [
             'Não é um conjunto de microservices independentes ativos, apesar do nome do repositório.',
             'O Event Sourcing não é aplicado de forma completa no runtime atual — o que existe é outbox de eventos de domínio.',
             'A pasta <code>legacy/</code> mantém artefatos de uma fase anterior mais fragmentada, o que reduz a clareza do repositório.',
-            'A cobertura de branches (40,84%) é bem menor que a de linhas.',
+            'A cobertura de branches é bem menor que a de linhas.',
         ],
     },
 
@@ -633,7 +633,7 @@ module.exports = [
         facts: [
             { label: 'Arquitetura', value: 'Monólito modular em camadas' },
             { label: 'Assíncrono', value: 'Celery + outbox relay para RabbitMQ' },
-            { label: 'Testes', value: '75,78% de cobertura' },
+            { label: 'Testes', value: 'Suíte automatizada com cobertura medida' },
             { label: 'Observabilidade', value: 'Prometheus · Grafana · OpenTelemetry' },
         ],
         overview: [
@@ -665,18 +665,17 @@ module.exports = [
         },
         highlights: [
             'Mensageria real com RabbitMQ e Celery, com fallback para thread local quando o broker está fora.',
-            'Outbox, idempotência e audit log — combinação rara em projetos pessoais.',
-            'Segurança acima da média: proteção SSRF, JWT, CSRF, RBAC, rate limiting, security headers e rotação de segredo.',
+            'Outbox, idempotência e audit log.',
+            'Segurança: proteção SSRF, JWT, CSRF, RBAC, rate limiting, security headers e rotação de segredo.',
             'Observabilidade completa: Prometheus, Grafana, OpenTelemetry, Jaeger e logs estruturados.',
             'Persistência versionada com SQLAlchemy e Alembic.',
-            'Cobertura de testes de 75,78% na validação executada.',
         ],
         limits: [
             'O domínio é relativamente simples e anêmico — a maior regra de negócio explícita é a máquina de estados da tarefa.',
             'Não há bounded contexts claros, aggregates complexos ou linguagem ubíqua forte.',
             'O CQRS é organizacional: não existe segregação física de banco, read models especializados ou event sourcing.',
             'O event bus é interno e em memória — não é uma plataforma distribuída orientada a eventos de ponta a ponta.',
-            'A demo está hospedada no plano gratuito do Render, então a primeira requisição pode levar cerca de 30 segundos (cold start).',
+            'A demo está hospedada no plano gratuito do Render, então a primeira requisição depois de um tempo parado é mais lenta (cold start).',
         ],
     },
 
@@ -685,20 +684,21 @@ module.exports = [
         title: 'Armazém São Joaquim',
         subtitle: 'Plataforma digital para restaurante, pousada e café',
         image: '../assets/armazem_sao_joaquim_mockup.jpg',
-        repo: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
-        // Site temporariamente fora do ar: sem link de demo até voltar.
+        // Sem link: site temporariamente fora do ar (nem demo nem repositório).
+        repo: null,
         demo: null,
-        badge: 'Cliente real · em produção',
+        status: 'Site temporariamente fora do ar',
+        badge: 'Cliente real',
         tags: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'RLS', 'Tailwind', 'i18n'],
         facts: [
-            { label: 'Status', value: 'Em produção, em domínio próprio' },
+            { label: 'Status', value: 'Site temporariamente fora do ar' },
             { label: 'Arquitetura', value: 'Monólito modular serverless' },
             { label: 'Banco', value: 'PostgreSQL com RLS e migrations' },
             { label: 'Idiomas', value: 'Rotas separadas para PT e EN' },
         ],
         overview: [
             'Plataforma digital fullstack para o Armazém São Joaquim, combinando site institucional, cardápio online, blog, área de pousada, catálogo do café, galeria de arte e um painel administrativo para operação do negócio.',
-            'É o único projeto deste portfólio com <strong>cliente real e tráfego real</strong>. Em vez de uma landing page, o sistema centraliza exposição de produtos e conteúdo, autenticação, reservas, gestão administrativa e integrações de comunicação e analytics.',
+            'Foi feito para um <strong>cliente real</strong>. Em vez de uma landing page, o sistema centraliza exposição de produtos e conteúdo, autenticação, reservas, gestão administrativa e integrações de comunicação e analytics.',
         ],
         architecture: {
             summary: 'Monólito modular serverless sobre o App Router do Next.js, com Supabase como backend-as-a-service. A escolha prioriza velocidade de entrega para um cliente real em vez de rigor arquitetural.',
@@ -723,7 +723,7 @@ module.exports = [
             ],
         },
         highlights: [
-            'Escopo real de negócio, com cliente e domínio próprio — muito acima de projeto tutorial.',
+            'Escopo real de negócio, feito para um cliente.',
             'Painel administrativo amplo, cobrindo múltiplos módulos operacionais.',
             'Internacionalização por rota (pt e en).',
             'PostgreSQL com migrations versionadas e Row Level Security.',

@@ -127,15 +127,15 @@
                 </div>
                 <div class="pd-fact">
                     <dt class="pd-fact-label">Testes</dt>
-                    <dd class="pd-fact-value">1.392 · 695 unidade, 544 integração com PostGIS real, 131 frontend, 22 arquitetura</dd>
+                    <dd class="pd-fact-value">Unidade, integração com PostGIS real, frontend e arquitetura</dd>
                 </div>
                 <div class="pd-fact">
                     <dt class="pd-fact-label">Segurança</dt>
-                    <dd class="pd-fact-value">Pentest gray-box em produção: 16 categorias, sem vulnerabilidade alta</dd>
+                    <dd class="pd-fact-value">Pentest gray-box em produção, com relatório no repositório</dd>
                 </div>
                 <div class="pd-fact">
                     <dt class="pd-fact-label">Infra da demo</dt>
-                    <dd class="pd-fact-value">VM Always Free (Oracle Cloud) · US$ 0,00/mês</dd>
+                    <dd class="pd-fact-value">VM Always Free (Oracle Cloud)</dd>
                 </div>
             </dl>
 
@@ -149,7 +149,7 @@
             <!-- ==================== ARQUITETURA ==================== -->
             <section class="pd-section">
                 <h2 class="pd-section-title">Arquitetura</h2>
-                <p>Monólito modular em .NET 10 com um processo de Workers separado, três aplicações React e PostgreSQL com PostGIS. O simulador é um cliente externo, sem acesso ao núcleo. Decisões registradas em 35 ADRs, cada uma com a forma de verificá-la.</p>
+                <p>Monólito modular em .NET 10 com um processo de Workers separado, três aplicações React e PostgreSQL com PostGIS. O simulador é um cliente externo, sem acesso ao núcleo. Decisões registradas em ADRs, cada uma com a forma de verificá-la.</p>
                 <ul class="pd-layers">
                     <li class="pd-layer">
                         <code class="pd-layer-name">TorreLogistica.Domain</code>
@@ -224,7 +224,7 @@
                     <li><strong>Prova de entrega e rastreamento seguros:</strong> foto por URL assinada de curta duração; link público com token forte (o banco guarda só o hash) e posição aproximada.</li>
                     <li><strong>Multi-tenancy e RBAC:</strong> filtro por organização que falha fechado; Transactional Outbox nos webhooks.</li>
                     <li><strong>Contrato testado contra a API real:</strong> o CI barra descompasso entre frontend e backend.</li>
-                    <li><strong>Números medidos, não estimados:</strong> a ingestão sustentou 32,7 posições por segundo (meta de 33) em ambiente local, e o particionamento da tabela de posições foi recusado porque a medição não o justificou.</li>
+                    <li><strong>Decisão por medição:</strong> o particionamento da tabela de posições foi recusado porque a medição em ambiente local não o justificou.</li>
                 </ul>
             </section>
 

@@ -168,6 +168,16 @@
     transform: translateY(-2px);
 }
 
+/* Aviso no lugar dos botões quando o projeto não tem link público */
+.pd-status {
+    margin: 0;
+    padding: 0.75rem 1.25rem;
+    border: 1px dashed var(--pd-border);
+    border-radius: 10px;
+    color: var(--pd-text-secondary);
+    font-weight: 500;
+}
+
 .pd-btn-secondary:hover {
     background: var(--pd-surface-hover);
     border-color: var(--pd-primary);
