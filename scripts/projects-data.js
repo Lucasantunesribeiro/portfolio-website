@@ -685,13 +685,16 @@ module.exports = [
         subtitle: 'Plataforma digital para restaurante, pousada e café',
         image: '../assets/armazem_sao_joaquim_mockup.jpg',
         imageSize: [1024, 636],
+        imageAlt: 'Site do Armazém São Joaquim aberto no computador e no celular',
         video: {
             src: '../assets/projetos/armazem-sao-joaquim-demo.mp4',
             poster: '../assets/projetos/armazem-sao-joaquim-poster.jpg',
-            caption: '__ARMAZEM_CAPTION__',
+            caption: 'Passeio de 28 s pelo site no ar: início, pousada e café.',
         },
         gallery: [
             { src: '../assets/armazem_sao_joaquim_mockup.jpg', w: 1024, h: 636, alt: 'Site do Armazém São Joaquim aberto no computador e no celular.', caption: 'O site no computador e no celular' },
+            { src: '../assets/projetos/armazem-sao-joaquim-inicio.webp', w: 1440, h: 900, alt: 'Página inicial: foto do casarão com o bonde, a história da casa, endereço, horários e botões para o cardápio e a pousada.', caption: 'Página inicial' },
+            { src: '../assets/projetos/armazem-sao-joaquim-cafe.webp', w: 1440, h: 900, alt: 'Página do café: buffet, combos com preço e horário de funcionamento.', caption: 'Página do café, com preços e horários' },
         ],
         repo: 'https://github.com/Lucasantunesribeiro/armazemsaojoaquim',
         demo: 'https://armazemsaojoaquim.netlify.app/pt',
@@ -760,7 +763,7 @@ module.exports = [
         video: {
             src: '../assets/projetos/novo-lar-geriatria-demo.mp4',
             poster: '../assets/projetos/novo-lar-geriatria-poster.jpg',
-            caption: '__NOVOLAR_CAPTION__',
+            caption: 'Passeio de 28 s pelo site no ar: início, serviços e sobre nós.',
         },
         gallery: [
             { src: '../assets/novo_lar_geriatria_mockup.webp', w: 1024, h: 636, alt: 'Site do Novo Lar Geriatria aberto no computador e no celular.', caption: 'O site no computador e no celular' },
@@ -795,10 +798,12 @@ module.exports = [
         video: {
             src: '../assets/projetos/parallel-store-demo.mp4',
             poster: '../assets/projetos/parallel-store-poster.jpg',
-            caption: '__PARALLEL_CAPTION__',
+            caption: 'Passeio de 28 s pela loja no ar: vitrine, coleção e página sobre.',
         },
         gallery: [
             { src: '../assets/parallel_store_mockup.webp', w: 1024, h: 636, alt: 'Loja Parallel Store aberta no computador e no celular.', caption: 'A loja no computador e no celular' },
+            { src: '../assets/projetos/parallel-store-produtos.webp', w: 1440, h: 900, alt: 'Catálogo de produtos com filtros por categoria, faixa de preço e tamanho, e cards de casacos com preço e botão Comprar agora.', caption: 'Catálogo com filtros' },
+            { src: '../assets/projetos/parallel-store-sobre.webp', w: 1440, h: 900, alt: 'Página Sobre nós com a história da marca.', caption: 'Página sobre a marca' },
         ],
         repo: 'https://github.com/Lucasantunesribeiro/Parallel_Store',
         demo: 'https://parallelstore.netlify.app/',
