@@ -10,12 +10,18 @@
  * Para cada site, grava em demos/ (ou no diretório de DEMOS_OUT):
  *   <slug>-desktop.png   print 1440x900 (deviceScaleFactor 2)
  *   <slug>-mobile.png    print 390x844 (deviceScaleFactor 2)
+ *   <slug>-pagina-N.png  print 1440x900 de até 2 páginas internas do menu
  *   <slug>-demo.mp4      vídeo 1920x950, H.264, sem áudio (~25 s)
  *   <slug>-poster.jpg    frame de ~2 s do vídeo
  *   manifest.json        páginas visitadas e duração de cada vídeo
  *
  * Os arquivos não vão direto para public/: os prints viram mockups e os vídeos
  * são conferidos antes de entrar no site.
+ *
+ * Tempo limitado de propósito: cada navegação tem ~30 s, nada espera
+ * `networkidle` mais que alguns segundos, cada site tem um teto (SITE_LIMIT_MS)
+ * e o script inteiro tem um teto (TOTAL_LIMIT_MS) — no fim ele sai com
+ * process.exit para não ficar preso em handles abertos do navegador.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -46,10 +52,37 @@ const SITES = {
 };
 
 const VIDEO = { width: 1920, height: 950 };
+const NAV_TIMEOUT_MS = 30000;
+const SITE_LIMIT_MS = 4 * 60 * 1000;
+const TOTAL_LIMIT_MS = 14 * 60 * 1000;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/** Fecha banners de cookie/consentimento comuns, se houver. */
+const T0 = Date.now();
+/** Log de progresso com o tempo decorrido desde o início. */
+function log(msg) {
+    const s = ((Date.now() - T0) / 1000).toFixed(1).padStart(6);
+    console.log(`[${s}s] ${msg}`);
+}
+
+/** Rejeita se `promise` não terminar em `ms`. */
+function withTimeout(promise, ms, label) {
+    let timer;
+    const limit = new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error(`${label}: passou de ${Math.round(ms / 1000)} s`)), ms);
+    });
+    return Promise.race([promise, limit]).finally(() => clearTimeout(timer));
+}
+
+/** Fecha banners de cookie/consentimento comuns, se houver. Nunca lança erro. */
 async function dismissBanners(page) {
+    try {
+        await withTimeout(tryDismissBanners(page), 8000, 'fechar banners');
+    } catch (err) {
+        log(`  aviso: ${err.message}`);
+    }
+}
+
+async function tryDismissBanners(page) {
     const patterns = [
         /^(aceitar|aceito|aceitar todos|aceitar tudo|accept|accept all|concordo|entendi|ok|permitir|permitir todos|got it|allow all)$/i,
     ];
@@ -73,9 +106,12 @@ async function dismissBanners(page) {
     }
 }
 
+/** Abre a URL sem esperar a rede ficar ociosa indefinidamente. */
 async function load(page, url) {
-    await page.goto(url, { waitUntil: 'load', timeout: 60000 });
-    await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+    log(`  abrindo ${url}`);
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: NAV_TIMEOUT_MS });
+    await page.waitForLoadState('load', { timeout: 10000 }).catch(() => {});
+    await page.waitForLoadState('networkidle', { timeout: 4000 }).catch(() => {});
 }
 
 /**
@@ -144,13 +180,14 @@ async function pickMenuLinks(page, site, max) {
 async function clickLink(page, link) {
     const loc = page.locator('header a[href], nav a[href]').filter({ hasText: link.text }).first();
     const before = page.url();
+    log(`  menu: ${link.text}`);
     try {
         await loc.click({ timeout: 5000 });
     } catch {
-        await page.goto(link.href, { waitUntil: 'load', timeout: 60000 });
+        await page.goto(link.href, { waitUntil: 'domcontentloaded', timeout: NAV_TIMEOUT_MS });
     }
-    if (page.url() !== before) await page.waitForLoadState('load', { timeout: 30000 }).catch(() => {});
-    await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
+    if (page.url() !== before) await page.waitForLoadState('load', { timeout: 10000 }).catch(() => {});
+    await page.waitForLoadState('networkidle', { timeout: 4000 }).catch(() => {});
 }
 
 async function screenshots(browser, site) {
@@ -167,13 +204,31 @@ async function screenshots(browser, site) {
             locale: 'pt-BR',
         });
         const page = await ctx.newPage();
+        page.setDefaultTimeout(15000);
         await load(page, site.url);
         await sleep(1500);
         await dismissBanners(page);
         await sleep(2000); // animações de entrada
         const file = path.join(OUT, `${site.slug}-${s.name}.png`);
-        await page.screenshot({ path: file });
-        console.log(`  print ${s.name} -> ${path.relative(ROOT, file)}`);
+        await page.screenshot({ path: file, timeout: 15000 });
+        log(`  print ${s.name} -> ${path.relative(ROOT, file)}`);
+        if (!s.isMobile) {
+            // Prints extras de páginas internas, para a galeria da página de detalhe.
+            const links = await pickMenuLinks(page, site, 2).catch(() => []);
+            for (const [i, link] of links.entries()) {
+                try {
+                    await load(page, link.href);
+                    await sleep(1500);
+                    await dismissBanners(page);
+                    await sleep(1000);
+                    const extra = path.join(OUT, `${site.slug}-pagina-${i + 1}.png`);
+                    await page.screenshot({ path: extra, timeout: 15000 });
+                    log(`  print ${link.text} -> ${path.relative(ROOT, extra)}`);
+                } catch (err) {
+                    log(`  aviso: print de ${link.text} falhou: ${err.message}`);
+                }
+            }
+        }
         await ctx.close();
     }
 }
@@ -188,6 +243,7 @@ async function video(browser, site) {
     });
     const t0 = Date.now();
     const page = await ctx.newPage();
+    page.setDefaultTimeout(15000);
     const visited = [];
 
     await load(page, site.url);
@@ -216,20 +272,25 @@ async function video(browser, site) {
     const end = (Date.now() - t0) / 1000;
 
     const raw = await page.video().path();
-    await ctx.close(); // grava o webm
+    log('  fechando o contexto (grava o webm)');
+    await withTimeout(ctx.close(), 60000, 'fechar contexto do vídeo');
     const mp4 = path.join(OUT, `${site.slug}-demo.mp4`);
     const poster = path.join(OUT, `${site.slug}-poster.jpg`);
     const duration = Math.max(5, end - start);
+    log('  convertendo o vídeo (ffmpeg)');
+    // Mesmo formato dos vídeos já publicados: H.264 High, 1920x950, 30 fps, sem áudio.
+    // maxrate limita o tamanho a ~2 MB para ~25 s.
     execFileSync('ffmpeg', [
         '-y', '-loglevel', 'error',
         '-ss', start.toFixed(2), '-i', raw, '-t', duration.toFixed(2),
         '-vf', `scale=${VIDEO.width}:${VIDEO.height},fps=30`,
-        '-c:v', 'libx264', '-crf', '28', '-preset', 'slow', '-pix_fmt', 'yuv420p',
+        '-c:v', 'libx264', '-profile:v', 'high', '-crf', '30', '-maxrate', '650k', '-bufsize', '1300k',
+        '-preset', 'slow', '-pix_fmt', 'yuv420p',
         '-movflags', '+faststart', '-an', mp4,
-    ]);
-    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '2', '-i', mp4, '-frames:v', '1', '-q:v', '3', poster]);
+    ], { timeout: 180000 });
+    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '2', '-i', mp4, '-frames:v', '1', '-q:v', '3', poster], { timeout: 30000 });
     fs.rmSync(tmpDir, { recursive: true, force: true });
-    console.log(`  vídeo ${duration.toFixed(1)} s -> ${path.relative(ROOT, mp4)}`);
+    log(`  vídeo ${duration.toFixed(1)} s -> ${path.relative(ROOT, mp4)}`);
     return { duration: Number(duration.toFixed(1)), visited };
 }
 
@@ -243,6 +304,12 @@ async function main() {
     }
     fs.mkdirSync(OUT, { recursive: true });
 
+    // Teto do script inteiro: se algo travar, sai com erro em vez de esperar o timeout do job.
+    setTimeout(() => {
+        console.error(`Tempo total passou de ${TOTAL_LIMIT_MS / 60000} min; encerrando.`);
+        process.exit(2);
+    }, TOTAL_LIMIT_MS).unref();
+
     // CHROMIUM_PATH: opcional, para usar um Chromium já instalado na máquina.
     const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
     const manifest = {};
@@ -250,28 +317,36 @@ async function main() {
     try {
         for (const key of targets) {
             const site = SITES[key];
-            console.log(`${site.url}`);
+            log(`${key}: ${site.url}`);
             manifest[site.slug] = { url: site.url };
+            const siteStart = Date.now();
+            const left = () => Math.max(10000, SITE_LIMIT_MS - (Date.now() - siteStart));
             try {
-                await screenshots(browser, site);
+                await withTimeout(screenshots(browser, site), left(), `prints de ${key}`);
             } catch (err) {
                 failed++;
                 manifest[site.slug].screenshotError = err.message;
-                console.error(`  falha nos prints: ${err.message}`);
+                log(`  falha nos prints: ${err.message}`);
             }
             try {
-                Object.assign(manifest[site.slug], await video(browser, site));
+                Object.assign(manifest[site.slug], await withTimeout(video(browser, site), left(), `vídeo de ${key}`));
             } catch (err) {
                 failed++;
                 manifest[site.slug].videoError = err.message;
-                console.error(`  falha no vídeo: ${err.message}`);
+                log(`  falha no vídeo: ${err.message}`);
             }
         }
     } finally {
-        await browser.close();
         fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest, null, 2));
+        log('fechando o navegador');
+        await withTimeout(browser.close(), 20000, 'fechar navegador').catch((err) => log(`aviso: ${err.message}`));
     }
-    if (failed) process.exit(1);
+    log(failed ? `terminou com ${failed} falha(s)` : 'terminou sem falhas');
+    // Sai explicitamente: handles abertos do navegador já seguraram o processo até o timeout do job.
+    process.exit(failed ? 1 : 0);
 }
 
-main();
+main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+});
