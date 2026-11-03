@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  paginas-geradas:
+    name: Páginas geradas em dia
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Validar sintaxe dos scripts do site
+        run: |
+          for f in public/js/*.js scripts/*.js; do node --check "$f"; done
+
+      # As páginas de public/projetos/ são geradas a partir de scripts/projects-data.js.
+      # Se alguém editar uma à mão (ou esquecer de regenerar), o diff acusa.
+      # O sitemap fica de fora porque o lastmod muda todo dia.
+      - name: Regenerar páginas de detalhe e conferir diff
+        run: |
+          npm run gen:pages
+          git diff --exit-code -- public/projetos
