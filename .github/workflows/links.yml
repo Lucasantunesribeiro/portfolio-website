@@ -26,12 +26,15 @@ jobs:
       # --root-dir resolve links que começam com "/" e --fallback-extensions
       # resolve as URLs limpas da Vercel (/projetos/x -> projetos/x.html).
       # Mail não é verificado (o lychee só checa mailto com --include-mail).
+      # --remap: URLs do próprio domínio (canonical, og:url, sitemap) são
+      # conferidas contra os arquivos locais de public/. Assim uma página nova
+      # ainda não publicada não quebra o PR, e uma URL própria inválida
+      # continua sendo apontada como erro.
       - name: Rodar lychee
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
-            --verbose
             --no-progress
             --max-retries 3
             --retry-wait-time 10
@@ -39,6 +42,8 @@ jobs:
             --accept 200..=299,429
             --root-dir ${{ github.workspace }}/public
             --fallback-extensions html
+            --index-files index.html
+            --remap 'https://www\.lucasafvr\.com\.br/(.*) file://${{ github.workspace }}/public/$1'
             --exclude 'wa\.me'
             --exclude 'linkedin\.com'
             --exclude 'fonts\.googleapis\.com'
