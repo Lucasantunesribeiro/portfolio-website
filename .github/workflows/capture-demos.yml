@@ -20,7 +20,8 @@ concurrency:
 jobs:
   capturar:
     name: Prints e vídeos dos clientes
-    runs-on: ubuntu-latest
+    # ubuntu-latest já é 26.04, que o Playwright 1.58 ainda não suporta.
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
