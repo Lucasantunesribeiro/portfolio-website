@@ -102,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			skipLink: 'Pular para o conteúdo',
 
 			// Hero
-			heroBadge: '<span class="hero-badge-dot" aria-hidden="true"></span> Sites e sistemas para pequenas empresas',
 			heroTitle: 'Olá, eu sou <span class="highlight">Lucas Antunes Ferreira</span>',
 			heroDesc: 'Crio sites e sistemas sob medida para pequenas empresas:<br>site institucional, loja virtual, reservas e painel administrativo.',
 			heroDescMobile: 'Sites e sistemas sob medida para pequenas empresas.',
@@ -267,7 +266,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			skipLink: 'Skip to content',
 
 			// Hero
-			heroBadge: '<span class="hero-badge-dot" aria-hidden="true"></span> Websites and systems for small businesses',
 			heroTitle: 'Hi, I am <span class="highlight">Lucas Antunes Ferreira</span>',
 			heroDesc: 'I build custom websites and systems for small businesses:<br>institutional websites, online stores, bookings and admin panels.',
 			heroDescMobile: 'Custom websites and systems for small businesses.',
