@@ -96,6 +96,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			navExperiencias: 'Experiências',
 			navCertificados: 'Certificados',
 			navContato: 'Contato',
+			navPortfolio: 'Portfólio',
+			heroPortfolioTitulo: 'Ver meu portfólio',
+			heroPortfolioSub: '18 sites no ar, de restaurantes a clínicas',
 			skipLink: 'Pular para o conteúdo',
 
 			// Hero
@@ -258,6 +261,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			navExperiencias: 'Experience',
 			navCertificados: 'Certificates',
 			navContato: 'Contact',
+			navPortfolio: 'Portfolio',
+			heroPortfolioTitulo: 'See my portfolio',
+			heroPortfolioSub: '18 live websites, from restaurants to clinics',
 			skipLink: 'Skip to content',
 
 			// Hero

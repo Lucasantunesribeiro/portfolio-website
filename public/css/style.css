@@ -758,3 +758,62 @@ body {
             display: block;
         }
 }
+
+/* Caminho para o portfólio de sites: mostra os sites em vez de somar mais um botão. */
+.nav-links a.nav-portfolio { display: inline-flex; align-items: center; gap: 0.4rem; }
+.nav-portfolio i { font-size: 0.7em; opacity: 0.75; }
+
+.hero-portfolio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 1.25rem;
+    padding: 0.55rem 1.1rem 0.55rem 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 9999px;
+    background: rgba(15, 23, 42, 0.55);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.hero-portfolio:hover,
+.hero-portfolio:focus-visible {
+    border-color: rgba(129, 140, 248, 0.8);
+    background: rgba(30, 41, 79, 0.7);
+    transform: translateY(-2px);
+}
+
+.hero-portfolio-sites { display: inline-flex; flex-shrink: 0; }
+
+.hero-portfolio-sites img {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border: 2px solid #0f172a;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: margin 0.2s ease;
+}
+
+.hero-portfolio-sites img + img { margin-left: -14px; }
+.hero-portfolio:hover .hero-portfolio-sites img + img { margin-left: -6px; }
+
+.hero-portfolio-texto { display: flex; flex-direction: column; line-height: 1.25; text-align: left; }
+.hero-portfolio-texto strong { font-size: 1rem; font-weight: 600; }
+.hero-portfolio-texto small { color: #cbd5e1; font-size: 0.8125rem; }
+
+.hero-portfolio > i { color: #a5b4fc; font-size: 0.875rem; transition: transform 0.2s ease; }
+.hero-portfolio:hover > i { transform: translateX(3px); }
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-portfolio, .hero-portfolio-sites img, .hero-portfolio > i { transition: none; }
+    .hero-portfolio:hover { transform: none; }
+}
+
+@media (max-width: 600px) {
+    .hero-portfolio { width: 100%; }
+    .hero-portfolio-texto { flex: 1; min-width: 0; }
+}
